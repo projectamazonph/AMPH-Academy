@@ -1,0 +1,526 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@plugin "@tailwindcss/typography";
+
+@custom-variant dark (&:is(.dark *));
+
+/* ==========================================================================
+   Apple Silver Design Tokens — AdCraft Academy
+   Cool blue-silver palette, Space Gray dark mode, chrome accents
+   Emerald reserved for PPC semantic data only
+   ========================================================================== */
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar: var(--sidebar);
+  --color-chart-5: var(--chart-5);
+  --color-chart-4: var(--chart-4);
+  --color-chart-3: var(--chart-3);
+  --color-chart-2: var(--chart-2);
+  --color-chart-1: var(--chart-1);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-emerald-glow: var(--emerald-glow);
+  --color-glass: var(--glass);
+  --color-glass-border: var(--glass-border);
+  --color-glass-highlight: var(--glass-highlight);
+  --shadow-glass: var(--shadow-glass);
+}
+
+/* ==========================================================================
+   Base Palette — Dark First
+   ========================================================================== */
+
+:root {
+  --radius: 0.75rem;
+  /* Light mode (optional secondary) */
+  --background: oklch(0.985 0 0);
+  --foreground: oklch(0.12 0.01 260);
+  --card: oklch(0.995 0 0);
+  --card-foreground: oklch(0.12 0.01 260);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.12 0.01 260);
+  --primary: oklch(0.527 0.17 155.5);
+  --primary-foreground: oklch(0.985 0 0);
+  --secondary: oklch(0.96 0.01 155);
+  --secondary-foreground: oklch(0.205 0.02 155);
+  --muted: oklch(0.96 0.005 155);
+  --muted-foreground: oklch(0.55 0.02 260);
+  --accent: oklch(0.94 0.02 155);
+  --accent-foreground: oklch(0.205 0.02 155);
+  --destructive: oklch(0.577 0.245 27.325);
+  --border: oklch(0.9 0.01 155);
+  --input: oklch(0.9 0.01 155);
+  --ring: oklch(0.527 0.17 155.5);
+  --chart-1: oklch(0.527 0.17 155.5);
+  --chart-2: oklch(0.6 0.15 200);
+  --chart-3: oklch(0.65 0.18 75);
+  --chart-4: oklch(0.6 0.2 15);
+  --chart-5: oklch(0.55 0.2 300);
+  --sidebar: oklch(0.985 0 0);
+  --sidebar-foreground: oklch(0.12 0.01 260);
+  --sidebar-primary: oklch(0.527 0.17 155.5);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.96 0.01 155);
+  --sidebar-accent-foreground: oklch(0.205 0.02 155);
+  --sidebar-border: oklch(0.9 0.01 155);
+  --sidebar-ring: oklch(0.527 0.17 155.5);
+
+  /* Apple-style glass tokens */
+  --glass: oklch(1 0 0 / 6%);
+  --glass-border: oklch(1 0 0 / 10%);
+  --glass-highlight: oklch(1 0 0 / 40%);
+  --shadow-glass: 0 8px 32px oklch(0 0 0 / 12%), 0 1px 2px oklch(0 0 0 / 6%);
+
+  /* Glow tokens */
+  --emerald-glow: oklch(0.527 0.17 155.5 / 20%);
+}
+
+/* ==========================================================================
+   Silver Dark Mode — Apple Space Gray
+   Cool blue-tinted neutrals, not green. No pure black (#000).
+   ========================================================================== */
+
+.dark {
+  --background: oklch(0.118 0.004 250);     /* Space Gray — cool dark */
+  --foreground: oklch(0.93 0.006 250);      /* Silver-white text */
+  --card: oklch(0.155 0.006 250);           /* Card surface — subtly lighter */
+  --card-foreground: oklch(0.93 0.006 250);
+  --popover: oklch(0.155 0.006 250);
+  --popover-foreground: oklch(0.93 0.006 250);
+  --primary: oklch(0.62 0.10 245);          /* Cool silver-blue — chrome accent */
+  --primary-foreground: oklch(0.98 0 0);
+  --secondary: oklch(0.22 0.008 250);       /* Muted surface for secondary UI */
+  --secondary-foreground: oklch(0.85 0.008 250);
+  --muted: oklch(0.18 0.006 250);           /* Subtle muted background */
+  --muted-foreground: oklch(0.55 0.01 250); /* Silver-gray muted text */
+  --accent: oklch(0.62 0.10 245 / 12%);     /* Primary as subtle accent */
+  --accent-foreground: oklch(0.85 0.008 250);
+  --destructive: oklch(0.7 0.19 22.216);
+  --border: oklch(1 0 0 / 7%);              /* Ultra-subtle cool border */
+  --input: oklch(1 0 0 / 10%);
+  --ring: oklch(0.62 0.10 245);             /* Silver-blue focus ring */
+  --chart-1: oklch(0.58 0.18 150);          /* Emerald — PPC data accent only */
+  --chart-2: oklch(0.6 0.12 220);           /* Blue for data variety */
+  --chart-3: oklch(0.65 0.16 75);           /* Amber */
+  --chart-4: oklch(0.6 0.18 15);            /* Rose */
+  --chart-5: oklch(0.55 0.18 300);          /* Violet */
+  --sidebar: oklch(0.135 0.005 250);        /* Sidebar — slightly inset */
+  --sidebar-foreground: oklch(0.88 0.006 250);
+  --sidebar-primary: oklch(0.62 0.10 245);
+  --sidebar-primary-foreground: oklch(0.98 0 0);
+  --sidebar-accent: oklch(0.62 0.10 245 / 10%);
+  --sidebar-accent-foreground: oklch(0.88 0.006 250);
+  --sidebar-border: oklch(1 0 0 / 6%);
+  --sidebar-ring: oklch(0.62 0.10 245);
+
+  /* Apple Silver glass — extremely refined */
+  --glass: oklch(1 0 0 / 5%);
+  --glass-border: oklch(1 0 0 / 8%);
+  --glass-highlight: oklch(1 0 0 / 40%);
+  --shadow-glass: 0 4px 24px oklch(0 0 0 / 25%), 0 1px 2px oklch(0 0 0 / 8%);
+
+  /* Silver metallic shimmer */
+  --silver-shimmer: linear-gradient(
+    135deg,
+    oklch(0.65 0.06 240 / 40%),
+    oklch(0.8 0.04 240 / 20%),
+    oklch(0.65 0.06 240 / 30%)
+  );
+
+  /* Subtle glow for primary accent */
+  --accent-glow: oklch(0.62 0.10 245 / 12%);
+}
+
+/* ==========================================================================
+   Base Layer
+   ========================================================================== */
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  html.dark {
+    background-color: var(--background);
+    color: var(--foreground);
+  }
+}
+
+/* ==========================================================================
+   Apple Liquid-Glass Web Approximation
+   ========================================================================== */
+
+.glass-panel {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  border-radius: var(--radius-xl);
+  border: 1px solid var(--glass-border);
+  background:
+    linear-gradient(135deg, oklch(1 1 0 / 0.28), oklch(1 1 0 / 0.06)),
+    var(--glass);
+  backdrop-filter: blur(24px) saturate(180%) contrast(1.05);
+  -webkit-backdrop-filter: blur(24px) saturate(180%) contrast(1.05);
+  box-shadow: var(--shadow-glass);
+}
+
+.glass-panel::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  border-radius: inherit;
+  background:
+    radial-gradient(circle at 20% 0%, oklch(1 1 0 / 0.50), transparent 40%),
+    linear-gradient(90deg, oklch(1 1 0 / 0.15), transparent 42%, oklch(1 1 0 / 0.10));
+  pointer-events: none;
+}
+
+.glass-panel::after {
+  content: "";
+  position: absolute;
+  inset: 1px;
+  border-radius: inherit;
+  border: 1px solid var(--glass-highlight);
+  pointer-events: none;
+}
+
+@media (prefers-reduced-transparency: reduce) {
+  .glass-panel {
+    background: var(--card);
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+  }
+  .glass-panel::before,
+  .glass-panel::after {
+    display: none;
+  }
+}
+
+/* Sidebar-specific glass — more subtle */
+.glass-sidebar {
+  background: var(--sidebar);
+  backdrop-filter: blur(32px) saturate(160%);
+  -webkit-backdrop-filter: blur(32px) saturate(160%);
+  border-right: 1px solid var(--sidebar-border);
+}
+
+/* ==========================================================================
+   Apple-Style Card Variants
+   ========================================================================== */
+
+/* Premium elevated card */
+.card-premium {
+  position: relative;
+  border-radius: var(--radius-xl);
+  border: 1px solid var(--border);
+  background: var(--card);
+  box-shadow: 0 1px 2px oklch(0 0 0 / 0.04);
+  transition: box-shadow 0.4s cubic-bezier(0.32, 0.72, 0, 1),
+              transform 0.4s cubic-bezier(0.32, 0.72, 0, 1);
+}
+
+.card-premium:hover {
+  box-shadow: 0 8px 32px oklch(0 0 0 / 0.12), 0 2px 8px oklch(0 0 0 / 0.06);
+  transform: translateY(-2px);
+}
+
+/* Glass card — subtle frosted */
+.card-glass {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  border-radius: var(--radius-xl);
+  border: 1px solid var(--glass-border);
+  background:
+    linear-gradient(135deg, oklch(1 1 0 / 0.20), oklch(1 1 0 / 0.04)),
+    var(--glass);
+  backdrop-filter: blur(16px) saturate(160%);
+  -webkit-backdrop-filter: blur(16px) saturate(160%);
+  box-shadow: var(--shadow-glass);
+  transition: transform 0.4s cubic-bezier(0.32, 0.72, 0, 1),
+              box-shadow 0.4s cubic-bezier(0.32, 0.72, 0, 1);
+}
+
+.card-glass::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  border-radius: inherit;
+  background:
+    radial-gradient(circle at 20% 0%, oklch(1 1 0 / 0.35), transparent 40%);
+  pointer-events: none;
+}
+
+.card-glass:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 48px oklch(0 0 0 / 0.20), 0 2px 8px oklch(0 0 0 / 0.08);
+}
+
+/* Card bezel — Apple-style pinstripe outer shell */
+.card-bezel {
+  @apply p-[1px] rounded-2xl bg-gradient-to-b from-white/[0.08] to-white/[0.02];
+}
+.card-bezel-dark {
+  @apply p-[1px] rounded-2xl bg-gradient-to-b from-white/[0.06] to-transparent;
+}
+.card-core {
+  @apply rounded-[calc(1rem-1px)] bg-card;
+  box-shadow: inset 0 1px 1px rgba(255,255,255,0.1);
+}
+
+/* ==========================================================================
+   Apple-Style Shadows
+   ========================================================================== */
+
+.shadow-apple-sm {
+  box-shadow: 0 1px 2px oklch(0 0 0 / 0.04), 0 1px 1px oklch(0 0 0 / 0.02);
+}
+.shadow-apple-md {
+  box-shadow: 0 4px 16px oklch(0 0 0 / 0.08), 0 1px 2px oklch(0 0 0 / 0.04);
+}
+.shadow-apple-lg {
+  box-shadow: 0 8px 32px oklch(0 0 0 / 0.12), 0 2px 8px oklch(0 0 0 / 0.06);
+}
+.shadow-apple-xl {
+  box-shadow: 0 16px 48px oklch(0 0 0 / 0.16), 0 4px 16px oklch(0 0 0 / 0.08);
+}
+
+/* ==========================================================================
+   Silver Chrome Glow — Accent Glow
+   ========================================================================== */
+
+.silver-glow {
+  box-shadow: 0 0 20px oklch(0.62 0.10 245 / 12%),
+              0 0 60px oklch(0.62 0.10 245 / 5%);
+}
+
+/* ==========================================================================
+   Spring Animation Tokens
+   ========================================================================== */
+
+:root {
+  --spring-standard: cubic-bezier(0.32, 0.72, 0, 1);
+  --spring-snappy: cubic-bezier(0.16, 1, 0.3, 1);
+  --spring-bounce: cubic-bezier(0.68, -0.15, 0.27, 1.15);
+  --ease-premium: cubic-bezier(0.32, 0.72, 0, 1);
+}
+
+/* ==========================================================================
+   Entry Animations
+   ========================================================================== */
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-up {
+  animation: fade-up 0.8s var(--spring-standard) both;
+}
+
+.fade-up-delay-1 { animation-delay: 0.1s; }
+.fade-up-delay-2 { animation-delay: 0.2s; }
+.fade-up-delay-3 { animation-delay: 0.3s; }
+.fade-up-delay-4 { animation-delay: 0.4s; }
+.fade-up-delay-5 { animation-delay: 0.5s; }
+
+@keyframes scale-in {
+  from {
+    opacity: 0;
+    transform: scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.scale-in {
+  animation: scale-in 0.6s var(--spring-standard) both;
+}
+
+/* ==========================================================================
+   Pulse Animation for XP / Active Elements
+   ========================================================================== */
+
+@keyframes xp-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
+}
+.xp-pulse {
+  animation: xp-pulse 2s ease-in-out infinite;
+}
+
+/* ==========================================================================
+   Shimmer / Loading Effect
+   ========================================================================== */
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+.shimmer {
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    oklch(0.62 0.10 245 / 6%) 50%,
+    transparent 100%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 3s ease-in-out infinite;
+}
+
+/* ==========================================================================
+   Subtle Noise Grain Overlay
+   ========================================================================== */
+
+.noise-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  pointer-events: none;
+  opacity: 0.025;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 256px 256px;
+}
+
+/* ==========================================================================
+   Scrollbar Styling — Apple-Inspired
+   ========================================================================== */
+
+.custom-scrollbar::-webkit-scrollbar {
+  width: 6px;
+}
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: oklch(1 0 0 / 15%);
+  border-radius: 3px;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: oklch(1 0 0 / 25%);
+}
+.custom-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: oklch(1 0 0 / 15%) transparent;
+}
+
+/* ==========================================================================
+   Focus & Active States — Apple Tactile Feel
+   ========================================================================== */
+
+button:active:not(:disabled) {
+  transform: scale(0.98);
+  transition: transform 0.1s ease;
+}
+
+button:focus-visible {
+  outline: 2px solid var(--ring);
+  outline-offset: 2px;
+}
+
+/* ==========================================================================
+   Button Icon Wrap (Magnetic)
+   ========================================================================== */
+
+.btn-icon-wrap {
+  @apply w-7 h-7 rounded-full bg-black/10 dark:bg-white/10 flex items-center justify-center shrink-0;
+  transition: transform 0.4s var(--ease-premium);
+}
+button:hover .btn-icon-wrap {
+  transform: translate(2px, -1px) scale(1.05);
+}
+button:active .btn-icon-wrap {
+  transform: translate(2px, -1px) scale(0.98);
+}
+
+/* ==========================================================================
+   Typography Refinements
+   ========================================================================== */
+
+h1, h2, h3, h4, h5, h6 {
+  text-wrap: balance;
+}
+
+p {
+  text-wrap: pretty;
+}
+
+/* ==========================================================================
+   Premium Separator
+   ========================================================================== */
+
+.separator-premium {
+  height: 1px;
+  background: linear-gradient(
+    to right,
+    transparent,
+    var(--border) 20%,
+    var(--border) 80%,
+    transparent
+  );
+}
+
+/* ==========================================================================
+   Interactive Ring — Spring Hover
+   ========================================================================== */
+
+.hover-ring {
+  position: relative;
+  transition: transform 0.4s var(--spring-standard);
+}
+.hover-ring::after {
+  content: "";
+  position: absolute;
+  inset: -3px;
+  border-radius: inherit;
+  border: 2px solid transparent;
+  transition: border-color 0.4s var(--spring-standard);
+  pointer-events: none;
+}
+.hover-ring:hover::after {
+  border-color: oklch(0.62 0.10 245 / 25%);
+}
