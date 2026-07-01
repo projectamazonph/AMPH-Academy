@@ -1,0 +1,95 @@
+# BMAD Workflow Status
+# Tracks progress through all 4 phases
+
+project:
+  name: "Adcraft Academy"
+  level: 3
+  initialized: "2026-07-01T20:21:36Z"
+  last_updated: "2026-07-02T21:00:00Z"
+
+current_phase: 4
+current_workflow: "sprint-planning"
+
+phases:
+  phase_1_analysis:
+    name: "Analysis"
+    status: "completed"  # not_started, in_progress, completed
+    workflows:
+      product_brief:
+        status: "required"  # required, recommended, optional
+        completed: true
+        output_file: "docs/bmad/product-brief.md"
+        completed_at: "2026-07-02"
+      research:
+        status: "optional"
+        completed: false
+        output_file: null
+        completed_at: null
+      brainstorm:
+        status: "optional"
+        completed: false
+        output_file: null
+        completed_at: null
+
+  phase_2_planning:
+    name: "Planning"
+    status: "completed"
+    workflows:
+      prd:
+        status: "required"
+        completed: true
+        output_file: "docs/bmad/prd.md"
+        completed_at: "2026-07-02"
+      tech_spec:
+        status: "optional"
+        completed: false
+        output_file: null
+        completed_at: null
+      ux_design:
+        status: "recommended"
+        completed: true
+        output_file: "docs/bmad/ux-design.md"
+        completed_at: "2026-07-02"
+
+  phase_3_solutioning:
+    name: "Solutioning"
+    status: "completed"
+    workflows:
+      architecture:
+        status: "required"
+        completed: true
+        output_file: "docs/bmad/architecture.md"
+        completed_at: "2026-07-02"
+      gate_check:
+        status: "recommended"
+        completed: true
+        passed: true
+        completed_at: "2026-07-02"
+        output_file: "docs/bmad/gate-check.md"
+
+  phase_4_implementation:
+    name: "Implementation"
+    status: "in_progress"
+    workflows:
+      sprint_planning:
+        status: "required"
+        completed: true
+        output_file: "docs/bmad/sprint-plan.md"
+        completed_at: "2026-07-02"
+      stories:
+        total: 5
+        completed: 2
+        in_progress: 0
+        story_list:
+          - "STORY-001-scaffold"
+          - "STORY-002-schema"
+          - "STORY-003-deploy"
+          - "STORY-004-auth"
+          - "STORY-005-course-catalog"
+
+metrics:
+  total_workflows: 10
+  completed_workflows: 7
+  progress_percentage: 70
+  estimated_stories: 5
+  completed_stories: 2

@@ -1,53 +1,38 @@
-# AGENTS.md — Adcraft Academy
+# Project BMAD Agent Contract (OpenAI Codex)
 
-> **PPC Skills Training Platform** — Ryan's advanced training system for Amazon PPC specialists and agency owners.
+This project uses BMAD skills through OpenAI Codex.
 
-## Identity
+## Skill Resolution
 
-| Field | Value |
-|-------|-------|
-| **Owner** | Ryan Roland Dabao |
-| **Purpose** | Advanced PPC training and upskilling for Filipino VAs |
-| **Status** | Early development |
+- Project-local skills: `<project>/.agents/skills`
+- Global skills fallback: `~/.agents/skills`
 
-## Project Structure
+When both locations contain the same skill name, use project-local behavior for this project.
 
-```
-Adcraft-Academy/
-├── project/              ← Project source and planning
-├── codegraphs/           ← Code dependency graphs
-├── KANBAN.md             ← Project board
-├── TODO.md               ← Task tracking
-└── README.md             ← Project overview
-```
+## Workflow Intents
 
-## Tech Stack
+Use these prompts to trigger BMAD flows:
 
-- **Zustand** for state management (where applicable)
-- **Next.js** (pending — check `project/` for current scaffold state)
-- **Tailwind CSS** for styling
+- `bmad:init` to initialize project BMAD artifacts.
+- `bmad:status` to read current workflow status.
+- `bmad:next` to get the recommended next action.
+- `bmad:create-story` and `bmad:dev-story` for implementation flow.
 
-## Guardrails
+## Project Artifacts
 
-### DO NOT
-- ❌ Over-engineer — this is early stage, keep it lean
-- ❌ Add dependencies before confirming they're needed
-- ❌ Commit credentials or tokens
+- `bmad/project.yaml`
+- `bmad/workflow-status.yaml`
+- `bmad/sprint-status.yaml`
+- `docs/bmad/*.md`
+- `docs/stories/STORY-*.md`
 
-### DO
-- ✅ Check `KANBAN.md` for current sprint priorities
-- ✅ Check `TODO.md` before starting new work
-- ✅ Document architecture decisions in `docs/` as they solidify
-- ✅ Use existing patterns from ppc-companion where applicable
+## Language Policy
 
-## Key Files
+Read language settings from `bmad/project.yaml`:
 
-| File | Purpose |
-|------|---------|
-| `KANBAN.md` | Project board (WIP limit: 3) |
-| `TODO.md` | Task tracking |
-| `project/` | Source code and planning |
+- `language.communication_language` for assistant chat responses  with `English` fallback.
+- `language.document_output_language` for generated project artifacts under `docs/` with `English` fallback.
 
----
+## Editing Rule
 
-*Updated: 2026-07-02 | Part of Ryan's Hermes Agent workspace*
+Use `yq` for deterministic YAML updates in scripts and automation.

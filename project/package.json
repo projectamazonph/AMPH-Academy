@@ -1,5 +1,5 @@
 {
-  "name": "nextjs_tailwind_shadcn_ts",
+  "name": "adcraft-academy",
   "version": "0.3.0",
   "private": true,
   "scripts": {
@@ -16,6 +16,9 @@
     "test:coverage": "vitest run --coverage",
     "test:e2e": "playwright test",
     "postinstall": "prisma generate"
+  },
+  "prisma": {
+    "seed": "npx tsx prisma/seed.ts"
   },
   "dependencies": {
     "@mdxeditor/editor": "^3.39.1",

@@ -1,18 +1,20 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Inter, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import { Toaster } from "@/components/ui/toaster";
 import { AuthProvider } from "@/components/providers/session-provider";
 import { ErrorBoundary } from "@/components/adcraft/error-boundary";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const inter = Inter({
+  variable: "--font-inter",
   subsets: ["latin"],
+  display: "swap",
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const jetbrainsMono = JetBrains_Mono({
+  variable: "--font-jetbrains-mono",
   subsets: ["latin"],
+  display: "swap",
 });
 
 export const metadata: Metadata = {
@@ -22,6 +24,7 @@ export const metadata: Metadata = {
   keywords: [
     "Amazon PPC",
     "AdCraft",
+    "Adcraft Academy",
     "PPC Training",
     "Campaign Management",
     "Bidding Strategy",
@@ -30,7 +33,7 @@ export const metadata: Metadata = {
     "ROAS",
     "CPC",
   ],
-  authors: [{ name: "AdCraft Team" }],
+  authors: [{ name: "Ryan Dabao — ProjectAmazonPH" }],
   icons: {
     icon: "/favicon.ico",
   },
@@ -39,12 +42,13 @@ export const metadata: Metadata = {
     description:
       "Master Amazon PPC through interactive simulations and structured learning",
     type: "website",
+    siteName: "Adcraft Academy",
   },
   twitter: {
-  card: "summary_large_image",
-  title: "AdCraft — Amazon PPC Command Center",
-  description:
-  "Master Amazon PPC through interactive simulations and structured learning",
+    card: "summary_large_image",
+    title: "AdCraft — Amazon PPC Command Center",
+    description:
+      "Master Amazon PPC through interactive simulations and structured learning",
   },
 };
 
@@ -56,11 +60,11 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning className="dark">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-background text-foreground`}
+        className={`${inter.variable} ${jetbrainsMono.variable} antialiased bg-background text-foreground`}
       >
         <AuthProvider>
           <ErrorBoundary>
-          <div className="noise-overlay" />
+            <div className="noise-overlay" />
             {children}
           </ErrorBoundary>
         </AuthProvider>

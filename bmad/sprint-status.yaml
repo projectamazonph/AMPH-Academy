@@ -1,0 +1,126 @@
+# BMAD Sprint Status
+# Tracks sprint progress and story completion
+
+project:
+  name: "Adcraft Academy"
+  level: 3
+
+sprint:
+  number: 1
+  start_date: "2026-07-01"
+  end_date: "2026-07-15"
+  goal: "Foundation, auth, and course catalog MVP"
+  capacity_points: 20
+  committed_points: 20
+
+velocity:
+  current_sprint: 1
+  rolling_average: 0
+  history: []
+
+epics:
+  - name: "Foundation"
+    total_stories: 3
+    total_points: 10
+    completed_stories: 2
+    completed_points: 8
+    progress_percentage: 80
+
+  - name: "Authentication"
+    total_stories: 1
+    total_points: 5
+    completed_stories: 0
+    completed_points: 0
+    progress_percentage: 0
+
+  - name: "Course Browsing"
+    total_stories: 1
+    total_points: 5
+    completed_stories: 0
+    completed_points: 0
+    progress_percentage: 0
+
+stories:
+  - id: "STORY-001"
+    title: "Initialize Next.js project scaffold"
+    epic: "Foundation"
+    priority: "Must Have"
+    points: 3
+    status: "completed"
+    started_date: "2026-07-02"
+    completed_date: "2026-07-02"
+    dependencies: []
+    blocked_by: null
+    notes: "Scaffold complete — Project Aurora theme, modules dirs, types, build passing"
+
+  - id: "STORY-002"
+    title: "Create Prisma database schema"
+    epic: "Foundation"
+    priority: "Must Have"
+    points: 5
+    status: "completed"
+    started_date: "2026-07-02"
+    completed_date: "2026-07-02"
+    dependencies: []
+    blocked_by: null
+    notes: "27 tables created — all 14 AC models + extras. Seed data: 3 courses, 12 modules, 8 lessons, 6 badges, 4 resources"
+
+  - id: "STORY-003"
+    title: "Deploy to Vercel with CI/CD"
+    epic: "Foundation"
+    priority: "Must Have"
+    points: 2
+    status: "not_started"
+    started_date: null
+    completed_date: null
+    dependencies: ["STORY-001"]
+    blocked_by: null
+    notes: "Quick win after scaffold"
+
+  - id: "STORY-004"
+    title: "User registration and login flow"
+    epic: "Authentication"
+    priority: "Must Have"
+    points: 5
+    status: "not_started"
+    started_date: null
+    completed_date: null
+    dependencies: ["STORY-001", "STORY-002"]
+    blocked_by: null
+    notes: "JWT HttpOnly cookies, bcrypt, route protection"
+
+  - id: "STORY-005"
+    title: "Course catalog and module listing"
+    epic: "Course Browsing"
+    priority: "Must Have"
+    points: 5
+    status: "not_started"
+    started_date: null
+    completed_date: null
+    dependencies: ["STORY-002", "STORY-004"]
+    blocked_by: null
+    notes: "RSC pages with seed data from STORY-002"
+
+burndown:
+  - date: "2026-07-01"
+    completed_points: 0
+    remaining_points: 20
+    ideal_remaining: 20
+    notes: "Sprint started"
+
+  - date: "2026-07-02"
+    completed_points: 8
+    remaining_points: 12
+    ideal_remaining: 18
+    notes: "STORY-002 completed — 27 tables, 3 courses seeded. STORY-003 next."
+
+metrics:
+  total_stories: 5
+  completed_stories: 2
+  in_progress_stories: 0
+  blocked_stories: 0
+  total_points: 20
+  completed_points: 8
+  completion_percentage: 40
+
+last_updated: "2026-07-02T16:00:00Z"
