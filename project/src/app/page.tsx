@@ -161,8 +161,8 @@ function Navbar() {
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2 group">
-            <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-emerald-400 to-teal-600 flex items-center justify-center">
-              <Zap className="h-4 w-4 text-white" />
+            <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-primary to-orange-400 flex items-center justify-center">
+              <Zap className="h-4 w-4 text-black" />
             </div>
             <span className="font-semibold text-lg tracking-tight">AdCraft</span>
           </Link>
@@ -186,7 +186,7 @@ function Navbar() {
               <Button variant="ghost" size="sm">Sign In</Button>
             </Link>
             <Link href="/auth/signup">
-              <Button size="sm" className="bg-emerald-500 hover:bg-emerald-400 text-black font-medium">
+              <Button size="sm" className="bg-primary hover:bg-primary/90 text-primary-foreground font-medium">
                 Get Started <ChevronRight className="h-3.5 w-3.5 ml-1" />
               </Button>
             </Link>
@@ -227,7 +227,7 @@ function Navbar() {
                   <Button variant="outline" className="w-full">Sign In</Button>
                 </Link>
                 <Link href="/auth/signup" className="block">
-                  <Button className="w-full bg-emerald-500 hover:bg-emerald-400 text-black">Get Started</Button>
+                  <Button className="w-full bg-primary hover:bg-primary/90 text-primary-foreground">Get Started</Button>
                 </Link>
               </div>
             </div>
@@ -276,7 +276,7 @@ function Hero() {
           transition={{ duration: 0.6, delay: 0.1 }}
           className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight leading-[1.1]"
         >
-          <span className="bg-gradient-to-r from-blue-300 via-indigo-200 to-slate-100 dark:from-blue-400 dark:via-indigo-300 dark:to-slate-200 bg-clip-text text-transparent">
+          <span className="bg-gradient-to-r from-orange-300 via-amber-200 to-orange-100 bg-clip-text text-transparent">
             Command Your
           </span>
           <br />
@@ -347,7 +347,7 @@ function FeaturesSection() {
           <Badge variant="outline" className="mb-4 px-3 py-1 text-xs border-border/40 text-muted-foreground">Features</Badge>
           <h2 className="text-3xl md:text-4xl font-bold tracking-tight">
             Everything You Need to{' '}
-            <span className="bg-gradient-to-r from-blue-400 via-indigo-300 to-slate-100 dark:from-blue-400 dark:via-indigo-300 dark:to-slate-200 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-orange-400 via-amber-300 to-orange-200 bg-clip-text text-transparent">
               Master PPC
             </span>
           </h2>
@@ -384,13 +384,13 @@ const steps = [
 
 function HowItWorks() {
   return (
-    <Section className="py-24 md:py-32 bg-gradient-to-b from-transparent via-emerald-950/5 to-transparent">
+    <Section className="py-24 md:py-32 bg-gradient-to-b from-transparent via-primary/5 to-transparent">
       <div className="max-w-6xl mx-auto px-4 lg:px-6">
         <div className="text-center mb-16">
           <Badge variant="outline" className="mb-4 px-3 py-1 text-xs border-border/40 text-muted-foreground">How It Works</Badge>
           <h2 className="text-3xl md:text-4xl font-bold tracking-tight">
             From Zero to{' '}
-            <span className="bg-gradient-to-r from-blue-400 via-indigo-300 to-slate-100 dark:from-blue-400 dark:via-indigo-300 dark:to-slate-200 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-orange-400 via-amber-300 to-orange-200 bg-clip-text text-transparent">
               PPC Pro
             </span>
           </h2>
@@ -517,13 +517,13 @@ const plans = [
 
 function PricingSection() {
   return (
-    <Section id="pricing" className="py-24 md:py-32 bg-gradient-to-b from-transparent via-emerald-950/5 to-transparent">
+    <Section id="pricing" className="py-24 md:py-32 bg-gradient-to-b from-transparent via-primary/5 to-transparent">
       <div className="max-w-7xl mx-auto px-4 lg:px-6">
         <div className="text-center mb-16">
           <Badge variant="outline" className="mb-4 px-3 py-1 text-xs border-border/40 text-muted-foreground">Pricing</Badge>
           <h2 className="text-3xl md:text-4xl font-bold tracking-tight">
             Invest in Your{' '}
-            <span className="bg-gradient-to-r from-blue-400 via-indigo-300 to-slate-100 dark:from-blue-400 dark:via-indigo-300 dark:to-slate-200 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-orange-400 via-amber-300 to-orange-200 bg-clip-text text-transparent">
               PPC Career
             </span>
           </h2>
@@ -540,7 +540,7 @@ function PricingSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.4, delay: i * 0.1 }}
-              className={`relative rounded-2xl border ${plan.popular ? plan.color + ' ring-1 ring-emerald-500/20' : plan.color} bg-card/50 backdrop-blur-sm p-6 flex flex-col`}
+              className={`relative rounded-2xl border ${plan.popular ? plan.color + ' ring-1 ring-orange-500/20' : plan.color} bg-card/50 backdrop-blur-sm p-6 flex flex-col`}
             >
               {plan.popular && (
                 <div className="absolute -top-3 left-1/2 -translate-x-1/2">
@@ -560,7 +560,7 @@ function PricingSection() {
               <ul className="space-y-2.5 flex-1 mb-6">
                 {plan.features.map((f) => (
                   <li key={f} className="flex items-start gap-2 text-sm">
-                    <CheckCircle2 className="h-4 w-4 text-emerald-400 mt-0.5 shrink-0" />
+                    <CheckCircle2 className="h-4 w-4 text-primary mt-0.5 shrink-0" />
                     <span>{f}</span>
                   </li>
                 ))}
@@ -605,7 +605,7 @@ function FinalCTA() {
             </Badge>
             <h2 className="text-3xl md:text-5xl font-bold tracking-tight leading-tight">
               Ready to Command{' '}
-              <span className="bg-gradient-to-r from-blue-400 via-indigo-300 to-slate-100 dark:from-blue-400 dark:via-indigo-300 dark:to-slate-200 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-orange-400 via-amber-300 to-orange-200 bg-clip-text text-transparent">
                 Your PPC Future?
               </span>
             </h2>
@@ -640,8 +640,8 @@ function FooterSection() {
           {/* Brand */}
           <div className="md:col-span-2">
             <Link href="/" className="flex items-center gap-2 mb-4">
-              <div className="w-7 h-7 rounded-lg bg-gradient-to-br from-emerald-400 to-teal-600 flex items-center justify-center">
-                <Zap className="h-3.5 w-3.5 text-white" />
+              <div className="w-7 h-7 rounded-lg bg-gradient-to-br from-primary to-orange-400 flex items-center justify-center">
+                <Zap className="h-3.5 w-3.5 text-black" />
               </div>
               <span className="font-semibold">AdCraft</span>
             </Link>

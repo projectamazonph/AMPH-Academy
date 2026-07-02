@@ -22,23 +22,23 @@ epics:
   - name: "Foundation"
     total_stories: 3
     total_points: 10
-    completed_stories: 2
-    completed_points: 8
-    progress_percentage: 80
+    completed_stories: 3
+    completed_points: 10
+    progress_percentage: 100
 
   - name: "Authentication"
     total_stories: 1
     total_points: 5
-    completed_stories: 0
-    completed_points: 0
-    progress_percentage: 0
+    completed_stories: 1
+    completed_points: 5
+    progress_percentage: 100
 
   - name: "Course Browsing"
     total_stories: 1
     total_points: 5
-    completed_stories: 0
-    completed_points: 0
-    progress_percentage: 0
+    completed_stories: 1
+    completed_points: 5
+    progress_percentage: 100
 
 stories:
   - id: "STORY-001"
@@ -70,36 +70,36 @@ stories:
     epic: "Foundation"
     priority: "Must Have"
     points: 2
-    status: "not_started"
-    started_date: null
-    completed_date: null
+    status: "completed"
+    started_date: "2026-07-02"
+    completed_date: "2026-07-02"
     dependencies: ["STORY-001"]
     blocked_by: null
-    notes: "Quick win after scaffold"
+    notes: "Deployed to adcraft-academy.vercel.app — HTTP 200. CI/CD with GitHub Actions + Vercel"
 
   - id: "STORY-004"
     title: "User registration and login flow"
     epic: "Authentication"
     priority: "Must Have"
     points: 5
-    status: "not_started"
-    started_date: null
-    completed_date: null
+    status: "completed"
+    started_date: "2026-07-02"
+    completed_date: "2026-07-02"
     dependencies: ["STORY-001", "STORY-002"]
     blocked_by: null
-    notes: "JWT HttpOnly cookies, bcrypt, route protection"
+    notes: "Full auth flow: register, login, JWT session, middleware protection, forgot password link"
 
   - id: "STORY-005"
     title: "Course catalog and module listing"
     epic: "Course Browsing"
     priority: "Must Have"
     points: 5
-    status: "not_started"
-    started_date: null
-    completed_date: null
+    status: "completed"
+    started_date: "2026-07-02"
+    completed_date: "2026-07-02"
     dependencies: ["STORY-002", "STORY-004"]
     blocked_by: null
-    notes: "RSC pages with seed data from STORY-002"
+    notes: "3-tier course catalog with detail pages, module tree, enrollment button, loading/error states"
 
 burndown:
   - date: "2026-07-01"
@@ -109,18 +109,18 @@ burndown:
     notes: "Sprint started"
 
   - date: "2026-07-02"
-    completed_points: 8
-    remaining_points: 12
+    completed_points: 20
+    remaining_points: 0
     ideal_remaining: 18
-    notes: "STORY-002 completed — 27 tables, 3 courses seeded. STORY-003 next."
+    notes: "SPRINT 1 COMPLETE — all 5 stories delivered ahead of schedule"
 
 metrics:
   total_stories: 5
-  completed_stories: 2
+  completed_stories: 5
   in_progress_stories: 0
   blocked_stories: 0
   total_points: 20
-  completed_points: 8
-  completion_percentage: 40
+  completed_points: 20
+  completion_percentage: 100
 
-last_updated: "2026-07-02T16:00:00Z"
+last_updated: "2026-07-02T19:00:00Z"
