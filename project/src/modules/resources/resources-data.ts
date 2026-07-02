@@ -1,0 +1,93 @@
+import type { ResourceCategory, ResourceMeta } from './_types';
+
+export const RESOURCES: ResourceMeta[] = [
+  {
+    id: 'campaign-brief-template',
+    title: 'Campaign Brief Template',
+    description: 'Structured brief for planning Amazon PPC campaigns — goals, targeting, budget, and KPIs in one page.',
+    category: 'template',
+    filename: 'campaign-brief-template.txt',
+    moduleNumber: 1,
+    downloads: 0,
+    tags: ['campaign', 'brief', 'planning'],
+  },
+  {
+    id: 'keyword-research-sheet',
+    title: 'Keyword Research Worksheet',
+    description: 'Track keyword opportunities with match types, search volume estimates, and bid ranges.',
+    category: 'template',
+    filename: 'keyword-research-sheet.txt',
+    moduleNumber: 2,
+    downloads: 0,
+    tags: ['keywords', 'research', 'match-types'],
+  },
+  {
+    id: 'launch-checklist',
+    title: 'New Campaign Launch Checklist',
+    description: 'Step-by-step launch checklist covering setup, targeting, bidding, and pre-launch verification.',
+    category: 'checklist',
+    filename: 'launch-checklist.txt',
+    moduleNumber: 1,
+    downloads: 0,
+    tags: ['launch', 'campaign', 'checklist'],
+  },
+  {
+    id: 'optimization-checklist',
+    title: 'Weekly Optimization Checklist',
+    description: 'Routine optimization tasks: search term review, bid adjustments, budget pacing, and placement analysis.',
+    category: 'checklist',
+    filename: 'optimization-checklist.txt',
+    moduleNumber: 6,
+    downloads: 0,
+    tags: ['optimization', 'weekly', 'bids'],
+  },
+  {
+    id: 'acos-guide',
+    title: 'ACoS & Profitability Guide',
+    description: 'Understanding target ACoS, break-even analysis, and how to diagnose profitability by campaign and SKU.',
+    category: 'guide',
+    filename: 'acos-guide.txt',
+    moduleNumber: 4,
+    downloads: 0,
+    tags: ['acos', 'profitability', 'break-even'],
+  },
+  {
+    id: 'portfolio-strategy-guide',
+    title: 'Portfolio Strategy Guide',
+    description: 'Organize campaigns into portfolios with budget rules, pacing strategies, and seasonal adjustment frameworks.',
+    category: 'guide',
+    filename: 'portfolio-strategy-guide.txt',
+    moduleNumber: 5,
+    downloads: 0,
+    tags: ['portfolio', 'budget', 'pacing', 'seasonal'],
+  },
+  {
+    id: 'quality-score-framework',
+    title: 'Quality Score Framework',
+    description: 'Reference guide for the three Quality Score factors: CTR, relevance, and landing page experience.',
+    category: 'framework',
+    filename: 'quality-score-framework.txt',
+    moduleNumber: 3,
+    downloads: 0,
+    tags: ['quality-score', 'ctr', 'relevance'],
+  },
+  {
+    id: 'bid-calculation-framework',
+    title: 'Bid Calculation Framework',
+    description: 'Formula reference for target bid, placement adjustments, and dayparting multipliers.',
+    category: 'framework',
+    filename: 'bid-calculation-framework.txt',
+    moduleNumber: 6,
+    downloads: 0,
+    tags: ['bids', 'formula', 'adjustments'],
+  },
+];
+
+export const CATEGORY_LABELS: Record<string, string> = {
+  template: 'Templates',
+  checklist: 'Checklists',
+  guide: 'Guides',
+  framework: 'Frameworks',
+};
+
+export const CATEGORY_ORDER: ResourceCategory[] = ['template', 'checklist', 'guide', 'framework'];

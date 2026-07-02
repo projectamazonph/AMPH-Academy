@@ -1,0 +1,30 @@
+=== WEEKLY OPTIMIZATION CHECKLIST ===
+
+DAY 1 (Account Health):
+[ ] Check campaign budget pacing (daily spend vs. daily budget)
+[ ] Review portfolio budget rules (rebalance if needed)
+[ ] Check for inactive campaigns (0 impressions > 7 days)
+
+DAY 2 (Search Term Review):
+[ ] Download search term report for last 7 days
+[ ] Identify new high-performing terms (add as keywords)
+[ ] Identify low-performing terms (add as negatives)
+[ ] Check for irrelevant traffic (tighten targeting)
+
+DAY 3 (Bid Optimization):
+[ ] Review top-of-search placement performance
+[ ] Adjust bids on terms above/below target ACoS
+[ ] Check out-of-budget campaigns (consider increasing budget)
+[ ] Review placement adjustment effectiveness
+
+DAY 4 (Competitive Check):
+[ ] Review Brand Analytics report
+[ ] Check competitor impression share changes
+[ ] Identify new competitor entry or exits
+[ ] Adjust defensive keyword bids
+
+DAY 5 (Reporting):
+[ ] Compile weekly performance summary
+[ ] Track ACoS trends vs. target
+[ ] Document optimization actions taken
+[ ] Plan adjustments for upcoming week

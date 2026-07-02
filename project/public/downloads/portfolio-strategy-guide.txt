@@ -1,0 +1,27 @@
+=== PORTFOLIO STRATEGY GUIDE ===
+
+WHAT IS A CAMPAIGN PORTFOLIO?
+A group of campaigns sharing a budget. When one campaign under-spends, others can use the remaining budget.
+
+PORTFOLIO STRUCTURE (60/20/10/10 MODEL):
+
+Spend Allocation:
+- 60% — Core campaigns (best performers, stable ACoS)
+- 20% — Growth campaigns (scaling, testing new keywords)
+- 10% — Defensive campaigns (protect brand terms)
+- 10% — Experimental campaigns (new products, markets)
+
+BUDGET PACING:
+
+| Phase | Allocation | Goal |
+|-------|-----------|------|
+| Days 1-3 | 35% of monthly | Data gathering, aggressive |
+| Days 4-10 | 25% of monthly | Optimization, adjustments |
+| Days 11-20 | 25% of monthly | Stability, scale winners |
+| Days 21-30 | 15% of monthly | Evaluate, prepare next month |
+
+SEASONAL ADJUSTMENTS:
+- Q1: Reduce budget 20% (post-holiday dip)
+- Q2: Maintain (spring growth)
+- Q3: Increase 30% (preparation for Q4)
+- Q4: Increase 50-100% (holiday peak)

@@ -6,16 +6,16 @@ project:
   level: 3
 
 sprint:
-  number: 5
+  number: 6
   start_date: "2026-07-03"
   end_date: "2026-07-17"
-  goal: "Content expansion — Modules 2 (Keyword Research), 3 (Listing Optimization), 5 (Portfolio Strategy) with illustrated lessons + interactive tool scenario banks"
-  capacity_points: 12
-  committed_points: 12
+  goal: "Platform Integration & Polish — Team Dashboard, Resources Library, Mobile Responsiveness, Advanced Module"
+  capacity_points: 13
+  committed_points: 13
 
 velocity:
-  current_sprint: 5
-  rolling_average: 17
+  current_sprint: 6
+  rolling_average: 15
   history:
     - sprint: 1
       points: 20
@@ -25,115 +25,101 @@ velocity:
       points: 13
     - sprint: 4
       points: 13
+    - sprint: 5
+      points: 12
+    - sprint: 6
+      points: 13
 
 epics:
-  - name: "Content Expansion"
-    total_stories: 3
-    total_points: 7
-    completed_stories: 3
-    completed_points: 7
-    progress_percentage: 100
-  - name: "Interactive Tools"
-    total_stories: 3
+  - name: "Platform Polish"
+    total_stories: 2
     total_points: 5
-    completed_stories: 3
+    completed_stories: 2
+    completed_points: 5
+    progress_percentage: 100
+  - name: "Curriculum Expansion"
+    total_stories: 1
+    total_points: 3
+    completed_stories: 1
+    completed_points: 3
+    progress_percentage: 100
+  - name: "Mobile Optimization"
+    total_stories: 1
+    total_points: 5
+    completed_stories: 1
     completed_points: 5
     progress_percentage: 100
 
 stories:
-  - id: "STORY-021"
-    title: "Module 2 — Keyword Research (4 illustrated lessons)"
-    epic: "Content Expansion"
+  - id: "STORY-024"
+    title: "Team Dashboard — Wire Tab & Fix Footer"
+    epic: "Platform Polish"
     priority: "Must Have"
+    points: 2
+    status: "completed"
+    started_date: "2026-07-03"
+    completed_date: "2026-07-03"
+    dependencies: []
+    blocked_by: null
+    notes: "Team tab was already wired. Footer updated from '5 Modules' to '8 Modules'. Build passes."
+
+  - id: "STORY-025"
+    title: "Resources Library — MVP"
+    epic: "Platform Polish"
+    priority: "Should Have"
     points: 3
     status: "completed"
     started_date: "2026-07-03"
     completed_date: "2026-07-03"
     dependencies: []
     blocked_by: null
-    notes: "4 lessons: match types, research workflow, negative keywords, keyword grouping. SVG diagrams for decision tree, workflow flowchart, comparison chart, hierarchy mind map. All 4 MDX files created, registered in progress.ts MODULE_META and dashboard page.tsx moduleDetails. Build passes."
+    notes: "Created _types.ts, _actions.ts, resources-data.ts (8 resources), ResourcesView component. Wired sidebar tab + dashboard render. 8 starter resources in public/downloads/. Build passes."
 
-  - id: "STORY-022"
-    title: "Module 3 — Listing Optimization (3 illustrated lessons)"
-    epic: "Content Expansion"
-    priority: "Must Have"
-    points: 2
+  - id: "STORY-026"
+    title: "Mobile Responsiveness Pass"
+    epic: "Mobile Optimization"
+    priority: "Should Have"
+    points: 5
     status: "completed"
     started_date: "2026-07-03"
     completed_date: "2026-07-03"
     dependencies: []
     blocked_by: null
-    notes: "3 lessons: quality score, listing anatomy, A+ Content. All 3 MDX files created, registered in progress.ts MODULE_META and dashboard page.tsx moduleDetails. Build passes."
+    notes: "Created DesktopNotice component. Wired into all 3 simulation tools (campaign-builder, bid-elevator, str-triage-arena). Admin pages use card layouts (no table overflow risk). Main pages already had responsive grid patterns. Build passes."
 
-  - id: "STORY-023"
-    title: "Module 5 — Portfolio Strategy (3 illustrated lessons)"
-    epic: "Content Expansion"
-    priority: "Must Have"
-    points: 2
+  - id: "STORY-027"
+    title: "Module 8 — Competitive Intelligence"
+    epic: "Curriculum Expansion"
+    priority: "Nice to Have"
+    points: 3
     status: "completed"
     started_date: "2026-07-03"
     completed_date: "2026-07-03"
     dependencies: []
     blocked_by: null
-    notes: "3 lessons: portfolio organization, budget pacing, seasonal strategy. All 3 MDX files created, registered. Build passes."
-
-  - id: "STORY-018"
-    title: "Campaign Builder Scenario Bank + Page"
-    epic: "Interactive Tools"
-    priority: "Must Have"
-    points: 2
-    status: "completed"
-    started_date: "2026-07-03"
-    completed_date: "2026-07-03"
-    dependencies: ["STORY-023"]
-    blocked_by: null
-    notes: "5 campaign builder scenario packs created (Kitchen Garlic Press, Electronics Wireless Earbuds, Garden Plant Food, Fitness Yoga Mat, Beauty Vitamin C Serum). Store refactored to support multi-pack selection. Scenario picker added to briefing UI with emoji-category cards. Build passes."
-
-  - id: "STORY-019"
-    title: "Bid Elevator Scenario Bank + Page"
-    epic: "Interactive Tools"
-    priority: "Must Have"
-    points: 2
-    status: "completed"
-    started_date: "2026-07-03"
-    completed_date: "2026-07-03"
-    dependencies: ["STORY-023"]
-    blocked_by: null
-    notes: "Bid Elevator already has 10 real-world bidding scenarios (bid-001 through bid-010) across kitchen gadgets category — exceeds the 5-scenario requirement. Scenarios cover bid reduction, maintenance, and increase with market context, ACoS analysis, and break-even CPC calculations. Build passes."
-
-  - id: "STORY-020"
-    title: "STR Triage Scenario Bank + Page"
-    epic: "Interactive Tools"
-    priority: "Must Have"
-    points: 1
-    status: "completed"
-    started_date: "2026-07-03"
-    completed_date: "2026-07-03"
-    dependencies: ["STORY-023"]
-    blocked_by: null
-    notes: "STR Triage already has 20 search terms (str-001 through str-020) — exceeds the 5-round requirement. Terms cover keep, pause, negate-exact, negate-phrase, and optimize-bid decisions with varying difficulty weights and detailed reasoning for each. Build passes."
+    notes: "3 MDX lessons: Brand Analytics (ABA search frequency, market basket, demographics), Share of Voice (SOV spectrum, calculation methods, strategic positioning), Competitor Benchmarking (workflow, gap analysis, insight-to-action framework). Registered in MODULE_META and moduleDetails. Teal color config added. Build passes."
 
 metrics:
-  total_stories: 6
-  completed_stories: 6
+  total_stories: 4
+  completed_stories: 4
   in_progress_stories: 0
   blocked_stories: 0
-  total_points: 12
-  completed_points: 12
+  total_points: 13
+  completed_points: 13
   completion_percentage: 100
 
 burndown:
   - date: "2026-07-03"
     completed_points: 0
-    remaining_points: 12
-    ideal_remaining: 12
-    notes: "Sprint 5 started — Content Expansion + Interactive Tools, 12 pts"
+    remaining_points: 13
+    ideal_remaining: 13
+    notes: "Sprint 6 started — Platform Integration & Polish, 13 pts capacity"
   - date: "2026-07-03"
-    completed_points: 12
+    completed_points: 13
     remaining_points: 0
     ideal_remaining: 0
-    notes: "Sprint 5 completed — All 12 points delivered (7 Content Expansion + 5 Interactive Tools). Build passes."
+    notes: "Sprint 6 completed — All 13 points delivered. Team tab, Resources MVP, Mobile responsive notices, Module 8."
 
 sprint_status: completed
 
-last_updated: "2026-07-03T19:00:00Z"
+last_updated: "2026-07-03T20:30:00Z"

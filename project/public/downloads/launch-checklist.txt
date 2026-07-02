@@ -1,0 +1,17 @@
+=== NEW CAMPAIGN LAUNCH CHECKLIST ===
+
+[ ] 1. Define campaign goal (awareness / consideration / conversion)
+[ ] 2. Set daily budget (start high, optimize down)
+[ ] 3. Choose bidding strategy (dynamic down only / fixed / rule-based)
+[ ] 4. Set targeting type (auto / manual)
+[ ] 5. Add seed keywords (15-20 for manual)
+[ ] 6. Set default bid (at or slightly above suggested)
+[ ] 7. Add product targeting (if applicable)
+[ ] 8. Set placement adjustments (Top of Search: +50%)
+[ ] 9. Enable campaign budget manager (if portfolio)
+[ ] 10. Schedule campaign start date
+[ ] 11. Set end date (or no end)
+[ ] 12. Review all settings before launch
+[ ] 13. Launch campaign
+[ ] 14. Initial 24hr: monitor for errors
+[ ] 15. First 7 days: no major changes (let data accumulate)

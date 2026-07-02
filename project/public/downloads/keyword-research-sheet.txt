@@ -1,0 +1,24 @@
+=== KEYWORD RESEARCH WORKSHEET ===
+
+Date: ______________________
+Campaign: __________________
+Marketplace: ________________
+
+| Keyword | Match Type | Search Vol | Suggested Bid | Relevance |
+|---------|-----------|------------|---------------|-----------|
+|         |           |            |               | (H/M/L)  |
+|         |           |            |               |          |
+|         |           |            |               |          |
+|         |           |            |               |          |
+
+NEGATIVE KEYWORDS:
+| Negative Keyword | Match Type | Reason |
+|-----------------|-----------|--------|
+|                 |           |        |
+
+PRIORITY KEYWORDS (Top 5):
+1. ___________________ (Exact)
+2. ___________________ (Phrase)
+3. ___________________ (Exact)
+4. ___________________ (Phrase)
+5. ___________________ (Exact)

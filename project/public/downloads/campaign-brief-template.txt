@@ -1,0 +1,30 @@
+=== CAMPAIGN BRIEF TEMPLATE ===
+
+Campaign Name: ______________________
+Product/ASIN: ______________________
+Category: __________________________
+Budget: ₱_____/day (₱_____/month)
+Bidding Strategy: ___________________
+Target ACoS: ______%
+Ad Types: Sponsored Products / Brands / Display
+
+GOALS:
+1. __________________________________
+2. __________________________________
+3. __________________________________
+
+TARGETING:
+- Keywords: _________________________
+- Product Targeting: _________________
+- Audiences: ________________________
+
+BUDGET PACING:
+- Daily Budget: ₱_____
+- Portfolio: ________________________
+- Seasonal Adjustments: _____________
+
+SUCCESS METRICS:
+- CTR Target: ______%
+- Conversion Rate Target: ______%
+- ACoS Target: ______%
+- ROAS Target: ______x

@@ -9,6 +9,7 @@ import { CampaignBriefing } from './campaign-briefing';
 import { CampaignWorkshop } from './campaign-workshop';
 import { CampaignScoring } from './campaign-scoring';
 import { CampaignReview } from './campaign-review';
+import { DesktopNotice } from './desktop-notice';
 
 interface CampaignBuilderProps {
   onBack: () => void;
@@ -50,6 +51,8 @@ export function CampaignBuilder({ onBack }: CampaignBuilderProps) {
           {phase === 'review' && 'REVIEW'}
         </Badge>
       </div>
+
+      <DesktopNotice />
 
       {/* Phase content */}
       <AnimatePresence mode="wait">

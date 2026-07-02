@@ -26,6 +26,7 @@ import {
   Search,
   FileText,
   PieChart,
+  BarChart3,
   type LucideIcon,
 } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
@@ -62,6 +63,7 @@ import { CertificateManager } from '@/components/adcraft/certificate-manager';
 import { MentorChat } from '@/components/adcraft/mentor-chat';
 import { getUserStats } from '@/app/actions/simulation';
 import { TeamDashboard } from '@/components/adcraft/team-dashboard';
+import { ResourcesView } from '@/components/adcraft/resources-view';
 import { LiveClassesView } from '@/components/adcraft/live-classes-view';
 import { useSession } from 'next-auth/react';
 import { cn } from '@/lib/utils';
@@ -196,6 +198,20 @@ const moduleDetails: ModuleDetail[] = [
       { title: 'STR Triage Prep: Ready to Triage', duration: '8 min', status: 'available' },
     ],
   },
+  {
+    number: 8,
+    title: 'Competitive Intelligence',
+    slug: 'competitive-intelligence',
+    icon: BarChart3,
+    color: 'teal',
+    description: 'Brand Analytics, Share of Voice, competitor benchmarking',
+    status: 'available',
+    lessons: [
+      { title: 'Brand Analytics: Reading the Competitive Landscape', duration: '14 min', status: 'available' },
+      { title: 'Share of Voice Analysis & Strategic Positioning', duration: '12 min', status: 'available' },
+      { title: 'Competitor Benchmarking & Actionable Insights', duration: '10 min', status: 'available' },
+    ],
+  },
 ];
 
 const moduleColorConfig: Record<string, {
@@ -260,6 +276,13 @@ const moduleColorConfig: Record<string, {
     text: 'text-purple-400',
     accent: 'bg-purple-500/15',
     progressFill: 'bg-purple-400',
+  },
+  teal: {
+    bg: 'bg-teal-500/8',
+    border: 'border-teal-500/20',
+    text: 'text-teal-400',
+    accent: 'bg-teal-500/15',
+    progressFill: 'bg-teal-400',
   },
 };
 
@@ -524,6 +547,8 @@ export default function Home() {
               {activeTab === 'analytics' && <AnalyticsDashboard />}
               {activeTab === 'admin' && <AdminAnalytics />}
               {activeTab === 'certificate' && <CertificateManager />}
+              {activeTab === 'team' && <TeamDashboard />}
+              {activeTab === 'resources' && <ResourcesView />}
             </motion.div>
           </AnimatePresence>
         </div>
@@ -541,7 +566,7 @@ export default function Home() {
           <div className="flex items-center gap-4 text-[10px] text-muted-foreground/60">
             <span className="font-mono">v0.1.0</span>
             <span>·</span>
-            <span>5 Modules · 3 Simulations</span>
+            <span>8 Modules · 3 Simulations</span>
           </div>
         </div>
       </footer>

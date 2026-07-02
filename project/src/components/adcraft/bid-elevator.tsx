@@ -9,6 +9,7 @@ import { BidBriefing } from './bid-briefing';
 import { BidArena } from './bid-arena';
 import { BidScoring } from './bid-scoring';
 import { BidReview } from './bid-review';
+import { DesktopNotice } from './desktop-notice';
 
 interface BidElevatorProps {
   onBack: () => void;
@@ -50,6 +51,8 @@ export function BidElevator({ onBack }: BidElevatorProps) {
           {phase === 'review' && 'REVIEW'}
         </Badge>
       </div>
+
+      <DesktopNotice />
 
       {/* Phase content */}
       <AnimatePresence mode="wait">

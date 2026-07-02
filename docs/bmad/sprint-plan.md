@@ -1,105 +1,161 @@
-# Sprint Plan: Adcraft Academy — Sprint 2
+# Sprint 6 Plan — Platform Integration & Polish
 
-- **Sprint Number:** 2
-- **Sprint Dates:** 2026-07-02 — 2026-07-16
-- **Sprint Duration:** 2 weeks
-- **Created:** 2026-07-02
+**Sprint:** 6
+**Project:** Adcraft Academy (Level 3)
+**Start:** 2026-07-03
+**End:** 2026-07-17
+**Capacity:** 13 pts (sustainable pace from retrospective)
+**Theme:** Platform Integration & Mobile Polish
 
 ---
 
-## Sprint Overview
+## Goal
 
-**Sprint Goal:** Ship engagement features — daily streaks, event tracking, learning analytics, leaderboard, and certificate generation.
+Deliver the final touches that transition Adcraft Academy from feature-complete to production-ready: activate the dormant Team tab, build the Resources library, make the platform mobile-friendly, and expand the curriculum with an advanced competitive intelligence module.
 
-**Sprint Capacity:** 20 story points
-**Stories Planned:** 5 stories
-**Total Story Points:** 20 points
+---
 
-**Capacity Calculation:**
-- **Base capacity:** 20 points (solo dev × 10 working days × 2.0 pts/day — based on Sprint 1 velocity of 20 pts/day)
-- **Adjustments:** Landing page rebuild completed in Sprint 2 window (1 story worth of scope absorbed)
-- **Final capacity:** 20 points
-
-## Velocity
+## Velocity Context
 
 | Sprint | Points | Notes |
-|--------|--------|-------|
-| Sprint 1 | 20 | Foundation + Auth + Catalog — delivered in 1 day |
-| Sprint 2 | 20 | Target |
+|--------|:------:|-------|
+| 1 | 20 | Greenfield codegen — auth, schema, scaffold |
+| 2 | 20 | Gamification — streaks, events, analytics |
+| 3 | 13 | Admin dashboard (monolithic, should've been split) |
+| 4 | 13 | Live Classes — full CRUD + student registration |
+| 5 | 12 | Enrichment — content expansion + interactive tools |
+| **6** | **13** | **Planned — platform polish + mobile** |
 
-## Sprint Backlog
+Rolling average: 16 pts | Sustainable pace: **12-13 pts**
 
-### Epic 1: Engagement Features (20 points)
+---
 
-**Epic Goal:** Give students visible progress tracking, competitive motivation, and verifiable credentials.
+## Stories
 
-#### STORY-006: Daily Streaks & XP Header Display (3 pts)
-- **Priority:** Must Have
-- **Points:** 3
-- **Dependencies:** None (DB fields exist: `streakDays`, `xp`, `level`, `lastActiveAt`)
-- **Brief:** Create server action to update daily streak on login. Display XP + streak + level in the nav/header bar. Fires on page load for authenticated users. Streak resets if more than 48h since last active.
+### STORY-024: Team Dashboard — Wire Tab & Fix Footer (2 pts)
 
-#### STORY-007: Event Tracking Pipeline (3 pts)
-- **Priority:** Must Have
-- **Points:** 3
-- **Dependencies:** STORY-006
-- **Brief:** Create event logging API endpoint and client-side tracking utility. Log key actions: page views, course enrollments, quiz completions, tool usage, badge awards. Store in EventLog model (already in schema). Provide query interface for analytics.
+**Description:**
+The Team tab is defined in the sidebar and the TeamDashboard component exists (`src/components/adcraft/team-dashboard.tsx`) with server actions (`src/app/actions/team.ts`), but the tab is **not rendered** in the dashboard page switch. Also, the dashboard footer still says "5 Modules" when the platform now has 8.
 
-#### STORY-008: Learning Analytics Dashboard (5 pts)
-- **Priority:** Must Have
-- **Points:** 5
-- **Dependencies:** STORY-007
-- **Brief:** Build `/dashboard` into a full analytics hub. Show XP growth chart, completion rate per course, badges earned, weak areas (low quiz scores), recent activity feed. Use recharts for visualizations.
+**Acceptance Criteria:**
+- Clicking the Team sidebar tab renders the TeamDashboard component
+- Team data loads from server actions (team members, progress, XP data)
+- Footer updates "5 Modules · 3 Simulations" → "8 Modules · 3 Simulations"
+- No console errors on tab switch
 
-#### STORY-009: Leaderboard (4 pts)
-- **Priority:** Should Have
-- **Points:** 4
-- **Dependencies:** STORY-006 (XP data)
-- **Brief:** Weekly and all-time leaderboard by XP. Top 10 with rank, name, XP, level, badges. Public page at `/leaderboard`. Skeleton loading states. Refreshes on navigation.
+**Files:**
+- `src/app/dashboard/page.tsx` — add `{activeTab === 'team' && <TeamDashboard />}` in the render switch
+- `src/app/dashboard/page.tsx` — update footer module count
 
-#### STORY-010: Certificate Generation (5 pts)
-- **Priority:** Should Have
-- **Points:** 5
-- **Dependencies:** STORY-008 (needs progress data)
-- **Brief:** PDF certificate generation on course completion. Verification code system (hash-based). Certificate page at `/certificates/[id]`. Download as PDF using a server-side generation approach.
+**Points:** 2
+**Priority:** Must Have
+**Dependencies:** None (component + actions already built)
 
-## Story Prioritization
+---
 
-### Must Have (Critical Path)
-1. **STORY-006** — Streaks & XP (3 pts) — Prerequisite for leaderboard and analytics
-2. **STORY-007** — Event tracking (3 pts) — Prerequisite for analytics dashboard
-3. **STORY-008** — Learning analytics (5 pts) — Core student facing feature
+### STORY-025: Resources Library — MVP (3 pts)
 
-### Should Have
-4. **STORY-009** — Leaderboard (4 pts) — Depends on streak XP data
-5. **STORY-010** — Certificates (5 pts) — Depends on progress tracking
+**Description:**
+Build the Resources tab for downloadable templates, checklists, and guides. The `src/modules/resources/` directory exists but is empty. The cheatsheet action (`src/app/actions/cheatsheet.ts`) provides an API foundation. This story creates the resources module actions, populates the directory with starter resource metadata, and builds a tab view in the dashboard sidebar.
 
-**Total Must Have:** 11 points
-**Total Should Have:** 9 points
+**Acceptance Criteria:**
+- Resources tab appears in the dashboard sidebar
+- Tab displays resource cards with title, description, type badge (Template/Checklist/Guide), and download button
+- Resources are grouped by category
+- At least 6 starter resources shipped (2 templates, 2 checklists, 2 guides)
+- Files are served from the `downloads/` directory
+- Add `resources` NavTab to sidebar and render switch
 
-## Dependencies
+**Files to create:**
+- `src/modules/resources/_actions.ts` — server actions for fetching resources
+- `src/modules/resources/_types.ts` — resource type definitions
+- `src/components/adcraft/resources-view.tsx` — tab UI component
+- `src/modules/resources/resources-data.ts` — resource metadata
+- Starter resource files in `downloads/`
 
-```
-STORY-006 (streaks/XP — no deps)
-  ├── STORY-007 (event tracking — needs auth context from STORY-006)
-  │    └── STORY-008 (analytics — needs event data)
-  └── STORY-009 (leaderboard — needs XP data from STORY-006)
+**Points:** 3
+**Priority:** Should Have
+**Dependencies:** None
 
-STORY-010 (certificates — needs progress/completion data from courses module)
-```
+---
 
-## Implementation Order
+### STORY-026: Mobile Responsiveness Pass (5 pts)
 
-1. **STORY-006** — Daily Streaks & XP — Quick win, foundation for everything else
-2. **STORY-007** — Event Tracking — Need events before analytics
-3. **STORY-008** — Learning Analytics Dashboard — Core student-facing feature
-4. **STORY-009** — Leaderboard — Gamification layer
-5. **STORY-010** — Certificates — Verification and credentialing
+**Description:**
+The UX Design doc specifies "Mobile-First Consumption, Desktop-First Practice." The sidebar has a mobile toggle but several areas need responsive fixes: dashboard grids, module cards, tables in analytics, simulation tool layouts, and course content pages.
 
-## Risks
+**Acceptance Criteria:**
+- Dashboard grid layouts collapse to single column on mobile (< 768px)
+- Module cards stack vertically with readable font sizes
+- Analytics charts resize for small viewports
+- Simulation tools show "Best on Desktop" notice on mobile with core functionality accessible
+- Landing page sections stack and images scale
+- Auth pages (signin, signup) center vertically on mobile
+- Admin tables horizontally scrollable on mobile
+- No horizontal overflow on any page at 360px viewport width
 
-- **Risk 1: PDF generation complexity** — Certificate PDFs may need a library like `@react-pdf/renderer` or `puppeteer`. Mitigation: use a lightweight HTML-to-PDF approach or an MCP tool.
-- **Risk 2: Analytics performance** — Large event tables could slow queries. Mitigation: pagination and aggregation limits. SQLite handles 10k+ rows fine for MVP.
-- **Risk 3: Streak timezone logic** — What counts as "daily" across timezones? Mitigation: use UTC dates, define a day as the last 24h window.
+**Points:** 5
+**Priority:** Should Have
+**Dependencies:** None
 
-**END OF SPRINT PLAN**
+---
+
+### STORY-027: Module 8 — Competitive Intelligence (3 pts)
+
+**Description:**
+Create a new advanced module on competitive analysis. Covers Brand Analytics, Share of Voice analysis, competitor benchmarking, and strategic positioning. This is the first expansion module beyond the original 8, targeting the "Advanced course modules" expansion item from DEV-PLAN Phase 4.
+
+**Acceptance Criteria:**
+- Module appears as Module 8 in the curriculum (after Module 7)
+- At least 3 MDX lessons with illustrated diagrams
+- Lessons cover: Brand Analytics dashboard navigation, Share of Voice calculation, Competitor ad positioning analysis
+- Real ₱ figures and examples from actual Amazon categories
+- Module registered in progress.ts MODULE_META and dashboard moduleDetails
+- Module unlock requires Module 7 completion
+
+**Files:**
+- `project/content/modules/8-competitive-intelligence/` — MDX lesson files
+- `project/src/app/actions/progress.ts` — add MODULE_META entry
+- `project/src/app/dashboard/page.tsx` — add moduleDetails entry
+
+**Points:** 3
+**Priority:** Nice to Have
+**Dependencies:** None
+
+---
+
+## Sprint Summary
+
+| Story | Title | Pts | Priority | Risk |
+|-------|-------|:---:|:--------:|:----:|
+| STORY-024 | Team Dashboard — Wire Tab | 2 | Must Have | Low |
+| STORY-025 | Resources Library — MVP | 3 | Should Have | Low |
+| STORY-026 | Mobile Responsiveness Pass | 5 | Should Have | Medium |
+| STORY-027 | Module 8 — Competitive Intelligence | 3 | Nice to Have | Low |
+| **Total** | | **13** | | |
+
+**Risk Register:**
+- Mobile responsiveness (5 pts) has medium risk — some layouts (simulation tools, analytics charts) may need non-trivial refactoring to be truly mobile-friendly. Consider splitting into "core pages" (dashboard, modules) and "deep tools" (simulations, analytics) if time runs short.
+
+---
+
+## Scope Buffer
+
+If one story slips, STORY-027 (3 pts) is the first candidate to defer — the content can be written in a future sprint and the platform still ships polish and Team/Resources features.
+
+---
+
+## Done Criteria
+
+- [ ] All 4 stories implemented and passing build
+- [ ] `npm run dev` starts cleanly (no compilation errors)
+- [ ] Dashboard with all 11 tabs renders without console errors
+- [ ] Key pages responsive at 360px/768px/1024px breakpoints
+- [ ] Team tab loads and displays org data
+- [ ] Resources tab shows downloadable starter assets
+- [ ] Module 8 has 3+ lessons accessible after Module 7 completion
+- [ ] `bmad/sprint-status.yaml` updated with Sprint 6 state
+
+---
+
+*Prepared 2026-07-03 — Sprint 6 adds ~1,500+ lines of UI/content to the platform.*

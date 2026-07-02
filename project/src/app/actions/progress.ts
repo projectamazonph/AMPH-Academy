@@ -41,6 +41,7 @@ const MODULE_META: Record<number, { slug: string; title: string; icon: string; c
   5: { slug: 'portfolio-strategy', title: 'Portfolio Strategy', icon: 'PieChart', color: 'purple', description: 'Portfolio organization, budget pacing, seasonal strategy', totalLessons: 3 },
   6: { slug: 'bidding-lab', title: 'Bidding Lab', icon: 'TrendingUp', color: 'rose', description: 'Bid strategies, position economics, budget pacing', totalLessons: 3 },
   7: { slug: 'search-term-triage', title: 'Search Term Triage', icon: 'Filter', color: 'violet', description: 'Negative keywords, STR analysis, optimization', totalLessons: 3 },
+  8: { slug: 'competitive-intelligence', title: 'Competitive Intelligence', icon: 'BarChart3', color: 'teal', description: 'Brand Analytics, Share of Voice, competitor benchmarking', totalLessons: 3 },
 };
 
 // XP rewards per lesson (matches MDX frontmatter defaults)

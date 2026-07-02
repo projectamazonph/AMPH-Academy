@@ -1,0 +1,36 @@
+=== BID CALCULATION FRAMEWORK ===
+
+BASE BID FORMULA:
+Target Bid = (Target ACoS × Product Price × Conversion Rate) ÷ (1 + Placement Adjustment)
+
+EXAMPLE:
+- Target ACoS: 20%
+- Product Price: ₱1,000
+- Conversion Rate: 10%
+- Placement Adjustment: +50% (1.5)
+- Target Bid = (0.20 × 1000 × 0.10) ÷ 1.5 = ₱13.33
+
+PLACEMENT ADJUSTMENTS:
+
+| Placement | Adjustment | When to Use |
+|-----------|-----------|-------------|
+| Top of Search | +20% to +100% | High CTR products, competitive niches |
+| Product Pages | -10% to +20% | Complementary products, brand defense |
+| Rest of Search | -20% to 0% | Default performance, lowest competition |
+
+DAYPARTING MULTIPLIERS:
+
+| Hour (PH Time) | Multiplier | Reasoning |
+|---------------|-----------|-----------|
+| 6AM - 9AM | 0.8x | Low traffic, early browsing |
+| 9AM - 12PM | 1.0x | Standard |
+| 12PM - 2PM | 1.2x | Lunch break shopping |
+| 2PM - 6PM | 1.0x | Standard |
+| 6PM - 10PM | 1.5x | Peak shopping hours |
+| 10PM - 6AM | 0.5x | Low traffic, overnight |
+
+BID ADJUSTMENT RULES:
+- If ACoS > Target by 20%+ → Reduce bid by 15-20%
+- If ACoS < Target by 20%+ → Increase bid by 10-15%
+- If clicks > 100 with 0 conversions → Pause keyword
+- If impressions < 100 after 7 days → Increase bid by 25%

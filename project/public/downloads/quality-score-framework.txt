@@ -1,0 +1,31 @@
+=== QUALITY SCORE FRAMEWORK ===
+
+WHAT IS QUALITY SCORE?
+Amazon's estimation of your ad relevance, measured on a 1-10 scale. Higher scores = lower CPCs + better ad placement.
+
+THREE FACTORS:
+
+1. Click-Through Rate (CTR) — Weight: HIGH
+- Expected CTR based on keyword and position
+- Historical CTR for your ads in that placement
+- Landing page relevance to the search query
+
+2. Ad Relevance — Weight: MEDIUM
+- How closely your keywords match your ad copy
+- How closely your ad copy matches your landing page
+- Keyword match type alignment
+
+3. Landing Page Experience — Weight: MEDIUM
+- Page load speed
+- Product availability (in stock)
+- Product detail page completeness
+- Positive reviews and ratings
+
+FEEDBACK LOOP:
+Higher Quality Score → Lower CPC → More Impressions → Higher CTR → Higher Score
+
+QUICK WINS:
+- Match keywords to ad copy exactly
+- Use exact match for your best-converting terms
+- Ensure landing pages have complete product descriptions
+- Improve page load speed (compress images)

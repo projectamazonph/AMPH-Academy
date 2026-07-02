@@ -1,0 +1,30 @@
+=== ACoS & PROFITABILITY GUIDE ===
+
+WHAT IS ACoS?
+Advertising Cost of Sale = Spend ÷ Sales × 100
+
+Example: ₱5,000 spend → ₱25,000 sales = 20% ACoS
+
+TARGET ACoS BY PRODUCT TYPE:
+
+| Product Type | Target ACoS | Strategy |
+|-------------|-------------|----------|
+| Low Margin (15-20%) | 10-15% | Tight bidding, exact match focus |
+| Mid Margin (20-35%) | 15-25% | Balanced, phrase + exact |
+| High Margin (35%+) | 20-30% | Aggressive, broad + exact |
+| Launch/New | 30-50% | Acceptance phase, gather data |
+
+BREAK-EVEN ACoS CALCULATION:
+Selling Price: ₱1,000
+Product Cost: ₱300
+Amazon Fees: ₱150
+Shipping: ₱100
+Total Cost: ₱550
+Profit per unit: ₱450
+Break-even ACoS = 450 / 1,000 = 45%
+
+ACoS DIAGNOSTIC FLOW:
+1. High ACoS + Low Spend → Check bids (too high)
+2. High ACoS + High Spend → Check targeting (too broad)
+3. Low ACoS + Low Spend → Check impressions (too restrictive)
+4. Low ACoS + High Spend → Optimizing well, scale up

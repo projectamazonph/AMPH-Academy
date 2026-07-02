@@ -9,6 +9,7 @@ import { StrBriefing } from './str-briefing';
 import { StrDataGrid } from './str-data-grid';
 import { StrScoring } from './str-scoring';
 import { StrReview } from './str-review';
+import { DesktopNotice } from './desktop-notice';
 
 interface StrTriageArenaProps {
   onBack: () => void;
@@ -50,6 +51,8 @@ export function StrTriageArena({ onBack }: StrTriageArenaProps) {
           {phase === 'review' && 'REVIEW'}
         </Badge>
       </div>
+
+      <DesktopNotice />
 
       {/* Phase content */}
       <AnimatePresence mode="wait">
