@@ -18,29 +18,33 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "AdCraft — Amazon PPC Command Center",
+  title: "AdCraft Academy — Break the ₱15k VA Ceiling",
   description:
-    "Master Amazon PPC through interactive simulations and structured learning modules. Train your skills in campaign architecture, bidding strategies, and search term optimization.",
+    "Filipino VA earning ₱15k a month? Learn Amazon PPC and start billing ₱60k–₱80k/month. Interactive simulations, structured curriculum, and real campaign practice. Built for Filipino VAs.",
   keywords: [
     "Amazon PPC",
     "AdCraft",
     "Adcraft Academy",
     "PPC Training",
+    "Filipino VA",
+    "VA Philippines",
     "Campaign Management",
     "Bidding Strategy",
     "Search Term Optimization",
     "ACoS",
     "ROAS",
     "CPC",
+    "freelancing Philippines",
+    "online jobs Philippines",
   ],
   authors: [{ name: "Ryan Dabao — ProjectAmazonPH" }],
   icons: {
     icon: "/favicon.ico",
   },
   openGraph: {
-    title: "AdCraft — Amazon PPC Command Center",
+    title: "AdCraft Academy — Break the ₱15k VA Ceiling",
     description:
-      "Master Amazon PPC through interactive simulations and structured learning",
+      "Filipino VA earning ₱15k a month? Learn Amazon PPC and start billing ₱60k–₱80k/month. Built for Filipino VAs.",
     type: "website",
     siteName: "Adcraft Academy",
   },

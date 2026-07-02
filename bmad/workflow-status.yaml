@@ -1,13 +1,13 @@
 # BMAD Workflow Status
-# Tracks progress through all 4 phases
+# Tracks progress through all 5 phases
 
 project:
   name: "Adcraft Academy"
   level: 3
   initialized: "2026-07-01T20:21:36Z"
-  last_updated: "2026-07-02T19:00:00Z"
+  last_updated: "2026-07-03T13:00:00Z"
 
-current_phase: 4
+current_phase: 5
 current_workflow: "stories"
 
 phases:
@@ -77,8 +77,8 @@ phases:
         output_file: "docs/bmad/sprint-plan.md"
         completed_at: "2026-07-02"
       stories:
-        total: 5
-        completed: 5
+        total: 17
+        completed: 16
         in_progress: 0
         story_list:
           - "STORY-001-scaffold"
@@ -86,10 +86,61 @@ phases:
           - "STORY-003-deploy"
           - "STORY-004-auth"
           - "STORY-005-course-catalog"
+          - "STORY-006-streaks"
+          - "STORY-007-events"
+          - "STORY-008-analytics"
+          - "STORY-009-leaderboard"
+          - "STORY-010-certificates"
+          - "STORY-011-admin-dashboard"
+          - "STORY-012-liveclass-migration"
+          - "STORY-013-admin-liveclass-actions"
+          - "STORY-014-admin-liveclass-ui"
+          - "STORY-015-student-registration-actions"
+          - "STORY-016-student-schedule-page"
+          - "STORY-017-liveclass-dashboard-widget"
+
+  phase_5_enrichment:
+    name: "Enrichment"
+    status: "active"
+    workflows:
+      sprint_planning:
+        status: "required"
+        completed: true
+        output_file: null
+        completed_at: "2026-07-03"
+      stories:
+        total: 23
+        completed: 16
+        in_progress: 1
+        story_list:
+          - "STORY-001-scaffold"
+          - "STORY-002-schema"
+          - "STORY-003-deploy"
+          - "STORY-004-auth"
+          - "STORY-005-course-catalog"
+          - "STORY-006-streaks"
+          - "STORY-007-events"
+          - "STORY-008-analytics"
+          - "STORY-009-leaderboard"
+          - "STORY-010-certificates"
+          - "STORY-011-admin-dashboard"
+          - "STORY-012-liveclass-migration"
+          - "STORY-013-admin-liveclass-actions"
+          - "STORY-014-admin-liveclass-ui"
+          - "STORY-015-student-registration-actions"
+          - "STORY-016-student-schedule-page"
+          - "STORY-017-liveclass-dashboard-widget"
+          - "STORY-018-campaign-builder-page"
+          - "STORY-019-bid-elevator-page"
+          - "STORY-020-str-triage-page"
+          - "STORY-021-module-2-keyword-research"
+          - "STORY-022-module-3-listing-optimization"
+          - "STORY-023-module-5-portfolio-strategy"
 
 metrics:
-  total_workflows: 10
+  total_workflows: 12
   completed_workflows: 7
-  progress_percentage: 70
-  estimated_stories: 5
-  completed_stories: 5
+  progress_percentage: 94
+  estimated_stories: 23
+  completed_stories: 16
+  last_updated: "2026-07-03T13:00:00Z"

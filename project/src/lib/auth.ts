@@ -60,11 +60,17 @@ export const authOptions: NextAuthOptions = {
           throw new Error('Invalid email or password');
         }
 
-        // Update lastActiveAt on successful login
-        await db.user.update({
-          where: { id: user.id },
-          data: { lastActiveAt: new Date() },
-        });
+        // Update lastActiveAt and check streak on successful login
+        try {
+          const { checkStreak } = await import('@/app/actions/streak');
+          await checkStreak(user.id);
+        } catch {
+          // Fallback: just update timestamp if streak module fails
+          await db.user.update({
+            where: { id: user.id },
+            data: { lastActiveAt: new Date() },
+          });
+        }
 
         return {
           id: user.id,

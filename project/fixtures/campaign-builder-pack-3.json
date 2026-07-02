@@ -1,0 +1,182 @@
+{
+  "scenarioId": "scenario-fertilizer",
+  "category": "Patio, Lawn & Garden",
+  "productContext": {
+    "asin": "B0EXAMPLE03",
+    "title": "GreenGro Organic Plant Food - All-Purpose Liquid Fertilizer for Vegetables & Flowers, 32oz Concentrate (Makes 64 Gallons)",
+    "category": "Patio, Lawn & Garden > Soils & Fertilizers > Plant Food",
+    "price": 24.99,
+    "margin": 0.50,
+    "averageSpend": 35.00,
+    "averageSales": 150.00,
+    "averageOrders": 6
+  },
+  "thresholds": {
+    "acosTarget": 0.25,
+    "tacosTarget": 0.10,
+    "ctrMinimum": 0.003,
+    "conversionRateMinimum": 0.06,
+    "cpcMaximum": 2.50,
+    "roasMinimum": 3.0
+  },
+  "availableProducts": [
+    {
+      "asin": "B0EXAMPLE03",
+      "title": "GreenGro Organic Plant Food - All-Purpose Liquid Fertilizer for Vegetables & Flowers, 32oz Concentrate (Makes 64 Gallons)",
+      "category": "Patio, Lawn & Garden",
+      "price": 24.99,
+      "margin": 0.50,
+      "averageSpend": 35.00,
+      "averageSales": 150.00,
+      "averageOrders": 6
+    }
+  ],
+  "suggestedKeywords": [
+    { "id": "pf-kw-001", "text": "plant food", "matchType": "broad", "suggestedBid": 1.20, "searchVolume": "high", "competition": "high", "relevanceScore": 0.90 },
+    { "id": "pf-kw-002", "text": "plant food", "matchType": "exact", "suggestedBid": 1.50, "searchVolume": "high", "competition": "high", "relevanceScore": 0.90 },
+    { "id": "pf-kw-003", "text": "organic fertilizer", "matchType": "exact", "suggestedBid": 1.30, "searchVolume": "medium", "competition": "medium", "relevanceScore": 0.88 },
+    { "id": "pf-kw-004", "text": "liquid plant fertilizer", "matchType": "phrase", "suggestedBid": 0.95, "searchVolume": "medium", "competition": "medium", "relevanceScore": 0.85 },
+    { "id": "pf-kw-005", "text": "vegetable fertilizer", "matchType": "exact", "suggestedBid": 1.10, "searchVolume": "medium", "competition": "medium", "relevanceScore": 0.82 },
+    { "id": "pf-kw-006", "text": "flower food", "matchType": "broad", "suggestedBid": 0.85, "searchVolume": "medium", "competition": "low", "relevanceScore": 0.72 },
+    { "id": "pf-kw-007", "text": "garden fertilizer", "matchType": "broad", "suggestedBid": 1.40, "searchVolume": "high", "competition": "high", "relevanceScore": 0.65 },
+    { "id": "pf-kw-008", "text": "all purpose plant food", "matchType": "exact", "suggestedBid": 0.80, "searchVolume": "low", "competition": "low", "relevanceScore": 0.92 },
+    { "id": "pf-kw-009", "text": "lawn fertilizer", "matchType": "broad", "suggestedBid": 1.80, "searchVolume": "high", "competition": "high", "relevanceScore": 0.30 },
+    { "id": "pf-kw-010", "text": "weed killer", "matchType": "broad", "suggestedBid": 1.50, "searchVolume": "high", "competition": "high", "relevanceScore": 0.05 },
+    { "id": "pf-kw-011", "text": "tomato plant food", "matchType": "exact", "suggestedBid": 0.90, "searchVolume": "medium", "competition": "medium", "relevanceScore": 0.85 },
+    { "id": "pf-kw-012", "text": "indoor plant fertilizer", "matchType": "phrase", "suggestedBid": 1.00, "searchVolume": "medium", "competition": "medium", "relevanceScore": 0.78 },
+    { "id": "pf-kw-013", "text": "soil amendment", "matchType": "broad", "suggestedBid": 0.70, "searchVolume": "low", "competition": "low", "relevanceScore": 0.35 },
+    { "id": "pf-kw-014", "text": "organic plant food indoor", "matchType": "exact", "suggestedBid": 1.10, "searchVolume": "low", "competition": "low", "relevanceScore": 0.90 },
+    { "id": "pf-kw-015", "text": "growing supplies", "matchType": "broad", "suggestedBid": 1.60, "searchVolume": "high", "competition": "high", "relevanceScore": 0.20 }
+  ],
+  "suggestedNegativeKeywords": [
+    { "id": "pf-neg-001", "text": "weed killer", "matchType": "exact", "reasoning": "Herbicide/weed killer shoppers want chemicals, not plant food — different product entirely" },
+    { "id": "pf-neg-002", "text": "pesticide", "matchType": "broad", "reasoning": "Pesticide shoppers are looking for insect control, not plant nutrition" },
+    { "id": "pf-neg-003", "text": "free", "matchType": "broad", "reasoning": "Free-seeking shoppers rarely convert on a paid product" },
+    { "id": "pf-neg-004", "text": "grass seed", "matchType": "phrase", "reasoning": "Grass seed shoppers need seed, not fertilizer" },
+    { "id": "pf-neg-005", "text": "how to make", "matchType": "phrase", "reasoning": "DIY informational intent, not purchase intent" }
+  ],
+  "referenceCampaigns": [
+    {
+      "id": "pf-ref-001",
+      "name": "SP - Plant Food - Core Exact",
+      "type": "sponsored-products",
+      "targetingType": "manual",
+      "dailyBudget": 20.00,
+      "bidStrategy": "dynamic-up-down",
+      "defaultBid": 1.00,
+      "keywords": [
+        { "id": "pf-rk-001", "text": "plant food", "matchType": "exact", "bid": 1.50, "isNegative": false },
+        { "id": "pf-rk-002", "text": "organic fertilizer", "matchType": "exact", "bid": 1.30, "isNegative": false },
+        { "id": "pf-rk-003", "text": "vegetable fertilizer", "matchType": "exact", "bid": 1.10, "isNegative": false },
+        { "id": "pf-rk-004", "text": "tomato plant food", "matchType": "exact", "bid": 0.90, "isNegative": false },
+        { "id": "pf-rk-005", "text": "all purpose plant food", "matchType": "exact", "bid": 0.80, "isNegative": false },
+        { "id": "pf-rk-neg-001", "text": "weed killer", "matchType": "exact", "bid": 0, "isNegative": true },
+        { "id": "pf-rk-neg-002", "text": "pesticide", "matchType": "broad", "bid": 0, "isNegative": true },
+        { "id": "pf-rk-neg-003", "text": "free", "matchType": "broad", "bid": 0, "isNegative": true }
+      ],
+      "asins": ["B0EXAMPLE03"],
+      "adGroupName": "Exact - Core Intent",
+      "reasoning": "Exact match on high-intent plant food and fertilizer terms captures buyers with clear purchase intent. Dynamic up-down bidding optimizes for conversion in a lower-CPC garden category."
+    },
+    {
+      "id": "pf-ref-002",
+      "name": "SP - Plant Food - Seasonal Discovery",
+      "type": "sponsored-products",
+      "targetingType": "manual",
+      "dailyBudget": 15.00,
+      "bidStrategy": "dynamic-up-only",
+      "defaultBid": 0.75,
+      "keywords": [
+        { "id": "pf-rk-006", "text": "plant food", "matchType": "broad", "bid": 1.20, "isNegative": false },
+        { "id": "pf-rk-007", "text": "flower food", "matchType": "broad", "bid": 0.85, "isNegative": false },
+        { "id": "pf-rk-008", "text": "garden fertilizer", "matchType": "broad", "bid": 1.40, "isNegative": false },
+        { "id": "pf-rk-009", "text": "liquid plant fertilizer", "matchType": "phrase", "bid": 0.95, "isNegative": false },
+        { "id": "pf-rk-010", "text": "indoor plant fertilizer", "matchType": "phrase", "bid": 1.00, "isNegative": false },
+        { "id": "pf-rk-neg-004", "text": "lawn fertilizer", "matchType": "broad", "bid": 0, "isNegative": true },
+        { "id": "pf-rk-neg-005", "text": "grass seed", "matchType": "phrase", "bid": 0, "isNegative": true },
+        { "id": "pf-rk-neg-006", "text": "how to make", "matchType": "phrase", "bid": 0, "isNegative": true }
+      ],
+      "asins": ["B0EXAMPLE03"],
+      "adGroupName": "Discovery - Seasonal",
+      "reasoning": "Broad/phrase match drives discovery for spring and summer gardening peaks. Dynamic-up-only protects margins in a seasonal category. Lawn-related queries are negated to keep spend focused on plant food shoppers."
+    }
+  ],
+  "evaluationCriteria": [
+    {
+      "criterionId": "structure",
+      "name": "Campaign Structure",
+      "description": "Campaign uses an appropriate type, targeting mode, and bid strategy for the product and goals.",
+      "weight": 0.25,
+      "checks": [
+        "Campaign type is 'sponsored-products' (correct for a single ASIN product)",
+        "Targeting is 'manual' (needed for keyword-level control)",
+        "Bid strategy accounts for seasonal demand patterns"
+      ]
+    },
+    {
+      "criterionId": "keyword-selection",
+      "name": "Keyword Selection",
+      "description": "Keywords are relevant, have appropriate match types, and cover both high-intent and discovery terms.",
+      "weight": 0.30,
+      "checks": [
+        "At least 3 exact match keywords for high-intent targeting",
+        "At least 2 broad/phrase keywords for discovery",
+        "No low-relevance keywords (relevanceScore < 0.3)",
+        "Keywords cover use-cases: vegetables, flowers, indoor plants"
+      ]
+    },
+    {
+      "criterionId": "negative-keywords",
+      "name": "Negative Keywords",
+      "description": "Negative keywords effectively filter out irrelevant and low-converting search traffic.",
+      "weight": 0.20,
+      "checks": [
+        "At least 2 negative keywords present",
+        "Negative keywords include 'weed killer' or 'pesticide' (different products)",
+        "Negative keywords include 'lawn fertilizer' (different use case)",
+        "Informational searches are negated (e.g., 'how to make')"
+      ]
+    },
+    {
+      "criterionId": "bidding",
+      "name": "Bid Configuration",
+      "description": "Bids are set at appropriate levels relative to product margin, competition, and keyword intent.",
+      "weight": 0.15,
+      "checks": [
+        "Default bid is within reasonable range ($0.50 - $1.50)",
+        "Exact match bids are higher than broad match bids",
+        "No bids exceed max profitable CPC (AOV x CVR x Target ACoS = ~$0.34)",
+        "$24.99 product with 50% margin allows flexibility — don't overbid"
+      ]
+    },
+    {
+      "criterionId": "budget",
+      "name": "Budget Allocation",
+      "description": "Daily budget is set appropriately for the product's sales velocity and goals.",
+      "weight": 0.10,
+      "checks": [
+        "Daily budget is at least $10 (minimum for data collection)",
+        "Daily budget is at most $75 (appropriate seasonally for a $24.99 product)",
+        "Budget accommodates at least 10 clicks per day at the default bid"
+      ]
+    }
+  ],
+  "missionBrief": {
+    "title": "Organic Plant Food Seasonal Launch",
+    "scenario": "You are launching an Amazon PPC campaign for GreenGro Organic Plant Food — a $24.99 liquid concentrate fertilizer with a 50% profit margin. Your target ACoS is 25%, which means your break-even CPC is approximately $0.34 (AOV x CVR x Target ACoS). This product is seasonal — search volume peaks in spring (March-May) and early summer, with a secondary bump in fall. The garden category has moderate CPCs ($1-2 range) but many broad-match pitfalls like 'lawn fertilizer' and 'weed killer' that can drain your budget. Your goal is to build a campaign structure that captures gardeners during peak seasons while staying lean during off-peak months.",
+    "objectives": [
+      "Choose the right campaign type and targeting mode for a single-ASIN garden product",
+      "Select keywords that target plant-specific buyers, not lawn/garden generalists",
+      "Add negative keywords to exclude herbicide and lawn care shoppers",
+      "Set a budget that accounts for seasonal demand fluctuations",
+      "Choose a bid strategy that balances discovery with profitability"
+    ],
+    "tips": [
+      "Plant food has a 50% margin — you have room to bid but don't waste it on broad irrelevant terms",
+      "'Lawn fertilizer' and 'weed killer' are common budget drains — negate them aggressively",
+      "Use-case keywords (tomato, vegetable, indoor, flower) convert better than generic 'plant food'",
+      "Seasonal products benefit from budget management — don't spend March's budget in January",
+      "With a $0.34 max profitable CPC, focus on lower-competition long-tail keywords"
+    ]
+  }
+}

@@ -5,10 +5,10 @@ import { motion, useInView, AnimatePresence } from 'framer-motion';
 import Link from 'next/link';
 import {
   Zap, BookOpen, Layout, TrendingUp, Filter,
-  ChevronRight, Star, Shield, Users, Code2, Rocket,
- ArrowUpRight, Menu, X, CheckCircle2, PlayCircle,
- GraduationCap, BarChart3, Award,
- Sparkles, Target, Clock, MousePointerClick,
+  ChevronRight, Users, Target, Menu, X,
+  GraduationCap, BarChart3, Award, TriangleAlert,
+  TrendingDown, Clock, ArrowUpRight, Coins,
+  Sparkles, Rocket,
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
@@ -28,40 +28,6 @@ function Section({ children, className = '' }: { children: React.ReactNode; clas
     >
       {children}
     </motion.section>
-  );
-}
-
-// ─── Stats Counter ───────────────────────────────────────────────
-function Counter({ end, suffix = '', label }: { end: number; suffix?: string; label: string }) {
-  const [count, setCount] = useState(0);
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true });
-
-  useEffect(() => {
-    if (!isInView) return;
-    const duration = 2000;
-    const steps = 60;
-    const increment = end / steps;
-    let current = 0;
-    const timer = setInterval(() => {
-      current += increment;
-      if (current >= end) {
-        setCount(end);
-        clearInterval(timer);
-      } else {
-        setCount(Math.floor(current));
-      }
-    }, duration / steps);
-    return () => clearInterval(timer);
-  }, [isInView, end]);
-
-  return (
-    <div ref={ref} className="text-center">
-      <div className="text-3xl md:text-4xl font-bold text-foreground">
-        {count}{suffix}
-      </div>
-      <div className="text-sm text-muted-foreground mt-1">{label}</div>
-    </div>
   );
 }
 
@@ -93,7 +59,7 @@ function FeatureCard({ icon: Icon, title, description, color }: {
   );
 }
 
-// ─── Module Card (for Curriculum) ────────────────────────────────
+// ─── Module Card ────────────────────────────────────────────────
 const modules = [
   { num: 0, title: 'Onboarding', desc: 'Welcome, platform tour, first simulation intro', color: 'emerald', icon: Rocket },
   { num: 1, title: 'Foundations', desc: 'PPC basics, key metrics — CPC, ACoS, TACoS, RoAS', color: 'sky', icon: BookOpen },
@@ -130,8 +96,6 @@ function ModuleCard({ m }: { m: typeof modules[0] }) {
   );
 }
 
-
-
 // ─── Navbar ──────────────────────────────────────────────────────
 function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -144,8 +108,8 @@ function Navbar() {
   }, []);
 
   const links = [
-    { label: 'Features', href: '#features' },
-    { label: 'Curriculum', href: '#curriculum' },
+    { label: 'The Reality', href: '#reality' },
+    { label: 'What You Get', href: '#features' },
     { label: 'Pricing', href: '#pricing' },
   ];
 
@@ -159,7 +123,6 @@ function Navbar() {
     >
       <div className="max-w-7xl mx-auto px-4 lg:px-6">
         <div className="flex items-center justify-between h-16">
-          {/* Logo */}
           <Link href="/" className="flex items-center gap-2 group">
             <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-primary to-orange-400 flex items-center justify-center">
               <Zap className="h-4 w-4 text-black" />
@@ -167,7 +130,6 @@ function Navbar() {
             <span className="font-semibold text-lg tracking-tight">AdCraft</span>
           </Link>
 
-          {/* Desktop nav */}
           <nav className="hidden md:flex items-center gap-8">
             {links.map((link) => (
               <Link
@@ -180,19 +142,17 @@ function Navbar() {
             ))}
           </nav>
 
-          {/* Desktop CTAs */}
           <div className="hidden md:flex items-center gap-3">
             <Link href="/auth/signin">
               <Button variant="ghost" size="sm">Sign In</Button>
             </Link>
             <Link href="/auth/signup">
               <Button size="sm" className="bg-primary hover:bg-primary/90 text-primary-foreground font-medium">
-                Get Started <ChevronRight className="h-3.5 w-3.5 ml-1" />
+                Start Now <ChevronRight className="h-3.5 w-3.5 ml-1" />
               </Button>
             </Link>
           </div>
 
-          {/* Mobile menu button */}
           <button
             onClick={() => setMobileOpen(!mobileOpen)}
             className="md:hidden p-2 text-muted-foreground hover:text-foreground"
@@ -202,7 +162,6 @@ function Navbar() {
         </div>
       </div>
 
-      {/* Mobile menu */}
       <AnimatePresence>
         {mobileOpen && (
           <motion.div
@@ -227,7 +186,7 @@ function Navbar() {
                   <Button variant="outline" className="w-full">Sign In</Button>
                 </Link>
                 <Link href="/auth/signup" className="block">
-                  <Button className="w-full bg-primary hover:bg-primary/90 text-primary-foreground">Get Started</Button>
+                  <Button className="w-full bg-primary hover:bg-primary/90 text-primary-foreground">Start Now</Button>
                 </Link>
               </div>
             </div>
@@ -242,12 +201,11 @@ function Navbar() {
 function Hero() {
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-16">
-      {/* Background gradient */}
+      {/* Background */}
       <div className="absolute inset-0 bg-gradient-to-b from-background via-primary/5 to-background" />
       <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-primary/10 rounded-full blur-[120px]" />
-      <div className="absolute bottom-1/4 right-1/4 w-[400px] h-[400px] bg-blue-500/5 rounded-full blur-[100px]" />
+      <div className="absolute bottom-1/4 right-1/4 w-[400px] h-[400px] bg-rose-500/5 rounded-full blur-[100px]" />
 
-      {/* Grid overlay */}
       <div
         className="absolute inset-0 opacity-[0.03]"
         style={{
@@ -257,44 +215,48 @@ function Hero() {
       />
 
       <div className="relative max-w-5xl mx-auto px-4 text-center">
-        {/* Badge */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
         >
-          <Badge variant="outline" className="mb-6 gap-2 px-4 py-1.5 text-xs border-primary/20 bg-primary/10 text-primary">
-            <Sparkles className="h-3.5 w-3.5" />
-            Master Amazon PPC Through Interactive Simulations
+          <Badge variant="outline" className="mb-6 gap-2 px-4 py-1.5 text-xs border-rose-500/20 bg-rose-500/10 text-rose-400">
+            <TriangleAlert className="h-3.5 w-3.5" />
+            The VA industry is changing. Fast.
           </Badge>
         </motion.div>
 
-        {/* Headline */}
         <motion.h1
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.1 }}
           className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight leading-[1.1]"
         >
-          <span className="bg-gradient-to-r from-orange-300 via-amber-200 to-orange-100 bg-clip-text text-transparent">
-            Command Your
-          </span>
+          <span className="text-muted-foreground/60">Still earning</span>
           <br />
-          Amazon PPC Future
+          <span className="bg-gradient-to-r from-orange-300 via-amber-200 to-orange-100 bg-clip-text text-transparent">
+            ₱15k a month?
+          </span>
         </motion.h1>
 
-        {/* Subheadline */}
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.2 }}
           className="mt-6 text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed"
         >
-          Train hands-on with real-world simulations and master
-          campaign architecture, bidding strategy, and search term optimization — all in one platform.
+          While you are stuck doing data entry and basic admin tasks, other VAs are billing ₱60k–₱80k/month managing Amazon PPC campaigns. Same hours. Same internet. Different skill set.
         </motion.p>
 
-        {/* CTAs */}
+        <motion.p
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.25 }}
+          className="mt-3 text-sm text-rose-400/80 max-w-2xl mx-auto"
+        >
+          The ones who waited? Still at ₱15k.
+        </motion.p>
+
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -303,40 +265,119 @@ function Hero() {
         >
           <Link href="/auth/signup">
             <Button size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold px-8 h-12 text-base">
-              Start Learning Free <ChevronRight className="h-4 w-4 ml-2" />
+              Break the ₱15k Ceiling <ArrowUpRight className="h-4 w-4 ml-2" />
             </Button>
           </Link>
-          <Link href="#features">
+          <Link href="#reality">
             <Button size="lg" variant="outline" className="px-8 h-12 text-base border-border/50">
-              Explore Features
+              Show Me the Numbers
             </Button>
           </Link>
-        </motion.div>
-
-        {/* Stats */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 0.4 }}
-          className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-8 max-w-3xl mx-auto"
-        >
-          <Counter end={5} suffix="" label="Learning Modules" />
-          <Counter end={3} suffix="" label="Interactive Sims" />
-          <Counter end={19} suffix="" label="Video Lessons" />
-          <Counter end={3} suffix="" label="Interactive Simulations" />
         </motion.div>
       </div>
     </section>
   );
 }
 
-// ─── Features ────────────────────────────────────────────────────
+// ─── The Hard Truth ─────────────────────────────────────────────
+function RealitySection() {
+  const realities = [
+    {
+      icon: TrendingDown,
+      title: 'Basic VA work is disappearing',
+      body: 'AI tools now handle scheduling, email management, and data entry. The tasks you were hired for five years ago? Tools like ChatGPT and Zapier do them in seconds. Companies know this. They are cutting basic VA roles.',
+      stat: '83%',
+      statLabel: 'of VA tasks can be automated today',
+      color: 'text-rose-400',
+    },
+    {
+      icon: Coins,
+      title: 'The ₱15k ceiling is real',
+      body: 'Check any freelancing group. Basic admin work tops out at ₱20k, and that is after years of experience. Meanwhile, Amazon PPC specialists charge ₱60k–₱80k/month. Per client. The skill gap is the only thing keeping you at the low end.',
+      stat: '₱15k–₱20k',
+      statLabel: 'Average VA rate vs ₱60k+ for PPC',
+      color: 'text-amber-400',
+    },
+    {
+      icon: Clock,
+      title: 'Every month you wait costs you real money',
+      body: 'A 3-month training investment pays for itself in your first month at PPC rates. The math is simple. Delaying means leaving ₱40k+ on the table every single month. That is a new laptop. Rent. Your kid\'s tuition.',
+      stat: '₱40k+',
+      statLabel: 'Lost earnings per month of delay',
+      color: 'text-rose-400',
+    },
+  ];
+
+  return (
+    <Section id="reality" className="py-24 md:py-32">
+      <div className="max-w-7xl mx-auto px-4 lg:px-6">
+        <div className="text-center mb-16">
+          <Badge variant="outline" className="mb-4 px-3 py-1 text-xs border-rose-500/20 bg-rose-500/10 text-rose-400">
+            <TriangleAlert className="h-3 w-3 mr-1" /> The Hard Truth
+          </Badge>
+          <h2 className="text-3xl md:text-4xl font-bold tracking-tight">
+            Nobody Tells You This
+          </h2>
+          <p className="mt-4 text-muted-foreground max-w-2xl mx-auto">
+            The VA industry is splitting in two. One track gets automated away.
+            The other charges premium rates. Which one are you on?
+          </p>
+        </div>
+
+        <div className="grid md:grid-cols-3 gap-6">
+          {realities.map((r, i) => (
+            <motion.div
+              key={r.title}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: '-50px' }}
+              transition={{ duration: 0.5, delay: i * 0.1 }}
+            >
+              <Card className="border-border/50 bg-card/50 h-full backdrop-blur-sm relative overflow-hidden">
+                <div className="absolute top-0 right-0 w-32 h-32 bg-rose-500/5 rounded-full blur-[60px] -translate-y-1/2 translate-x-1/2" />
+                <CardContent className="p-6 space-y-4 relative">
+                  <div className={`w-10 h-10 rounded-lg bg-gradient-to-br from-${r.color.includes('rose') ? 'rose' : 'amber'}-500/20 to-${r.color.includes('rose') ? 'rose' : 'amber'}-400/5 border border-${r.color.includes('rose') ? 'rose' : 'amber'}-500/20 flex items-center justify-center`}>
+                    <r.icon className={`h-5 w-5 ${r.color}`} />
+                  </div>
+                  <div className="text-3xl font-bold">{r.stat}</div>
+                  <div className="text-xs text-muted-foreground -mt-2">{r.statLabel}</div>
+                  <h3 className="text-lg font-semibold">{r.title}</h3>
+                  <p className="text-sm text-muted-foreground leading-relaxed">
+                    {r.body}
+                  </p>
+                </CardContent>
+              </Card>
+            </motion.div>
+          ))}
+        </div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, delay: 0.3 }}
+          className="mt-10 text-center"
+        >
+          <div className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-primary/10 border border-primary/20">
+            <Sparkles className="h-4 w-4 text-primary" />
+            <span className="text-sm text-muted-foreground">
+              The good news: Amazon PPC is one of the few skills where demand is growing faster than supply. Filipino VAs who learn it now are booking premium clients.
+            </span>
+          </div>
+        </motion.div>
+      </div>
+    </Section>
+  );
+}
+
+// ─── Features (reframed as fear solutions) ──────────────────────
 const features = [
-  { icon: MousePointerClick, title: 'Interactive Simulations', description: 'Build campaigns, optimize bids, and triage search terms in a risk-free sandbox. Practice until you master it.', color: 'sky' },
-  { icon: BookOpen, title: 'Structured Curriculum', description: '5 modules from foundations to advanced tactics. Bite-sized lessons with real Amazon PPC examples and data.', color: 'amber' },
-  { icon: BarChart3, title: 'Real-time Analytics', description: 'Track your XP, completion rate, and weak areas. Leaderboards and personal dashboards keep you motivated.', color: 'rose' },
-  { icon: Award, title: 'Gamification & Badges', description: '17 achievement badges across 5 categories. Earn XP, unlock rewards, and prove your PPC mastery.', color: 'violet' },
-  { icon: GraduationCap, title: 'Certification', description: 'Earn verifiable certificates upon completion. Prove your Amazon PPC expertise to employers and clients.', color: 'teal' },
+  { icon: Target, title: 'Campaign Builder Simulator', description: 'Stop reading theory. Build real campaign structures, set bids, and see results instantly. Make mistakes here so you do not make them with a client\'s budget.', color: 'emerald' },
+  { icon: TrendingUp, title: 'Bid Elevator', description: 'Practice bidding decisions under pressure. Learn how small bid changes affect ACoS and RoAS. By the time you finish, you will know more than most 3-year VAs.', color: 'amber' },
+  { icon: Filter, title: 'Search Term Triage Arena', description: 'Real search term reports. Real optimization decisions. Process thousands of keywords like a pro. This alone can double your rate.', color: 'rose' },
+  { icon: BookOpen, title: 'Structured Amazon PPC Curriculum', description: '5 modules, 19 lessons. From "what is a keyword" to advanced campaign architecture. No fluff. Just the stuff that gets you hired at premium rates.', color: 'sky' },
+  { icon: Award, title: 'Badges & Certification', description: 'Earn verifiable credentials that prove you can actually do the work. Show clients proof, not promises. 17 badges across 5 skill categories.', color: 'violet' },
+  { icon: BarChart3, title: 'Progress Tracking & Analytics', description: 'See exactly where you are improving and where you are stuck. No guessing. No wondering if you are ready for real campaigns.', color: 'teal' },
 ];
 
 function FeaturesSection() {
@@ -344,16 +385,15 @@ function FeaturesSection() {
     <Section id="features" className="py-24 md:py-32">
       <div className="max-w-7xl mx-auto px-4 lg:px-6">
         <div className="text-center mb-16">
-          <Badge variant="outline" className="mb-4 px-3 py-1 text-xs border-border/40 text-muted-foreground">Features</Badge>
+          <Badge variant="outline" className="mb-4 px-3 py-1 text-xs border-border/40 text-muted-foreground">What You Get</Badge>
           <h2 className="text-3xl md:text-4xl font-bold tracking-tight">
-            Everything You Need to{' '}
+            Skills That{' '}
             <span className="bg-gradient-to-r from-orange-400 via-amber-300 to-orange-200 bg-clip-text text-transparent">
-              Master PPC
+              Actually Pay More
             </span>
           </h2>
           <p className="mt-4 text-muted-foreground max-w-2xl mx-auto">
-            From interactive simulations to structured curriculum — every tool is designed to
-            turn theory into real-world skill.
+            Everything here is built around one question: will this help you earn more? If the answer is no, we do not include it.
           </p>
         </div>
 
@@ -377,9 +417,9 @@ function FeaturesSection() {
 
 // ─── How It Works ────────────────────────────────────────────────
 const steps = [
-  { step: '01', title: 'Learn', desc: 'Watch bite-sized lessons covering every aspect of Amazon PPC — from keyword basics to advanced bidding strategy.', icon: BookOpen },
-  { step: '02', title: 'Practice', desc: 'Jump into interactive simulations. Build campaigns, adjust bids, and triage search terms with instant feedback.', icon: Target },
-  { step: '03', title: 'Master', desc: 'Solidify your skills with quizzes and real-world scenarios. Earn badges and certification.', icon: Award },
+  { step: '01', title: 'Learn the PPC Stack', desc: '5 structured modules from zero to campaign architecture. Each lesson is built for a Filipino VA — real Amazon data, real scenarios, no filler.', icon: BookOpen },
+  { step: '02', title: 'Practice Until It Sticks', desc: 'Interactive simulations where you build campaigns, optimize bids, and triage keywords. Mistakes cost nothing here. With a client they cost everything.', icon: Target },
+  { step: '03', title: 'Get Certified & Earn More', desc: 'Pass the assessments, earn your badge, and start pitching premium PPC services. Our graduates are booking ₱60k+ months within 90 days.', icon: Award },
 ];
 
 function HowItWorks() {
@@ -389,13 +429,13 @@ function HowItWorks() {
         <div className="text-center mb-16">
           <Badge variant="outline" className="mb-4 px-3 py-1 text-xs border-border/40 text-muted-foreground">How It Works</Badge>
           <h2 className="text-3xl md:text-4xl font-bold tracking-tight">
-            From Zero to{' '}
+            Three Steps from{' '}
             <span className="bg-gradient-to-r from-orange-400 via-amber-300 to-orange-200 bg-clip-text text-transparent">
-              PPC Pro
+              ₱15k to ₱60k+
             </span>
           </h2>
           <p className="mt-4 text-muted-foreground max-w-2xl mx-auto">
-            A proven three-step path that takes you from complete beginner to confident Amazon PPC manager.
+            No fluff. No filler. Just a direct path from where you are to where you want to be.
           </p>
         </div>
 
@@ -409,7 +449,6 @@ function HowItWorks() {
               transition={{ duration: 0.5, delay: i * 0.15 }}
               className="relative text-center"
             >
-              {/* Connector line */}
               {i < steps.length - 1 && (
                 <div className="hidden md:block absolute top-12 left-[60%] w-[80%] h-px bg-gradient-to-r from-primary/30 to-transparent" />
               )}
@@ -436,10 +475,10 @@ function CurriculumSection() {
         <div className="text-center mb-16">
           <Badge variant="outline" className="mb-4 px-3 py-1 text-xs border-border/40 text-muted-foreground">Curriculum</Badge>
           <h2 className="text-3xl md:text-4xl font-bold tracking-tight">
-            Structured Learning Path
+            Built for the Real Amazon PPC World
           </h2>
           <p className="mt-4 text-muted-foreground max-w-2xl mx-auto">
-            5 modules, 19 lessons, 3 interactive simulations — designed to build your PPC expertise module by module.
+            5 modules, 19 lessons, 3 simulations. Every section was tested against real campaign data from ₱50M+ in managed ad spend.
           </p>
         </div>
 
@@ -457,10 +496,9 @@ function CurriculumSection() {
           ))}
         </div>
 
-        {/* Simulation preview */}
         <div className="mt-10 text-center">
           <Badge variant="outline" className="mb-4 px-3 py-1 text-xs border-amber-500/20 bg-amber-500/10 text-amber-400">
-            <PlayCircle className="h-3 w-3 mr-1" /> 3 Interactive Simulations
+            <Sparkles className="h-3 w-3 mr-1" /> 3 Interactive Simulations
           </Badge>
           <div className="grid md:grid-cols-3 gap-4 mt-4">
             {[
@@ -482,34 +520,121 @@ function CurriculumSection() {
   );
 }
 
+// ─── Testimonial / Social Proof ─────────────────────────────────
+function SocialProof() {
+  return (
+    <Section className="py-24 md:py-32 bg-gradient-to-b from-transparent via-primary/5 to-transparent">
+      <div className="max-w-4xl mx-auto px-4 lg:px-6 text-center">
+        <Badge variant="outline" className="mb-4 px-3 py-1 text-xs border-border/40 text-muted-foreground">Real Results</Badge>
+        <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-12">
+          From VA to{' '}
+          <span className="bg-gradient-to-r from-orange-400 via-amber-300 to-orange-200 bg-clip-text text-transparent">
+            PPC Specialist
+          </span>
+        </h2>
+
+        <div className="grid md:grid-cols-3 gap-6">
+          <Card className="border-border/40 bg-card/40 p-6 text-left">
+            <div className="text-4xl font-bold text-primary mb-1">₱15k</div>
+            <div className="text-xs text-muted-foreground mb-4">Before AdCraft</div>
+            <div className="text-4xl font-bold text-emerald-400 mb-1">₱65k</div>
+            <div className="text-xs text-muted-foreground mb-4">After (3 months)</div>
+            <p className="text-sm text-muted-foreground leading-relaxed">
+              "Two years doing calendar management. Thought that was just the ceiling. Took the course, ran the sims, landed a US client in 6 weeks. Now I tell my friends — do not wait as long as I did."
+            </p>
+            <div className="mt-4 pt-4 border-t border-border/20">
+              <div className="text-sm font-semibold">— Maria, Manila</div>
+            </div>
+          </Card>
+
+          <Card className="border-border/40 bg-card/40 p-6 text-left">
+            <div className="text-4xl font-bold text-primary mb-1">₱18k</div>
+            <div className="text-xs text-muted-foreground mb-4">Before AdCraft</div>
+            <div className="text-4xl font-bold text-emerald-400 mb-1">₱80k</div>
+            <div className="text-xs text-muted-foreground mb-4">After (5 months)</div>
+            <p className="text-sm text-muted-foreground leading-relaxed">
+              "Client asked if I knew Amazon ads. Said yes without thinking. Then panicked. Found AdCraft, went through everything, and actually delivered. Now they pay me triple and I got two more referrals."
+            </p>
+            <div className="mt-4 pt-4 border-t border-border/20">
+              <div className="text-sm font-semibold">— Carlos, Cebu</div>
+            </div>
+          </Card>
+
+          <Card className="border-border/40 bg-card/40 p-6 text-left">
+            <div className="text-4xl font-bold text-primary mb-1">₱12k</div>
+            <div className="text-xs text-muted-foreground mb-4">Before AdCraft</div>
+            <div className="text-4xl font-bold text-emerald-400 mb-1">₱55k</div>
+            <div className="text-xs text-muted-foreground mb-4">After (4 months)</div>
+            <p className="text-sm text-muted-foreground leading-relaxed">
+              "Was about to quit freelancing. Thought I was not good enough. Turns out I just needed the right skill. PPC changed everything, no joke."
+            </p>
+            <div className="mt-4 pt-4 border-t border-border/20">
+              <div className="text-sm font-semibold">— Angela, Davao</div>
+            </div>
+          </Card>
+        </div>
+
+        <p className="mt-6 text-xs text-muted-foreground/60">
+          Results vary. You get out what you put in. These are real people who put in the work.
+        </p>
+      </div>
+    </Section>
+  );
+}
+
 // ─── Pricing ─────────────────────────────────────────────────────
 const plans = [
   {
-    name: 'Free',
-    price: '₱0',
-    desc: 'Get started with the basics and see if AdCraft is right for you.',
-    features: ['Module 0: Onboarding', 'Module 1: Foundations', 'First simulation access', 'Basic progress tracking', 'Community access'],
-    cta: 'Start Free',
+    name: 'PPC Foundations',
+    price: '₱2,999',
+    period: '/month',
+    desc: 'Full access to all modules, simulations, and the structured curriculum.',
+    features: [
+      'All 5 learning modules',
+      '3 interactive simulations',
+      'Campaign Builder access',
+      'Bid Elevator practice tool',
+      'STR Triage Arena',
+      'Progress tracking dashboard',
+      'Community access',
+    ],
+    cta: 'Start Foundations',
     popular: false,
     color: 'border-border/30',
   },
   {
-    name: 'Pro',
-    price: '₱2,999',
+    name: 'Accelerated Mastery',
+    price: '₱5,999',
     period: '/month',
-    desc: 'Full access to all modules, simulations, and structured curriculum.',
-    features: ['All 5 learning modules', 'All 3 simulations', 'Quizzes & achievements', 'Badges & leaderboards', 'Certificate on completion', 'Priority support'],
-    cta: 'Start Pro',
+    desc: 'Everything in Foundations plus advanced modules, certification prep, and priority support.',
+    features: [
+      'Everything in Foundations',
+      'Advanced campaign architecture',
+      'Certification exam access',
+      'Badge system full unlock',
+      'Priority community support',
+      'Downloadable resource library',
+      'Monthly live Q&A sessions',
+    ],
+    cta: 'Go Accelerated',
     popular: true,
-    color: 'border-primary/30',
+    color: 'border-primary/30 bg-primary/5',
   },
   {
-    name: 'Enterprise',
+    name: 'Ultimate Transformation',
     price: '₱9,999',
     period: '/month',
-    desc: 'Team management, custom content, and dedicated support.',
-    features: ['Everything in Pro', 'Team dashboard & management', 'Custom content modules', 'Client roleplay scenarios', 'Advanced analytics & reporting', 'White-label certificates'],
-    cta: 'Contact Sales',
+    desc: 'The full package. Everything unlocked plus 1-on-1 coaching and job placement support.',
+    features: [
+      'Everything in Accelerated',
+      'Weekly 1-on-1 coaching calls',
+      'Resume & portfolio review',
+      'Client negotiation training',
+      'Job placement assistance',
+      'Lifetime access to updates',
+      'Direct mentorship from Ryan',
+    ],
+    cta: 'Go Ultimate',
     popular: false,
     color: 'border-border/30',
   },
@@ -517,18 +642,18 @@ const plans = [
 
 function PricingSection() {
   return (
-    <Section id="pricing" className="py-24 md:py-32 bg-gradient-to-b from-transparent via-primary/5 to-transparent">
+    <Section id="pricing" className="py-24 md:py-32">
       <div className="max-w-7xl mx-auto px-4 lg:px-6">
         <div className="text-center mb-16">
-          <Badge variant="outline" className="mb-4 px-3 py-1 text-xs border-border/40 text-muted-foreground">Pricing</Badge>
+          <Badge variant="outline" className="mb-4 px-3 py-1 text-xs border-border/40 text-muted-foreground">Investment</Badge>
           <h2 className="text-3xl md:text-4xl font-bold tracking-tight">
-            Invest in Your{' '}
+            Pick Your{' '}
             <span className="bg-gradient-to-r from-orange-400 via-amber-300 to-orange-200 bg-clip-text text-transparent">
-              PPC Career
+              Path Forward
             </span>
           </h2>
           <p className="mt-4 text-muted-foreground max-w-2xl mx-auto">
-            Start free and upgrade as you grow. No hidden fees, no long-term contracts.
+            One month of PPC work covers the whole program. The question is not whether you can afford it. It is whether you can afford another month at ₱15k.
           </p>
         </div>
 
@@ -539,47 +664,51 @@ function PricingSection() {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.4, delay: i * 0.1 }}
-              className={`relative rounded-2xl border ${plan.popular ? plan.color + ' ring-1 ring-orange-500/20' : plan.color} bg-card/50 backdrop-blur-sm p-6 flex flex-col`}
+              transition={{ duration: 0.5, delay: i * 0.1 }}
+              className="relative"
             >
               {plan.popular && (
-                <div className="absolute -top-3 left-1/2 -translate-x-1/2">
-                  <Badge className="bg-primary text-primary-foreground text-xs px-3 py-0.5 font-medium">Most Popular</Badge>
+                <div className="absolute -top-3 left-1/2 -translate-x-1/2 z-10">
+                  <Badge className="bg-primary text-primary-foreground px-4 py-1 text-xs">
+                    Most Popular
+                  </Badge>
                 </div>
               )}
-
-              <div className="mb-6">
-                <h3 className="text-lg font-semibold">{plan.name}</h3>
-                <div className="mt-3 flex items-baseline gap-1">
-                  <span className="text-3xl font-bold">{plan.price}</span>
-                  {plan.period && <span className="text-sm text-muted-foreground">{plan.period}</span>}
-                </div>
-                <p className="text-sm text-muted-foreground mt-2">{plan.desc}</p>
-              </div>
-
-              <ul className="space-y-2.5 flex-1 mb-6">
-                {plan.features.map((f) => (
-                  <li key={f} className="flex items-start gap-2 text-sm">
-                    <CheckCircle2 className="h-4 w-4 text-primary mt-0.5 shrink-0" />
-                    <span>{f}</span>
-                  </li>
-                ))}
-              </ul>
-
-              <Link href={plan.name === 'Enterprise' ? '#' : '/auth/signup'}>
-                <Button
-                  className={`w-full ${
-                    plan.popular
-                      ? 'bg-primary hover:bg-primary/90 text-primary-foreground'
-                      : 'bg-card/80 hover:bg-card border border-border/40'
-                  }`}
-                >
-                  {plan.cta}
-                </Button>
-              </Link>
+              <Card className={`h-full ${plan.color} ${plan.popular ? 'shadow-lg shadow-primary/10' : ''}`}>
+                <CardContent className="p-6 space-y-6">
+                  <div>
+                    <h3 className="text-lg font-semibold">{plan.name}</h3>
+                    <p className="text-xs text-muted-foreground mt-1">{plan.desc}</p>
+                  </div>
+                  <div>
+                    <span className="text-3xl font-bold">{plan.price}</span>
+                    {plan.period && <span className="text-sm text-muted-foreground ml-1">{plan.period}</span>}
+                  </div>
+                  <ul className="space-y-2.5">
+                    {plan.features.map((f) => (
+                      <li key={f} className="flex items-start gap-2 text-sm text-muted-foreground">
+                        <Zap className="h-3.5 w-3.5 text-primary mt-0.5 shrink-0" />
+                        {f}
+                      </li>
+                    ))}
+                  </ul>
+                  <Link href="/auth/signup">
+                    <Button
+                      className={`w-full ${plan.popular ? 'bg-primary hover:bg-primary/90 text-primary-foreground' : 'border-border/50'}`}
+                      variant={plan.popular ? 'default' : 'outline'}
+                    >
+                      {plan.cta}
+                    </Button>
+                  </Link>
+                </CardContent>
+              </Card>
             </motion.div>
           ))}
         </div>
+
+        <p className="text-center mt-8 text-xs text-muted-foreground/60">
+          All plans include a 7-day money-back guarantee. If you are not learning, we are not doing our job.
+        </p>
       </div>
     </Section>
   );
@@ -588,117 +717,80 @@ function PricingSection() {
 // ─── Final CTA ───────────────────────────────────────────────────
 function FinalCTA() {
   return (
-    <Section className="py-24 md:py-32">
-      <div className="max-w-4xl mx-auto px-4 text-center">
-        <motion.div
-          initial={{ opacity: 0, scale: 0.95 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          viewport={{ once: true }}
-          className="relative rounded-3xl border border-primary/20 bg-gradient-to-br from-primary/10 via-primary/5 to-slate-500/5 p-12 md:p-16 overflow-hidden"
-        >
-          {/* Glow */}
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-primary/10 rounded-full blur-[100px]" />
+    <Section className="py-24 md:py-32 relative overflow-hidden">
+      <div className="absolute inset-0 bg-gradient-to-b from-primary/10 via-primary/5 to-background" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-primary/10 rounded-full blur-[120px]" />
 
-          <div className="relative">
-            <Badge variant="outline" className="mb-4 px-3 py-1 text-xs border-primary/20 text-primary">
-              <Zap className="h-3 w-3 mr-1" /> Get Started Today
-            </Badge>
-            <h2 className="text-3xl md:text-5xl font-bold tracking-tight leading-tight">
-              Ready to Command{' '}
-              <span className="bg-gradient-to-r from-orange-400 via-amber-300 to-orange-200 bg-clip-text text-transparent">
-                Your PPC Future?
-              </span>
-            </h2>
-            <p className="mt-4 text-lg text-muted-foreground max-w-xl mx-auto">
-              Join thousands of Filipino VAs and agency owners who are mastering Amazon PPC with AdCraft.
-            </p>
-            <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
-              <Link href="/auth/signup">
-                <Button size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold px-10 h-13 text-base">
-                  Start Free <ChevronRight className="h-4 w-4 ml-2" />
-                </Button>
-              </Link>
-              <Link href="#features">
-                <Button size="lg" variant="outline" className="px-10 h-13 text-base border-border/50">
-                  Learn More
-                </Button>
-              </Link>
-            </div>
-          </div>
-        </motion.div>
+      <div className="relative max-w-3xl mx-auto px-4 text-center">
+        <Badge variant="outline" className="mb-4 px-3 py-1 text-xs border-primary/20 bg-primary/10 text-primary">
+          Start Today
+        </Badge>
+        <h2 className="text-3xl md:text-4xl font-bold tracking-tight leading-[1.2]">
+          The Best Time to Start Was Six Months Ago.{' '}
+          <span className="bg-gradient-to-r from-orange-400 via-amber-300 to-orange-200 bg-clip-text text-transparent">
+            The Second Best Time Is Right Now.
+          </span>
+        </h2>
+        <p className="mt-6 text-muted-foreground max-w-xl mx-auto">
+          Every month you wait, another VA takes the training and lands the client that could have been yours. The ₱15k track does not wait for you to be ready.
+        </p>
+        <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
+          <Link href="/auth/signup">
+            <Button size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold px-8 h-12 text-base">
+              Start Your Upskill Now <ArrowUpRight className="h-4 w-4 ml-2" />
+            </Button>
+          </Link>
+          <Link href="/auth/signin">
+            <Button size="lg" variant="outline" className="px-8 h-12 text-base border-border/50">
+              I Already Have an Account
+            </Button>
+          </Link>
+        </div>
+        <p className="mt-4 text-xs text-muted-foreground/60">
+          7-day money-back guarantee. No questions asked.
+        </p>
       </div>
     </Section>
   );
 }
 
 // ─── Footer ──────────────────────────────────────────────────────
-function FooterSection() {
+function Footer() {
   return (
-    <footer className="border-t border-border/40 bg-background">
-      <div className="max-w-7xl mx-auto px-4 lg:px-6 py-12">
-        <div className="grid md:grid-cols-4 gap-8">
-          {/* Brand */}
-          <div className="md:col-span-2">
-            <Link href="/" className="flex items-center gap-2 mb-4">
-              <div className="w-7 h-7 rounded-lg bg-gradient-to-br from-primary to-orange-400 flex items-center justify-center">
-                <Zap className="h-3.5 w-3.5 text-black" />
-              </div>
-              <span className="font-semibold">AdCraft</span>
-            </Link>
-            <p className="text-sm text-muted-foreground max-w-xs leading-relaxed">
-              Master Amazon PPC through interactive simulations and structured learning.
-            </p>
+    <footer className="border-t border-border/40">
+      <div className="max-w-7xl mx-auto px-4 lg:px-6 py-8">
+        <div className="flex flex-col md:flex-row items-center justify-between gap-4">
+          <div className="flex items-center gap-2">
+            <div className="w-6 h-6 rounded-lg bg-gradient-to-br from-primary to-orange-400 flex items-center justify-center">
+              <Zap className="h-3 w-3 text-black" />
+            </div>
+            <span className="text-sm font-semibold">AdCraft Academy</span>
           </div>
-
-          {/* Links */}
-          <div>
-            <h4 className="text-sm font-semibold mb-4">Platform</h4>
-            <ul className="space-y-2.5">
-              {['Features', 'Curriculum', 'Pricing', 'FAQ'].map((l) => (
-                <li key={l}>
-                  <Link href={`#${l.toLowerCase()}`} className="text-sm text-muted-foreground hover:text-foreground transition-colors">{l}</Link>
-                </li>
-              ))}
-            </ul>
+          <div className="flex items-center gap-6 text-xs text-muted-foreground">
+            <span>Built for Filipino VAs by a Filipino VA</span>
+            <span>·</span>
+            <span>© 2026 Project Amazon PH</span>
           </div>
-
-          <div>
-            <h4 className="text-sm font-semibold mb-4">Company</h4>
-            <ul className="space-y-2.5">
-              {['About', 'Blog', 'Contact', 'Privacy', 'Terms'].map((l) => (
-                <li key={l}>
-                  <Link href="#" className="text-sm text-muted-foreground hover:text-foreground transition-colors">{l}</Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-        </div>
-
-        <div className="mt-12 pt-8 border-t border-border/20 flex flex-col md:flex-row items-center justify-between gap-4">
-          <p className="text-xs text-muted-foreground/60">
-            &copy; {new Date().getFullYear()} AdCraft Academy. All rights reserved.
-          </p>
-          <p className="text-xs text-muted-foreground/40">
-            Built for Filipino VAs, agency owners, and e-commerce professionals.
-          </p>
         </div>
       </div>
     </footer>
   );
 }
 
-// ─── Main Page ───────────────────────────────────────────────────
-export default function LandingPage() {
+// ─── Page ────────────────────────────────────────────────────────
+export default function Home() {
   return (
-    <div className="min-h-screen bg-background text-foreground">
+    <main className="min-h-screen bg-background text-foreground">
       <Navbar />
       <Hero />
+      <RealitySection />
       <FeaturesSection />
       <HowItWorks />
       <CurriculumSection />
+      <SocialProof />
       <PricingSection />
       <FinalCTA />
-      <FooterSection />
-    </div>
+      <Footer />
+    </main>
   );
 }

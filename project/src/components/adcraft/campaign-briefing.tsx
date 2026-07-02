@@ -14,7 +14,7 @@ import {
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
-import { useCampaignBuilderStore } from '@/stores/campaign-builder-store';
+import { useCampaignBuilderStore, SCENARIO_LABELS } from '@/stores/campaign-builder-store';
 import { useSession } from 'next-auth/react';
 
 export function CampaignBriefing() {
@@ -24,6 +24,9 @@ export function CampaignBriefing() {
     missionBrief,
     suggestedKeywords,
     startSimulation,
+    selectedScenarioIndex,
+    selectScenario,
+    scenarioPacks,
   } = useCampaignBuilderStore();
   const { data: session } = useSession();
   const userId = (session?.user as any)?.id;
@@ -32,8 +35,57 @@ export function CampaignBriefing() {
 
   return (
     <div className="space-y-6 max-w-3xl mx-auto">
+      {/* Scenario Picker */}
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6, ease: [0.32, 0.72, 0, 1] }}
+      >
+        <div className="space-y-3">
+          <div className="flex items-center justify-between">
+            <h3 className="text-xs font-semibold text-muted-foreground uppercase tracking-wider">
+              Choose Your Campaign Scenario
+            </h3>
+            <span className="text-[10px] text-muted-foreground font-mono">
+              {selectedScenarioIndex + 1} of {SCENARIO_LABELS.length}
+            </span>
+          </div>
+          <div className="grid grid-cols-5 gap-2">
+            {SCENARIO_LABELS.map((scenario, index) => {
+              const isActive = index === selectedScenarioIndex;
+              const pack = scenarioPacks[index];
+              return (
+                <motion.button
+                  key={scenario.id}
+                  type="button"
+                  whileHover={{ y: -2 }}
+                  whileTap={{ scale: 0.97 }}
+                  onClick={() => selectScenario(index)}
+                  className={`
+                    relative flex flex-col items-center gap-1.5 p-3 rounded-xl border text-center transition-all
+                    ${isActive
+                      ? 'border-emerald-500/40 bg-emerald-500/10 shadow-lg shadow-emerald-500/5'
+                      : 'border-border bg-card hover:border-emerald-500/20 hover:bg-emerald-500/5'
+                    }
+                  `}
+                >
+                  <span className="text-xl">{scenario.icon}</span>
+                  <span className={`text-[10px] font-medium leading-tight ${isActive ? 'text-foreground' : 'text-muted-foreground'}`}>
+                    {scenario.title}
+                  </span>
+                  {isActive && (
+                    <div className="absolute -top-1 -right-1 w-3 h-3 rounded-full bg-emerald-400 shadow-sm shadow-emerald-400/50" />
+                  )}
+                </motion.button>
+              );
+            })}
+          </div>
+        </div>
+      </motion.div>
+
       {/* Mission header */}
       <motion.div
+        key={selectedScenarioIndex}
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, ease: [0.32, 0.72, 0, 1], delay: 0.5 }}

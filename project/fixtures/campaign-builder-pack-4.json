@@ -1,0 +1,182 @@
+{
+  "scenarioId": "scenario-yogamat",
+  "category": "Sports & Outdoors",
+  "productContext": {
+    "asin": "B0EXAMPLE04",
+    "title": "FlexFit Premium Yoga Mat - Extra Thick 6mm Non-Slip Exercise Mat for Pilates & Stretching, with Carrying Strap (68\" x 24\")",
+    "category": "Sports & Outdoors > Exercise & Fitness > Yoga Mats",
+    "price": 34.99,
+    "margin": 0.45,
+    "averageSpend": 55.00,
+    "averageSales": 210.00,
+    "averageOrders": 6
+  },
+  "thresholds": {
+    "acosTarget": 0.25,
+    "tacosTarget": 0.10,
+    "ctrMinimum": 0.003,
+    "conversionRateMinimum": 0.07,
+    "cpcMaximum": 2.50,
+    "roasMinimum": 3.0
+  },
+  "availableProducts": [
+    {
+      "asin": "B0EXAMPLE04",
+      "title": "FlexFit Premium Yoga Mat - Extra Thick 6mm Non-Slip Exercise Mat for Pilates & Stretching, with Carrying Strap (68\" x 24\")",
+      "category": "Sports & Outdoors",
+      "price": 34.99,
+      "margin": 0.45,
+      "averageSpend": 55.00,
+      "averageSales": 210.00,
+      "averageOrders": 6
+    }
+  ],
+  "suggestedKeywords": [
+    { "id": "ym-kw-001", "text": "yoga mat", "matchType": "broad", "suggestedBid": 1.60, "searchVolume": "high", "competition": "high", "relevanceScore": 0.95 },
+    { "id": "ym-kw-002", "text": "yoga mat", "matchType": "exact", "suggestedBid": 1.80, "searchVolume": "high", "competition": "high", "relevanceScore": 0.95 },
+    { "id": "ym-kw-003", "text": "exercise mat", "matchType": "broad", "suggestedBid": 1.40, "searchVolume": "high", "competition": "high", "relevanceScore": 0.65 },
+    { "id": "ym-kw-004", "text": "non slip yoga mat", "matchType": "exact", "suggestedBid": 1.30, "searchVolume": "medium", "competition": "medium", "relevanceScore": 0.92 },
+    { "id": "ym-kw-005", "text": "thick yoga mat", "matchType": "exact", "suggestedBid": 1.10, "searchVolume": "medium", "competition": "medium", "relevanceScore": 0.88 },
+    { "id": "ym-kw-006", "text": "extra thick yoga mat 6mm", "matchType": "phrase", "suggestedBid": 0.95, "searchVolume": "low", "competition": "low", "relevanceScore": 0.96 },
+    { "id": "ym-kw-007", "text": "pilates mat", "matchType": "phrase", "suggestedBid": 1.00, "searchVolume": "medium", "competition": "medium", "relevanceScore": 0.78 },
+    { "id": "ym-kw-008", "text": "workout mat", "matchType": "broad", "suggestedBid": 1.20, "searchVolume": "high", "competition": "high", "relevanceScore": 0.55 },
+    { "id": "ym-kw-009", "text": "cushioned yoga mat", "matchType": "exact", "suggestedBid": 0.85, "searchVolume": "low", "competition": "low", "relevanceScore": 0.90 },
+    { "id": "ym-kw-010", "text": "yoga mat with strap", "matchType": "phrase", "suggestedBid": 0.90, "searchVolume": "medium", "competition": "low", "relevanceScore": 0.85 },
+    { "id": "ym-kw-011", "text": "kids play mat", "matchType": "broad", "suggestedBid": 1.00, "searchVolume": "high", "competition": "high", "relevanceScore": 0.15 },
+    { "id": "ym-kw-012", "text": "gym flooring", "matchType": "broad", "suggestedBid": 1.50, "searchVolume": "medium", "competition": "medium", "relevanceScore": 0.10 },
+    { "id": "ym-kw-013", "text": "foam roller", "matchType": "broad", "suggestedBid": 1.20, "searchVolume": "high", "competition": "medium", "relevanceScore": 0.08 },
+    { "id": "ym-kw-014", "text": "yoga mat extra long", "matchType": "exact", "suggestedBid": 0.80, "searchVolume": "low", "competition": "low", "relevanceScore": 0.82 },
+    { "id": "ym-kw-015", "text": "eco friendly yoga mat", "matchType": "exact", "suggestedBid": 1.20, "searchVolume": "medium", "competition": "medium", "relevanceScore": 0.70 }
+  ],
+  "suggestedNegativeKeywords": [
+    { "id": "ym-neg-001", "text": "free", "matchType": "broad", "reasoning": "Free-seeking shoppers rarely convert on a $34.99 premium product" },
+    { "id": "ym-neg-002", "text": "cheap", "matchType": "broad", "reasoning": "Price-sensitive shoppers looking for budget options, not a premium mat" },
+    { "id": "ym-neg-003", "text": "kids play mat", "matchType": "exact", "reasoning": "Parents looking for children's play mats, not a yoga mat" },
+    { "id": "ym-neg-004", "text": "gym flooring", "matchType": "exact", "reasoning": "Commercial gym flooring shoppers want large floor tiles, not personal yoga mats" },
+    { "id": "ym-neg-005", "text": "foam roller", "matchType": "broad", "reasoning": "Foam roller shoppers want recovery tools, not exercise mats" }
+  ],
+  "referenceCampaigns": [
+    {
+      "id": "ym-ref-001",
+      "name": "SP - Yoga Mat - Feature Focus",
+      "type": "sponsored-products",
+      "targetingType": "manual",
+      "dailyBudget": 30.00,
+      "bidStrategy": "dynamic-up-down",
+      "defaultBid": 1.25,
+      "keywords": [
+        { "id": "ym-rk-001", "text": "yoga mat", "matchType": "exact", "bid": 1.80, "isNegative": false },
+        { "id": "ym-rk-002", "text": "non slip yoga mat", "matchType": "exact", "bid": 1.30, "isNegative": false },
+        { "id": "ym-rk-003", "text": "thick yoga mat", "matchType": "exact", "bid": 1.10, "isNegative": false },
+        { "id": "ym-rk-004", "text": "cushioned yoga mat", "matchType": "exact", "bid": 0.85, "isNegative": false },
+        { "id": "ym-rk-005", "text": "yoga mat with strap", "matchType": "exact", "bid": 0.90, "isNegative": false },
+        { "id": "ym-rk-neg-001", "text": "free", "matchType": "broad", "bid": 0, "isNegative": true },
+        { "id": "ym-rk-neg-002", "text": "kids play mat", "matchType": "exact", "bid": 0, "isNegative": true },
+        { "id": "ym-rk-neg-003", "text": "gym flooring", "matchType": "exact", "bid": 0, "isNegative": true }
+      ],
+      "asins": ["B0EXAMPLE04"],
+      "adGroupName": "Feature Focus - Exact",
+      "reasoning": "Exact match on feature-specific keywords (non-slip, thick, cushioned, with strap) captures shoppers comparing specific attributes. These have lower competition and higher conversion rates than generic 'yoga mat' searches."
+    },
+    {
+      "id": "ym-ref-002",
+      "name": "SP - Yoga Mat - Category Discovery",
+      "type": "sponsored-products",
+      "targetingType": "manual",
+      "dailyBudget": 20.00,
+      "bidStrategy": "dynamic-up-only",
+      "defaultBid": 0.90,
+      "keywords": [
+        { "id": "ym-rk-006", "text": "yoga mat", "matchType": "broad", "bid": 1.60, "isNegative": false },
+        { "id": "ym-rk-007", "text": "pilates mat", "matchType": "phrase", "bid": 1.00, "isNegative": false },
+        { "id": "ym-rk-008", "text": "workout mat", "matchType": "broad", "bid": 1.20, "isNegative": false },
+        { "id": "ym-rk-009", "text": "extra thick yoga mat 6mm", "matchType": "phrase", "bid": 0.95, "isNegative": false },
+        { "id": "ym-rk-010", "text": "eco friendly yoga mat", "matchType": "exact", "bid": 1.20, "isNegative": false },
+        { "id": "ym-rk-neg-004", "text": "cheap", "matchType": "broad", "bid": 0, "isNegative": true },
+        { "id": "ym-rk-neg-005", "text": "foam roller", "matchType": "broad", "bid": 0, "isNegative": true },
+        { "id": "ym-rk-neg-006", "text": "kids play mat", "matchType": "broad", "bid": 0, "isNegative": true }
+      ],
+      "asins": ["B0EXAMPLE04"],
+      "adGroupName": "Discovery - Broad/Phrase",
+      "reasoning": "Broad and phrase match discover adjacent fitness categories. Dynamic-up-only bidding prevents over-spending on broad terms. Negatives filter out play mats, gym flooring, and foam rollers — common budget wasters in this category."
+    }
+  ],
+  "evaluationCriteria": [
+    {
+      "criterionId": "structure",
+      "name": "Campaign Structure",
+      "description": "Campaign uses an appropriate type, targeting mode, and bid strategy for the product and goals.",
+      "weight": 0.25,
+      "checks": [
+        "Campaign type is 'sponsored-products' (correct for a single ASIN product)",
+        "Targeting is 'manual' (needed for keyword-level control)",
+        "Bid strategy is dynamic (up-only or up-down) rather than legacy"
+      ]
+    },
+    {
+      "criterionId": "keyword-selection",
+      "name": "Keyword Selection",
+      "description": "Keywords are relevant, have appropriate match types, and cover both high-intent and discovery terms.",
+      "weight": 0.30,
+      "checks": [
+        "At least 3 exact match keywords for high-intent targeting",
+        "At least 2 broad/phrase keywords for discovery",
+        "No low-relevance keywords (relevanceScore < 0.3)",
+        "Feature keywords (non-slip, thick, with strap) are included"
+      ]
+    },
+    {
+      "criterionId": "negative-keywords",
+      "name": "Negative Keywords",
+      "description": "Negative keywords effectively filter out irrelevant and low-converting search traffic.",
+      "weight": 0.20,
+      "checks": [
+        "At least 2 negative keywords present",
+        "Negative keywords include 'kids play mat' or 'gym flooring' (different products)",
+        "Free/cheap negatives filter price-sensitive traffic",
+        "Fitness accessory terms (foam roller) are negated"
+      ]
+    },
+    {
+      "criterionId": "bidding",
+      "name": "Bid Configuration",
+      "description": "Bids are set at appropriate levels relative to product margin, competition, and keyword intent.",
+      "weight": 0.15,
+      "checks": [
+        "Default bid is within reasonable range ($0.50 - $2.00)",
+        "Exact match bids are higher than broad match bids",
+        "No bids exceed max profitable CPC (AOV x CVR x Target ACoS = ~$0.61)",
+        "Feature-specific keywords have competitive bids for their lower competition"
+      ]
+    },
+    {
+      "criterionId": "budget",
+      "name": "Budget Allocation",
+      "description": "Daily budget is set appropriately for the product's sales velocity and goals.",
+      "weight": 0.10,
+      "checks": [
+        "Daily budget is at least $10 (minimum for meaningful data collection)",
+        "Daily budget is at most $100 (appropriate for a $34.99 product)",
+        "Budget accommodates at least 10 clicks per day at the default bid"
+      ]
+    }
+  ],
+  "missionBrief": {
+    "title": "Premium Yoga Mat Campaign Architecture",
+    "scenario": "You are launching a new Amazon PPC campaign for the FlexFit Premium Yoga Mat — a $34.99 extra thick 6mm mat with non-slip surface and carrying strap, with a 45% profit margin. Your target ACoS is 25%, meaning your break-even CPC is approximately $0.61 (AOV x CVR x Target ACoS). The yoga/fitness category is crowded with many similar products, but your product has clear differentiators: 6mm thickness, non-slip texture, and included carrying strap. Your challenge is to build a campaign structure that emphasizes these features through keyword selection while avoiding irrelevant fitness equipment searches that can drain your budget.",
+    "objectives": [
+      "Choose the right campaign type and targeting mode for a feature-differentiated fitness product",
+      "Select keywords that highlight product differentiators (6mm thickness, non-slip, carrying strap)",
+      "Add negative keywords to filter out irrelevant fitness equipment searches",
+      "Set a daily budget appropriate for a mid-price fitness product",
+      "Choose a bid strategy that balances feature-premium positioning with profitability"
+    ],
+    "tips": [
+      "Feature-specific keywords like '6mm yoga mat' and 'non-slip yoga mat' have lower competition and higher conversion",
+      "Generic 'exercise mat' is broad and includes everything from kids' play mats to gym flooring — negate aggressively",
+      "Your carrying strap is a differentiator — include 'yoga mat with strap' keywords",
+      "45% margin gives you decent room, but don't overbid on high-competition generic terms",
+      "Fitness accessories (foam rollers, resistance bands) are NOT your product — keep them out with negatives"
+    ]
+  }
+}

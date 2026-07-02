@@ -7,7 +7,7 @@ import type { ActionResult } from './types';
 
 // ponytail: simple event types, add new ones as needed
 export type EventType =
-  | 'lesson_started' | 'lesson_completed'
+  | 'session_started' | 'lesson_started' | 'lesson_completed'
   | 'quiz_started' | 'quiz_completed'
   | 'simulation_started' | 'simulation_graded'
   | 'mistake_review'

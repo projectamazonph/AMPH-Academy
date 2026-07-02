@@ -19,8 +19,18 @@ import { checkRateLimit, getClientIp, RATE_LIMITS } from '@/lib/rate-limit';
 const PUBLIC_PATHS = [
   '/auth/signin',
   '/auth/signup',
+  '/admin/login',
   '/api/auth',
   '/',
+];
+
+// Routes that require ADMIN role
+const ADMIN_PATHS = [
+  '/admin/dashboard',
+  '/admin/users',
+  '/admin/courses',
+  '/admin/events',
+  '/admin/settings',
 ];
 
 // Routes with rate limiting (checked before auth for public endpoints)
@@ -157,6 +167,16 @@ export async function middleware(request: NextRequest) {
     const signInUrl = new URL('/auth/signin', request.url);
     signInUrl.searchParams.set('callbackUrl', pathname);
     return NextResponse.redirect(signInUrl);
+  }
+
+  // --- Admin route check ---
+  if (ADMIN_PATHS.some((path) => pathname.startsWith(path))) {
+    const role = (token as any)?.role;
+    if (role !== 'ADMIN') {
+      const adminLoginUrl = new URL('/admin/login', request.url);
+      adminLoginUrl.searchParams.set('callbackUrl', pathname);
+      return NextResponse.redirect(adminLoginUrl);
+    }
   }
 
   // --- Apply security headers to all authenticated responses ---

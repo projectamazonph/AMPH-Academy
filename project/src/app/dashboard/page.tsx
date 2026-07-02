@@ -16,6 +16,16 @@ import {
   ArrowUpRight,
   Zap,
   Calculator,
+  Video,
+  Calendar,
+  Clock,
+  User,
+  Users,
+  ExternalLink,
+  Loader2,
+  Search,
+  FileText,
+  PieChart,
   type LucideIcon,
 } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
@@ -49,10 +59,13 @@ import { getCheatSheet } from '@/app/actions/cheatsheet';
 import { AnalyticsDashboard } from '@/components/adcraft/analytics-dashboard';
 import { AdminAnalytics } from '@/components/adcraft/admin-analytics';
 import { CertificateManager } from '@/components/adcraft/certificate-manager';
+import { MentorChat } from '@/components/adcraft/mentor-chat';
 import { getUserStats } from '@/app/actions/simulation';
 import { TeamDashboard } from '@/components/adcraft/team-dashboard';
+import { LiveClassesView } from '@/components/adcraft/live-classes-view';
 import { useSession } from 'next-auth/react';
 import { cn } from '@/lib/utils';
+import { trackEvent } from '@/app/actions/events';
 
 // --- Module data for the Modules view ---
 interface ModuleDetail {
@@ -98,6 +111,35 @@ const moduleDetails: ModuleDetail[] = [
     ],
   },
   {
+    number: 2,
+    title: 'Keyword Research',
+    slug: 'keyword-research',
+    icon: Search,
+    color: 'indigo',
+    description: 'Match types, research workflow, negative keywords, grouping',
+    status: 'available',
+    lessons: [
+      { title: 'Match Types: Broad, Phrase, Exact', duration: '12 min', status: 'available' },
+      { title: 'Keyword Research Workflow & Tools', duration: '14 min', status: 'available' },
+      { title: 'Negative Keywords: The Profit Lever', duration: '12 min', status: 'available' },
+      { title: 'Keyword Grouping for Campaign Structure', duration: '10 min', status: 'available' },
+    ],
+  },
+  {
+    number: 3,
+    title: 'Listing Optimization',
+    slug: 'listing-optimization',
+    icon: FileText,
+    color: 'orange',
+    description: 'Quality score, listing anatomy, A+ Content',
+    status: 'available',
+    lessons: [
+      { title: 'How Listing Quality Score Affects Your Ads', duration: '14 min', status: 'available' },
+      { title: 'Listing Anatomy: Title, Bullets, Images & PPC', duration: '12 min', status: 'available' },
+      { title: 'A+ Content & Brand Registry Advantage', duration: '10 min', status: 'available' },
+    ],
+  },
+  {
     number: 4,
     title: 'Campaign Architecture',
     slug: 'campaign-architecture',
@@ -110,6 +152,20 @@ const moduleDetails: ModuleDetail[] = [
       { title: 'Sponsored Brands & Display', duration: '12 min', status: 'available' },
       { title: 'Campaign Structure: Control & Scale', duration: '14 min', status: 'available' },
       { title: 'Campaign Architecture in Practice', duration: '10 min', status: 'available' },
+    ],
+  },
+  {
+    number: 5,
+    title: 'Portfolio Strategy',
+    slug: 'portfolio-strategy',
+    icon: PieChart,
+    color: 'purple',
+    description: 'Portfolio organization, budget pacing, seasonal strategy',
+    status: 'available',
+    lessons: [
+      { title: 'Campaign Portfolios: Organizing for Scale', duration: '12 min', status: 'available' },
+      { title: 'Budget Pacing & Daily Spend Management', duration: '14 min', status: 'available' },
+      { title: 'Seasonal Strategy & Promo Planning', duration: '12 min', status: 'available' },
     ],
   },
   {
@@ -184,6 +240,27 @@ const moduleColorConfig: Record<string, {
     accent: 'bg-violet-500/15',
     progressFill: 'bg-violet-400',
   },
+  indigo: {
+    bg: 'bg-indigo-500/8',
+    border: 'border-indigo-500/20',
+    text: 'text-indigo-400',
+    accent: 'bg-indigo-500/15',
+    progressFill: 'bg-indigo-400',
+  },
+  orange: {
+    bg: 'bg-orange-500/8',
+    border: 'border-orange-500/20',
+    text: 'text-orange-400',
+    accent: 'bg-orange-500/15',
+    progressFill: 'bg-orange-400',
+  },
+  purple: {
+    bg: 'bg-purple-500/8',
+    border: 'border-purple-500/20',
+    text: 'text-purple-400',
+    accent: 'bg-purple-500/15',
+    progressFill: 'bg-purple-400',
+  },
 };
 
 const lessonStatusIcon: Record<string, LucideIcon> = {
@@ -220,6 +297,49 @@ const simulationDetails: SimDetail[] = [
       'Bid configuration & placement adjustments',
     ],
     estimatedTime: '25-35 min',
+  },
+  {
+    number: 2,
+    title: 'Keyword Research',
+    slug: 'keyword-research',
+    icon: Search,
+    color: 'indigo',
+    description: 'Match types, research workflow, negative keywords, grouping',
+    status: 'available',
+    lessons: [
+      { title: 'Match Types: Broad, Phrase, Exact', duration: '12 min', status: 'available' },
+      { title: 'Keyword Research Workflow & Tools', duration: '14 min', status: 'available' },
+      { title: 'Negative Keywords: The Profit Lever', duration: '12 min', status: 'available' },
+      { title: 'Keyword Grouping for Campaign Structure', duration: '10 min', status: 'available' },
+    ],
+  },
+  {
+    number: 3,
+    title: 'Listing Optimization',
+    slug: 'listing-optimization',
+    icon: FileText,
+    color: 'orange',
+    description: 'Quality score, listing anatomy, A+ Content',
+    status: 'available',
+    lessons: [
+      { title: 'How Listing Quality Score Affects Your Ads', duration: '14 min', status: 'available' },
+      { title: 'Listing Anatomy: Title, Bullets, Images & PPC', duration: '12 min', status: 'available' },
+      { title: 'A+ Content & Brand Registry Advantage', duration: '10 min', status: 'available' },
+    ],
+  },
+  {
+    number: 5,
+    title: 'Portfolio Strategy',
+    slug: 'portfolio-strategy',
+    icon: PieChart,
+    color: 'purple',
+    description: 'Portfolio organization, budget pacing, seasonal strategy',
+    status: 'available',
+    lessons: [
+      { title: 'Campaign Portfolios: Organizing for Scale', duration: '12 min', status: 'available' },
+      { title: 'Budget Pacing & Daily Spend Management', duration: '14 min', status: 'available' },
+      { title: 'Seasonal Strategy & Promo Planning', duration: '12 min', status: 'available' },
+    ],
   },
   {
     type: 'bid-elevator',
@@ -303,6 +423,9 @@ export default function Home() {
       .catch((err) => {
         console.warn('[Home] getUserStats failed, using defaults:', err);
       });
+
+    // Track dashboard visit
+    trackEvent('session_started', { page: 'dashboard' }).catch(() => {});
   }, []);
 
   return (
@@ -326,6 +449,8 @@ export default function Home() {
               <h1 className="text-sm font-semibold lg:hidden">AdCraft</h1>
               <span className="hidden lg:inline text-sm text-muted-foreground">
                 {activeTab === 'dashboard' && 'Dashboard'}
+                {activeTab === 'live-classes' && 'Live Classes'}
+                {activeTab === 'mentor' && 'Mentor'}
                 {activeTab === 'modules' && 'Learning Modules'}
                 {activeTab === 'simulations' && (activeSimulation === 'str-triage-arena' ? 'STR Triage Arena' : activeSimulation === 'bid-elevator' ? 'Bid Elevator' : activeSimulation === 'campaign-builder' ? 'Campaign Builder' : 'Simulations')}
                 {activeTab === 'leaderboard' && 'Leaderboard'}
@@ -354,6 +479,8 @@ export default function Home() {
               exit={{ opacity: 0, y: -8 }}
               transition={{ duration: 0.25 }}
             >
+              {activeTab === 'live-classes' && <LiveClassesView />}
+              {activeTab === 'mentor' && <MentorChat />}
               {activeTab === 'dashboard' && (
                 <Dashboard key={refreshKey} onNavigate={setActiveTab} />
               )}

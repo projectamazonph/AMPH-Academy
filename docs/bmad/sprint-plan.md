@@ -1,235 +1,105 @@
-# Sprint Plan: Adcraft Academy
+# Sprint Plan: Adcraft Academy — Sprint 2
 
-- **Sprint Number:** 1
-- **Sprint Dates:** 2026-07-01 — 2026-07-15
-- **Sprint Duration:** 2 weeks (10 working days)
+- **Sprint Number:** 2
+- **Sprint Dates:** 2026-07-02 — 2026-07-16
+- **Sprint Duration:** 2 weeks
 - **Created:** 2026-07-02
 
 ---
 
 ## Sprint Overview
 
-**Sprint Goal:** Ship the Adcraft Academy foundation — project scaffold, database schema, user authentication, and a working course catalog page.
+**Sprint Goal:** Ship engagement features — daily streaks, event tracking, learning analytics, leaderboard, and certificate generation.
 
-**Sprint Capacity:** 20 story points  
-**Stories Planned:** 5 stories  
+**Sprint Capacity:** 20 story points
+**Stories Planned:** 5 stories
 **Total Story Points:** 20 points
 
 **Capacity Calculation:**
-- **Base capacity:** 20 points (solo dev × 10 working days × 2.0 pts/day — conservative, first sprint)
-- **Adjustments:** None (no holidays, no PTO in this window)
+- **Base capacity:** 20 points (solo dev × 10 working days × 2.0 pts/day — based on Sprint 1 velocity of 20 pts/day)
+- **Adjustments:** Landing page rebuild completed in Sprint 2 window (1 story worth of scope absorbed)
 - **Final capacity:** 20 points
 
-## Velocity Metrics
+## Velocity
 
-**Historical Velocity:** First sprint — no historical data.
-**Team Composition:** 1 developer (Ryan). First sprint includes project scaffolding overhead.
+| Sprint | Points | Notes |
+|--------|--------|-------|
+| Sprint 1 | 20 | Foundation + Auth + Catalog — delivered in 1 day |
+| Sprint 2 | 20 | Target |
 
 ## Sprint Backlog
 
-### Epic 1: Foundation (10 points)
+### Epic 1: Engagement Features (20 points)
 
-**Epic Goal:** Bootstrapped Next.js project with Prisma schema, shared components, and Vercel deployment.
+**Epic Goal:** Give students visible progress tracking, competitive motivation, and verifiable credentials.
 
-#### STORY-001: Initialize Next.js project scaffold
+#### STORY-006: Daily Streaks & XP Header Display (3 pts)
 - **Priority:** Must Have
 - **Points:** 3
-- **Status:** Not Started
-- **Dependencies:** None
-- **Brief:** Create Next.js project with Tailwind CSS, Prisma, shadcn/ui, Project Aurora design system components copied from PPC Companion. Set up folder structure per architecture doc.
+- **Dependencies:** None (DB fields exist: `streakDays`, `xp`, `level`, `lastActiveAt`)
+- **Brief:** Create server action to update daily streak on login. Display XP + streak + level in the nav/header bar. Fires on page load for authenticated users. Streak resets if more than 48h since last active.
 
-#### STORY-002: Create Prisma database schema
+#### STORY-007: Event Tracking Pipeline (3 pts)
+- **Priority:** Must Have
+- **Points:** 3
+- **Dependencies:** STORY-006
+- **Brief:** Create event logging API endpoint and client-side tracking utility. Log key actions: page views, course enrollments, quiz completions, tool usage, badge awards. Store in EventLog model (already in schema). Provide query interface for analytics.
+
+#### STORY-008: Learning Analytics Dashboard (5 pts)
 - **Priority:** Must Have
 - **Points:** 5
-- **Status:** Not Started
-- **Dependencies:** None
-- **Brief:** Define all Prisma models: User, Session, Course, Module, Enrollment, LiveClass, ModuleProgress, ToolSession, ToolResult, Badge, BadgeAward, Certificate, QuizAttempt, Resource. Write seed data with sample course structure.
+- **Dependencies:** STORY-007
+- **Brief:** Build `/dashboard` into a full analytics hub. Show XP growth chart, completion rate per course, badges earned, weak areas (low quiz scores), recent activity feed. Use recharts for visualizations.
 
-#### STORY-003: Deploy to Vercel with CI/CD
-- **Priority:** Must Have
-- **Points:** 2
-- **Status:** Not Started
-- **Dependencies:** STORY-001
-- **Brief:** Initialize Git repo, push to GitHub, connect to Vercel, configure environment variables, verify auto-deploy from main branch.
+#### STORY-009: Leaderboard (4 pts)
+- **Priority:** Should Have
+- **Points:** 4
+- **Dependencies:** STORY-006 (XP data)
+- **Brief:** Weekly and all-time leaderboard by XP. Top 10 with rank, name, XP, level, badges. Public page at `/leaderboard`. Skeleton loading states. Refreshes on navigation.
 
----
-
-### Epic 2: Authentication (5 points)
-
-**Epic Goal:** Students can register, log in, and maintain a session with HttpOnly JWT cookies.
-
-#### STORY-004: User registration and login flow
-- **Priority:** Must Have
+#### STORY-010: Certificate Generation (5 pts)
+- **Priority:** Should Have
 - **Points:** 5
-- **Status:** Not Started
-- **Dependencies:** STORY-001, STORY-002
-- **Brief:** Registration form (name, email, password) with validation. Login form with email/password. JWT HttpOnly cookie session management. Logout. Shared auth context/provider for client-side auth state.
-
----
-
-### Epic 3: Course Browsing (5 points)
-
-**Epic Goal:** A working course catalog page that reads from the database so students can see available courses.
-
-#### STORY-005: Course catalog and module listing
-- **Priority:** Must Have
-- **Points:** 5
-- **Status:** Not Started
-- **Dependencies:** STORY-002, STORY-004
-- **Brief:** Course listing page (server component) showing all published courses. Module detail page with title, description, video embed placeholder. Seed data populates Adcraft's actual course structure (PPC Foundations, Accelerated Mastery, Ultimate Transformation tiers).
-
----
+- **Dependencies:** STORY-008 (needs progress data)
+- **Brief:** PDF certificate generation on course completion. Verification code system (hash-based). Certificate page at `/certificates/[id]`. Download as PDF using a server-side generation approach.
 
 ## Story Prioritization
 
 ### Must Have (Critical Path)
+1. **STORY-006** — Streaks & XP (3 pts) — Prerequisite for leaderboard and analytics
+2. **STORY-007** — Event tracking (3 pts) — Prerequisite for analytics dashboard
+3. **STORY-008** — Learning analytics (5 pts) — Core student facing feature
 
-1. **STORY-001** — Project scaffold (3 pts) — Everything depends on this
-2. **STORY-002** — Database schema (5 pts) — All data models need this
-3. **STORY-003** — Vercel deploy (2 pts) — Early deploy catches infra issues
-4. **STORY-004** — Auth flow (5 pts) — Gated content needs auth
-5. **STORY-005** — Course catalog (5 pts) — Core student-facing value
+### Should Have
+4. **STORY-009** — Leaderboard (4 pts) — Depends on streak XP data
+5. **STORY-010** — Certificates (5 pts) — Depends on progress tracking
 
-**Total Must Have:** 20 points (100% of capacity)
+**Total Must Have:** 11 points
+**Total Should Have:** 9 points
 
-### Could Have (Buffer)
+## Dependencies
 
-None this sprint. All stories are critical path.
+```
+STORY-006 (streaks/XP — no deps)
+  ├── STORY-007 (event tracking — needs auth context from STORY-006)
+  │    └── STORY-008 (analytics — needs event data)
+  └── STORY-009 (leaderboard — needs XP data from STORY-006)
 
----
+STORY-010 (certificates — needs progress/completion data from courses module)
+```
 
 ## Implementation Order
 
-1. **Days 1-2: STORY-001** — Project scaffold
-   - Rationale: The foundation. Creates the folder structure, installs deps, configures tooling.
+1. **STORY-006** — Daily Streaks & XP — Quick win, foundation for everything else
+2. **STORY-007** — Event Tracking — Need events before analytics
+3. **STORY-008** — Learning Analytics Dashboard — Core student-facing feature
+4. **STORY-009** — Leaderboard — Gamification layer
+5. **STORY-010** — Certificates — Verification and credentialing
 
-2. **Days 2-4: STORY-002** — Database schema
-   - Rationale: Can start day 2 (no deps on story 001 beyond having the project exist). All models, migrations, seed data.
+## Risks
 
-3. **Day 4: STORY-003** — Vercel deploy
-   - Rationale: Quick win. Push scaffold to GitHub, auto-deploy to Vercel. Catches build issues early.
-
-4. **Days 5-7: STORY-004** — Auth flow
-   - Rationale: Needs User model (STORY-002) and scaffold (STORY-001). Registration → login → session → logout. Full auth cycle.
-
-5. **Days 8-10: STORY-005** — Course catalog
-   - Rationale: Needs data (STORY-002) and auth (STORY-004 for gated content). Server component renders courses from seed data. Module detail page.
-
----
-
-## Story Dependencies
-
-### Dependency Graph
-```
-STORY-001 (no dependencies)
-  ├── STORY-003 (depends on STORY-001 — needs a project to deploy)
-  └── STORY-004 (depends on STORY-001 — needs scaffold)
-       └── STORY-005 (depends on STORY-004 — needs auth check)
-
-STORY-002 (no dependencies, can run day 2)
-  └── STORY-004 (depends on STORY-002 — User model)
-       └── STORY-005 (depends on STORY-002 — Course/Module models)
-```
-
-### Critical Path Stories
-- **STORY-001** — Blocks STORY-003, STORY-004, STORY-005
-- **STORY-002** — Blocks STORY-004, STORY-005
-
-### External Dependencies
-- None. Everything is in-house (Vercel, GitHub, Prisma/SQLite).
-
----
-
-## Risks and Mitigation
-
-### Risk 1: PPC Companion SSO complexity
-- **Probability:** Medium
-- **Impact:** Medium
-- **Mitigation:** SSO is Sprint 1.5, not Sprint 1. Sprint 1 uses email/password auth only. SSO integration deferred if PPC Companion's auth module needs changes.
-
-### Risk 2: Prisma + SQLite migration issues on Vercel
-- **Probability:** Low
-- **Impact:** High
-- **Mitigation:** Test `prisma db push` locally first. Vercel build hook runs `prisma generate && prisma db push`. If issues, fall back to manual migration.
-
-### Risk 3: Copying Project Aurora components from PPC Companion
-- **Probability:** Low
-- **Impact:** Low
-- **Mitigation:** Components are in `components/ui/`. Copy entire folder, rename imports. One-time setup.
-
----
-
-## Sprint Milestones
-
-- **Day 3:** STORY-001 complete, STORY-002 in progress — Project scaffold live
-- **Day 5:** STORY-002 + STORY-003 complete — Database deployed, Vercel auto-deploy working
-- **Day 7:** STORY-004 complete — Auth working (register, login, logout)
-- **Day 10:** STORY-005 complete — Course catalog page live with seed data
-
----
-
-## Definition of Done
-
-A story is complete when:
-- [ ] All acceptance criteria are met
-- [ ] Code is linted and formatted
-- [ ] Tests are written and passing (where applicable)
-- [ ] Code is merged to main branch
-- [ ] Deployed to Vercel (production)
-- [ ] Self-reviewed against acceptance criteria
-
----
-
-## Sprint Ceremonies
-
-### Daily Standups
-- **Format:** Solo retrospective. End-of-day commit with notes on what was done, what's next, blockers.
-
-### Sprint Review
-- **Date:** 2026-07-15
-- **Format:** Verify all 5 stories deployed and working on Vercel production URL.
-
-### Sprint Retrospective
-- **Date:** 2026-07-15
-- **Format:** Document lessons, calculate actual velocity, adjust Sprint 2 capacity.
-
----
-
-## Success Criteria
-
-This sprint is successful if:
-1. **Sprint goal achieved:** Foundation, auth, and course catalog are live
-2. **Velocity target:** Complete 20 story points (±3)
-3. **Quality maintained:** Auth works end-to-end (register → login → session → logout)
-4. **Deployable:** Main branch auto-deploys to Vercel green
-
----
-
-## Burndown Tracking
-
-| Date | Completed | Remaining | Ideal | Notes |
-|------|-----------|-----------|-------|-------|
-| 2026-07-01 | 0 | 20 | 20 | Sprint starts |
-| 2026-07-02 | 0 | 20 | 18 | Planning complete, begin STORY-001 |
-| 2026-07-15 | 0 | 20 | 0 | Target: all stories complete |
-
----
-
-## Team Capacity
-
-**Developer:** Ryan — 10 dev-days available (July 2-15)
-
-**Capacity Adjustments:** None.
-
----
-
-## Notes
-
-- First sprint of a new project includes scaffolding overhead — velocity will be lower than subsequent sprints
-- PPC Companion SSO is Sprint 2 material, not Sprint 1
-- Project Aurora components copied from PPC Companion, not built from scratch
-- Database will use SQLite locally and on Vercel. Prisma migration to PostgreSQL later
-
----
+- **Risk 1: PDF generation complexity** — Certificate PDFs may need a library like `@react-pdf/renderer` or `puppeteer`. Mitigation: use a lightweight HTML-to-PDF approach or an MCP tool.
+- **Risk 2: Analytics performance** — Large event tables could slow queries. Mitigation: pagination and aggregation limits. SQLite handles 10k+ rows fine for MVP.
+- **Risk 3: Streak timezone logic** — What counts as "daily" across timezones? Mitigation: use UTC dates, define a day as the last 24h window.
 
 **END OF SPRINT PLAN**

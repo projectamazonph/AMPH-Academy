@@ -35,7 +35,10 @@ import type {
 const MODULE_META: Record<number, { slug: string; title: string; icon: string; color: string; description: string; totalLessons: number }> = {
   0: { slug: 'onboarding', title: 'Onboarding', icon: 'Rocket', color: 'emerald', description: 'Welcome, platform tour, first simulation intro', totalLessons: 3 },
   1: { slug: 'foundations', title: 'Foundations', icon: 'BookOpen', color: 'sky', description: 'PPC basics, key metrics (CPC, ACoS, TACoS, RoAS)', totalLessons: 5 },
+  2: { slug: 'keyword-research', title: 'Keyword Research', icon: 'Search', color: 'indigo', description: 'Match types, research workflow, negative keywords', totalLessons: 4 },
+  3: { slug: 'listing-optimization', title: 'Listing Optimization', icon: 'FileText', color: 'orange', description: 'Quality score, listing anatomy, A+ Content', totalLessons: 3 },
   4: { slug: 'campaign-architecture', title: 'Campaign Architecture', icon: 'Layout', color: 'amber', description: 'Sponsored Products, Brands, Display', totalLessons: 4 },
+  5: { slug: 'portfolio-strategy', title: 'Portfolio Strategy', icon: 'PieChart', color: 'purple', description: 'Portfolio organization, budget pacing, seasonal strategy', totalLessons: 3 },
   6: { slug: 'bidding-lab', title: 'Bidding Lab', icon: 'TrendingUp', color: 'rose', description: 'Bid strategies, position economics, budget pacing', totalLessons: 3 },
   7: { slug: 'search-term-triage', title: 'Search Term Triage', icon: 'Filter', color: 'violet', description: 'Negative keywords, STR analysis, optimization', totalLessons: 3 },
 };

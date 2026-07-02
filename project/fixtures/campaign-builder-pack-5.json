@@ -1,0 +1,183 @@
+{
+  "scenarioId": "scenario-serum",
+  "category": "Beauty & Personal Care",
+  "productContext": {
+    "asin": "B0EXAMPLE05",
+    "title": "GlowBright Vitamin C Brightening Serum - 20% Pure L-Ascorbic Acid with Hyaluronic Acid & Vitamin E, Anti-Aging Face Serum 1oz",
+    "category": "Beauty & Personal Care > Skincare > Face Serums > Vitamin C Treatments",
+    "price": 28.99,
+    "margin": 0.60,
+    "averageSpend": 65.00,
+    "averageSales": 290.00,
+    "averageOrders": 10
+  },
+  "thresholds": {
+    "acosTarget": 0.25,
+    "tacosTarget": 0.15,
+    "ctrMinimum": 0.004,
+    "conversionRateMinimum": 0.08,
+    "cpcMaximum": 3.00,
+    "roasMinimum": 3.0
+  },
+  "availableProducts": [
+    {
+      "asin": "B0EXAMPLE05",
+      "title": "GlowBright Vitamin C Brightening Serum - 20% Pure L-Ascorbic Acid with Hyaluronic Acid & Vitamin E, Anti-Aging Face Serum 1oz",
+      "category": "Beauty & Personal Care",
+      "price": 28.99,
+      "margin": 0.60,
+      "averageSpend": 65.00,
+      "averageSales": 290.00,
+      "averageOrders": 10
+    }
+  ],
+  "suggestedKeywords": [
+    { "id": "vc-kw-001", "text": "vitamin c serum", "matchType": "broad", "suggestedBid": 1.90, "searchVolume": "high", "competition": "high", "relevanceScore": 0.95 },
+    { "id": "vc-kw-002", "text": "vitamin c serum", "matchType": "exact", "suggestedBid": 2.20, "searchVolume": "high", "competition": "high", "relevanceScore": 0.95 },
+    { "id": "vc-kw-003", "text": "face serum", "matchType": "broad", "suggestedBid": 1.60, "searchVolume": "high", "competition": "high", "relevanceScore": 0.60 },
+    { "id": "vc-kw-004", "text": "brightening serum", "matchType": "exact", "suggestedBid": 1.50, "searchVolume": "medium", "competition": "medium", "relevanceScore": 0.90 },
+    { "id": "vc-kw-005", "text": "anti aging serum", "matchType": "broad", "suggestedBid": 1.80, "searchVolume": "high", "competition": "high", "relevanceScore": 0.75 },
+    { "id": "vc-kw-006", "text": "hyaluronic acid serum", "matchType": "exact", "suggestedBid": 1.70, "searchVolume": "high", "competition": "high", "relevanceScore": 0.55 },
+    { "id": "vc-kw-007", "text": "20% vitamin c serum", "matchType": "exact", "suggestedBid": 1.30, "searchVolume": "low", "competition": "low", "relevanceScore": 0.92 },
+    { "id": "vc-kw-008", "text": "vitamin c face serum for women", "matchType": "phrase", "suggestedBid": 1.40, "searchVolume": "medium", "competition": "high", "relevanceScore": 0.88 },
+    { "id": "vc-kw-009", "text": "skincare set", "matchType": "broad", "suggestedBid": 2.00, "searchVolume": "high", "competition": "high", "relevanceScore": 0.20 },
+    { "id": "vc-kw-010", "text": "L ascorbic acid serum", "matchType": "phrase", "suggestedBid": 1.10, "searchVolume": "medium", "competition": "medium", "relevanceScore": 0.85 },
+    { "id": "vc-kw-011", "text": "dark spot corrector", "matchType": "exact", "suggestedBid": 1.60, "searchVolume": "medium", "competition": "medium", "relevanceScore": 0.72 },
+    { "id": "vc-kw-012", "text": "moisturizer", "matchType": "broad", "suggestedBid": 1.50, "searchVolume": "high", "competition": "high", "relevanceScore": 0.12 },
+    { "id": "vc-kw-013", "text": "retinol cream", "matchType": "broad", "suggestedBid": 2.10, "searchVolume": "high", "competition": "high", "relevanceScore": 0.08 },
+    { "id": "vc-kw-014", "text": "vitamin c with hyaluronic acid", "matchType": "exact", "suggestedBid": 1.00, "searchVolume": "low", "competition": "low", "relevanceScore": 0.93 },
+    { "id": "vc-kw-015", "text": "sunscreen", "matchType": "broad", "suggestedBid": 1.80, "searchVolume": "high", "competition": "high", "relevanceScore": 0.05 }
+  ],
+  "suggestedNegativeKeywords": [
+    { "id": "vc-neg-001", "text": "free", "matchType": "broad", "reasoning": "Free-seeking shoppers rarely convert on a premium skincare product" },
+    { "id": "vc-neg-002", "text": "cheap", "matchType": "broad", "reasoning": "Price-sensitive shoppers looking for drugstore brands, not premium skincare" },
+    { "id": "vc-neg-003", "text": "moisturizer", "matchType": "broad", "reasoning": "Moisturizer is a different product category; shoppers want cream, not serum" },
+    { "id": "vc-neg-004", "text": "retinol", "matchType": "broad", "reasoning": "Retinol shoppers seek anti-aging via a different active ingredient" },
+    { "id": "vc-neg-005", "text": "makeup", "matchType": "broad", "reasoning": "Makeup shoppers want cosmetics, not skincare treatments" }
+  ],
+  "referenceCampaigns": [
+    {
+      "id": "vc-ref-001",
+      "name": "SP - Vitamin C Serum - Ingredient Focus",
+      "type": "sponsored-products",
+      "targetingType": "manual",
+      "dailyBudget": 35.00,
+      "bidStrategy": "dynamic-up-down",
+      "defaultBid": 1.50,
+      "keywords": [
+        { "id": "vc-rk-001", "text": "vitamin c serum", "matchType": "exact", "bid": 2.20, "isNegative": false },
+        { "id": "vc-rk-002", "text": "brightening serum", "matchType": "exact", "bid": 1.50, "isNegative": false },
+        { "id": "vc-rk-003", "text": "20% vitamin c serum", "matchType": "exact", "bid": 1.30, "isNegative": false },
+        { "id": "vc-rk-004", "text": "vitamin c with hyaluronic acid", "matchType": "exact", "bid": 1.00, "isNegative": false },
+        { "id": "vc-rk-005", "text": "L ascorbic acid serum", "matchType": "exact", "bid": 1.10, "isNegative": false },
+        { "id": "vc-rk-neg-001", "text": "free", "matchType": "broad", "bid": 0, "isNegative": true },
+        { "id": "vc-rk-neg-002", "text": "moisturizer", "matchType": "broad", "bid": 0, "isNegative": true },
+        { "id": "vc-rk-neg-003", "text": "retinol", "matchType": "broad", "bid": 0, "isNegative": true }
+      ],
+      "asins": ["B0EXAMPLE05"],
+      "adGroupName": "Ingredient Focus - Exact",
+      "reasoning": "Beauty buyers search by ingredient. Exact match on 'vitamin c serum', 'brightening serum', and 'L ascorbic acid' captures high-intent skincare shoppers. High margin (60%) allows aggressive exact-match bidding. Negatives exclude moisturizer and retinol — related but different products."
+    },
+    {
+      "id": "vc-ref-002",
+      "name": "SP - Vitamin C - Benefit Discovery",
+      "type": "sponsored-products",
+      "targetingType": "manual",
+      "dailyBudget": 25.00,
+      "bidStrategy": "dynamic-up-down",
+      "defaultBid": 1.20,
+      "keywords": [
+        { "id": "vc-rk-006", "text": "vitamin c serum", "matchType": "broad", "bid": 1.90, "isNegative": false },
+        { "id": "vc-rk-007", "text": "face serum", "matchType": "broad", "bid": 1.60, "isNegative": false },
+        { "id": "vc-rk-008", "text": "anti aging serum", "matchType": "broad", "bid": 1.80, "isNegative": false },
+        { "id": "vc-rk-009", "text": "vitamin c face serum for women", "matchType": "phrase", "bid": 1.40, "isNegative": false },
+        { "id": "vc-rk-010", "text": "dark spot corrector", "matchType": "exact", "bid": 1.60, "isNegative": false },
+        { "id": "vc-rk-neg-004", "text": "cheap", "matchType": "broad", "bid": 0, "isNegative": true },
+        { "id": "vc-rk-neg-005", "text": "makeup", "matchType": "broad", "bid": 0, "isNegative": true },
+        { "id": "vc-rk-neg-006", "text": "retinol", "matchType": "broad", "bid": 0, "isNegative": true },
+        { "id": "vc-rk-neg-007", "text": "sunscreen", "matchType": "broad", "bid": 0, "isNegative": true }
+      ],
+      "asins": ["B0EXAMPLE05"],
+      "adGroupName": "Benefit Discovery - Broad/Phrase",
+      "reasoning": "Benefit-oriented keywords (anti-aging, brightening, dark spot) capture shoppers solving specific problems. Broad match on 'face serum' discovers adjacent terms. Aggressive negatives prevent budget waste on unrelated beauty categories like moisturizer, retinol, makeup, and sunscreen."
+    }
+  ],
+  "evaluationCriteria": [
+    {
+      "criterionId": "structure",
+      "name": "Campaign Structure",
+      "description": "Campaign uses an appropriate type, targeting mode, and bid strategy for the product and goals.",
+      "weight": 0.25,
+      "checks": [
+        "Campaign type is 'sponsored-products' (correct for a single ASIN product)",
+        "Targeting is 'manual' (needed for keyword-level control)",
+        "Bid strategy is dynamic (up-only or up-down) rather than legacy"
+      ]
+    },
+    {
+      "criterionId": "keyword-selection",
+      "name": "Keyword Selection",
+      "description": "Keywords are relevant, have appropriate match types, and cover both high-intent and discovery terms.",
+      "weight": 0.30,
+      "checks": [
+        "At least 3 exact match keywords for high-intent targeting",
+        "At least 2 broad/phrase keywords for discovery",
+        "No low-relevance keywords (relevanceScore < 0.3)",
+        "Ingredient-specific keywords (L-ascorbic acid, 20%) are included"
+      ]
+    },
+    {
+      "criterionId": "negative-keywords",
+      "name": "Negative Keywords",
+      "description": "Negative keywords effectively filter out irrelevant and low-converting search traffic.",
+      "weight": 0.20,
+      "checks": [
+        "At least 2 negative keywords present",
+        "Negative keywords include 'moisturizer' (different product category)",
+        "Negative keywords include 'retinol' (different active ingredient)",
+        "Negative keywords include 'makeup' or 'cheap' (non-target audience)"
+      ]
+    },
+    {
+      "criterionId": "bidding",
+      "name": "Bid Configuration",
+      "description": "Bids are set at appropriate levels relative to product margin, competition, and keyword intent.",
+      "weight": 0.15,
+      "checks": [
+        "Default bid is within reasonable range ($0.50 - $2.50)",
+        "Exact match bids are higher than broad match bids",
+        "No bids exceed max profitable CPC (AOV x CVR x Target ACoS = ~$0.58)",
+        "60% margin allows aggressive bidding — take advantage of it on high-value keywords"
+      ]
+    },
+    {
+      "criterionId": "budget",
+      "name": "Budget Allocation",
+      "description": "Daily budget is set appropriately for the product's sales velocity and goals.",
+      "weight": 0.10,
+      "checks": [
+        "Daily budget is at least $15 (minimum for competitive beauty category)",
+        "Daily budget is at most $120 (appropriate for a $28.99 product with high volume)",
+        "Budget accommodates at least 10 clicks per day at the default bid"
+      ]
+    }
+  ],
+  "missionBrief": {
+    "title": "Vitamin C Serum Skincare Launch",
+    "scenario": "You are launching a new Amazon PPC campaign for GlowBright Vitamin C Brightening Serum — a $28.99 face serum with 20% L-Ascorbic Acid, Hyaluronic Acid, and Vitamin E, with a HUGE 60% profit margin. Your target ACoS is 25%, meaning your break-even CPC is approximately $0.58 (AOV x CVR x Target ACoS). BUT — with a 60% margin, your break-even ACoS is actually 60%, giving you FAR more bidding flexibility than most products. The beauty category is competitive and brand-driven, but skincare shoppers search by ingredient and benefit. Your challenge is to build a campaign structure that leverages your margin advantage while staying disciplined on keyword relevance.",
+    "objectives": [
+      "Choose the right campaign type and targeting mode for a high-margin skincare product",
+      "Select keywords that target ingredient-savvy skincare shoppers",
+      "Add negative keywords to filter out unrelated beauty categories (moisturizer, retinol, makeup)",
+      "Set a daily budget that captures your share of a high-volume skincare market",
+      "Leverage your 60% margin to bid aggressively on high-value ingredient keywords"
+    ],
+    "tips": [
+      "60% margin means your break-even ACoS is 60% — you can bid much higher than you think",
+      "Vitamin C serum is a high-volume search — focus on ingredient keywords to stand out",
+      "Negate 'retinol' and 'moisturizer' — they're different products that waste budget",
+      "Include concentration keywords (20%, L-Ascorbic Acid) for informed buyers who convert better",
+      "Brands dominate beauty — compete on ingredient specificity, not generic 'face serum'"
+    ]
+  }
+}

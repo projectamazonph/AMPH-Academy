@@ -1,0 +1,183 @@
+{
+  "scenarioId": "scenario-earbuds",
+  "category": "Electronics",
+  "productContext": {
+    "asin": "B0EXAMPLE02",
+    "title": "SoundPro Wireless Bluetooth Earbuds - IPX5 Waterproof Sports Earphones with Charging Case, 24H Battery Life",
+    "category": "Electronics > Headphones & Earbuds > Wireless Earbuds",
+    "price": 49.99,
+    "margin": 0.40,
+    "averageSpend": 85.00,
+    "averageSales": 350.00,
+    "averageOrders": 7
+  },
+  "thresholds": {
+    "acosTarget": 0.25,
+    "tacosTarget": 0.12,
+    "ctrMinimum": 0.003,
+    "conversionRateMinimum": 0.07,
+    "cpcMaximum": 3.50,
+    "roasMinimum": 3.0
+  },
+  "availableProducts": [
+    {
+      "asin": "B0EXAMPLE02",
+      "title": "SoundPro Wireless Bluetooth Earbuds - IPX5 Waterproof Sports Earphones with Charging Case, 24H Battery Life",
+      "category": "Electronics",
+      "price": 49.99,
+      "margin": 0.40,
+      "averageSpend": 85.00,
+      "averageSales": 350.00,
+      "averageOrders": 7
+    }
+  ],
+  "suggestedKeywords": [
+    { "id": "ew-kw-001", "text": "wireless earbuds", "matchType": "broad", "suggestedBid": 2.10, "searchVolume": "high", "competition": "high", "relevanceScore": 0.92 },
+    { "id": "ew-kw-002", "text": "wireless earbuds", "matchType": "exact", "suggestedBid": 2.50, "searchVolume": "high", "competition": "high", "relevanceScore": 0.92 },
+    { "id": "ew-kw-003", "text": "bluetooth earbuds", "matchType": "exact", "suggestedBid": 2.20, "searchVolume": "high", "competition": "high", "relevanceScore": 0.88 },
+    { "id": "ew-kw-004", "text": "true wireless earbuds", "matchType": "phrase", "suggestedBid": 1.80, "searchVolume": "medium", "competition": "medium", "relevanceScore": 0.90 },
+    { "id": "ew-kw-005", "text": "earbuds for running", "matchType": "exact", "suggestedBid": 1.20, "searchVolume": "medium", "competition": "low", "relevanceScore": 0.78 },
+    { "id": "ew-kw-006", "text": "sports earbuds", "matchType": "broad", "suggestedBid": 1.50, "searchVolume": "medium", "competition": "medium", "relevanceScore": 0.72 },
+    { "id": "ew-kw-007", "text": "wireless headphones", "matchType": "broad", "suggestedBid": 2.80, "searchVolume": "high", "competition": "high", "relevanceScore": 0.35 },
+    { "id": "ew-kw-008", "text": "noise canceling earbuds", "matchType": "phrase", "suggestedBid": 2.00, "searchVolume": "medium", "competition": "high", "relevanceScore": 0.85 },
+    { "id": "ew-kw-009", "text": "workout earbuds", "matchType": "exact", "suggestedBid": 1.40, "searchVolume": "medium", "competition": "medium", "relevanceScore": 0.80 },
+    { "id": "ew-kw-010", "text": "bluetooth headphones", "matchType": "broad", "suggestedBid": 2.60, "searchVolume": "high", "competition": "high", "relevanceScore": 0.25 },
+    { "id": "ew-kw-011", "text": "earbuds with microphone", "matchType": "phrase", "suggestedBid": 1.90, "searchVolume": "medium", "competition": "medium", "relevanceScore": 0.82 },
+    { "id": "ew-kw-012", "text": "charging case", "matchType": "exact", "suggestedBid": 0.60, "searchVolume": "low", "competition": "low", "relevanceScore": 0.30 },
+    { "id": "ew-kw-013", "text": "wireless charger", "matchType": "broad", "suggestedBid": 1.50, "searchVolume": "high", "competition": "high", "relevanceScore": 0.08 },
+    { "id": "ew-kw-014", "text": "IPX5 earbuds", "matchType": "exact", "suggestedBid": 0.90, "searchVolume": "low", "competition": "low", "relevanceScore": 0.95 },
+    { "id": "ew-kw-015", "text": "waterproof earbuds", "matchType": "phrase", "suggestedBid": 1.30, "searchVolume": "medium", "competition": "medium", "relevanceScore": 0.88 }
+  ],
+  "suggestedNegativeKeywords": [
+    { "id": "ew-neg-001", "text": "free", "matchType": "broad", "reasoning": "Free-seeking shoppers rarely convert on a $49.99 premium electronics product" },
+    { "id": "ew-neg-002", "text": "cheap", "matchType": "broad", "reasoning": "Price-sensitive shoppers looking for budget options, not premium wireless earbuds" },
+    { "id": "ew-neg-003", "text": "wired", "matchType": "broad", "reasoning": "Shoppers looking for wired earphones, not wireless earbuds — different product type" },
+    { "id": "ew-neg-004", "text": "over ear", "matchType": "phrase", "reasoning": "Over-ear headphones are a different category altogether" },
+    { "id": "ew-neg-005", "text": "how to connect", "matchType": "broad", "reasoning": "Informational search intent, not purchase intent" }
+  ],
+  "referenceCampaigns": [
+    {
+      "id": "ew-ref-001",
+      "name": "SP - Earbuds - Exact Match Core",
+      "type": "sponsored-products",
+      "targetingType": "manual",
+      "dailyBudget": 40.00,
+      "bidStrategy": "dynamic-up-down",
+      "defaultBid": 1.75,
+      "keywords": [
+        { "id": "ew-rk-001", "text": "wireless earbuds", "matchType": "exact", "bid": 2.50, "isNegative": false },
+        { "id": "ew-rk-002", "text": "bluetooth earbuds", "matchType": "exact", "bid": 2.20, "isNegative": false },
+        { "id": "ew-rk-003", "text": "true wireless earbuds", "matchType": "exact", "bid": 1.80, "isNegative": false },
+        { "id": "ew-rk-004", "text": "earbuds for running", "matchType": "exact", "bid": 1.20, "isNegative": false },
+        { "id": "ew-rk-005", "text": "noise canceling earbuds", "matchType": "exact", "bid": 2.00, "isNegative": false },
+        { "id": "ew-rk-neg-001", "text": "free", "matchType": "broad", "bid": 0, "isNegative": true },
+        { "id": "ew-rk-neg-002", "text": "wired", "matchType": "broad", "bid": 0, "isNegative": true },
+        { "id": "ew-rk-neg-003", "text": "over ear", "matchType": "phrase", "bid": 0, "isNegative": true }
+      ],
+      "asins": ["B0EXAMPLE02"],
+      "adGroupName": "Exact Match - Core",
+      "reasoning": "High-intent exact match keywords protect the brand's core search terms. Dynamic up/down bidding maximizes conversion opportunities in a high-competition electronics category with CPCs up to $3.50."
+    },
+    {
+      "id": "ew-ref-002",
+      "name": "SP - Earbuds - Discovery Broad",
+      "type": "sponsored-products",
+      "targetingType": "manual",
+      "dailyBudget": 25.00,
+      "bidStrategy": "dynamic-up-only",
+      "defaultBid": 1.20,
+      "keywords": [
+        { "id": "ew-rk-006", "text": "wireless earbuds", "matchType": "broad", "bid": 2.10, "isNegative": false },
+        { "id": "ew-rk-007", "text": "sports earbuds", "matchType": "broad", "bid": 1.50, "isNegative": false },
+        { "id": "ew-rk-008", "text": "workout earbuds", "matchType": "broad", "bid": 1.40, "isNegative": false },
+        { "id": "ew-rk-009", "text": "earbuds with microphone", "matchType": "broad", "bid": 1.90, "isNegative": false },
+        { "id": "ew-rk-010", "text": "waterproof earbuds", "matchType": "phrase", "bid": 1.30, "isNegative": false },
+        { "id": "ew-rk-neg-004", "text": "wireless headphones", "matchType": "broad", "bid": 0, "isNegative": true },
+        { "id": "ew-rk-neg-005", "text": "bluetooth headphones", "matchType": "broad", "bid": 0, "isNegative": true },
+        { "id": "ew-rk-neg-006", "text": "wireless charger", "matchType": "broad", "bid": 0, "isNegative": true },
+        { "id": "ew-rk-neg-007", "text": "cheap", "matchType": "broad", "bid": 0, "isNegative": true }
+      ],
+      "asins": ["B0EXAMPLE02"],
+      "adGroupName": "Discovery - Broad/Phrase",
+      "reasoning": "Broad and phrase match keywords discover adjacent search terms. In a high-CPC electronics category, dynamic-up-only bidding protects against excessive spend while still winning placements. Strong negatives prevent bleeding budget on irrelevant headphone queries."
+    }
+  ],
+  "evaluationCriteria": [
+    {
+      "criterionId": "structure",
+      "name": "Campaign Structure",
+      "description": "Campaign uses an appropriate type, targeting mode, and bid strategy for the product and goals.",
+      "weight": 0.25,
+      "checks": [
+        "Campaign type is 'sponsored-products' (correct for a single ASIN product launch)",
+        "Targeting is 'manual' (needed for keyword-level control)",
+        "Bid strategy is dynamic (up-only or up-down) rather than legacy"
+      ]
+    },
+    {
+      "criterionId": "keyword-selection",
+      "name": "Keyword Selection",
+      "description": "Keywords are relevant, have appropriate match types, and cover both high-intent and discovery terms.",
+      "weight": 0.30,
+      "checks": [
+        "At least 3 exact match keywords for high-intent targeting",
+        "At least 2 broad/phrase keywords for discovery",
+        "No low-relevance keywords (relevanceScore < 0.3) without negatives",
+        "Keywords include feature-specific terms (waterproof, IPX5, sports)"
+      ]
+    },
+    {
+      "criterionId": "negative-keywords",
+      "name": "Negative Keywords",
+      "description": "Negative keywords effectively filter out irrelevant and low-converting search traffic.",
+      "weight": 0.20,
+      "checks": [
+        "At least 2 negative keywords present",
+        "Negative keywords include 'wired' or 'over ear' (different product type)",
+        "Negative keywords include 'free' or 'cheap' (price-sensitive filter)",
+        "Broad negatives cover audio-category terms that don't match earbuds"
+      ]
+    },
+    {
+      "criterionId": "bidding",
+      "name": "Bid Configuration",
+      "description": "Bids are set at appropriate levels relative to product margin, competition, and keyword intent.",
+      "weight": 0.15,
+      "checks": [
+        "Default bid is within reasonable range ($0.50 - $2.50)",
+        "Exact match bids are higher than broad match bids",
+        "No bids exceed max profitable CPC (AOV x CVR x Target ACoS = ~$0.87)",
+        "Bids account for high competition in electronics category"
+      ]
+    },
+    {
+      "criterionId": "budget",
+      "name": "Budget Allocation",
+      "description": "Daily budget is set appropriately for the product's sales velocity and goals.",
+      "weight": 0.10,
+      "checks": [
+        "Daily budget is at least $15 (minimum for competitive electronics)",
+        "Daily budget is at most $150 (appropriate for a $49.99 product)",
+        "Budget accommodates at least 10 clicks per day at the default bid"
+      ]
+    }
+  ],
+  "missionBrief": {
+    "title": "Wireless Earbuds Launch Campaign",
+    "scenario": "You are launching a new Amazon PPC campaign for the SoundPro Wireless Bluetooth Earbuds — a $49.99 pair of IPX5 waterproof sports earbuds with a 40% profit margin. Your target ACoS is 25%, meaning your break-even CPC is approximately $0.87 (AOV x CVR x Target ACoS). The electronics category is HIGHLY competitive, with major brands spending heavily. This means CPCs are high ($2-3 range for core keywords) and you'll need smart keyword selection and aggressive negatives to stay profitable. Your goal is to build a campaign structure that captures high-intent buyers while filtering out expensive, low-relevance traffic.",
+    "objectives": [
+      "Choose the right campaign type and targeting mode for a single-ASIN electronics product",
+      "Select high-relevance keywords that balance volume with bid affordability",
+      "Add negative keywords to prevent wasted spend on related but irrelevant audio queries",
+      "Set a daily budget that allows competitive data collection without over-spending",
+      "Choose a bid strategy that balances visibility with profitability in a high-CPC category"
+    ],
+    "tips": [
+      "Wireless earbuds is a competitive category — exact match on high-intent terms is your bread and butter",
+      "Broad match in electronics can burn budget quickly; aggressive negatives are essential",
+      "'Wireless headphones' and 'bluetooth headphones' are NOT your product — negate them",
+      "Feature-specific keywords like 'waterproof earbuds' or 'IPX5 earbuds' have lower competition",
+      "With a 40% margin, you have some wiggle room — but at $2.50 CPC, every click matters"
+    ]
+  }
+}

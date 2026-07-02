@@ -14,6 +14,8 @@ import {
   BarChart3,
   Award,
   LogOut,
+  MessageSquare,
+  Video,
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Separator } from '@/components/ui/separator';
@@ -22,7 +24,7 @@ import { cn } from '@/lib/utils';
 import { useState } from 'react';
 import { useSession, signOut } from 'next-auth/react';
 
-export type NavTab = 'dashboard' | 'modules' | 'simulations' | 'leaderboard' | 'analytics' | 'admin' | 'certificate' | 'team';
+export type NavTab = 'dashboard' | 'modules' | 'simulations' | 'leaderboard' | 'analytics' | 'admin' | 'certificate' | 'team' | 'mentor' | 'live-classes';
 
 interface SidebarProps {
   activeTab: NavTab;
@@ -36,6 +38,8 @@ const navItems: { id: NavTab; label: string; icon: typeof LayoutDashboard }[] = 
   { id: 'dashboard', label: 'Dashboard', icon: LayoutDashboard },
   { id: 'modules', label: 'Modules', icon: BookOpen },
   { id: 'simulations', label: 'Simulations', icon: FlaskConical },
+  { id: 'mentor', label: 'Mentor', icon: MessageSquare },
+  { id: 'live-classes', label: 'Live Classes', icon: Video },
   { id: 'leaderboard', label: 'Leaderboard', icon: Trophy },
   { id: 'analytics', label: 'Analytics', icon: BarChart3 },
   { id: 'certificate', label: 'Certificate', icon: Award },
