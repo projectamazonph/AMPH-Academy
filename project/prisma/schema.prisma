@@ -1,4 +1,4 @@
-// AdCraft Academy — Prisma Schema
+// AMPH Academy — Prisma Schema
 // Architecture: Modular Monolith (ADR-001)
 // All tables include nullable orgId for future multi-tenancy
 // Simulation state stored as JSON string
@@ -420,7 +420,7 @@ model Certificate {
   orgId           String?
   userId          String
   courseId        String
-  title           String   @default("AdCraft PPC Command Center")
+  title           String   @default("ProjectAMPH Academy")
   status          String   @default("active") // "active" | "expired" | "revoked"
   verificationHash String  @unique
   metadata        String?  // JSONB

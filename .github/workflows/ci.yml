@@ -49,7 +49,7 @@ jobs:
       - name: Override env vars for build
         run: |
           cat > .vercel/.env.production.local << 'EOF'
-          DATABASE_URL="postgresql://placeholder:***@localhost:5432/amph_academy?schema=public"
+          DATABASE_URL="file:./dev.db"
           NEXTAUTH_SECRET="placeholder-secret-for-build"
           NEXTAUTH_URL="https://amph-academy.vercel.app"
           EOF
