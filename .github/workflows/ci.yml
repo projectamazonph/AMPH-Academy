@@ -54,6 +54,9 @@ jobs:
           NEXTAUTH_URL="https://amph-academy.vercel.app"
           EOF
 
+      - name: Push schema to local DB
+        run: npx prisma db push --skip-generate
+
       - name: Build with Vercel
         run: vercel build --prod --token=${{ secrets.VERCEL_TOKEN }}
 
