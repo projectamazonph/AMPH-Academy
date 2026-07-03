@@ -1,4 +1,5 @@
 # Project BMAD Agent Contract (OpenAI Codex)
+# Project: AMPH Academy (formerly Adcraft Academy)
 
 This project uses BMAD skills through OpenAI Codex.
 
