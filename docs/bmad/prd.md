@@ -1,6 +1,6 @@
-# Product Requirements Document (PRD) — Adcraft Academy
+# Product Requirements Document (PRD) — AMPH Academy
 
-- **Project Name:** Adcraft Academy
+- **Project Name:** AMPH Academy
 - **Document Version:** 1.0
 - **Date:** 2026-07-02
 - **Author:** Ryan Roland Dabao
@@ -20,7 +20,7 @@
 
 **Problem Statement:** Filipino virtual assistants complete foundational PPC training but hit a ceiling. They lack the advanced skills (bid optimization, portfolio strategy, agency-level reporting) and credentials needed to land ₱60k–₱80k+/month agency roles. Existing advanced training is either too expensive ($500–$2,000 Western courses) or too theoretical.
 
-**Proposed Solution:** Adcraft Academy — an advanced Amazon advertising skills training platform combining live online classes, interactive practice tools (Campaign Builder, Bid Elevator, Search Term Triage), gamified progression, and a certification-to-placement pipeline. Built on Next.js with PPC Companion integration.
+**Proposed Solution:** AMPH Academy — an advanced Amazon advertising skills training platform combining live online classes, interactive practice tools (Campaign Builder, Bid Elevator, Search Term Triage), gamified progression, and a certification-to-placement pipeline. Built on Next.js with PPC Companion integration.
 
 **Business Value:**
 - Creates an up-sell path from PPC Companion (foundations → advanced specialization)
@@ -41,7 +41,7 @@
 
 ### Background
 
-Ryan Dabao has spent 13 years as a virtual assistant and 8 years as an Amazon PPC specialist, managing over ₱50M in ad spend. Through PPC Companion (the foundational training platform) and ProjectAmazonPH (the brand and community), he has built an audience of Filipino VAs seeking to specialize in Amazon advertising. Adcraft Academy is the next logical tier — advanced training for those who have mastered the basics and are ready for agency-level roles.
+Ryan Dabao has spent 13 years as a virtual assistant and 8 years as an Amazon PPC specialist, managing over ₱50M in ad spend. Through PPC Companion (the foundational training platform) and ProjectAmazonPH (the brand and community), he has built an audience of Filipino VAs seeking to specialize in Amazon advertising. AMPH Academy is the next logical tier — advanced training for those who have mastered the basics and are ready for agency-level roles.
 
 ### Current State
 
@@ -49,7 +49,7 @@ Ryan Dabao has spent 13 years as a virtual assistant and 8 years as an Amazon PP
 - ProjectAmazonPH has a 15k+ Facebook community audience
 - Existing "advanced" resources are scattered: YouTube, expensive Western courses, inconsistent local groups
 - No structured platform exists that combines live classes, interactive tools, and job placement for the Philippine VA market
-- Adcraft Academy scaffold exists (Next.js project structure) but no feature implementation
+- AMPH Academy scaffold exists (Next.js project structure) but no feature implementation
 
 ### Desired State
 
@@ -74,7 +74,7 @@ Ryan Dabao has spent 13 years as a virtual assistant and 8 years as an Amazon PP
 
 ### Business Goals
 
-1. Establish Adcraft Academy as the definitive advanced Amazon PPC training platform for Filipino VAs
+1. Establish AMPH Academy as the definitive advanced Amazon PPC training platform for Filipino VAs
 2. Create a sustainable revenue stream through course enrollment (₱2,999–₱9,999 tiers)
 3. Build agency partnerships to create a placement pipeline that validates the training
 
@@ -266,12 +266,12 @@ Students who complete all required modules and pass assessments receive a verifi
 ### FR-008: PPC Companion Integration [MUST]
 
 **Description:**
-Adcraft Academy must integrate with the existing PPC Companion platform for shared authentication (SSO), enabling users to navigate between platforms seamlessly.
+AMPH Academy must integrate with the existing PPC Companion platform for shared authentication (SSO), enabling users to navigate between platforms seamlessly.
 
 **Acceptance Criteria:**
-- Users authenticated in PPC Companion can access Adcraft Academy without re-login
+- Users authenticated in PPC Companion can access AMPH Academy without re-login
 - User account data (name, email, enrollment status) syncs between platforms
-- PPC Companion graduates see an "Advance to Adcraft" call-to-action in their dashboard
+- PPC Companion graduates see an "Advance to AMPH" call-to-action in their dashboard
 - Component reuse: Campaign Builder components shared where applicable
 - Design system consistency: Project Aurora design tokens used across both platforms
 
@@ -418,7 +418,7 @@ The platform shall be usable on mobile devices for course consumption (video wat
 #### NFR-007: Code Reusability with PPC Companion [MUST]
 
 **Description:**
-Components shared between Adcraft Academy and PPC Companion shall be reusable to minimize duplicate effort.
+Components shared between AMPH Academy and PPC Companion shall be reusable to minimize duplicate effort.
 
 **Acceptance Criteria:**
 - UI components (Button, Card, Navigation, Badge, Modal) use shared design tokens
@@ -452,7 +452,7 @@ so I can start my advanced training journey.
 ```
 
 **Acceptance Criteria:**
-- **Given** I am a visitor on Adcraft Academy,
+- **Given** I am a visitor on AMPH Academy,
   **when** I visit the course catalog page,
   **then** I see course titles, descriptions, and pricing.
 
@@ -534,7 +534,7 @@ so I can prove my skills to agencies and employers.
 ### Epic 2: Interactive Practice Tools (EPIC-002)
 
 **Epic ID:** EPIC-002
-**Business Value:** The hands-on practice is what differentiates Adcraft from theory-only courses. Students build real skills without risking real ad spend.
+**Business Value:** The hands-on practice is what differentiates AMPH from theory-only courses. Students build real skills without risking real ad spend.
 **User Segments:** All students (especially Maria — needs practical experience)
 
 **Success Metrics:**
@@ -652,12 +652,12 @@ so I stay motivated and have shareable proof of my skills.
 ### Epic 4: PPC Companion Integration (EPIC-004)
 
 **Epic ID:** EPIC-004
-**Business Value:** Creates a seamless student journey from foundations (PPC Companion) to advanced (Adcraft Academy). Reduces friction and increases enrollment conversion.
+**Business Value:** Creates a seamless student journey from foundations (PPC Companion) to advanced (AMPH Academy). Reduces friction and increases enrollment conversion.
 **User Segments:** PPC Companion graduates (Maria persona)
 
 **Success Metrics:**
 - SSO success rate > 99%
-- PPC Companion → Adcraft enrollment conversion > 15%
+- PPC Companion → AMPH enrollment conversion > 15%
 
 **Related Requirements:** FR-008, NFR-003
 
@@ -665,16 +665,16 @@ so I stay motivated and have shareable proof of my skills.
 
 ```
 As a PPC Companion graduate,
-I want to log into Adcraft Academy using my existing PPC Companion account,
+I want to log into AMPH Academy using my existing PPC Companion account,
 so I don't have to create yet another account.
 ```
 
 **Acceptance Criteria:**
 - **Given** I am logged into PPC Companion,
-  **when** I click "Advance to Adcraft,"
-  **then** I am redirected to Adcraft Academy and automatically authenticated.
+  **when** I click "Advance to AMPH,"
+  **then** I am redirected to AMPH Academy and automatically authenticated.
 
-- **Given** I visit Adcraft Academy directly,
+- **Given** I visit AMPH Academy directly,
   **when** I click "Login,"
   **then** I can use my PPC Companion credentials via SSO.
 
@@ -796,7 +796,7 @@ so I don't have to create yet another account.
 **Success Criteria:**
 - A student can enroll, complete a course, and earn a certificate
 - Campaign Builder works as a standalone practice tool
-- SSO between PPC Companion and Adcraft works end-to-end
+- SSO between PPC Companion and AMPH works end-to-end
 
 **Sprint Breakdown:**
 - **Sprint 1** (Weeks 1–2): Database schema, auth/SSO, base UI scaffold, project structure
@@ -891,7 +891,7 @@ so I don't have to create yet another account.
 
 ### B. References
 
-1. **Product Brief: Adcraft Academy** — `docs/bmad/product-brief.md`
+1. **Product Brief: AMPH Academy** — `docs/bmad/product-brief.md`
 2. **PPC Companion Codebase** — `/storage/emulated/0/Hermes Projects/projects/ppc-companion/`
 3. **Project Aurora Design System** — documented in PPC Companion AGENTS.md
 4. **ProjectAmazonPH Brand Docs** — `/storage/emulated/0/Hermes Projects/projects/ProjectAmazonPH/`

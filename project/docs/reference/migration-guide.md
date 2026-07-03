@@ -1,4 +1,4 @@
-# AdCraft: SQLite → PostgreSQL Migration Guide
+# AMPH Academy: SQLite → PostgreSQL Migration Guide
 
 > Step-by-step guide for migrating from SQLite (development) to PostgreSQL (production).
 
@@ -20,7 +20,7 @@ SQLite is perfect for development and single-instance deployments. However, for 
 
 - PostgreSQL 15+ installed or a managed instance provisioned
 - `pg_dump` / `psql` CLI tools (for verification)
-- Node.js 20+ and the AdCraft project cloned locally
+- Node.js 20+ and the AMPH Academy project cloned locally
 
 ---
 
@@ -38,10 +38,10 @@ SQLite is perfect for development and single-instance deployments. However, for 
 # AWS RDS
 # Provision via Console or CLI
 aws rds create-db-instance \
-  --db-instance-identifier adcraft-prod \
+  --db-instance-identifier amph-prod \
   --db-instance-class db.t3.micro \
   --engine postgres \
-  --master-username adcraft \
+  --master-username amph \
   --master-user-password <secure-password> \
   --allocated-storage 20
 ```
@@ -50,9 +50,9 @@ aws rds create-db-instance \
 
 ```bash
 docker run -d \
-  --name adcraft-postgres \
-  -e POSTGRES_DB=adcraft \
-  -e POSTGRES_USER=adcraft \
+  --name amph-postgres \
+  -e POSTGRES_DB=amph \
+  -e POSTGRES_USER=amph \
   -e POSTGRES_PASSWORD=<secure-password> \
   -p 5432:5432 \
   postgres:16-alpine
@@ -69,7 +69,7 @@ Update `.env` (or your deployment's environment configuration):
 DATABASE_URL=file:./db/custom.db
 
 # After (PostgreSQL)
-DATABASE_URL=postgresql://adcraft:<secure-password>@localhost:5432/adcraft?schema=public
+DATABASE_URL=postgresql://amph:<secure-password>@localhost:5432/amph?schema=public
 ```
 
 > **Important**: The `env.ts` validator already accepts both `file:` and `postgresql://` URLs.
@@ -219,10 +219,10 @@ For serverless environments (Vercel, AWS Lambda), use connection pooling to avoi
 
 ```bash
 # With PgBouncer
-DATABASE_URL=postgresql://adcraft:password@pgbouncer:6432/adcraft?pgbouncer=true
+DATABASE_URL=postgresql://amph:password@pgbouncer:6432/amph?pgbouncer=true
 
 # With Supabase (uses Supavisor pooler by default)
-DATABASE_URL=postgresql://adcraft:password@db.supabase.co:6543/postgres?pgbouncer=true
+DATABASE_URL=postgresql://amph:password@db.supabase.co:6543/postgres?pgbouncer=true
 ```
 
 ---

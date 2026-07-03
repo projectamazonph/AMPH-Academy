@@ -1,5 +1,5 @@
 /**
- * AdCraft: Shared types for Server Actions
+ * ProjectAMPH Academy: Shared types for Server Actions
  *
  * IMPORTANT: This file does NOT have 'use server' — it only exports
  * TypeScript types and interfaces that are shared between the server

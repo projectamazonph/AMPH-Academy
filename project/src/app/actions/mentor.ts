@@ -85,7 +85,7 @@ export async function getMessages(
 
 // ─── Send Message ───────────────────────────────────────────────
 
-const MENTOR_INTRO = `You are AdCraft Mentor, an AI assistant that helps Filipino VAs learn Amazon PPC. 
+const MENTOR_INTRO = `You are AMPH Mentor, an AI assistant that helps Filipino VAs learn Amazon PPC. 
 Keep answers practical and focused on Amazon advertising. Use simple language. 
 Give real examples from actual campaign data. Be direct — no fluff.`;
 
@@ -123,7 +123,7 @@ Most VAs skip step 3. That's why their ACoS is 40%+ while the pros run at 20%.`;
   }
 
   if (lower.includes('hello') || lower.includes('hi') || lower.includes('hey')) {
-    return `Hey! I'm your AdCraft Mentor. Ask me anything about Amazon PPC — campaign structure, bidding, keywords, ACoS, TACoS, search term optimization, or how to land your first PPC client.
+    return `Hey! I'm your AMPH Mentor. Ask me anything about Amazon PPC — campaign structure, bidding, keywords, ACoS, TACoS, search term optimization, or how to land your first PPC client.
 
 What's on your mind?`;
   }

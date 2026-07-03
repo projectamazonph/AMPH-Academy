@@ -1,5 +1,5 @@
 /**
- * AdCraft: Simulation State Manager
+ * ProjectAMPH Academy: Simulation State Manager
  *
  * Manages the lifecycle of simulation states — creation, updates, submission.
  * All functions are pure and deterministic.

@@ -1,4 +1,4 @@
-# Solutioning Gate Check Report: Adcraft Academy
+# Solutioning Gate Check Report: AMPH Academy
 
 - **Date:** 2026-07-02
 - **Reviewer:** Ryan Roland Dabao

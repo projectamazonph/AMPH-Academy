@@ -194,7 +194,7 @@ export function MentorChat() {
               <Bot className="h-4 w-4 text-primary" />
             </div>
             <div>
-              <CardTitle className="text-sm font-semibold">AdCraft Mentor</CardTitle>
+              <CardTitle className="text-sm font-semibold">AMPH Mentor</CardTitle>
               <p className="text-[10px] text-muted-foreground">Your PPC learning assistant</p>
             </div>
           </div>
@@ -207,7 +207,7 @@ export function MentorChat() {
                 <Bot className="h-10 w-10 text-primary" />
               </div>
               <div>
-                <h3 className="text-lg font-semibold">Ask AdCraft Mentor</h3>
+                <h3 className="text-lg font-semibold">Ask AMPH Mentor</h3>
                 <p className="text-sm text-muted-foreground max-w-sm mt-1">
                   Ask me anything about Amazon PPC — bidding, keywords, ACoS, campaign structure, or landing your first PPC client.
                 </p>

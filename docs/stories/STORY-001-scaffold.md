@@ -28,7 +28,7 @@ So that **I have a working scaffold with consistent styling, database access, an
 ## Technical Notes
 
 ### Implementation Approach
-1. `npx create-next-app@latest adcraft-academy --typescript --tailwind --eslint --app --src-dir --import-alias @/*`
+1. `npx create-next-app@latest amph-academy --typescript --tailwind --eslint --app --src-dir --import-alias @/*`
 2. Install shadcn/ui: `npx shadcn@latest init`
 3. Add base shadcn components: button, card, input, badge, toast, dialog
 4. Install Prisma: `npm install prisma @prisma/client`

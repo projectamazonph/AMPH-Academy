@@ -1,6 +1,6 @@
-# AdCraft MVP Project Plan
+# AMPH Academy MVP Project Plan
 
-> Current-status tracker for the AdCraft MVP. Shows what's done, what's in progress, active risks, and next milestones. Historical details live in [`history/build-log.md`](../history/build-log.md).
+> Current-status tracker for the AMPH Academy MVP. Shows what's done, what's in progress, active risks, and next milestones. Historical details live in [`history/build-log.md`](../history/build-log.md).
 
 ---
 

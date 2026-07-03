@@ -1,7 +1,7 @@
 'use client';
 
 /**
- * AdCraft: "Explain My Mistake" Replay Panel (Phase 3)
+ * ProjectAMPH Academy: "Explain My Mistake" Replay Panel
  *
  * Slide-over review panel showing detailed mistake analysis
  * for a completed quiz attempt. Integrates with quiz results screen.

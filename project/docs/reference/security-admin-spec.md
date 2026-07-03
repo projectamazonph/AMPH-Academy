@@ -1,15 +1,15 @@
-# AdCraft Security & Admin Specification
+# AMPH Academy Security & Admin Specification
 
-> Security architecture and admin system for AdCraft. Addresses the unique risks of a platform that mimics financial tools, uses AI agents, and serves enterprise teams with multi-tenancy requirements.
+> Security architecture and admin system for AMPH Academy. Addresses the unique risks of a platform that mimics financial tools, uses AI agents, and serves enterprise teams with multi-tenancy requirements.
 
-> **Source**: Qwen chat — "AdCraft Product Development Gaps" (2026-06-03)
+> **Source**: Qwen chat — "AMPH Academy Product Development Gaps" (2026-06-03)
 > **Architecture Context**: Monolith-First MVP (ADR-001). Multi-tenancy, RLS, and PII Sanitization are Phase 3+. MVP is single-tenant with org_id column prep.
 
 ---
 
 ## 1. Security Architecture
 
-AdCraft is an ed-tech platform that mimics financial tools. Security must prevent data leakage between agencies and ensure AI safety.
+AMPH Academy is an ed-tech platform that mimics financial tools. Security must prevent data leakage between agencies and ensure AI safety.
 
 ### A. Data Isolation & Multi-Tenancy (Phase 3+)
 
@@ -108,6 +108,6 @@ Addresses Persona 4's need for governance and consistency.
 
 ---
 
-*Source: Qwen chat "AdCraft Product Development Gaps" — 2026-06-03*
+*Source: Qwen chat "AMPH Academy Product Development Gaps" — 2026-06-03*
 *Multi-tenancy and CMS features are Phase 3+. MVP is single-tenant with org_id column prep.*
 *Last updated: 2026-06-04*

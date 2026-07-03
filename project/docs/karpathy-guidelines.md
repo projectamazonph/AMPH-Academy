@@ -1,6 +1,6 @@
 # Karpathy-Inspired Coding Guidelines
 
-> Adopted for AdCraft project. Source: [andrej-karpathy-skills](https://github.com/multica-ai/andrej-karpathy-skills)
+> Adopted for AMPH Academy project. Source: [andrej-karpathy-skills](https://github.com/multica-ai/andrej-karpathy-skills)
 
 **Tradeoff:** These guidelines bias toward caution over speed. For trivial tasks, use judgment.
 

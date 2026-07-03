@@ -1,6 +1,6 @@
-# UX Design Document — Adcraft Academy
+# UX Design Document — AMPH Academy
 
-- **Project:** Adcraft Academy
+- **Project:** AMPH Academy
 - **Date:** 2026-07-02
 - **Designer:** Ryan Roland Dabao (via Stitch Design Taste + BMAD UX Designer)
 - **Version:** 1.0
@@ -11,7 +11,7 @@
 
 ### Project Summary
 
-Adcraft Academy is an advanced Amazon PPC training platform for Filipino VAs. The UX is designed around a single core principle: **confidence through practice.** Every screen should make the student feel they are leveling up — from uncertain beginner to agency-ready specialist. The design is premium but not intimidating, authoritative but not cold, with asymmetric layouts, deliberate micro-motion, and a restrained color palette that communicates trust and expertise.
+AMPH Academy is an advanced Amazon PPC training platform for Filipino VAs. The UX is designed around a single core principle: **confidence through practice.** Every screen should make the student feel they are leveling up — from uncertain beginner to agency-ready specialist. The design is premium but not intimidating, authoritative but not cold, with asymmetric layouts, deliberate micro-motion, and a restrained color palette that communicates trust and expertise.
 
 ### Design Goals
 
@@ -209,17 +209,17 @@ Adcraft Academy is an advanced Amazon PPC training platform for Filipino VAs. Th
 
 ---
 
-### Flow 3: PPC Companion → Adcraft Academy SSO
+### Flow 3: PPC Companion → AMPH Academy SSO
 
-**Goal:** PPC Companion graduate seamlessly accesses Adcraft.
+**Goal:** PPC Companion graduate seamlessly accesses AMPH.
 
-**Entry Point:** "Advance to Adcraft" button in PPC Companion dashboard
+**Entry Point:** "Advance to AMPH" button in PPC Companion dashboard
 
 ```
 [PPC Companion Dashboard]
         |
         v
-[Click "Advance to Adcraft"]
+[Click "Advance to AMPH"]
         |
         v
 [SSO Token Exchange (background)]
@@ -229,7 +229,7 @@ Adcraft Academy is an advanced Amazon PPC training platform for Filipino VAs. Th
   Success  Failure
     │       │
     v       v
-[Adcraft Dashboard]  [Login page with email prefilled]
+[AMPH Dashboard]  [Login page with email prefilled]
     │                    │
     v                    v
 [Welcome back!]     [Manual login or register]
@@ -247,7 +247,7 @@ Adcraft Academy is an advanced Amazon PPC training platform for Filipino VAs. Th
 
 ```
 ┌──────────────────────────────────────────────────────────────────┐
-│  [Adcraft Logo]  [Curriculum] [Tools ▼] [Resources]   [👤 Juan] │
+│  [AMPH Logo]  [Curriculum] [Tools ▼] [Resources]   [👤 Juan] │
 ├──────────────────────────────────────────────────────────────────┤
 │                                                                  │
 │  ┌──────────────────────────────┐  ┌──────────────────────────┐ │
@@ -282,7 +282,7 @@ Adcraft Academy is an advanced Amazon PPC training platform for Filipino VAs. Th
 │  └──────────────────────────────────────────────────────────┘   │
 │                                                                  │
 ├──────────────────────────────────────────────────────────────────┤
-│  [Curriculum] [Tools] [Resources] [About]  © Adcraft Academy    │
+│  [Curriculum] [Tools] [Resources] [About]  © AMPH Academy    │
 └──────────────────────────────────────────────────────────────────┘
 ```
 
@@ -290,7 +290,7 @@ Adcraft Academy is an advanced Amazon PPC training platform for Filipino VAs. Th
 
 ```
 ┌──────────────────────────┐
-│ [≡]  [Adcraft]     [👤]  │
+│ [≡]  [AMPH]     [👤]  │
 ├──────────────────────────┤
 │                          │
 │ Welcome back, Juan!      │
@@ -577,7 +577,7 @@ Key token families (ProjectAmazonPH brand):
 
 ### Testing Checklist
 
-- [ ] SSO flow: PPC Companion → Adcraft and back
+- [ ] SSO flow: PPC Companion → AMPH and back
 - [ ] Interactive tool: save/restore state on navigation
 - [ ] Badge award: trigger, animation, and persistence
 - [ ] Mobile: all course content accessible

@@ -1,4 +1,4 @@
-# AdCraft: Amazon PPC Command Center
+# AMPH Academy: Amazon PPC Command Center
 
 > A comprehensive Amazon PPC training and simulation platform that transforms sellers into advertising experts through hands-on, risk-free campaign simulations with deterministic scoring.
 
@@ -32,7 +32,7 @@
 
 ## Project Overview
 
-|AdCraft is an interactive learning platform designed to teach Amazon PPC (Pay-Per-Click) advertising through realistic simulations and structured curriculum. Users practice creating campaigns, managing bids, and optimizing ad spend in a sandbox environment that mirrors real Amazon Seller Central — without risking real money.
+|AMPH Academy is an interactive learning platform designed to teach Amazon PPC (Pay-Per-Click) advertising through realistic simulations and structured curriculum. Users practice creating campaigns, managing bids, and optimizing ad spend in a sandbox environment that mirrors real Amazon Seller Central — without risking real money.
 
 ### Core Value Proposition
 
@@ -75,7 +75,7 @@
 ## Project Structure (MVP)
 
 ```
-adcraft/
+amph/
 ├── docs/                           # Project documentation (see conventions.md)
 │   ├── README.md                  # This file — navigation hub
 │   ├── conventions.md             # Doc rules & anti-bloat charter
@@ -108,7 +108,7 @@ adcraft/
 │   │   ├── formulas.ts           # 9 PPC formulas, health assessment, registry
 │   │   └── index.ts              # Barrel export
 │   ├── components/
-│   │   ├── adcraft/              # All custom AdCraft components (24+ files)
+│   │   ├── amph/              # All custom AMPH Academy components (24+ files)
 │   │   │   ├── quiz-player.tsx   # Interactive quiz UI (Post-MVP A4)
 │   │   │   └── badge-showcase.tsx # Badge grid + detail modal + notification toast (Post-MVP A1)
 │   │   └── ui/                   # shadcn/ui base components

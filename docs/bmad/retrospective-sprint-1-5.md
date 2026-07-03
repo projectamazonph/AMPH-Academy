@@ -1,4 +1,4 @@
-# Sprint 1–5 Retrospective — Adcraft Academy
+# Sprint 1–5 Retrospective — AMPH Academy
 
 **Date:** 2026-07-03
 **Sprints:** 1 through 5 (Full Project Retrospective)

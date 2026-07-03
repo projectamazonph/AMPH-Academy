@@ -22,7 +22,7 @@ Add an upcoming live classes widget to the main Dashboard tab (the overview/home
 
 ## Technical Notes
 
-- File: `project/src/components/adcraft/dashboard.tsx` — this is the Dashboard component
+- File: `project/components/amph/dashboard.tsx` — this is the Dashboard component
 - Import `getUpcomingClasses` from the live-classes module
 - Small scope: reuse STORY-015's action functions — no new server actions needed
 - For relative time: use a simple helper `getRelativeTime(date: Date): string` that returns "Today", "Tomorrow", "In X days"
@@ -62,4 +62,4 @@ function LiveClassesWidget({ onNavigate }: { onNavigate: (tab: string) => void }
 
 ## Files Changed
 
-- `project/src/components/adcraft/dashboard.tsx` — add LiveClassesWidget component and render it
+- `project/components/amph/dashboard.tsx` — add LiveClassesWidget component and render it

@@ -41,7 +41,7 @@ export function CertificateGenerator() {
       </div>
       <h2 className="text-2xl font-bold">Your Certificate</h2>
       <p className="text-muted-foreground text-sm">
-        Complete all 5 modules and pass the final assessment to earn your AdCraft Certificate of Completion.
+        Complete all 5 modules and pass the final assessment to earn your ProjectAMPH Academy Certificate of Completion.
       </p>
       <Button onClick={handleGenerate} disabled={loading} className="gap-2">
         {loading ? <Loader2 className="h-4 w-4 animate-spin" /> : <Download className="h-4 w-4" />}

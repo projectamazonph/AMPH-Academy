@@ -1,4 +1,4 @@
-# Architecture Decision Records — Adcraft Academy
+# Architecture Decision Records — AMPH Academy
 
 ---
 

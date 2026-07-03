@@ -9,7 +9,7 @@
 
 ## Context
 
-The AdCraft agents specification defined a dual-stack architecture: Next.js frontend + FastAPI backend, connected via API contracts, with Redis for simulation state. Pre-build analysis identified 6 critical concerns with this approach (C-01 through C-06), including dual-stack orchestration complexity, cross-stack authentication, dual ORM maintenance, engine runtime latency trade-offs, Redis local dev dependency, and undefined MVP scope.
+The AMPH Academy agents specification defined a dual-stack architecture: Next.js frontend + FastAPI backend, connected via API contracts, with Redis for simulation state. Pre-build analysis identified 6 critical concerns with this approach (C-01 through C-06), including dual-stack orchestration complexity, cross-stack authentication, dual ORM maintenance, engine runtime latency trade-offs, Redis local dev dependency, and undefined MVP scope.
 
 These concerns are interconnected: C-01 (orchestration), C-02 (auth), and C-05 (Redis) all stem from the dual-stack decision. C-03 (dual ORM) stems from using both Prisma and SQLAlchemy. C-04 (engine runtime) is architectural but solvable independently.
 

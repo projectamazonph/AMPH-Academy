@@ -1,5 +1,5 @@
 /**
- * AdCraft: Logger — ponytail: structured console wrapper, no JSON roundtrip.
+ * ProjectAMPH Academy: Logger — ponytail: structured console wrapper, no JSON roundtrip.
  */
 
 type Level = 'error' | 'warn' | 'info' | 'debug';

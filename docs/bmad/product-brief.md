@@ -1,4 +1,4 @@
-# Product Brief: Adcraft Academy
+# Product Brief: AMPH Academy
 
 - **Date:** 2026-07-02
 - **Author:** Ryan Roland Dabao
@@ -9,7 +9,7 @@
 
 ## 1. Executive Summary
 
-Adcraft Academy is an advanced Amazon PPC skills training platform that bridges Filipino virtual assistants from foundational PPC knowledge into high-paying agency and direct-client roles. Unlike theory-heavy courses, Adcraft combines structured online classes with interactive hands-on tools (Campaign Builder, Bid Elevator, Search Term Triage) to produce job-ready Amazon advertising specialists.
+AMPH Academy is an advanced Amazon PPC skills training platform that bridges Filipino virtual assistants from foundational PPC knowledge into high-paying agency and direct-client roles. Unlike theory-heavy courses, AMPH combines structured online classes with interactive hands-on tools (Campaign Builder, Bid Elevator, Search Term Triage) to produce job-ready Amazon advertising specialists.
 
 **Key Points:**
 - Problem: Filipino VAs are stuck in low-paying general VA roles because they lack structured advanced PPC training and a clear path to agency employment.
@@ -100,7 +100,7 @@ Filipino virtual assistants who complete foundational PPC training hit a ceiling
 
 ### Solution Overview
 
-Adcraft Academy is a Next.js web application that delivers advanced Amazon PPC training through a combination of:
+AMPH Academy is a Next.js web application that delivers advanced Amazon PPC training through a combination of:
 
 1. **Live Online Classes** — Instructor-led sessions covering advanced strategies, real campaign reviews, and Q&A.
 2. **Interactive Practice Tools** — Sandbox environments where students build campaigns, optimize bids, and triage search terms without risk.
@@ -231,7 +231,7 @@ Ryan Roland Dabao — 13 years as a VA, 8 years as an Amazon PPC specialist, ₱
 **Our Advantages:**
 - Ryan's 13 years VA + 8 years PPC authority — unmatched credibility in the Philippine market.
 - Interactive tools (Campaign Builder, Bid Elevator, Search Term Triage) — learn by doing, not just watching.
-- Integrated pipeline: PPC Companion → Adcraft Academy → Agency placement.
+- Integrated pipeline: PPC Companion → AMPH Academy → Agency placement.
 - Price-accessible for the Philippine market while maintaining premium positioning.
 - Filipino-cultural context — understands the specific challenges and opportunities of the local market.
 
@@ -301,7 +301,7 @@ Ryan Roland Dabao — 13 years as a VA, 8 years as an Amazon PPC specialist, ₱
 **Risk 3: Tool Duplication with PPC Companion**
 - Probability: Medium
 - Impact: Medium
-- Mitigation: Reuse components cleanly. Position Adcraft as advanced track, PPC Companion as foundations. Ensure complementary — not competing.
+- Mitigation: Reuse components cleanly. Position AMPH as advanced track, PPC Companion as foundations. Ensure complementary — not competing.
 - Owner: Ryan
 
 ### Medium Priority Risks

@@ -1,7 +1,7 @@
 'use server';
 
 /**
- * AdCraft: Certification Lifecycle System (Phase 3)
+ * ProjectAMPH Academy: Certification Lifecycle System (Phase 3)
  *
  * Full certificate lifecycle: issue, verify, revoke, track progress.
  * Builds on existing D1 Certificate Generation.
@@ -161,7 +161,7 @@ export async function issueCertificate(): Promise<ActionResult<CertificateView>>
       data: {
         userId,
         certType: 'completion',
-        title: 'AdCraft PPC Command Center',
+        title: 'AMPH PPC Command Center',
         status: 'active',
         verificationHash: hash,
         metadata: JSON.stringify({

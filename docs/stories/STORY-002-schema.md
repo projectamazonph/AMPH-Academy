@@ -10,7 +10,7 @@
 
 As a **developer**
 I want to **define all database models in Prisma schema with seed data**
-So that **Adcraft Academy has a complete data model for users, courses, progress, badges, and certificates**
+So that **AMPH Academy has a complete data model for users, courses, progress, badges, and certificates**
 
 ## Acceptance Criteria
 
@@ -28,7 +28,7 @@ So that **Adcraft Academy has a complete data model for users, courses, progress
 - [ ] Resource model with moduleId (nullable for global resources), title, type, fileUrl
 - [ ] All models have `id` (String, cuid), `createdAt`, `updatedAt`
 - [ ] SQLite `prisma db push` works and creates all tables
-- [ ] Seed script (`prisma/seed.ts`) populates sample course structure matching the three Adcraft Academy tiers
+- [ ] Seed script (`prisma/seed.ts`) populates sample course structure matching the three AMPH Academy tiers
 - [ ] Prisma Client generates successfully with `prisma generate`
 
 ## Technical Notes

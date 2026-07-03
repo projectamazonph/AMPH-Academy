@@ -1,9 +1,9 @@
-# Architecture — Adcraft Academy
+# Architecture — AMPH Academy
 
 ## Directory Structure
 
 ```
-Adcraft-Academy/
+AMPH-Academy/
 ├── project/                    ← Next.js application
 │   ├── src/                    ← App Router pages, components, API
 │   ├── docs/                   ← Project-level docs (README, conventions, deploy)

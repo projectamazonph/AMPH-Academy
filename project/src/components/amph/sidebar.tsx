@@ -121,7 +121,7 @@ export function Sidebar({
               className="overflow-hidden"
             >
               <h1 className="text-base font-bold tracking-tight">
-                AdCraft
+                AMPH
               </h1>
               <p className="text-[10px] text-muted-foreground tracking-wider uppercase">
                 PPC Command Center

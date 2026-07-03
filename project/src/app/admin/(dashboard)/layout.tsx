@@ -65,7 +65,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
           </div>
           {!collapsed && (
             <div className="overflow-hidden">
-              <h1 className="text-sm font-bold tracking-tight">AdCraft Admin</h1>
+              <h1 className="text-sm font-bold tracking-tight">AMPH Admin</h1>
               <p className="text-[9px] text-muted-foreground tracking-wider uppercase">Control Panel</p>
             </div>
           )}
@@ -144,7 +144,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
         </Button>
         <div className="flex items-center gap-2">
           <Shield className="h-4 w-4 text-rose-400" />
-          <span className="text-sm font-semibold">AdCraft Admin</span>
+          <span className="text-sm font-semibold">AMPH Admin</span>
         </div>
       </div>
 

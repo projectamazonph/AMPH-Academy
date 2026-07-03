@@ -1,5 +1,5 @@
 /**
- * AdCraft: E2E Smoke Tests
+ * AMPH Academy: E2E Smoke Tests
  *
  * Playwright tests for the core user flow:
  * 1. App loads and renders the Dashboard
@@ -12,7 +12,7 @@
 
 import { test, expect } from '@playwright/test';
 
-test.describe('AdCraft MVP Smoke Tests', () => {
+test.describe('AMPH Academy Smoke Tests', () => {
   test('app loads and shows Dashboard', async ({ page }) => {
     await page.goto('/');
     await page.waitForLoadState('networkidle');

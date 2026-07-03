@@ -1,7 +1,7 @@
 'use client';
 
 /**
- * AdCraft: Sign-In Page
+ * ProjectAMPH Academy: Sign-In Page
  *
  * Custom sign-in page with email/password form.
  * Uses NextAuth's signIn() with default redirect (full page navigation)
@@ -74,7 +74,7 @@ function SignInForm() {
           <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-gradient-to-br from-primary/20 to-primary/5 border border-primary/20 shadow-[0_0_30px_rgba(100,255,150,0.1)]">
             <Zap className="h-7 w-7 text-primary" />
           </div>
-          <h1 className="text-3xl font-bold tracking-tight">Welcome to AdCraft</h1>
+          <h1 className="text-3xl font-bold tracking-tight">Welcome to AMPH Academy</h1>
           <p className="text-sm text-muted-foreground">
             Sign in to continue your Amazon PPC training
           </p>
@@ -155,7 +155,7 @@ function SignInForm() {
 
         {/* Footer */}
         <div className="text-center text-[10px] text-muted-foreground/50">
-          AdCraft — Amazon PPC Command Center
+          ProjectAMPH Academy — Amazon PPC Command Center
         </div>
       </div>
     </div>

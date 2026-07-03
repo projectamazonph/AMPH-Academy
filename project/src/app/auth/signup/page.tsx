@@ -1,7 +1,7 @@
 'use client';
 
 /**
- * AdCraft: Sign-Up Page
+ * ProjectAMPH Academy: Sign-Up Page
  *
  * Registration page for new users.
  * Creates a User record with hashed password, then uses NextAuth's
@@ -235,7 +235,7 @@ export default function SignUpPage() {
 
         {/* Footer */}
         <div className="text-center text-[10px] text-muted-foreground/50">
-          AdCraft — Amazon PPC Command Center
+          ProjectAMPH Academy — Amazon PPC Command Center
         </div>
       </div>
     </div>

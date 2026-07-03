@@ -9,17 +9,17 @@
 ## User Story
 
 As a **developer**
-I want to **deploy Adcraft Academy to Vercel with automatic deployments from GitHub**
+I want to **deploy AMPH Academy to Vercel with automatic deployments from GitHub**
 So that **every merge to main branch is automatically built, migrated, and deployed to production**
 
 ## Acceptance Criteria
 
-- [ ] Git repository initialized and pushed to GitHub (`github.com/projectamazonph/Adcraft-Academy`)
+- [ ] Git repository initialized and pushed to GitHub (`github.com/projectamazonph/AMPH-Academy`)
 - [ ] Vercel project created connected to GitHub repo
 - [ ] Vercel auto-deploy enabled for main branch (and preview deployments for feature branches)
 - [ ] Environment variables configured in Vercel dashboard (DATABASE_URL, JWT_SECRET, etc.)
 - [ ] Build command configured to run `prisma generate && prisma db push` during build
-- [ ] Production deployment is green and accessible at `adcraft-academy.vercel.app`
+- [ ] Production deployment is green and accessible at `amph-academy.vercel.app`
 - [ ] Home page loads successfully on production URL
 - [ ] Preview deployments work for feature branches
 
@@ -27,7 +27,7 @@ So that **every merge to main branch is automatically built, migrated, and deplo
 
 ### Implementation Approach
 1. `git init && git add . && git commit -m "Initial scaffold"`
-2. Create GitHub repo `projectamazonph/Adcraft-Academy`
+2. Create GitHub repo `projectamazonph/AMPH-Academy`
 3. `git remote add origin <url> && git push -u origin main`
 4. In Vercel: Import GitHub repo, select Next.js framework preset
 5. Configure env vars: `DATABASE_URL`, `JWT_SECRET`, `NEXT_PUBLIC_APP_URL`

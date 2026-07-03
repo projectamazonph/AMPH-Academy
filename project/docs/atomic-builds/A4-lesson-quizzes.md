@@ -20,7 +20,7 @@ Lesson Quizzes add knowledge-check assessments to the end of each learning modul
 | File | Purpose |
 |------|---------|
 | `src/app/actions/quiz.ts` | Server actions: `getQuiz`, `submitQuiz`, `getQuizHistory` |
-| `src/components/adcraft/quiz-player.tsx` | Interactive quiz UI component (5 phases: loading → ready → answering → submitted → review) |
+| `src/components/amph/quiz-player.tsx` | Interactive quiz UI component (5 phases: loading → ready → answering → submitted → review) |
 | `fixtures/quiz-questions.json` | Quiz question bank — 5 quizzes, 30 total questions across all modules |
 
 ### Modified Files
@@ -29,8 +29,8 @@ Lesson Quizzes add knowledge-check assessments to the end of each learning modul
 |------|--------|
 | `prisma/schema.prisma` | Added `Quiz`, `QuizQuestion`, `QuizAttempt` models + `Quiz?` relation on `Lesson` + `QuizAttempt[]` relation on `User` |
 | `src/app/actions/types.ts` | Added 7 quiz types: `QuizQuestionView`, `QuizView`, `SubmitQuizInput`, `GradedQuestion`, `SubmitQuizOutput`, `QuizAttemptSummary` |
-| `src/components/adcraft/lesson-player.tsx` | Detects `quiz` type lessons → renders "Start Quiz" CTA → hands off to `QuizPlayer` component |
-| `src/components/adcraft/module-cards.tsx` | Added `Target` icon + "Quiz" badge to all module cards |
+| `src/components/amph/lesson-player.tsx` | Detects `quiz` type lessons → renders "Start Quiz" CTA → hands off to `QuizPlayer` component |
+| `src/components/amph/module-cards.tsx` | Added `Target` icon + "Quiz" badge to all module cards |
 
 ### Database Schema
 

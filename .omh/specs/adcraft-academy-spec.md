@@ -1,16 +1,16 @@
 ---
-title: "AdCraft Academy — Finish Line & Landing Page"
+title: "AMPH Academy — Finish Line & Landing Page"
 status: confirmed
 date: 2026-06-30
 ---
 
 ## Overview
 
-AdCraft Academy is an Amazon PPC training platform with interactive simulations, structured learning modules, and an AI Mentor. The MVP is 100% shipped. This spec covers two workstreams:
+AMPH Academy is an Amazon PPC training platform with interactive simulations, structured learning modules, and an AI Mentor. The MVP is 100% shipped. This spec covers two workstreams:
 
 ### Workstream 1: Public Landing Page
 
-**Problem**: The root `/` route currently serves the authenticated app dashboard. There is no public-facing marketing landing page. Unauthenticated visitors hit a login wall with no explanation of what AdCraft Academy is.
+**Problem**: The root `/` route currently serves the authenticated app dashboard. There is no public-facing marketing landing page. Unauthenticated visitors hit a login wall with no explanation of what AMPH Academy is.
 
 **Solution**: 
 - Create a stunning, conversion-optimized landing page at `/`

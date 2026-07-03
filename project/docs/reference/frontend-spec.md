@@ -1,8 +1,8 @@
-# AdCraft Frontend Technical Specification
+# AMPH Academy Frontend Technical Specification
 
 > Frontend engineering reference for Next.js + React + TypeScript stack. Translates the PRD and UI/UX designs into concrete component architectures, state management patterns, and performance budgets.
 
-> **Source**: Qwen chat — "AdCraft Product Development Gaps" (2026-06-03)
+> **Source**: Qwen chat — "AMPH Academy Product Development Gaps" (2026-06-03)
 > **Architecture Context**: Monolith-First (ADR-001). Some specs reference React Flow / Recharts which are deferred; MVP uses TanStack Table + shadcn/ui + Framer Motion.
 
 ---
@@ -344,6 +344,6 @@ app/
 
 ---
 
-*Source: Qwen chat "AdCraft Product Development Gaps" — 2026-06-03*
+*Source: Qwen chat "AMPH Academy Product Development Gaps" — 2026-06-03*
 *Architecture adapted for Monolith-First (ADR-001). React Flow campaign builder deferred to Phase 3+; MVP uses form-based builder.*
 *Last updated: 2026-06-23*

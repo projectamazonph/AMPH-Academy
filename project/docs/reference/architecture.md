@@ -1,6 +1,6 @@
-# AdCraft System Architecture
+# AMPH Academy System Architecture
 
-> Design patterns, execution model, and data flow for the AdCraft MVP. Architecture decisions are documented in [`decisions/ADR-001-monolith-first.md`](../decisions/ADR-001-monolith-first.md). This file describes *how* the architecture is implemented.
+> Design patterns, execution model, and data flow for the AMPH Academy MVP. Architecture decisions are documented in [`decisions/ADR-001-monolith-first.md`](../decisions/ADR-001-monolith-first.md). This file describes *how* the architecture is implemented.
 
 ---
 
@@ -116,9 +116,9 @@ Each store manages: `phase` (briefing/arena/scoring/review), `previewScore` (cli
 
 ## Component Architecture
 
-The UI is organized into feature-based component groups under `src/components/adcraft/`. Each simulation has a phase-orchestrator component (e.g., `str-triage-arena.tsx`) that manages the four-phase flow using `AnimatePresence` for transitions, plus dedicated components for each phase (briefing, arena/workshop, scoring, review). Shared components include the sidebar, dashboard, stats row, module cards, simulation cards, mentor chat, XP progress, and formula calculator.
+The UI is organized into feature-based component groups under `src/components/amph/`. Each simulation has a phase-orchestrator component (e.g., `str-triage-arena.tsx`) that manages the four-phase flow using `AnimatePresence` for transitions, plus dedicated components for each phase (briefing, arena/workshop, scoring, review). Shared components include the sidebar, dashboard, stats row, module cards, simulation cards, mentor chat, XP progress, and formula calculator.
 
-shadcn/ui components in `src/components/ui/` provide the design system foundation (Button, Card, Input, Slider, Badge, Dialog, etc.). Custom AdCraft components compose these primitives with domain-specific logic. The main `page.tsx` acts as the top-level router, switching between Dashboard, Modules, Simulations, and AI Mentor views based on navigation state, and launching simulation overlays when a sim card is clicked.
+shadcn/ui components in `src/components/ui/` provide the design system foundation (Button, Card, Input, Slider, Badge, Dialog, etc.). Custom AMPH Academy components compose these primitives with domain-specific logic. The main `page.tsx` acts as the top-level router, switching between Dashboard, Modules, Simulations, and AI Mentor views based on navigation state, and launching simulation overlays when a sim card is clicked.
 
 ---
 
@@ -249,7 +249,7 @@ Lesson Quizzes follow a **lazy-seed, server-grade** architecture that extends th
 
 **XP integration:** XP is only awarded on the user's first quiz pass (score >= passThreshold, default 70%). Subsequent passes return `xpEarned: 0`. When XP is awarded, the quiz action also marks the associated lesson as complete via `LessonProgress.upsert()` and updates module progress — the same cascade as `markLessonComplete` in progress.ts.
 
-**QuizPlayer phases:** The quiz UI component (`src/components/adcraft/quiz-player.tsx`) manages four phases: `ready` (quiz overview, past attempts, start button), `answering` (step-by-step question navigation with timer), `submitted` (score hero + per-question breakdown with explanations), and back to `ready` for retries. The `LessonPlayer` detects `type === 'quiz'` lessons and renders a "Start Quiz" CTA that hands off to the QuizPlayer.
+**QuizPlayer phases:** The quiz UI component (`src/components/amph/quiz-player.tsx`) manages four phases: `ready` (quiz overview, past attempts, start button), `answering` (step-by-step question navigation with timer), `submitted` (score hero + per-question breakdown with explanations), and back to `ready` for retries. The `LessonPlayer` detects `type === 'quiz'` lessons and renders a "Start Quiz" CTA that hands off to the QuizPlayer.
 
 **Schema design:** Three models support quizzes — `Quiz` (1 per lesson, unique on lessonId), `QuizQuestion` (N per quiz, unique on quizId+order), and `QuizAttempt` (N per user per quiz, unique on userId+quizId+attemptNumber). The `QuizAttempt` reuses the `AttemptStatus` enum from simulations. Answers are stored as JSON (`{ "1": "A", "2": "C" }`) for auditability.
 

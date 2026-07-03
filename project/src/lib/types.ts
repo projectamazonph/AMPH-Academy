@@ -1,5 +1,5 @@
 // ===========================================================================
-// Shared TypeScript types for Adcraft Academy
+// Shared TypeScript types for ProjectAMPH Academy
 // ===========================================================================
 
 // --- User & Auth ---

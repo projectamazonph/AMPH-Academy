@@ -1,4 +1,4 @@
-# AdCraft Pre-Build Questions & Concerns
+# AMPH Academy Pre-Build Questions & Concerns
 
 > Raised before writing any code. All critical and high concerns resolved on 2026-06-04. Code gate passed.
 

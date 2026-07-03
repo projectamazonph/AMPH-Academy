@@ -1,4 +1,4 @@
-# Design System: Adcraft Academy
+# Design System: AMPH Academy
 
 > Premium Amazon PPC training platform for Filipino VAs — confident, authoritative, anti-generic.
 >
@@ -305,7 +305,7 @@ These are **AI tells** that make interfaces feel generic, templated, or amateur.
 ## 8. Assets & Iconography
 
 - **Icons:** Phosphor Icons (light weight) — consistent stroke width, no filled/outline mixing.
-- **Logos:** SVG format only. Adcraft wordmark in Satoshi Bold.
+- **Logos:** SVG format only. AMPH wordmark in Satoshi Bold.
 - **Images:** WebP format preferred. Aspect ratios maintained with `object-fit`.
 - **Avatars:** SVG initials placeholder (white text on Indigo-500 circle, 32px–48px). No generic user icons.
 

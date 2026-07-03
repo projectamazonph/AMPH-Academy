@@ -1,4 +1,4 @@
-# System Architecture: Adcraft Academy
+# System Architecture: AMPH Academy
 
 - **Document Version:** 1.0
 - **Date:** 2026-07-02
@@ -11,7 +11,7 @@
 
 ### Purpose
 
-Adcraft Academy is an advanced Amazon PPC training platform for Filipino VAs. It delivers structured courses, interactive practice tools (Campaign Builder, Bid Elevator, Search Term Triage), gamified progression (badges, progress tracking), and verifiable certificates — all integrated with PPC Companion via SSO.
+AMPH Academy is an advanced Amazon PPC training platform for Filipino VAs. It delivers structured courses, interactive practice tools (Campaign Builder, Bid Elevator, Search Term Triage), gamified progression (badges, progress tracking), and verifiable certificates — all integrated with PPC Companion via SSO.
 
 ### Scope
 
@@ -54,7 +54,7 @@ Adcraft Academy is an advanced Amazon PPC training platform for Filipino VAs. It
 Not a "monolith" in the old sense — a **Next.js App Router project with feature-sliced modules** inside a single deployable unit.
 
 ```
-adcraft-academy/
+amph-academy/
 ├── app/                    ← Next.js App Router (routes + pages)
 │   ├── (auth)/             ← Auth-required layout group
 │   ├── (public)/           ← Public pages (marketing, login)
@@ -518,7 +518,7 @@ GET /api/certificates/<id>/download
 
 **Decisions:**
 1. Same `jose` library and cookie configuration as PPC Companion — reduces surface area for SSO bugs.
-2. SSO token exchange uses a signed JWT from PPC Companion, verified by Adcraft's Auth module using a shared secret (stored in environment variable).
+2. SSO token exchange uses a signed JWT from PPC Companion, verified by AMPH's Auth module using a shared secret (stored in environment variable).
 3. All data mutations go through Server Actions (server-only — never exposed to client JS).
 
 #### Privacy (NFR-004)
@@ -568,7 +568,7 @@ GET /api/certificates/<id>/download
 **No additional services** — no Redis, no queues, no containers
 
 ### Development & Deployment
-**Version Control:** Git → GitHub (github.com/projectamazonph/Adcraft-Academy)
+**Version Control:** Git → GitHub (github.com/projectamazonph/AMPH-Academy)
 **CI/CD:** Vercel auto-deploy from main branch
 **Package Manager:** pnpm (or bun, matching PPC Companion)
 
@@ -623,7 +623,7 @@ GET /api/certificates/<id>/download
 
 ### Trade-off 4: Shared Component Library vs. Copy-Paste
 
-**Decision:** Shared internal components between PPC Companion and Adcraft Academy.
+**Decision:** Shared internal components between PPC Companion and AMPH Academy.
 
 **Options:**
 1. **Shared library:** Components in a common location, imported by both apps.
@@ -643,7 +643,7 @@ GET /api/certificates/<id>/download
 
 ### Environments
 
-**Production:** Vercel — `adcraft-academy.vercel.app`
+**Production:** Vercel — `amph-academy.vercel.app`
 **Custom domain:** TBD (piggyback on projectamazonph.com domain strategy)
 
 ### Deployment Strategy
@@ -711,7 +711,7 @@ GET /api/certificates/<id>/download
 | Server Action | Next.js `"use server"` function — server-side data mutation called from the client |
 | RSC | React Server Component — rendered on server, no client JS footprint |
 | Module | Self-contained feature folder with own types, actions, services |
-| SSO | Single Sign-On — shared authentication between PPC Companion and Adcraft |
+| SSO | Single Sign-On — shared authentication between PPC Companion and AMPH |
 | Tool | Interactive practice simulator (Campaign Builder, Bid Elevator, Search Term Triage) |
 
 ### References

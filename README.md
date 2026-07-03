@@ -4,11 +4,11 @@
   <img src="https://img.shields.io/badge/Points-91%2F91%20(27%20stories)-orange?style=flat-square" alt="91 pts" />
   <img src="https://img.shields.io/badge/Modules-8%20%E2%80%94%2031%20Lessons-purple?style=flat-square" alt="8 modules" />
   <img src="https://img.shields.io/badge/Stack-Next.js%2016%20%E2%80%94%20Prisma%20%E2%80%94%20SQLite-cyan?style=flat-square" alt="Stack" />
-  <a href="https://adcraft-academy.vercel.app"><img src="https://img.shields.io/badge/Deployed-Vercel-black?style=flat-square&logo=vercel" alt="Vercel" /></a>
+  <a href="https://amph-academy.vercel.app"><img src="https://img.shields.io/badge/Deployed-Vercel-black?style=flat-square&logo=vercel" alt="Vercel" /></a>
 </p>
 
 <h1 align="center">
-  Adcraft Academy
+  ProjectAMPH Academy
 </h1>
 
 <p align="center">
@@ -18,7 +18,7 @@
 
 <p align="center">
   Same hours. Same internet. Different skill set.<br />
-  <a href="https://adcraft-academy.vercel.app"><strong>Break the ₱15k Ceiling →</strong></a>
+  <a href="https://amph-academy.vercel.app"><strong>Break the ₱15k Ceiling →</strong></a>
 </p>
 
 ---
@@ -40,7 +40,7 @@ The VA industry is splitting in two. One track gets automated away. The other ch
 
 ## 🎯 What This Platform Does
 
-Adcraft Academy is an advanced **Amazon PPC skills training platform** for Filipino VAs. It combines structured curriculum, interactive practice tools, and gamified progression to produce job-ready PPC specialists.
+ProjectAMPH Academy is an advanced **Amazon PPC skills training platform** for Filipino VAs. It combines structured curriculum, interactive practice tools, and gamified progression to produce job-ready PPC specialists.
 
 **Built by a 14-year VA with 8 years of Amazon PPC experience and ₱50M+ in managed ad spend.** Every lesson, simulation, and scenario bank comes from real campaign data — not theory.
 
@@ -93,7 +93,7 @@ Each lesson includes real ₱ figures, analogies grounded in the Filipino VA exp
 | **Accelerated Mastery** | ₱5,999/mo | Above + certification prep, resource library, live Q&A |
 | **Ultimate Transformation** | ₱9,999/mo | Above + 1-on-1 coaching, resume review, job placement |
 
-> *"Client asked if I knew Amazon ads. Said yes without thinking. Then panicked. Found AdCraft, went through everything, and actually delivered."* — **Carlos, Cebu** (₱18k → ₱80k)
+> *"Client asked if I knew Amazon ads. Said yes without thinking. Then panicked. Found AMPH Academy, went through everything, and actually delivered."* — **Carlos, Cebu** (₱18k → ₱80k)
 
 ---
 
@@ -135,13 +135,13 @@ Sprint 6: █████████████       13 pts  — Platform Int
 | **Auth** | JWT (jose, HttpOnly cookies) |
 | **Content** | MDX (31 lesson files) |
 | **Design** | Project Aurora — Deep Navy + Orange, glass morphism |
-| **Deploy** | Vercel (adcraft-academy.vercel.app) |
+| **Deploy** | Vercel (amph-academy.vercel.app) |
 | **CI/CD** | GitHub Actions |
 
 ### Architecture
 
 ```
-Adcraft-Academy/
+ProjectAMPH Academy-Academy/
 ├── project/
 │   ├── src/
 │   │   ├── app/             # App Router pages & actions
@@ -184,8 +184,8 @@ Adcraft-Academy/
 
 ```bash
 # Clone
-git clone https://github.com/projectamazonph/Adcraft-Academy.git
-cd Adcraft-Academy/project
+git clone https://github.com/projectamazonph/ProjectAMPH Academy-Academy.git
+cd ProjectAMPH Academy-Academy/project
 
 # Install
 npm install
@@ -222,11 +222,11 @@ npm run build
   <sub>
     Built by <strong>Ryan Roland Dabao</strong> — 14yr VA, 8yr Amazon PPC Specialist, ₱50M+ managed<br />
     <a href="https://projectamazonph.com">ProjectAmazonPH</a> ·
-    <a href="https://adcraft-academy.vercel.app">Adcraft Academy</a> ·
+    <a href="https://amph-academy.vercel.app">ProjectAMPH Academy</a> ·
     <a href="https://ph.linkedin.com/in/ryandabao">LinkedIn</a>
   </sub>
 </p>
 
 <p align="center">
-  <sub><em>Still at ₱15k? <a href="https://adcraft-academy.vercel.app">You know what to do.</a></em></sub>
+  <sub><em>Still at ₱15k? <a href="https://amph-academy.vercel.app">You know what to do.</a></em></sub>
 </p>

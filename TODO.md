@@ -1,4 +1,4 @@
-# Adcraft-Academy — Task List
+# AMPH-Academy — Task List
 
 ## Active Tasks
 *None yet.*

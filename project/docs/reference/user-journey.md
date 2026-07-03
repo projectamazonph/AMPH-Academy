@@ -1,8 +1,8 @@
-# AdCraft User Journey & Path Specification
+# AMPH Academy User Journey & Path Specification
 
 > Detailed user journey from landing page to certification. Defines every screen, interaction, and system response at each phase. Based on the PRD, UI/UX specs, and Content Production Kit.
 
-> **Source**: Qwen chat — "AdCraft Product Development Gaps" (2026-06-03)
+> **Source**: Qwen chat — "AMPH Academy Product Development Gaps" (2026-06-03)
 
 ---
 
@@ -14,7 +14,7 @@
 |---------|-----------------|---------------------------|-------------|
 | Hero | Dark mode UI screenshot showing the STR Triage Arena with a glowing "Promote" button. Headline: "Stop Reading About PPC. Start Running It." Subhead: "The flight simulator for Amazon Ads operators." | Primary CTA: "Start Free Simulation" (No credit card). Secondary: "View Curriculum". | "This looks like a tool, not a textbook." |
 | Interactive Teaser | Embedded mini-widget: A single search term row ("insulated cooler", 24 clicks, 3 orders). Three buttons: Promote, Negate, Hold. | User clicks a button. Instant feedback animation: Correct + Rule Citation OR Wrong + Consequence Toast. | "I can actually make decisions right now. I got one wrong; I need to learn why." |
-| Social Proof | Logos of agencies/brands using AdCraft. Quote: "Our junior team's triage accuracy went from 60% to 92% in 3 weeks." | Hover over logos to see specific metric improvements. | "Real companies trust this for training." |
+| Social Proof | Logos of agencies/brands using AMPH Academy. Quote: "Our junior team's triage accuracy went from 60% to 92% in 3 weeks." | Hover over logos to see specific metric improvements. | "Real companies trust this for training." |
 | Curriculum Map | Visual roadmap of the 5 Worlds (Listing Lab, Keyword Mine, Campaign Foundry, Optimization Arena, Scale Room). Locked/unlocked states shown. | Click any world to expand module list + preview first lesson. | "There's a clear path from zero to hero." |
 | Pricing | 3-tier cards: Solo / Team / Enterprise. Feature comparison table. "Free Forever" tier highlighted. | Toggle Monthly/Annual. "Compare Plans" expands full feature matrix. | "I can start free and upgrade when my team needs it." |
 | Footer | Legal links, AI Disclaimer badge, Amazon TM notice, Social links. | "Try Demo Account" link (pre-loaded progress). | "Low risk to explore further." |
@@ -58,7 +58,7 @@
 
 ## Phase 4: Simulation Deep Dive (Modules 7-11)
 
-**Goal**: Muscle memory through high-fidelity practice. This is where AdCraft differentiates.
+**Goal**: Muscle memory through high-fidelity practice. This is where AMPH Academy differentiates.
 
 ### Search Term Triage Arena (Module 7)
 
@@ -137,5 +137,5 @@
 
 ---
 
-*Source: Qwen chat "AdCraft Product Development Gaps" — 2026-06-03*
+*Source: Qwen chat "AMPH Academy Product Development Gaps" — 2026-06-03*
 *Last updated: 2026-06-04*

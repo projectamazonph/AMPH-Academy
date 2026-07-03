@@ -1,7 +1,7 @@
 'use client';
 
 /**
- * AdCraft: Session Provider Wrapper
+ * ProjectAMPH Academy: Session Provider Wrapper
  *
  * Wraps the NextAuth SessionProvider so we can use it in the
  * root layout (which must be a Server Component).

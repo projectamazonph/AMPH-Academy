@@ -3,7 +3,7 @@ import { PrismaClient } from "@prisma/client";
 const prisma = new PrismaClient();
 
 async function main() {
-  console.log("🌱 Seeding Adcraft Academy...");
+  console.log("🌱 Seeding ProjectAMPH Academy...");
 
   // Clean existing data
   await prisma.eventLog.deleteMany();
@@ -33,7 +33,7 @@ async function main() {
   // ── DEMO ADMIN ──
   const admin = await prisma.user.create({
     data: {
-      email: "admin@adcraft.ph",
+      email: "admin@amph.academy",
       name: "Ryan Dabao",
       role: "ADMIN",
       xp: 9999,

@@ -1,8 +1,8 @@
-# AdCraft Course Syllabus
+# AMPH Academy Course Syllabus
 
-> Operational course syllabus for the AdCraft Operator Certification. This is not a passive reading list; it is a progression of simulations, decision gates, and skill validations following the "Do The Thing" pedagogical model.
+> Operational course syllabus for the AMPH Academy Operator Certification. This is not a passive reading list; it is a progression of simulations, decision gates, and skill validations following the "Do The Thing" pedagogical model.
 
-> **Source**: Qwen chat — "AdCraft Product Development Gaps" (2026-06-03)
+> **Source**: Qwen chat — "AMPH Academy Product Development Gaps" (2026-06-03)
 > **MVP Scope**: Modules 0, 1, 4, 6, 7 are P0 priority. All other modules are post-MVP.
 
 ---
@@ -11,7 +11,7 @@
 
 - **Total Duration**: Self-Paced (Est. 40-60 Hours)
 - **Prerequisites**: None (Module 0 calibrates to experience level)
-- **Certification**: AdCraft Certified PPC Operator (Level 1-5)
+- **Certification**: AMPH Academy Certified PPC Operator (Level 1-5)
 - **Pass Threshold**: 80% on Capstone for Level 4 (Strategist); 92% + Roleplay Mastery for Level 5 (Commander)
 
 ---
@@ -220,6 +220,6 @@
 
 ---
 
-*Source: Qwen chat "AdCraft Product Development Gaps" — 2026-06-03*
+*Source: Qwen chat "AMPH Academy Product Development Gaps" — 2026-06-03*
 *MVP Priority: Modules 0, 1, 4, 6, 7 (P0). All others are P1 or later.*
 *Last updated: 2026-06-04*

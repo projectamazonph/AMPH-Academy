@@ -1,5 +1,5 @@
 /**
- * AdCraft: Middleware
+ * ProjectAMPH Academy: Middleware
  *
  * Handles authentication, security headers, rate limiting, and CORS.
  *

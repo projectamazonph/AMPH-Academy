@@ -1,7 +1,7 @@
 'use server';
 
 /**
- * AdCraft: Progress Tracking Server Actions
+ * ProjectAMPH Academy: Progress Tracking Server Actions
  *
  * Handles lesson completion persistence, module progress tracking,
  * and the full progress overview for the dashboard.

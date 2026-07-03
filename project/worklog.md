@@ -1,4 +1,4 @@
-# AdCraft Worklog
+# AMPH Academy Worklog
 
 > **This file has been archived.** The full worklog is maintained at [`docs/history/worklog.md`](./docs/history/worklog.md).
 >
@@ -102,7 +102,7 @@ Work Log:
 - Updated /src/middleware.ts — Production CSP tightening (removes unsafe-eval/inline, nonce-based script-src), CORS headers for API routes (preflight OPTIONS handling, Access-Control-Allow-Origin/Credentials), health check made public
 - Updated /src/lib/env.ts — Expanded placeholder detection (6 patterns), production HTTPS check for NEXTAUTH_URL, blocks startup with any placeholder secret in production
 - Updated /src/lib/auth.ts — Production cookie hardening (__Host- prefix, Secure flag, SameSite=Lax, httpOnly) for session, callback, and CSRF cookies
-- Created /src/components/adcraft/error-boundary.tsx — React error boundary with friendly fallback UI, "Try Again" button, error logging
+- Created /src/components/amph/error-boundary.tsx — React error boundary with friendly fallback UI, "Try Again" button, error logging
 - Updated /src/app/layout.tsx — Wrapped children in ErrorBoundary for global error catching
 - Created /scripts/backup-db.sh — SQLite backup script with sqlite3 backup API, gzip compression, 30-day retention cleanup
 - Created /docs/reference/migration-guide.md — Full SQLite→PostgreSQL migration guide (7 steps, connection pooling, rollback plan)
@@ -124,7 +124,7 @@ Work Log:
 - Added 7 TypeScript types to actions/types.ts for quiz API
 - Created fixtures/quiz-questions.json with 30 questions across 5 modules
 - Built src/app/actions/quiz.ts with 3 server actions: getQuiz, submitQuiz, getQuizHistory
-- Built src/components/adcraft/quiz-player.tsx with 4-phase interactive UI (ready → answering → submitted → review)
+- Built src/components/amph/quiz-player.tsx with 4-phase interactive UI (ready → answering → submitted → review)
 - Modified lesson-player.tsx to detect quiz-type lessons and hand off to QuizPlayer
 - Modified module-cards.tsx to show "Quiz" badge with Target icon
 - Lazy seed pattern: quiz content auto-seeds from fixture on first access
@@ -154,7 +154,7 @@ Work Log:
 - checkAndAwardBadges: Evaluates all badge criteria against user stats, awards newly earned badges with bonus XP
 - Lazy seed pattern: badges auto-seed from fixture on first access
 - 9 criteria types: LESSON_COUNT, MODULE_COMPLETED_COUNT, QUIZ_PASSED_COUNT, QUIZ_PERFECT_SCORE, SIM_GRADED_COUNT, SIM_HIGH_SCORE, XP_THRESHOLD, STREAK_DAYS, MENTOR_CHAT_COUNT
-- Built src/components/adcraft/badge-showcase.tsx: Badge grid by category, tier-colored icons, detail modal, notification toast for newly earned badges
+- Built src/components/amph/badge-showcase.tsx: Badge grid by category, tier-colored icons, detail modal, notification toast for newly earned badges
 - Integrated checkAndAwardBadges into 4 existing action files:
   - progress.ts: after lesson completion
   - quiz.ts: after quiz submission

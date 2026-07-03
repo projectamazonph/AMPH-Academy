@@ -1,4 +1,4 @@
-# REFACTORING PLAN — Adcraft Academy
+# REFACTORING PLAN — AMPH Academy
 
 > **Campaign:** Unified Ecosystem Refactoring (Q3 2026)
 > **Owner:** Ryan Roland Dabao
@@ -103,14 +103,14 @@ Extract common UI into `packages/ui/` (or a standalone repo):
 
 ---
 
-## Phase 2: Codebase Lean & Fast — Adcraft Specific
+## Phase 2: Codebase Lean & Fast — AMPH Specific
 
-**Current state:** 60+ components in `src/components/adcraft/`, many large single files, duplicated logic.
+**Current state:** 60+ components in `components/amph/`, many large single files, duplicated logic.
 
 ### 2.1 Architecture Restructure
 
 ```
-Adcraft-Academy/
+AMPH-Academy/
 └── project/
     └── src/
         ├── app/                  ← App Router (routes + API)
@@ -230,14 +230,14 @@ Create a shared `generateMetadata` helper:
 // src/lib/seo.ts
 export function seo(config: SEOConfig): Metadata {
   return {
-    title: `${config.title} | Adcraft Academy`,
+    title: `${config.title} | AMPH Academy`,
     description: config.description,
     openGraph: {
-      title: config.ogTitle ?? `${config.title} | Adcraft Academy`,
+      title: config.ogTitle ?? `${config.title} | AMPH Academy`,
       description: config.ogDescription ?? config.description,
       type: 'website',
       locale: 'en_PH',
-      siteName: 'Adcraft Academy',
+      siteName: 'AMPH Academy',
     },
     robots: { index: true, follow: true },
     alternates: { canonical: config.canonical },
@@ -325,7 +325,7 @@ export function seo(config: SEOConfig): Metadata {
 
 | Context | Tone | Example (old → new) |
 |---------|------|---------------------|
-| Welcome / Hero | Aspirational, warm | "Welcome to Adcraft" → "Master Amazon Ads. Build Your Future." |
+| Welcome / Hero | Aspirational, warm | "Welcome to AMPH" → "Master Amazon Ads. Build Your Future." |
 | Error messages | Helpful, action-oriented | "Invalid input" → "That doesn't look right. Care to try again?" |
 | Success messages | Celebratory, personal | "Quiz passed" → "Nice work! You crushed that module." |
 | Empty states | Encouraging, guiding | "No results" → "Nothing here yet — let's start your first campaign!" |
@@ -357,7 +357,7 @@ export function seo(config: SEOConfig): Metadata {
 
 ## Phase 7: Navigation & User Paths
 
-### 7.1 Site Architecture (Adcraft)
+### 7.1 Site Architecture (AMPH)
 
 ```
 / (Landing)
@@ -439,14 +439,14 @@ Module Complete → Quiz → Score → Review Mistakes → Retry or Next Module
 
 ## Ad Console Integration
 
-Adcraft Academy will link to the **Ad Console** as the primary hands-on practice environment:
+AMPH Academy will link to the **Ad Console** as the primary hands-on practice environment:
 
 ```
 Curriculum → Lesson on Campaign Creation → "Open Ad Console" (deep link)
 Tools → "Practice in Live Simulator" → Opens Ad Console with pre-seeded data
 ```
 
-Ad Console will be the **lab**; Adcraft Academy is the **classroom**. Students learn in Adcraft, then practice in Ad Console.
+Ad Console will be the **lab**; AMPH Academy is the **classroom**. Students learn in AMPH, then practice in Ad Console.
 
 ---
 

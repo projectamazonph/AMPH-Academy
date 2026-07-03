@@ -1,5 +1,5 @@
 /**
- * AdCraft: NextAuth Configuration
+ * ProjectAMPH Academy: NextAuth Configuration
  *
  * Credentials-based authentication for the MVP.
  * Uses email + password with bcrypt hashing.

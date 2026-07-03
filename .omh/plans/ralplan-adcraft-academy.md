@@ -1,4 +1,4 @@
-# AdCraft Academy — Execution Plan
+# AMPH Academy — Execution Plan
 
 ## Workstream 1: Landing Page (Phase 1 — Immediate)
 

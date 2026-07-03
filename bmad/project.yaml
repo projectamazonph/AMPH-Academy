@@ -1,7 +1,7 @@
 # BMAD Project Configuration
 
 project:
-  name: "Adcraft Academy"
+  name: "AMPH Academy"
   type: "web-app"  # web-app, mobile-app, api, game, library, cli, other
   level: 3    # 0-4
   description: "Amazon PPC learning hub for Filipino VAs"

@@ -1,7 +1,7 @@
 'use server';
 
 /**
- * AdCraft: "Explain My Mistake" Server Action (Phase 3)
+ * ProjectAMPH Academy: "Explain My Mistake" Server Action (Phase 3)
  *
  * Retrieves a graded quiz attempt, runs the mistake analysis engine,
  * and returns a structured report explaining each wrong answer.

@@ -1,7 +1,7 @@
 'use client';
 
 /**
- * AdCraft: Team Dashboard (Phase 3)
+ * ProjectAMPH Academy: Team Dashboard
  *
  * Card grid per learner with progress, streak, cert status, health.
  * Manager wizard for org setup and member invitations.

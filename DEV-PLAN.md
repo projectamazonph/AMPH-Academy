@@ -1,4 +1,4 @@
-# Development Plan — Adcraft Academy
+# Development Plan — AMPH Academy
 
 **Version:** 1.0 | **Status:** Development | **Last Updated:** 2026-07-02
 
@@ -7,7 +7,7 @@
 ## Architecture Overview
 
 ```
-Adcraft-Academy/
+AMPH-Academy/
 ├── project/          ← Next.js application (main codebase)
 │   ├── src/          ← App Router pages and components
 │   ├── docs/         ← Project-level documentation

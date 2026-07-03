@@ -1,4 +1,4 @@
-# Work Log — Adcraft Academy
+# Work Log — AMPH Academy
 
 ## 2026-07-02
 ### Session: Documentation Standardization

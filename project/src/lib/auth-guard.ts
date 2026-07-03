@@ -1,5 +1,5 @@
 /**
- * AdCraft: Auth Guard Utility
+ * ProjectAMPH Academy: Auth Guard Utility
  *
  * Server-side helper to get the current authenticated user from the session.
  * Used by server actions to replace the hardcoded MVP_USER_ID.

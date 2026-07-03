@@ -1,5 +1,5 @@
 /**
- * AdCraft: Evaluation Engine — Barrel Export
+ * ProjectAMPH Academy: Evaluation Engine — Barrel Export
  *
  * This is the public API for the Pure TypeScript Deterministic Engine.
  * All engine functions are pure, deterministic, and have zero framework dependencies.

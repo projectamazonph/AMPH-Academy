@@ -1,6 +1,6 @@
-# AdCraft Agents Specification
+# AMPH Academy Agents Specification
 
-> Defines the **AI Agent Team** responsible for building, maintaining, and operating the **AdCraft: Amazon PPC Command Center**. These agents are not part of the product itself (those are defined in `content/agents.md`); rather, these are the *development* agents that will construct the codebase, content, and infrastructure.
+> Defines the **AI Agent Team** responsible for building, maintaining, and operating the **AMPH Academy: Amazon PPC Command Center**. These agents are not part of the product itself (those are defined in `content/agents.md`); rather, these are the *development* agents that will construct the codebase, content, and infrastructure.
 
 > **Updated 2026-06-04**: Rewritten to reflect Monolith-First architecture (ADR-001). Original spec described a dual-stack Next.js + FastAPI architecture that was superseded before any code was written. All Python/FastAPI/Redis references have been replaced with the current Pure TypeScript / Next.js / Postgres stack.
 
@@ -91,7 +91,7 @@
 - Ensure all components meet performance budgets and avoid hydration mismatches (no `Math.random()` or `Date.now()` in SSR).
 
 **Output Artifacts:**
-- `src/components/adcraft/` — All custom AdCraft UI components
+- `src/components/amph/` — All custom AMPH Academy UI components
 - `src/app/page.tsx` — Main app with simulation routing
 - `src/app/layout.tsx` — Root layout with dark theme
 - `src/app/globals.css` — Custom emerald/slate theme variables
@@ -192,13 +192,13 @@
 6. DevOps        → Secures, monitors, and deploys the application
 ```
 
-All agents must communicate via clear documentation and adhere to the **AdCraft Style Guide** (Professional Playfulness, Deterministic Truth, Safety First).
+All agents must communicate via clear documentation and adhere to the **AMPH Academy Style Guide** (Professional Playfulness, Deterministic Truth, Safety First).
 
 ---
 
 ## Agent-to-Subagent Mapping
 
-| AdCraft Agent | Subagent Type | Notes |
+| AMPH Academy Agent | Subagent Type | Notes |
 |--------------|---------------|-------|
 | Agent 1: Architect | `Plan` | System design, schema decisions, ADRs |
 | Agent 2: Backend | `general-purpose` | Pure TS engine, Zustand stores, evaluation |

@@ -36,35 +36,35 @@ import { Progress } from '@/components/ui/progress';
 import { Separator } from '@/components/ui/separator';
 import { ScrollArea } from '@/components/ui/scroll-area';
 import dynamic from 'next/dynamic';
-import { Sidebar, type NavTab } from '@/components/adcraft/sidebar';
-import { Dashboard } from '@/components/adcraft/dashboard';
+import { Sidebar, type NavTab } from '@/components/amph/sidebar';
+import { Dashboard } from '@/components/amph/dashboard';
 
 // Dynamic imports for heavy components — loaded only when needed
-const StrTriageArena = dynamic(() => import('@/components/adcraft/str-triage-arena').then((m) => ({ default: m.StrTriageArena })), {
+const StrTriageArena = dynamic(() => import('@/components/amph/str-triage-arena').then((m) => ({ default: m.StrTriageArena })), {
   loading: () => <div className="flex items-center justify-center h-96 text-sm text-muted-foreground">Loading STR Triage Arena...</div>,
 });
-const BidElevator = dynamic(() => import('@/components/adcraft/bid-elevator').then((m) => ({ default: m.BidElevator })), {
+const BidElevator = dynamic(() => import('@/components/amph/bid-elevator').then((m) => ({ default: m.BidElevator })), {
   loading: () => <div className="flex items-center justify-center h-96 text-sm text-muted-foreground">Loading Bid Elevator...</div>,
 });
-const CampaignBuilder = dynamic(() => import('@/components/adcraft/campaign-builder').then((m) => ({ default: m.CampaignBuilder })), {
+const CampaignBuilder = dynamic(() => import('@/components/amph/campaign-builder').then((m) => ({ default: m.CampaignBuilder })), {
   loading: () => <div className="flex items-center justify-center h-96 text-sm text-muted-foreground">Loading Campaign Builder...</div>,
 });
-const FormulaCalculator = dynamic(() => import('@/components/adcraft/formula-calculator').then((m) => ({ default: m.FormulaCalculator })), {
+const FormulaCalculator = dynamic(() => import('@/components/amph/formula-calculator').then((m) => ({ default: m.FormulaCalculator })), {
   loading: () => <div className="flex items-center justify-center h-64 text-sm text-muted-foreground">Loading Calculator...</div>,
 });
-const LessonPlayer = dynamic(() => import('@/components/adcraft/lesson-player').then((m) => ({ default: m.LessonPlayer })), {
+const LessonPlayer = dynamic(() => import('@/components/amph/lesson-player').then((m) => ({ default: m.LessonPlayer })), {
   loading: () => <div className="flex items-center justify-center h-96 text-sm text-muted-foreground">Loading Lesson...</div>,
 });
-import { Leaderboard } from '@/components/adcraft/leaderboard';
+import { Leaderboard } from '@/components/amph/leaderboard';
 import { getCheatSheet } from '@/app/actions/cheatsheet';
-import { AnalyticsDashboard } from '@/components/adcraft/analytics-dashboard';
-import { AdminAnalytics } from '@/components/adcraft/admin-analytics';
-import { CertificateManager } from '@/components/adcraft/certificate-manager';
-import { MentorChat } from '@/components/adcraft/mentor-chat';
+import { AnalyticsDashboard } from '@/components/amph/analytics-dashboard';
+import { AdminAnalytics } from '@/components/amph/admin-analytics';
+import { CertificateManager } from '@/components/amph/certificate-manager';
+import { MentorChat } from '@/components/amph/mentor-chat';
 import { getUserStats } from '@/app/actions/simulation';
-import { TeamDashboard } from '@/components/adcraft/team-dashboard';
-import { ResourcesView } from '@/components/adcraft/resources-view';
-import { LiveClassesView } from '@/components/adcraft/live-classes-view';
+import { TeamDashboard } from '@/components/amph/team-dashboard';
+import { ResourcesView } from '@/components/amph/resources-view';
+import { LiveClassesView } from '@/components/amph/live-classes-view';
 import { useSession } from 'next-auth/react';
 import { cn } from '@/lib/utils';
 import { trackEvent } from '@/app/actions/events';
@@ -91,7 +91,7 @@ const moduleDetails: ModuleDetail[] = [
     description: 'Welcome, platform tour, first simulation intro',
     status: 'available',
     lessons: [
-      { title: 'Welcome to AdCraft', duration: '5 min', status: 'available' },
+      { title: 'Welcome to AMPH', duration: '5 min', status: 'available' },
       { title: 'Platform Tour & Navigation', duration: '8 min', status: 'available' },
       { title: 'Your First PPC Simulation', duration: '10 min', status: 'available' },
     ],
@@ -469,7 +469,7 @@ export default function Home() {
           <div className="flex items-center justify-between px-4 lg:px-6 h-14">
             <div className="flex items-center gap-3 pl-12 lg:pl-0">
               <Zap className="h-4 w-4 text-primary lg:hidden" />
-              <h1 className="text-sm font-semibold lg:hidden">AdCraft</h1>
+              <h1 className="text-sm font-semibold lg:hidden">AMPH</h1>
               <span className="hidden lg:inline text-sm text-muted-foreground">
                 {activeTab === 'dashboard' && 'Dashboard'}
                 {activeTab === 'live-classes' && 'Live Classes'}
@@ -560,7 +560,7 @@ export default function Home() {
           <div className="flex items-center gap-2">
             <Zap className="h-3.5 w-3.5 text-primary" />
             <span className="text-xs text-muted-foreground">
-              AdCraft — Amazon PPC Command Center
+              AMPH — Amazon PPC Command Center
             </span>
           </div>
           <div className="flex items-center gap-4 text-[10px] text-muted-foreground/60">

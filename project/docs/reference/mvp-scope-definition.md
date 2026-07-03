@@ -1,4 +1,4 @@
-# AdCraft MVP Scope Definition
+# AMPH Academy MVP Scope Definition
 
 > Defines exactly what is in scope for the MVP (Phase 1 + Phase 2 Core). Everything not listed here is explicitly excluded.
 

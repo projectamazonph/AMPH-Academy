@@ -1,4 +1,4 @@
-# AdCraft Documentation Conventions & Anti-Bloat Charter
+# AMPH Academy Documentation Conventions & Anti-Bloat Charter
 
 > Rules that keep our documentation healthy, navigable, and bloat-free. Every contributor MUST follow these.
 

@@ -1,4 +1,4 @@
-# AdCraft Post-MVP Atomic Build List
+# AMPH Academy Post-MVP Atomic Build List
 
 > Comprehensive list of all post-MVP features, organized as atomic builds — small, independently deployable units that build on each other incrementally. Each build is self-contained, testable, and shippable on its own.
 

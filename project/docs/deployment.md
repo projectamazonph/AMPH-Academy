@@ -1,4 +1,4 @@
-# AdCraft Deployment Guide (Vercel)
+# AMPH Academy Deployment Guide (Vercel)
 
 ## Quick Deploy
 
@@ -16,7 +16,7 @@ npx vercel
 
 ### 3. Set Environment Variables (in Vercel Dashboard)
 ```
-DATABASE_URL=postgresql://user:pass@host:5432/adcraft?schema=public
+DATABASE_URL=postgresql://user:pass@host:5432/amph?schema=public
 NEXTAUTH_SECRET=<random-32-char-string>
 NEXTAUTH_URL=https://your-app.vercel.app
 ```
@@ -37,7 +37,7 @@ Quiz questions are lazily seeded from `fixtures/quiz-questions.json` on first ac
 |----------|----------|-------------|
 | `DATABASE_URL` | ✅ | PostgreSQL connection string |
 | `NEXTAUTH_SECRET` | ✅ | Random 32+ char string for JWT signing |
-| `NEXTAUTH_URL` | ✅ | Your deployed app URL (e.g., `https://adcraft.vercel.app`) |
+| `NEXTAUTH_URL` | ✅ | Your deployed app URL (e.g., `https://amph.vercel.app`) |
 
 ---
 

@@ -1,7 +1,7 @@
 # Sprint 6 Plan — Platform Integration & Polish
 
 **Sprint:** 6
-**Project:** Adcraft Academy (Level 3)
+**Project:** AMPH Academy (Level 3)
 **Start:** 2026-07-03
 **End:** 2026-07-17
 **Capacity:** 13 pts (sustainable pace from retrospective)
@@ -11,7 +11,7 @@
 
 ## Goal
 
-Deliver the final touches that transition Adcraft Academy from feature-complete to production-ready: activate the dormant Team tab, build the Resources library, make the platform mobile-friendly, and expand the curriculum with an advanced competitive intelligence module.
+Deliver the final touches that transition AMPH Academy from feature-complete to production-ready: activate the dormant Team tab, build the Resources library, make the platform mobile-friendly, and expand the curriculum with an advanced competitive intelligence module.
 
 ---
 
@@ -35,7 +35,7 @@ Rolling average: 16 pts | Sustainable pace: **12-13 pts**
 ### STORY-024: Team Dashboard — Wire Tab & Fix Footer (2 pts)
 
 **Description:**
-The Team tab is defined in the sidebar and the TeamDashboard component exists (`src/components/adcraft/team-dashboard.tsx`) with server actions (`src/app/actions/team.ts`), but the tab is **not rendered** in the dashboard page switch. Also, the dashboard footer still says "5 Modules" when the platform now has 8.
+The Team tab is defined in the sidebar and the TeamDashboard component exists (`components/amph/team-dashboard.tsx`) with server actions (`src/app/actions/team.ts`), but the tab is **not rendered** in the dashboard page switch. Also, the dashboard footer still says "5 Modules" when the platform now has 8.
 
 **Acceptance Criteria:**
 - Clicking the Team sidebar tab renders the TeamDashboard component
@@ -69,7 +69,7 @@ Build the Resources tab for downloadable templates, checklists, and guides. The 
 **Files to create:**
 - `src/modules/resources/_actions.ts` — server actions for fetching resources
 - `src/modules/resources/_types.ts` — resource type definitions
-- `src/components/adcraft/resources-view.tsx` — tab UI component
+- `components/amph/resources-view.tsx` — tab UI component
 - `src/modules/resources/resources-data.ts` — resource metadata
 - Starter resource files in `downloads/`
 

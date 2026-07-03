@@ -1,4 +1,4 @@
-# AdCraft Error Log
+# AMPH Academy Error Log
 
 > Comprehensive record of all errors, bugs, issues, and their resolutions encountered during development.
 
@@ -46,7 +46,7 @@ Each entry follows this structure:
 
 ### [ERR-002] — 🟡 Medium — 2026-06-04
 
-**Component**: src/components/adcraft/stats-row.tsx
+**Component**: src/components/amph/stats-row.tsx
 **Error Type**: Runtime (Hydration)
 **Error Message**: `A tree hydrated but some attributes of the server rendered HTML didn't match the client properties` — decorative bar chart heights differed between server and client renders.
 **Root Cause**: `Math.random()` was used to generate random bar heights in the placeholder sparkline (line 142). During SSR, the server generates one set of random values; then on the client, React hydrates and `Math.random()` produces different values, causing a hydration mismatch.
@@ -58,7 +58,7 @@ Each entry follows this structure:
 
 ### [ERR-003] — 🟢 Low — 2026-06-04
 
-**Component**: src/components/adcraft/str-triage-arena.tsx
+**Component**: src/components/amph/str-triage-arena.tsx
 **Error Type**: Lint/Build Warning
 **Error Message**: React Compiler warning about `useReactTable()` memoization — expected behavior with TanStack Table.
 **Root Cause**: TanStack Table's `useReactTable()` hook creates new object references on each render, triggering React Compiler's memoization heuristic.

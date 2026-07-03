@@ -1,5 +1,5 @@
 /**
- * AdCraft: Health Check Endpoint
+ * ProjectAMPH Academy: Health Check Endpoint
  *
  * Enhanced health check for load balancer probes, uptime monitoring,
  * and operational debugging. Returns app version, uptime, memory

@@ -39,4 +39,4 @@ Give users visible feedback on their engagement. Show XP, level, and daily strea
 
 - `src/modules/auth/_actions.ts` — add `updateStreak()` server action
 - `src/app/layout.tsx` or create `src/components/layout/header.tsx` — add streak/XP display
-- Maybe: `src/components/adcraft/` for the XP display component
+- Maybe: `components/amph/` for the XP display component

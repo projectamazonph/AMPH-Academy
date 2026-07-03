@@ -1,4 +1,4 @@
-# Adcraft-Academy — Kanban Board
+# AMPH-Academy — Kanban Board
 
 ## Backlog
 - [ ] (empty — awaiting triage)

@@ -1,4 +1,4 @@
-# PRD — Adcraft Academy
+# PRD — AMPH Academy
 
 **Version:** 1.0 | **Status:** Approved | **Last Updated:** 2026-07-02
 
@@ -6,7 +6,7 @@
 
 ## Product Overview
 
-Adcraft Academy is an **Amazon advertising skills training platform** that equips Filipino virtual assistants with specialized Amazon advertising expertise. The platform provides structured courses, interactive tools (Campaign Builder, Bid Elevator, Search Term Triage), gamified learning with badges, and downloadable resources.
+AMPH Academy is an **Amazon advertising skills training platform** that equips Filipino virtual assistants with specialized Amazon advertising expertise. The platform provides structured courses, interactive tools (Campaign Builder, Bid Elevator, Search Term Triage), gamified learning with badges, and downloadable resources.
 
 **Core Value Proposition:** Master Amazon advertising through hands-on practice with real campaign tools — not just theory.
 

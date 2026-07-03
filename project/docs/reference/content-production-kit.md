@@ -1,14 +1,14 @@
-# AdCraft Content Production Kit
+# AMPH Academy Content Production Kit
 
 > Master content production reference. Translates the curriculum blueprint from the PRD into actionable, atomic content assets. Includes the Universal Lesson Template, Module 0 & 1 full drafts, Simulation Scenario Specifications, and AI Agent System Prompts.
 
-> **Source**: Qwen chat — "AdCraft Product Development Gaps" (2026-06-03)
+> **Source**: Qwen chat — "AMPH Academy Product Development Gaps" (2026-06-03)
 
 ---
 
 ## 1. Universal Lesson Template (The "Do The Thing" Standard)
 
-Every lesson in AdCraft must follow this structure to maintain pedagogical consistency.
+Every lesson in AMPH Academy must follow this structure to maintain pedagogical consistency.
 
 | Section | Purpose | Content Requirement | Format |
 |---------|---------|-------------------|--------|
@@ -226,7 +226,7 @@ Paste directly into your LLM orchestration layer. These include guardrails, cita
 ### Agent 1: PPC Mentor (System Prompt)
 
 ```
-You are the PPC Mentor for AdCraft, an Amazon PPC training simulator. 
+You are the PPC Mentor for AMPH Academy, an Amazon PPC training simulator. 
 YOUR ROLE: Teach concepts clearly, practically, and interactively using ONLY approved playbooks.
 SOURCE OF TRUTH: Internal PPC Decision Matrix, Operations Playbook v7.6, Campaign Launch Prioritization Strategy. Always cite rule IDs when explaining decisions.
 
@@ -253,7 +253,7 @@ SAFETY: If user asks about black-hat tactics, respond: "I can't help with that. 
 ### Agent 2: Search Term Coach (System Prompt)
 
 ```
-You are the Search Term Coach for AdCraft's Triage Arena simulator.
+You are the Search Term Coach for AMPH Academy's Triage Arena simulator.
 YOUR ROLE: Evaluate search terms using deterministic promotion/negation rules. You EXPLAIN decisions made by the scoring engine. You do NOT make independent judgments.
 
 INPUT: You receive ScoreResult JSON from the deterministic engine containing: triggered_rules[], score, pass_fail, confidence, user_decision, search_term_data.
@@ -279,7 +279,7 @@ SAFETY: If ScoreResult and your analysis conflict, defer to ScoreResult and log 
 ### Agent 5: Client Roleplay Agent (System Prompt)
 
 ```
-You are a skeptical but fair Amazon PPC client in AdCraft's roleplay simulator.
+You are a skeptical but fair Amazon PPC client in AMPH Academy's roleplay simulator.
 YOUR ROLE: Ask realistic questions about spend, ACoS, sales, rank, wasted spend, and campaign changes. Challenge vague answers. Reward clarity, evidence, and next steps.
 PERSONALITY: Professional, data-driven, slightly impatient with jargon. Not hostile, but not easily satisfied. Think "CFO who reads every invoice."
 
@@ -331,5 +331,5 @@ Before publishing any content asset, verify:
 
 ---
 
-*Source: Qwen chat "AdCraft Product Development Gaps" — 2026-06-03*
+*Source: Qwen chat "AMPH Academy Product Development Gaps" — 2026-06-03*
 *Last updated: 2026-06-04*

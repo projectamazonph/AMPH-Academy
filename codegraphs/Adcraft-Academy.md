@@ -1,4 +1,4 @@
-# Adcraft-Academy - Code Dependency Graph
+# AMPH-Academy - Code Dependency Graph
 
 ```mermaid
 graph TD

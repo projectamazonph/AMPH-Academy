@@ -1,6 +1,6 @@
-# AdCraft API Reference
+# AMPH Academy API Reference
 
-> Server Actions and shared types for the AdCraft MVP. All actions follow the `ActionResult<T>` pattern. See [`architecture.md`](./architecture.md) for the Hybrid Execution Model and type-safety rules.
+> Server Actions and shared types for the AMPH Academy MVP. All actions follow the `ActionResult<T>` pattern. See [`architecture.md`](./architecture.md) for the Hybrid Execution Model and type-safety rules.
 
 ---
 

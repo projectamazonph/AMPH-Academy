@@ -1,7 +1,7 @@
 'use server';
 
 /**
- * AdCraft: Team Dashboard & Manager Actions (Phase 3)
+ * ProjectAMPH Academy: Team Dashboard & Manager Actions (Phase 3)
  *
  * Organization management, member invitations, team progress tracking.
  */

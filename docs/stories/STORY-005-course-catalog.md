@@ -16,7 +16,7 @@ So that **I can understand the curriculum and start learning**
 
 - [ ] Course listing page (`/courses`) shows all published courses as cards
 - [ ] Each course card shows: title, description, module count, total duration
-- [ ] Courses seeded from database (Adcraft's 3 tiers: PPC Foundations, Accelerated Mastery, Ultimate Transformation)
+- [ ] Courses seeded from database (AMPH's 3 tiers: PPC Foundations, Accelerated Mastery, Ultimate Transformation)
 - [ ] Course detail page (`/courses/[slug]`) shows full course info and module list
 - [ ] Each module in the list shows: title, duration, completion status (locked/available/completed)
 - [ ] Modules display in curriculum order

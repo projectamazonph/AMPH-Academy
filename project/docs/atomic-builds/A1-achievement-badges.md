@@ -9,7 +9,7 @@
 
 ## Overview
 
-Achievement Badges add a gamification layer to AdCraft by rewarding learners for key milestones across their PPC training journey. Badges are awarded automatically when users hit specific criteria — completing their first lesson, passing quizzes, earning XP milestones, maintaining streaks, and interacting with the AI Mentor. Each badge carries a tier (Bronze → Silver → Gold → Platinum) and an optional XP bonus, creating tangible incentives that motivate learners to explore every corner of the platform.
+Achievement Badges add a gamification layer to AMPH Academy by rewarding learners for key milestones across their PPC training journey. Badges are awarded automatically when users hit specific criteria — completing their first lesson, passing quizzes, earning XP milestones, maintaining streaks, and interacting with the AI Mentor. Each badge carries a tier (Bronze → Silver → Gold → Platinum) and an optional XP bonus, creating tangible incentives that motivate learners to explore every corner of the platform.
 
 The badge system is designed to be extensible: adding new badges requires only updating the `fixtures/badges.json` file and (if a new criteria type is needed) adding a case to the `evaluateCriteria` function. No schema changes or code deployment needed for new badge definitions.
 
@@ -22,7 +22,7 @@ The badge system is designed to be extensible: adding new badges requires only u
 | File | Purpose |
 |------|---------|
 | `src/app/actions/badge.ts` | Server actions: `getBadges`, `checkAndAwardBadges` |
-| `src/components/adcraft/badge-showcase.tsx` | Interactive badge showcase UI (grid by category, detail modal, notification toast) |
+| `src/components/amph/badge-showcase.tsx` | Interactive badge showcase UI (grid by category, detail modal, notification toast) |
 | `fixtures/badges.json` | Badge definitions — 17 badges across 5 categories |
 
 ### Modified Files
@@ -35,7 +35,7 @@ The badge system is designed to be extensible: adding new badges requires only u
 | `src/app/actions/quiz.ts` | Added `checkAndAwardBadges()` call after quiz submission (quiz ace, quiz master, perfectionist) |
 | `src/app/actions/simulation.ts` | Added `checkAndAwardBadges()` call after each sim grading (sim pioneer, sim specialist, sim trifecta) |
 | `src/app/actions/mentor.ts` | Added `checkAndAwardBadges()` call after mentor chat (mentor seeker, mentor regular) + AiChatSession creation |
-| `src/components/adcraft/dashboard.tsx` | Added `BadgeShowcase` component (dynamic import) between Simulation Cards and Quick Actions |
+| `src/components/amph/dashboard.tsx` | Added `BadgeShowcase` component (dynamic import) between Simulation Cards and Quick Actions |
 
 ### Database Schema
 

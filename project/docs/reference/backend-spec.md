@@ -1,8 +1,8 @@
-# AdCraft Backend Technical Specification
+# AMPH Academy Backend Technical Specification
 
 > Backend reference translating the deterministic engine, simulation logic, and AI safety requirements into architecture. Originally designed for FastAPI + PostgreSQL + Redis; adapted for Monolith-First MVP (Next.js + Postgres JSONB). FastAPI extraction deferred to Phase 3.
 
-> **Source**: Qwen chat — "AdCraft Product Development Gaps" (2026-06-03)
+> **Source**: Qwen chat — "AMPH Academy Product Development Gaps" (2026-06-03)
 > **Architecture Context**: Monolith-First (ADR-001). MVP uses Next.js Server Actions + Postgres JSONB + Pure TypeScript engine. Python/FastAPI/Redis references are for Phase 3 extraction only.
 
 ---
@@ -273,6 +273,6 @@ model UserProgress {
 
 ---
 
-*Source: Qwen chat "AdCraft Product Development Gaps" — 2026-06-03*
+*Source: Qwen chat "AMPH Academy Product Development Gaps" — 2026-06-03*
 *Architecture adapted for Monolith-First MVP. FastAPI/Redis/Python specs preserved for Phase 3 extraction reference.*
 *Last updated: 2026-06-04*

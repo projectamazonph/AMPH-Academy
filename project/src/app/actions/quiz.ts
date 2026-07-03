@@ -1,7 +1,7 @@
 'use server';
 
 /**
- * AdCraft: Quiz Server Actions (Post-MVP: Atomic Build A4)
+ * ProjectAMPH Academy: Quiz Server Actions (Post-MVP: Atomic Build A4)
  *
  * Handles quiz lifecycle: retrieval, submission & grading, and history.
  * Quiz content is seeded from fixtures/quiz-questions.json into the database

@@ -1,5 +1,5 @@
 /**
- * AdCraft: NextAuth API Route Handler
+ * ProjectAMPH Academy: NextAuth API Route Handler
  *
  * Catches all /api/auth/* requests and delegates to NextAuth.
  * This is the required setup for NextAuth v4 with App Router.

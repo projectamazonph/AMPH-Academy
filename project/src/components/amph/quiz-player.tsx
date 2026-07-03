@@ -1,7 +1,7 @@
 'use client';
 
 /**
- * AdCraft: Quiz Player Component (Post-MVP: Atomic Build A4)
+ * ProjectAMPH Academy: Quiz Player Component
  *
  * Interactive quiz interface with:
  * - Step-by-step question navigation
@@ -35,7 +35,7 @@ import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { getMistakeAnalysis } from '@/app/actions/mistake-analysis';
-import { MistakeReplay } from '@/components/adcraft/mistake-replay';
+import { MistakeReplay } from '@/components/amph/mistake-replay';
 import type { MistakeAnalysisResult } from '@/app/actions/mistake-analysis';
 import { Progress } from '@/components/ui/progress';
 import { Separator } from '@/components/ui/separator';

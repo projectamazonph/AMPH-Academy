@@ -267,7 +267,7 @@ src/
 │   ├── api/               → API routes (streaming, webhooks)
 │   └── auth/              → Auth pages (signin, signup)
 ├── components/
-│   └── adcraft/           → All custom components
+│   └── amph/           → All custom components
 ├── engine/                → Pure TypeScript business logic
 │   ├── types.ts           → Domain types
 │   ├── formulas.ts        → Pure computation functions
@@ -342,4 +342,4 @@ zip -r project-name.zip . -x "node_modules/*" ".next/*" ".git/*"
 
 ---
 
-*This starter prompt was forged through 21 sessions of building AdCraft, an Amazon Ads learning platform. Every rule above was learned the hard way.*
+*This starter prompt was forged through 21 sessions of building AMPH Academy, an Amazon Ads learning platform. Every rule above was learned the hard way.*

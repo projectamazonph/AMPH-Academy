@@ -1,5 +1,5 @@
 /**
- * AdCraft: Environment validation — ponytail: Zod schema, ~15 lines.
+ * ProjectAMPH Academy: Environment validation — ponytail: Zod schema, ~15 lines.
  */
 
 import { z } from 'zod';

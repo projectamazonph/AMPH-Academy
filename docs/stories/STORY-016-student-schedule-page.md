@@ -28,7 +28,7 @@ Add a "Live Classes" tab to the student dashboard that displays upcoming and pas
 - File: `project/src/app/dashboard/page.tsx`
 - Add 'live-classes' to the NavTab type and the sidebar mapping
 - Create `LiveClassesView` function component in the same file (or as a separate component)
-- Pattern for sidebar: see `src/components/adcraft/sidebar.tsx` for nav structure
+- Pattern for sidebar: see `components/amph/sidebar.tsx` for nav structure
 - Date formatting: `Intl.DateTimeFormat('en-PH', { ... })` for Filipino timezone-friendly display
 - Color scheme: use a distinctive color (e.g., indigo/purple) to differentiate from existing module/simulation tabs
 
@@ -43,5 +43,5 @@ Add a "Live Classes" tab to the student dashboard that displays upcoming and pas
 ## Files Changed
 
 - `project/src/app/dashboard/page.tsx` — add LiveClassesView component + tab routing
-- `project/src/components/adcraft/sidebar.tsx` — add live-classes NavTab option
+- `project/components/amph/sidebar.tsx` — add live-classes NavTab option
 - `project/src/modules/live-classes/_actions.ts` — already created in STORY-015
