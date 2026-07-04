@@ -6,15 +6,10 @@ jobs:
   rename:
     runs-on: ubuntu-latest
     steps:
-      - name: Rename Vercel project via API
+      - uses: actions/checkout@v4
+      - name: Rename Vercel project
         run: |
-          curl -s -X PATCH \
-            "https://api.vercel.com/v1/projects/${VERCEL_PROJECT_ID}?teamId=${VERCEL_ORG_ID}" \
-            -H "Authorization: Bearer XXX_TOKEN_XXX" \
-            -H "Content-Type: application/json" \
-            -d '{"name": "amph-academy"}'
-          echo ""
-          echo "Project renamed. New URL: https://amph-academy.vercel.app"
+          curl -s -X PATCH "https://api.vercel.com/v1/projects/${VERCEL_PROJECT_ID}?teamId=${VERCEL_ORG_ID}" -H "Authorization: Bearer ${VERCEL_TOKEN}" -H "Content-Type: application/json" -d '{"name":"amph-academy"}'
         env:
           VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
           VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
