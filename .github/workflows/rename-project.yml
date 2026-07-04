@@ -10,7 +10,7 @@ jobs:
         run: |
           curl -s -X PATCH \
             "https://api.vercel.com/v1/projects/${VERCEL_PROJECT_ID}?teamId=${VERCEL_ORG_ID}" \
-            -H "Authorization: Bearer *** \
+            -H "Authorization: Bearer XXX_TOKEN_XXX" \
             -H "Content-Type: application/json" \
             -d '{"name": "amph-academy"}'
           echo ""
