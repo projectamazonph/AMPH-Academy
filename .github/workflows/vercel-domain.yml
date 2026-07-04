@@ -1,0 +1,25 @@
+name: Setup Vercel Domain Alias
+on:
+  workflow_dispatch:
+
+jobs:
+  alias:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: project
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Install Vercel CLI
+        run: npm install -g vercel
+      - name: Add domain alias
+        run: |
+          vercel alias set adcraft-academy.vercel.app amph-academy.vercel.app --token=$VERCEL_TOKEN --scope=$VERCEL_ORG_ID 2>&1 || true
+          echo "---"
+          vercel alias ls --token=$VERCEL_TOKEN --scope=$VERCEL_ORG_ID 2>&1
+        env:
+          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+          VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
