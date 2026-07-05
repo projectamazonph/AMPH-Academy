@@ -10,7 +10,7 @@ export interface AdminCourse {
   title: string;
   slug: string;
   description: string;
-  tier: string;
+  tier: string | null;
   difficulty: string;
   isPublished: boolean;
   moduleCount: number;
