@@ -80,7 +80,6 @@ export function QuizPlayer({ moduleNumber, onBack, onComplete }: QuizPlayerProps
     attemptNumber: number;
     attemptId: string;
   } | null>(null);
-  } | null>(null);
   const [saving, setSaving] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [history, setHistory] = useState<QuizAttemptSummary[]>([]);

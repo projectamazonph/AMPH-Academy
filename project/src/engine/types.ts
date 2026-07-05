@@ -535,7 +535,6 @@ export interface StrTriageState {
  * The main evaluation engine interface.
  * Each simulation type implements this interface with deterministic logic.
  */
- */
 export interface ValidationResult {
   isValid: boolean;
   errors: ValidationError[];

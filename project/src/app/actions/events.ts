@@ -11,7 +11,8 @@ export type EventType =
   | 'quiz_started' | 'quiz_completed'
   | 'simulation_started' | 'simulation_graded'
   | 'mistake_review'
-  | 'certificate_issued';
+  | 'certificate_issued'
+  | 'org_created' | 'org_invite_sent' | 'org_member_joined';
 
 export async function trackEvent(
   eventType: EventType,

@@ -1,23 +1,13 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  output: 'standalone',
-  typescript: {
-    ignoreBuildErrors: true,
-  },
-  reactStrictMode: false,
-  allowedDevOrigins: [
-    '.space-z.ai',
-    '.fcapp.run',
-    '.vercel.app',
-    'localhost',
-  ],
+  reactStrictMode: true,
+  allowedDevOrigins: ['localhost'],
   experimental: {
     serverActions: {
       allowedOrigins: [
-        '*.space-z.ai',
-        '*.fcapp.run',
-        '*.vercel.app',
+        'amph-academy.vercel.app',
+        'adcraft-academy.vercel.app',
         'localhost',
       ],
     },

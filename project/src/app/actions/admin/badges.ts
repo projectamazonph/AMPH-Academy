@@ -3,11 +3,11 @@
 import { db } from '@/lib/db';
 import { getAuthUserId } from '@/lib/auth-guard';
 import { logger } from '@/lib/logger';
-import type { ActionResult } from './types';
+import type { ActionResult } from '../types';
 
 export interface AdminBadge {
   id: string;
-  name: string;
+  title: string;
   slug: string;
   description: string;
   category: string;
@@ -20,12 +20,12 @@ export async function getAdminBadges(): Promise<ActionResult<AdminBadge[]>> {
     const uid = await getAuthUserId();
     if (!uid) return { success: false, error: 'Not authenticated', code: 'UNAUTHENTICATED' };
 
-    const badges = await db.badge.findMany({ orderBy: { name: 'asc' } });
+    const badges = await db.badge.findMany({ orderBy: { title: 'asc' } });
     const entries: AdminBadge[] = await Promise.all(
       badges.map(async (b) => {
         const awarded = await db.userBadge.count({ where: { badgeId: b.id } });
         return {
-          id: b.id, name: b.name, slug: b.slug,
+          id: b.id, title: b.title, slug: b.slug,
           description: b.description, category: b.category,
           xpReward: b.xpReward, awarded,
         };

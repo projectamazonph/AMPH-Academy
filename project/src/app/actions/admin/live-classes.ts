@@ -3,7 +3,7 @@
 import { db } from '@/lib/db';
 import { getAuthUserId } from '@/lib/auth-guard';
 import { logger } from '@/lib/logger';
-import type { ActionResult } from './types';
+import type { ActionResult } from '../types';
 
 // ============================================================================
 // TYPES

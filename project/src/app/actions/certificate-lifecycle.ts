@@ -30,7 +30,6 @@ function generateVerificationHash(userId: string): string {
 export interface CertificateView {
   id: string;
   title: string;
-  certType: string;
   status: string;
   verificationHash: string;
   issuedAt: string;
@@ -95,7 +94,6 @@ export async function getCertProgress(): Promise<ActionResult<CertProgressInfo>>
         existingCert: existingCert ? {
           id: existingCert.id,
           title: existingCert.title,
-          certType: existingCert.certType,
           status: existingCert.status,
           verificationHash: existingCert.verificationHash,
           issuedAt: existingCert.issuedAt.toISOString(),
@@ -151,7 +149,6 @@ export async function issueCertificate(): Promise<ActionResult<CertificateView>>
         success: false,
         error: 'You already have an active certificate',
         code: 'ALREADY_ISSUED',
-        data: await getCertViewFromDb(existing.id, userId),
       };
     }
 
@@ -160,7 +157,6 @@ export async function issueCertificate(): Promise<ActionResult<CertificateView>>
     const cert = await db.certificate.create({
       data: {
         userId,
-        certType: 'completion',
         title: 'AMPH PPC Command Center',
         status: 'active',
         verificationHash: hash,
@@ -199,7 +195,6 @@ export async function verifyCertificate(
   issuedAt: string;
   expiresAt: string | null;
   status: string;
-  certType: string;
 }>> {
   try {
     const cert = await db.certificate.findUnique({
@@ -210,7 +205,7 @@ export async function verifyCertificate(
     if (!cert) {
       return {
         success: true,
-        data: { valid: false, title: '', userName: '', issuedAt: '', expiresAt: null, status: 'not_found', certType: '' },
+        data: { valid: false, title: '', userName: '', issuedAt: '', expiresAt: null, status: 'not_found' },
       };
     }
 
@@ -227,7 +222,6 @@ export async function verifyCertificate(
         issuedAt: cert.issuedAt.toISOString(),
         expiresAt: cert.expiresAt?.toISOString() || null,
         status: effectiveStatus,
-        certType: cert.certType,
       },
     };
   } catch (error) {
@@ -322,7 +316,6 @@ async function getCertViewFromDb(certId: string, userId: string): Promise<Certif
   return {
     id: cert!.id,
     title: cert!.title,
-    certType: cert!.certType,
     status: cert!.status,
     verificationHash: cert!.verificationHash,
     issuedAt: cert!.issuedAt.toISOString(),

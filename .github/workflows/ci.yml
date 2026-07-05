@@ -40,34 +40,27 @@ jobs:
 
       - run: npm ci
 
-      - name: Set up Vercel project
-        run: |
-          mkdir -p .vercel
-          cat > .vercel/project.json << 'EOF'
-          {"projectId":"${{ secrets.VERCEL_PROJECT_ID }}","orgId":"${{ secrets.VERCEL_ORG_ID }}"}
-          EOF
-
       - name: Install Vercel CLI
         run: npm install -g vercel
 
-      - name: Pull Vercel project settings
+      - name: Pull Vercel Environment
         run: vercel pull --yes --environment=production --token=${{ secrets.VERCEL_TOKEN }}
-
-      - name: Override env vars for build
-        run: |
-          cat > .vercel/.env.production.local << 'EOF'
-          DATABASE_URL="file:./dev.db"
-          NEXTAUTH_SECRET="placeholder-secret-for-build"
-          NEXTAUTH_URL="https://amph-academy.vercel.app"
-          EOF
-
-      - name: Push schema to local DB
-        run: npx prisma db push --skip-generate
         env:
-          DATABASE_URL: "file:./dev.db"
+          VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
+          VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
 
-      - name: Build with Vercel
+      - name: Build
         run: vercel build --prod --token=${{ secrets.VERCEL_TOKEN }}
+        env:
+          VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
+          VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
+          # Build-time env vars (Prisma needs DATABASE_URL to generate client)
+          DATABASE_URL: "file:./prisma/dev.db"
+          NEXTAUTH_SECRET: ${{ secrets.NEXTAUTH_SECRET }}
+          NEXTAUTH_URL: "https://amph-academy.vercel.app"
 
       - name: Deploy to Production
         run: vercel deploy --prebuilt --prod --yes --token=${{ secrets.VERCEL_TOKEN }}
+        env:
+          VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
+          VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}

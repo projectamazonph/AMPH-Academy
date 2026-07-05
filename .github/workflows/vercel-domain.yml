@@ -1,25 +1,33 @@
-name: Setup Vercel Domain Alias
+name: Add Vercel Domain
+
 on:
   workflow_dispatch:
+    inputs:
+      domain:
+        description: 'Domain to add (e.g. amph-academy.vercel.app)'
+        required: true
+        default: 'amph-academy.vercel.app'
 
 jobs:
-  alias:
+  add-domain:
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: project
     steps:
       - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
-        with:
-          node-version: 22
+
       - name: Install Vercel CLI
         run: npm install -g vercel
-      - name: Add domain alias
+
+      - name: Add domain to Vercel project
         run: |
-          vercel alias set adcraft-academy.vercel.app amph-academy.vercel.app --token=$VERCEL_TOKEN --scope=$VERCEL_ORG_ID 2>&1 || true
-          echo "---"
-          vercel alias ls --token=$VERCEL_TOKEN --scope=$VERCEL_ORG_ID 2>&1
+          vercel domains add ${{ inputs.domain }} --token=${{ secrets.VERCEL_TOKEN }} --scope=${{ secrets.VERCEL_ORG_ID }} --project=amph-academy
         env:
-          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
           VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
+          VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
+
+      - name: List domains
+        run: |
+          echo "=== Current domains ==="
+          vercel domains ls --token=${{ secrets.VERCEL_TOKEN }} --scope=${{ secrets.VERCEL_ORG_ID }}
+        env:
+          VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
+          VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}

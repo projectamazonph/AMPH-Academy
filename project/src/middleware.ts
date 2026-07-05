@@ -71,7 +71,7 @@ function getCspDirectives(nonce?: string): string {
     styleSrc,
     "img-src 'self' data: blob: https://z-cdn.chatglm.cn",
     "font-src 'self' https://fonts.gstatic.com",
-    "connect-src 'self' https://*.space-z.ai", // API calls
+    "connect-src 'self'",
     "frame-ancestors 'none'",
     "base-uri 'self'",
     "form-action 'self'",

@@ -3,7 +3,7 @@
 import { db } from '@/lib/db';
 import { getAuthUserId } from '@/lib/auth-guard';
 import { logger } from '@/lib/logger';
-import type { ActionResult } from './types';
+import type { ActionResult } from '../types';
 
 export interface AdminCourse {
   id: string;
@@ -12,7 +12,7 @@ export interface AdminCourse {
   description: string;
   tier: string;
   difficulty: string;
-  published: boolean;
+  isPublished: boolean;
   moduleCount: number;
   enrollmentCount: number;
   createdAt: Date;
@@ -27,7 +27,7 @@ export async function getCourses(): Promise<ActionResult<AdminCourse[]>> {
       orderBy: { createdAt: 'desc' },
       select: {
         id: true, title: true, slug: true, description: true,
-        tier: true, difficulty: true, published: true, createdAt: true,
+        tier: true, difficulty: true, isPublished: true, createdAt: true,
       },
     });
 

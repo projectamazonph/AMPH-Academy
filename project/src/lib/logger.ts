@@ -6,7 +6,7 @@ type Level = 'error' | 'warn' | 'info' | 'debug';
 const isDev = process.env.NODE_ENV === 'development';
 
 function log(level: Level, msg: string, ctx?: Record<string, unknown>) {
-  const entry = { timestamp: new Date().toISOString(), level, message: msg, ...(ctx?.key ? { context: ctx } : {}) };
+  const entry = { timestamp: new Date().toISOString(), level, message: msg, ...(ctx && Object.keys(ctx).length > 0 ? { context: ctx } : {}) };
   if (isDev) { const p = `[${entry.timestamp}] ${level.toUpperCase()} ${msg}`; console[level](ctx ? `${p} ${JSON.stringify(ctx)}` : p); }
   else console[level](JSON.stringify(entry));
 }
