@@ -168,3 +168,19 @@ export interface ProgressOverview {
 
 // ============================================================================
 // CERTIFICATE
+
+/** Badge view for display */
+export interface BadgeView {
+  id: string;
+  slug: string;
+  title: string;
+  description: string;
+  icon: string;
+  category: string;
+  tier: string;
+  xpReward: number;
+  order: number;
+  isSecret: boolean;
+  earnedAt: string | null;
+  isEarned: boolean;
+}
