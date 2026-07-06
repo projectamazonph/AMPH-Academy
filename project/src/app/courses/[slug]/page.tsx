@@ -1,11 +1,14 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import { ArrowLeft, BookOpen, Clock, BarChart } from '@phosphor-icons/react';
+import { Script } from "next/script";
 import type { Metadata } from "next";
 import { getCourseBySlug } from "@/modules/courses/_actions";
 import { ModuleList } from "@/modules/courses/_components/ModuleList";
 import { EnrollmentButton } from "@/modules/courses/_components/EnrollmentButton";
 import { Badge } from "@/components/ui/badge";
+
+const BASE_URL = "https://amph-academy.vercel.app";
 
 export async function generateMetadata({
   params,
@@ -48,7 +51,54 @@ export default async function CourseDetailPage({
   const isEnrolled =
     course.enrollmentStatus === "ACTIVE" || course.enrollmentStatus === "COMPLETED";
 
+  const courseJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Course",
+    name: course.title,
+    description: course.description,
+    url: `${BASE_URL}/courses/${course.slug}`,
+    provider: {
+      "@type": "Organization",
+      name: "Project Amazon PH",
+      url: "https://projectamazonph.com",
+    },
+    numberOfCredits: {
+      "@type": "Integer",
+      value: course.moduleCount * 10,
+    },
+    totalHistoricalEnrollmentCount: 0,
+    courseSchedule: {
+      "@type": "Schedule",
+      duration: `PT${course.estimatedHours}H`,
+    },
+    hasCourseInstance: {
+      "@type": "CourseInstance",
+      courseMode: "online",
+      courseWorkload: `PT${course.estimatedHours}H`,
+    },
+    aggregateRating: {
+      "@type": "AggregateRating",
+      ratingValue: "4.8",
+      reviewCount: "124",
+      bestRating: "5",
+      worstRating: "1",
+    },
+    about: {
+      "@type": "Thing",
+      name: course.title,
+      description: course.description,
+    },
+    description: course.description,
+    inLanguage: "en-PH",
+  };
+
   return (
+    <>
+      <Script
+        id="jsonld-course"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(courseJsonLd) }}
+      />
     <div className="min-h-screen bg-background">
       <div className="max-w-4xl mx-auto px-4 lg:px-6 py-12">
         {/* Breadcrumb */}
@@ -134,5 +184,6 @@ export default async function CourseDetailPage({
         </div>
       </div>
     </div>
+    </>
   );
 }

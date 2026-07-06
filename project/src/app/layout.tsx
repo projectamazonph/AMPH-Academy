@@ -1,9 +1,12 @@
 import type { Metadata } from "next";
 import { Space_Grotesk, Plus_Jakarta_Sans, JetBrains_Mono } from "next/font/google";
+import { Script } from "next/script";
 import "./globals.css";
 import { Toaster } from "@/components/ui/toaster";
 import { AuthProvider } from "@/components/providers/session-provider";
 import { ErrorBoundary } from "@/components/amph/error-boundary";
+
+const BASE_URL = "https://amph-academy.vercel.app";
 
 const spaceGrotesk = Space_Grotesk({
   variable: "--font-heading",
@@ -100,6 +103,28 @@ export default function RootLayout({
           </ErrorBoundary>
         </AuthProvider>
         <Toaster />
+        <Script
+          id="jsonld-organization"
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Organization",
+              name: "ProjectAmazonPH",
+              url: "https://projectamazonph.com",
+              logo: `${BASE_URL}/icon.png`,
+              sameAs: [
+                "https://www.facebook.com/projectamazonph",
+                "https://www.linkedin.com/company/projectamazonph",
+              ],
+              contactPoint: {
+                "@type": "ContactPoint",
+                contactType: "customer support",
+                availableLanguage: ["en", "fil"],
+              },
+            }),
+          }}
+        />
       </body>
     </html>
   );
