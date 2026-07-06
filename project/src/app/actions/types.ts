@@ -51,15 +51,8 @@ export interface StartAttemptOutput {
   attemptNumber: number;
 }
 
-/** Output for grading any attempt */
-export interface GradeAttemptOutput {
-  attemptId: string;
-  officialScore: number;
-  previewScore: number;
-  scoreDiscrepancy: boolean;
-  xpEarned: number;
-  evaluation: import('@/engine/types').StrTriageEvaluation | import('@/engine/types').BidElevatorEvaluation | import('@/engine/types').CampaignBuilderEvaluation;
-}
+// NOTE: The original GradeAttemptOutput (lines 54-62 in the old file) was removed.
+// The correctly-typed version is at lines 206-213 below (evaluation uses engine types).
 
 /** Output for attempt history */
 export interface AttemptHistoryItem {
