@@ -19,7 +19,13 @@ jobs:
           node-version: 22
           cache: npm
           cache-dependency-path: project/package-lock.json
-      - run: npm ci
+
+      - name: Clear stale cache if lockfile changed
+        run: |
+          # Force fresh install if cache-lockfile mismatch detected
+          # The cache key includes lockfile hash so mismatches auto-fail npm ci
+          npm ci || (rm -rf node_modules && npm ci)
+
       - run: npx prisma generate
       - run: npm test
 
@@ -35,8 +41,9 @@ jobs:
           cache: npm
           cache-dependency-path: project/package-lock.json
 
-      - name: Install dependencies
-        run: cd project && npm ci
+      - name: Clear stale cache if lockfile changed
+        run: |
+          npm ci || (rm -rf node_modules && npm ci)
 
       - name: Install Vercel CLI
         run: npm install -g vercel@latest
