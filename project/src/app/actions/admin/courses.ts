@@ -1,7 +1,7 @@
 'use server';
 
 import { db } from '@/lib/db';
-import { getAuthUserId } from '@/lib/auth-guard';
+import { requireAdmin } from '@/lib/auth-guard';
 import { logger } from '@/lib/logger';
 import type { ActionResult } from '../types';
 
@@ -20,8 +20,9 @@ export interface AdminCourse {
 
 export async function getCourses(): Promise<ActionResult<AdminCourse[]>> {
   try {
-    const uid = await getAuthUserId();
-    if (!uid) return { success: false, error: 'Not authenticated', code: 'UNAUTHENTICATED' };
+    const admin = await requireAdmin();
+    if (!admin.success) return admin;
+    const uid = admin.data.userId;
 
     const courses = await db.course.findMany({
       orderBy: { createdAt: 'desc' },

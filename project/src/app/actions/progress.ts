@@ -53,11 +53,10 @@ const LESSON_XP_DEFAULT = 50;
 
 export async function markLessonComplete(
   moduleNumber: number,
-  lessonNumber: number,
-  userId?: string
+  lessonNumber: number
 ): Promise<ActionResult<MarkLessonCompleteOutput>> {
   try {
-    const uid = userId || await getAuthUserId();
+    const uid = await getAuthUserId();
     if (!uid) {
       return { success: false, error: 'You must be signed in to track progress', code: 'UNAUTHENTICATED' };
     }
@@ -237,11 +236,10 @@ export async function markLessonComplete(
 // ============================================================================
 
 export async function getLessonProgress(
-  moduleNumber: number,
-  userId?: string
+  moduleNumber: number
 ): Promise<ActionResult<LessonProgressItem[]>> {
   try {
-    const uid = userId || await getAuthUserId();
+    const uid = await getAuthUserId();
     if (!uid) {
       return { success: false, error: 'You must be signed in to view progress', code: 'UNAUTHENTICATED' };
     }
@@ -310,11 +308,9 @@ export async function getLessonProgress(
 // SERVER ACTION: Get Full Progress Overview (Dashboard)
 // ============================================================================
 
-export async function getProgressOverview(
-  userId?: string
-): Promise<ActionResult<ProgressOverview>> {
+export async function getProgressOverview(): Promise<ActionResult<ProgressOverview>> {
   try {
-    const uid = userId || await getAuthUserId();
+    const uid = await getAuthUserId();
     if (!uid) {
       return { success: false, error: 'You must be signed in to view progress', code: 'UNAUTHENTICATED' };
     }

@@ -1,7 +1,7 @@
 'use server';
 
 import { db } from '@/lib/db';
-import { getAuthUserId } from '@/lib/auth-guard';
+import { requireAdmin } from '@/lib/auth-guard';
 import { logger } from '@/lib/logger';
 import type { ActionResult } from '../types';
 
@@ -21,8 +21,9 @@ export interface AdminUser {
 
 export async function getUsers(): Promise<ActionResult<AdminUser[]>> {
   try {
-    const uid = await getAuthUserId();
-    if (!uid) return { success: false, error: 'Not authenticated', code: 'UNAUTHENTICATED' };
+    const admin = await requireAdmin();
+    if (!admin.success) return admin;
+    const uid = admin.data.userId;
 
     const users = await db.user.findMany({
       orderBy: { createdAt: 'desc' },
@@ -56,8 +57,9 @@ export async function getUsers(): Promise<ActionResult<AdminUser[]>> {
 
 export async function deleteUser(userId: string): Promise<ActionResult<null>> {
   try {
-    const uid = await getAuthUserId();
-    if (!uid) return { success: false, error: 'Not authenticated', code: 'UNAUTHENTICATED' };
+    const admin = await requireAdmin();
+    if (!admin.success) return admin;
+    const uid = admin.data.userId;
 
     // Cascade delete user data
     await db.$transaction([
@@ -86,8 +88,9 @@ export async function deleteUser(userId: string): Promise<ActionResult<null>> {
 
 export async function updateUserRole(userId: string, role: string): Promise<ActionResult<null>> {
   try {
-    const uid = await getAuthUserId();
-    if (!uid) return { success: false, error: 'Not authenticated', code: 'UNAUTHENTICATED' };
+    const admin = await requireAdmin();
+    if (!admin.success) return admin;
+    const uid = admin.data.userId;
 
     const valid = ['STUDENT', 'INSTRUCTOR', 'ADMIN'];
     if (!valid.includes(role)) {

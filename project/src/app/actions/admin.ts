@@ -1,7 +1,7 @@
 'use server';
 
 import { db } from '@/lib/db';
-import { getAuthUserId } from '@/lib/auth-guard';
+import { getAuthUserId, requireAdmin } from '@/lib/auth-guard';
 import { logger } from '@/lib/logger';
 import type { ActionResult } from './types';
 
@@ -19,10 +19,10 @@ export interface AdminStats {
 
 export async function getAdminStats(): Promise<ActionResult<AdminStats>> {
   try {
-    const userId = await getAuthUserId();
-    if (!userId) return { success: false, error: 'Not authenticated', code: 'UNAUTHENTICATED' };
+    const admin = await requireAdmin();
+    if (!admin.success) return admin;
+    const userId = admin.data.userId;
 
-    // ponytail: simple admin check — any signed-in user can see stats
     const totalUsers = await db.user.count();
     const lessonsCompletedTotal = await db.lessonProgress.count({ where: { status: 'COMPLETED' } });
     const modulesCompletedTotal = await db.moduleProgress.count({ where: { status: 'COMPLETED' } });

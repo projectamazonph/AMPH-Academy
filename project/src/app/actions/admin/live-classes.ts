@@ -1,7 +1,7 @@
 'use server';
 
 import { db } from '@/lib/db';
-import { getAuthUserId } from '@/lib/auth-guard';
+import { requireAdmin } from '@/lib/auth-guard';
 import { logger } from '@/lib/logger';
 import type { ActionResult } from '../types';
 
@@ -69,8 +69,9 @@ function validateCreate(data: CreateLiveClassInput): string | null {
 
 export async function getLiveClasses(): Promise<ActionResult<AdminLiveClass[]>> {
   try {
-    const uid = await getAuthUserId();
-    if (!uid) return { success: false, error: 'Not authenticated', code: 'UNAUTHENTICATED' };
+    const admin = await requireAdmin();
+    if (!admin.success) return admin;
+    const uid = admin.data.userId;
 
     const classes = await db.liveClass.findMany({
       orderBy: { scheduledAt: 'desc' },
@@ -108,8 +109,9 @@ export async function getLiveClassById(
   id: string
 ): Promise<ActionResult<AdminLiveClass & { registrations: { userId: string; userName: string | null; attended: boolean; registeredAt: Date }[] }>> {
   try {
-    const uid = await getAuthUserId();
-    if (!uid) return { success: false, error: 'Not authenticated', code: 'UNAUTHENTICATED' };
+    const admin = await requireAdmin();
+    if (!admin.success) return admin;
+    const uid = admin.data.userId;
 
     const liveClass = await db.liveClass.findUnique({
       where: { id },
@@ -165,8 +167,9 @@ export async function createLiveClass(
   data: CreateLiveClassInput
 ): Promise<ActionResult<AdminLiveClass>> {
   try {
-    const uid = await getAuthUserId();
-    if (!uid) return { success: false, error: 'Not authenticated', code: 'UNAUTHENTICATED' };
+    const admin = await requireAdmin();
+    if (!admin.success) return admin;
+    const uid = admin.data.userId;
 
     const validationError = validateCreate(data);
     if (validationError) {
@@ -220,8 +223,9 @@ export async function updateLiveClass(
   data: UpdateLiveClassInput
 ): Promise<ActionResult<AdminLiveClass>> {
   try {
-    const uid = await getAuthUserId();
-    if (!uid) return { success: false, error: 'Not authenticated', code: 'UNAUTHENTICATED' };
+    const admin = await requireAdmin();
+    if (!admin.success) return admin;
+    const uid = admin.data.userId;
 
     // Check record exists
     const existing = await db.liveClass.findUnique({ where: { id } });
@@ -285,8 +289,9 @@ export async function updateLiveClass(
 
 export async function deleteLiveClass(id: string): Promise<ActionResult<{ id: string }>> {
   try {
-    const uid = await getAuthUserId();
-    if (!uid) return { success: false, error: 'Not authenticated', code: 'UNAUTHENTICATED' };
+    const admin = await requireAdmin();
+    if (!admin.success) return admin;
+    const uid = admin.data.userId;
 
     const existing = await db.liveClass.findUnique({ where: { id } });
     if (!existing) {
@@ -304,8 +309,9 @@ export async function deleteLiveClass(id: string): Promise<ActionResult<{ id: st
 
 export async function toggleLiveClassPublish(id: string): Promise<ActionResult<AdminLiveClass>> {
   try {
-    const uid = await getAuthUserId();
-    if (!uid) return { success: false, error: 'Not authenticated', code: 'UNAUTHENTICATED' };
+    const admin = await requireAdmin();
+    if (!admin.success) return admin;
+    const uid = admin.data.userId;
 
     const existing = await db.liveClass.findUnique({ where: { id } });
     if (!existing) {
