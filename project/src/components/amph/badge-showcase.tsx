@@ -2,23 +2,7 @@
 
 import { useState, useEffect, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import {
-  BookOpen,
-  Target,
-  Medal,
-  GraduationCap,
-  Star,
-  FlaskConical,
-  Crown,
-  Trophy,
-  Lightning,
-  Flame,
-  Bot,
-  CheckCircle,
-  Lock,
-  X,
-  type Icon,
-} from '@phosphor-icons/react';
+import { icons, Lock, X } from '@/components/icons';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
@@ -26,22 +10,6 @@ import { Progress } from '@/components/ui/progress';
 import { cn } from '@/lib/utils';
 import { getBadges, checkAndAwardBadges } from '@/app/actions/badge';
 import type { BadgeView } from '@/app/actions/types';
-
-// Icon mapping — maps badge fixture icon strings to Lucide components
-const iconMap: Record<string, Icon> = {
-  BookOpen,
-  Target,
-  Medal,
-  GraduationCap,
-  Star,
-  FlaskConical,
-  Crown,
-  Trophy,
-  Lightning,
-  Flame,
-  Bot,
-  CheckCircle,
-};
 
 // Tier color configuration
 const tierConfig: Record<string, {
@@ -184,7 +152,7 @@ export function BadgeShowcase() {
                     <div className="mt-1 space-y-1">
                       {newlyEarned.map((badge) => {
                         const tier = tierConfig[badge.tier] || tierConfig.BRONZE;
-                        const Icon = iconMap[badge.icon] || Medal;
+                        const Icon = icons[badge.icon] || Medal;
                         return (
                           <div key={badge.id} className="flex items-center gap-2">
                             <Icon className={cn('h-3.5 w-3.5', tier.text)} />
@@ -276,7 +244,7 @@ export function BadgeShowcase() {
                   <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-2.5">
                     {categoryBadges.map((badge, index) => {
                       const tier = tierConfig[badge.tier] || tierConfig.BRONZE;
-                      const Icon = iconMap[badge.icon] || Medal;
+                      const Icon = icons[badge.icon] || Medal;
                       const isEarned = badge.isEarned;
 
                       return (
@@ -385,7 +353,7 @@ export function BadgeShowcase() {
                     >
                       {selectedBadge.isEarned ? (
                         (() => {
-                          const Icon = iconMap[selectedBadge.icon] || Medal;
+                          const Icon = icons[selectedBadge.icon] || Medal;
                           return <Icon className={cn('h-10 w-10', tierConfig[selectedBadge.tier]?.text)} />;
                         })()
                       ) : (

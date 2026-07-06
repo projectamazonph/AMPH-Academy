@@ -1,137 +1,346 @@
-'use client';
+/**
+ * ProjectAMPH Academy: Centralized Icon Registry
+ *
+ * Single source of truth for all Phosphor icon imports.
+ * Enables:
+ *  - Dynamic icon rendering (e.g. badge system: `icons[name]` where name is a string)
+ *  - Tree-shaking: each icon is a named import (bundler drops unused ones)
+ *  - One place to audit/replace any icon across the entire codebase
+ *
+ * Usage:
+ *   import { icons } from '@/components/icons';
+ *   // dynamic
+ *   <Icon icon={icons[name]} />
+ *   // or spread into props
+ *   <SomeIconComponent {...icons.ArrowLeft} />
+ */
 
 import {
-  ArrowClockwise,
+  // Navigation
   ArrowLeft,
   ArrowRight,
-  BarChart,
-  BookOpen,
-  CaretDown,
+  ArrowSquareOut,
+  ArrowUpRight,
+  ArrowDownRight,
   CaretLeft,
   CaretRight,
+  CaretDown,
   CaretUp,
+  ArrowUpDown,
+  ArrowClockwise,
+  // Actions
   Check,
-  CheckCircle,
-  Circle,
-  Clock,
-  Desktop,
+  X,
+  Plus,
+  Minus,
+  Trash2,
+  Pencil,
+  Copy,
+  Share2,
   Download,
+  Printer,
+  Send,
+  LogOut,
+  Menu,
+  Settings,
+  // Status
+  CheckCircle,
+  XCircle,
+  Warning,
+  AlertCircle,
+  Ban,
+  Spinner,
+  HelpCircle,
+  Lock,
+  // Media
+  Play,
+  Video,
+  Pause,
+  // Social
+  Users,
+  User,
+  UserPlus,
+  UserCog,
+  Building2,
+  Mail,
+  Bot,
+  // Data & Charts
+  BarChart,
+  TrendUp,
+  TrendingDown,
+  Pulse,
+  Sliders,
+  // Objects
+  Target,
+  Trophy,
+  Medal,
+  Crown,
+  Star,
+  Flame,
+  Lightning,
+  BookOpen,
+  Clock,
+  Calculator,
+  Shield,
+  Layout,
+  LayoutDashboard,
+  Lightbulb,
+  Sparkle,
+  Sparkles,
+  Funnel,
+  MagnifyingGlass,
+  FolderOpen,
+  FileText,
+  Grid3X3,
+  CheckSquare,
+  Layers,
+  GraduationCap,
+  FlaskConical,
+  Rocket,
+  Coins,
+  Cursor,
+  MousePointerClick,
+  Gauge,
+  Brain,
+  Circle,
+  CircleDot,
+  Info,
+  Database,
+  Server,
+  Globe,
   Eye,
   EyeOff,
-  Funnel,
-  GraduationCap,
-  Layout,
-  Lightning,
-  Lock,
-  MagnifyingGlass,
-  Mail,
-  Medal,
-  Play,
-  Printer,
-  Pulse,
-  Shield,
-  Sparkle,
-  Spinner,
-  TrendUp,
-  Trophy,
-  User,
-  Warning,
-  X,
-  XCircle,
+  Desktop,
+  Calendar,
+  Bell,
+  TriangleAlert,
+  type Icon,
 } from '@phosphor-icons/react';
-import type { Icon, IconProps } from '@phosphor-icons/react';
 
-export type IconName =
-  | 'arrow-clockwise'
-  | 'arrow-left'
-  | 'arrow-right'
-  | 'bar-chart'
-  | 'book-open'
-  | 'caret-down'
-  | 'caret-left'
-  | 'caret-right'
-  | 'caret-up'
-  | 'check'
-  | 'check-circle'
-  | 'circle'
-  | 'clock'
-  | 'desktop'
-  | 'download'
-  | 'eye'
-  | 'eye-off'
-  | 'funnel'
-  | 'graduation-cap'
-  | 'layout'
-  | 'lightning'
-  | 'lock'
-  | 'magnifying-glass'
-  | 'mail'
-  | 'medal'
-  | 'play'
-  | 'printer'
-  | 'pulse'
-  | 'shield'
-  | 'sparkle'
-  | 'spinner'
-  | 'trend-up'
-  | 'trophy'
-  | 'user'
-  | 'warning'
-  | 'x'
-  | 'x-circle';
-
-const ICON_MAP: Record<IconName, React.ComponentType<IconProps>> = {
-  'arrow-clockwise': ArrowClockwise,
-  'arrow-left': ArrowLeft,
-  'arrow-right': ArrowRight,
-  'bar-chart': BarChart,
-  'book-open': BookOpen,
-  'caret-down': CaretDown,
-  'caret-left': CaretLeft,
-  'caret-right': CaretRight,
-  'caret-up': CaretUp,
-  check: Check,
-  'check-circle': CheckCircle,
-  circle: Circle,
-  clock: Clock,
-  desktop: Desktop,
-  download: Download,
-  eye: Eye,
-  'eye-off': EyeOff,
-  funnel: Funnel,
-  'graduation-cap': GraduationCap,
-  layout: Layout,
-  lightning: Lightning,
-  lock: Lock,
-  'magnifying-glass': MagnifyingGlass,
-  mail: Mail,
-  medal: Medal,
-  play: Play,
-  printer: Printer,
-  pulse: Pulse,
-  shield: Shield,
-  sparkle: Sparkle,
-  spinner: Spinner,
-  'trend-up': TrendUp,
-  trophy: Trophy,
-  user: User,
-  warning: Warning,
-  x: X,
-  'x-circle': XCircle,
+/**
+ * Named icon exports — use these for static JSX imports.
+ * Tree-shakeable: bundler removes icons you don't import.
+ *
+ * Example:
+ *   import { icons, type IconName } from '@/components/icons';
+ *   import { icons.BookOpen } from '@/components/icons';
+ */
+export {
+  // Navigation
+  ArrowLeft,
+  ArrowRight,
+  ArrowSquareOut,
+  ArrowUpRight,
+  ArrowDownRight,
+  CaretLeft,
+  CaretRight,
+  CaretDown,
+  CaretUp,
+  ArrowUpDown,
+  ArrowClockwise,
+  // Actions
+  Check,
+  X,
+  Plus,
+  Minus,
+  Trash2,
+  Pencil,
+  Copy,
+  Share2,
+  Download,
+  Printer,
+  Send,
+  LogOut,
+  Menu,
+  Settings,
+  // Status
+  CheckCircle,
+  XCircle,
+  Warning,
+  AlertCircle,
+  Ban,
+  Spinner,
+  HelpCircle,
+  Lock,
+  // Media
+  Play,
+  Video,
+  Pause,
+  // Social
+  Users,
+  User,
+  UserPlus,
+  UserCog,
+  Building2,
+  Mail,
+  Bot,
+  // Data & Charts
+  BarChart,
+  TrendUp,
+  TrendingDown,
+  Pulse,
+  Sliders,
+  // Objects
+  Target,
+  Trophy,
+  Medal,
+  Crown,
+  Star,
+  Flame,
+  Lightning,
+  BookOpen,
+  Clock,
+  Calculator,
+  Shield,
+  Layout,
+  LayoutDashboard,
+  Lightbulb,
+  Sparkle,
+  Sparkles,
+  Funnel,
+  MagnifyingGlass,
+  FolderOpen,
+  FileText,
+  Grid3X3,
+  CheckSquare,
+  Layers,
+  GraduationCap,
+  FlaskConical,
+  Rocket,
+  Coins,
+  Cursor,
+  MousePointerClick,
+  Gauge,
+  Brain,
+  Circle,
+  CircleDot,
+  Info,
+  Database,
+  Server,
+  Globe,
+  Eye,
+  EyeOff,
+  Desktop,
+  Calendar,
+  Bell,
+  TriangleAlert,
 };
 
-export function getIcon(name: IconName): Icon {
-  return ICON_MAP[name] as Icon;
-}
+/** Icon type re-export for convenience */
+export type { Icon };
 
-export interface IconWrapperProps extends Omit<IconProps, 'icon'> {
-  name: IconName;
-}
+/**
+ * Icon registry — maps string names to Phosphor icon components.
+ * Use for dynamic icon rendering (e.g. database-driven badge/feature icons).
+ *
+ * IMPORTANT: Keep in sync with the named exports above.
+ * Only icons listed in the registry can be looked up dynamically.
+ *
+ * Example:
+ *   const badgeIconName = 'Trophy'; // from database
+ *   const IconComponent = icons[badgeIconName]; // Icon | undefined
+ *   {IconComponent && <IconComponent size={16} />}
+ */
+export const icons: Record<string, Icon> = {
+  // Navigation
+  ArrowLeft,
+  ArrowRight,
+  ArrowSquareOut,
+  ArrowUpRight,
+  ArrowDownRight,
+  CaretLeft,
+  CaretRight,
+  CaretDown,
+  CaretUp,
+  ArrowUpDown,
+  ArrowClockwise,
+  // Actions
+  Check,
+  X,
+  Plus,
+  Minus,
+  Trash2,
+  Pencil,
+  Copy,
+  Share2,
+  Download,
+  Printer,
+  Send,
+  LogOut,
+  Menu,
+  Settings,
+  // Status
+  CheckCircle,
+  XCircle,
+  Warning,
+  AlertCircle,
+  Ban,
+  Spinner,
+  HelpCircle,
+  Lock,
+  // Media
+  Play,
+  Video,
+  Pause,
+  // Social
+  Users,
+  User,
+  UserPlus,
+  UserCog,
+  Building2,
+  Mail,
+  Bot,
+  // Data & Charts
+  BarChart,
+  TrendUp,
+  TrendingDown,
+  Pulse,
+  Sliders,
+  // Objects
+  Target,
+  Trophy,
+  Medal,
+  Crown,
+  Star,
+  Flame,
+  Lightning,
+  BookOpen,
+  Clock,
+  Calculator,
+  Shield,
+  Layout,
+  LayoutDashboard,
+  Lightbulb,
+  Sparkle,
+  Sparkles,
+  Funnel,
+  MagnifyingGlass,
+  FolderOpen,
+  FileText,
+  Grid3X3,
+  CheckSquare,
+  Layers,
+  GraduationCap,
+  FlaskConical,
+  Rocket,
+  Coins,
+  Cursor,
+  MousePointerClick,
+  Gauge,
+  Brain,
+  Circle,
+  CircleDot,
+  Info,
+  Database,
+  Server,
+  Globe,
+  Eye,
+  EyeOff,
+  Desktop,
+  Calendar,
+  Bell,
+  TriangleAlert,
+};
 
-export function Icon({ name, ...props }: IconWrapperProps) {
-  const Component = ICON_MAP[name];
-  if (!Component) return null;
-  return <Component {...props} />;
-}
-
-export { type Icon, type IconProps } from '@phosphor-icons/react';
+/** All icon names — useful for typeahead/documentation */
+export type IconName = keyof typeof icons;
