@@ -46,7 +46,7 @@ const MODULE_META: Record<number, { slug: string; title: string; totalLessons: n
 };
 
 // Cache the fixture data in memory after first load
-let fixtureCache: any = null;
+let fixtureCache: import('./types').QuizFixture | null = null;
 
 async function loadFixture() {
   if (fixtureCache) return fixtureCache;
@@ -68,7 +68,7 @@ async function ensureQuizSeeded(moduleNumber: number): Promise<string | null> {
   const fixture = await loadFixture();
   if (!fixture) return null;
 
-  const quizData = fixture.quizzes.find((q: any) => q.moduleNumber === moduleNumber);
+    const quizData = fixture.quizzes.find((q) => q.moduleNumber === moduleNumber);
   if (!quizData) return null;
 
   const moduleMeta = MODULE_META[moduleNumber];
@@ -152,7 +152,7 @@ async function ensureQuizSeeded(moduleNumber: number): Promise<string | null> {
       timeLimitSeconds: quizData.timeLimitSeconds || null,
       isPublished: true,
       questions: {
-        create: quizData.questions.map((q: any) => ({
+        create: quizData.questions.map((q) => ({
           order: q.order,
           question: q.question,
           optionA: q.optionA,

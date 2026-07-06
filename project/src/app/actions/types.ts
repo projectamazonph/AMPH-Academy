@@ -51,36 +51,6 @@ export interface StartAttemptOutput {
   attemptNumber: number;
 }
 
-/** Input for grading a STR Triage attempt */
-export interface GradeStrTriageInput {
-  attemptId: string;
-  previewScore: number;
-  searchTerms: any[];
-  userActions: any[];
-  expectedActions: any[];
-  context: any;
-  timeSpentSeconds: number;
-}
-
-/** Input for grading a Bid Elevator attempt */
-export interface GradeBidElevatorInput {
-  attemptId: string;
-  previewScore: number;
-  scenarios: any[];
-  decisions: any[];
-  context: any;
-  timeSpentSeconds: number;
-}
-
-/** Input for grading a Campaign Builder attempt */
-export interface GradeCampaignBuilderInput {
-  attemptId: string;
-  previewScore: number;
-  campaign: any;
-  evaluation: any;
-  timeSpentSeconds: number;
-}
-
 /** Output for grading any attempt */
 export interface GradeAttemptOutput {
   attemptId: string;
@@ -88,7 +58,7 @@ export interface GradeAttemptOutput {
   previewScore: number;
   scoreDiscrepancy: boolean;
   xpEarned: number;
-  evaluation: any;
+  evaluation: import('@/engine/types').StrTriageEvaluation | import('@/engine/types').BidElevatorEvaluation | import('@/engine/types').CampaignBuilderEvaluation;
 }
 
 /** Output for attempt history */
@@ -194,6 +164,60 @@ export interface BadgeAwardResult {
 
 
 // ============================================================================
+// SIMULATION GRADING TYPES (replaces `any` in Grade*Input and GradeAttemptOutput)
+// ============================================================================
+
+import type {
+  StrUserAction,
+  StrExpectedAction,
+  BidDecision,
+  CampaignStructure,
+  StrTriageEvaluation,
+  BidElevatorEvaluation,
+  CampaignBuilderEvaluation,
+} from '@/engine/types';
+
+/** Input for grading a STR Triage attempt */
+export interface GradeStrTriageInput {
+  attemptId: string;
+  previewScore: number;
+  searchTerms: import('@/engine/types').SearchTermEntry[];
+  userActions: StrUserAction[];
+  expectedActions: StrExpectedAction[];
+  context: import('@/engine/types').SimulationContext;
+  timeSpentSeconds: number;
+}
+
+/** Input for grading a Bid Elevator attempt */
+export interface GradeBidElevatorInput {
+  attemptId: string;
+  previewScore: number;
+  scenarios: import('@/engine/types').BidScenario[];
+  decisions: BidDecision[];
+  context: import('@/engine/types').SimulationContext;
+  timeSpentSeconds: number;
+}
+
+/** Input for grading a Campaign Builder attempt */
+export interface GradeCampaignBuilderInput {
+  attemptId: string;
+  previewScore: number;
+  campaign: CampaignStructure;
+  evaluation: CampaignBuilderEvaluation;
+  timeSpentSeconds: number;
+}
+
+/** Output for grading any attempt */
+export interface GradeAttemptOutput {
+  attemptId: string;
+  officialScore: number;
+  previewScore: number;
+  scoreDiscrepancy: boolean;
+  xpEarned: number;
+  evaluation: StrTriageEvaluation | BidElevatorEvaluation | CampaignBuilderEvaluation;
+}
+
+// ============================================================================
 // QUIZ TYPES (added 2026-07-06 to fix TSC errors)
 // ============================================================================
 
@@ -261,4 +285,42 @@ export interface QuizAttemptSummary {
   passed: boolean;
   timeSpentSeconds: number;
   completedAt: string | null;
+}
+
+// ============================================================================
+// FIXTURE TYPES (used by quiz.ts and badge.ts for typed fixtureCache)
+// ============================================================================
+
+export interface QuizQuestionFixture {
+  order: number;
+  question: string;
+  optionA: string;
+  optionB: string;
+  optionC: string;
+  optionD: string;
+  correctAnswer: string;
+  explanation?: string;
+  points?: number;
+}
+
+export interface QuizFixture {
+  moduleNumber: number;
+  title: string;
+  description?: string;
+  passThreshold?: number;
+  timeLimitSeconds?: number | null;
+  questions: QuizQuestionFixture[];
+}
+
+export interface BadgeFixture {
+  slug: string;
+  title: string;
+  description: string;
+  icon: string;
+  category: string;
+  tier: string;
+  xpReward?: number;
+  criteria: string;
+  order: number;
+  isSecret?: boolean;
 }

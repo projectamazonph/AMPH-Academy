@@ -31,7 +31,7 @@ import type {
 } from './types';
 
 // Cache the fixture data in memory after first load
-let fixtureCache: any = null;
+let fixtureCache: { badges: import('./types').BadgeFixture[] } | null = null;
 
 async function loadFixture() {
   if (fixtureCache) return fixtureCache;
@@ -67,8 +67,8 @@ async function ensureBadgesSeeded(): Promise<boolean> {
           title: badgeData.title,
           description: badgeData.description,
           icon: badgeData.icon,
-          category: badgeData.category as any,
-          tier: badgeData.tier as any,
+          category: badgeData.category,
+          tier: badgeData.tier,
           xpReward: badgeData.xpReward || 0,
           criteria: badgeData.criteria,
           order: badgeData.order,

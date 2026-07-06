@@ -116,27 +116,27 @@ async function findLessonFile(moduleDirName: string, moduleNumber: number, lesso
 
 function parseFrontmatter(raw: string): LessonMeta {
   const lines = raw.split('\n');
-  const meta: Record<string, any> = {};
+  const meta: Record<string, string | number> = {};
 
   for (const line of lines) {
     const match = line.match(/^(\w+):\s*"?(.+?)"?\s*$/);
     if (match) {
       const key = match[1];
-      let value: any = match[2];
+      let value: string | number = match[2];
       // Parse numbers
-      if (/^\d+$/.test(value)) value = parseInt(value, 10);
-      if (/^\d+\.\d+$/.test(value)) value = parseFloat(value);
+      if (/^\d+$/.test(value as string)) value = parseInt(value as string, 10);
+      if (/^\d+\.\d+$/.test(value as string)) value = parseFloat(value as string);
       meta[key] = value;
     }
   }
 
   return {
-    title: meta.title || 'Untitled',
-    slug: meta.slug || '',
-    moduleNumber: meta.moduleNumber ?? 0,
-    lessonNumber: meta.lessonNumber ?? 1,
-    type: meta.type || 'reading',
-    estimatedMinutes: meta.estimatedMinutes ?? 10,
-    xpReward: meta.xpReward ?? 50,
+    title: (meta.title as string) || 'Untitled',
+    slug: (meta.slug as string) || '',
+    moduleNumber: (meta.moduleNumber as number) ?? 0,
+    lessonNumber: (meta.lessonNumber as number) ?? 1,
+    type: (meta.type as string) || 'reading',
+    estimatedMinutes: (meta.estimatedMinutes as number) ?? 10,
+    xpReward: (meta.xpReward as number) ?? 50,
   };
 }
