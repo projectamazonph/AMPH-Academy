@@ -6,19 +6,19 @@ import {
   Calculator,
   DollarSign,
   Percent,
-  BarChart3,
-  TrendingUp,
+  BarChart,
+  TrendUp,
   Target,
   Info,
-  ChevronRight,
+  CaretRight,
   Sparkles,
   ArrowRight,
   Lightbulb,
-  AlertTriangle,
-  CheckCircle2,
+  Warning,
+  CheckCircle,
   XCircle,
   CircleDot,
-} from 'lucide-react';
+} from '@phosphor-icons/react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
@@ -46,9 +46,9 @@ const MODULE_1_FORMULAS = getFormulasForModule(1);
 const categoryConfig: Record<FormulaCategory, { bg: string; border: string; text: string; icon: typeof DollarSign }> = {
   cost: { bg: 'bg-rose-500/10', border: 'border-rose-500/20', text: 'text-rose-400', icon: DollarSign },
   efficiency: { bg: 'bg-amber-500/10', border: 'border-amber-500/20', text: 'text-amber-400', icon: Target },
-  performance: { bg: 'bg-sky-500/10', border: 'border-sky-500/20', text: 'text-sky-400', icon: TrendingUp },
-  profitability: { bg: 'bg-emerald-500/10', border: 'border-emerald-500/20', text: 'text-emerald-400', icon: BarChart3 },
-  reach: { bg: 'bg-violet-500/10', border: 'border-violet-500/20', text: 'text-violet-400', icon: BarChart3 },
+  performance: { bg: 'bg-sky-500/10', border: 'border-sky-500/20', text: 'text-sky-400', icon: TrendUp },
+  profitability: { bg: 'bg-emerald-500/10', border: 'border-emerald-500/20', text: 'text-emerald-400', icon: BarChart },
+  reach: { bg: 'bg-violet-500/10', border: 'border-violet-500/20', text: 'text-violet-400', icon: BarChart },
 };
 
 /** Unit display config */
@@ -224,10 +224,10 @@ export function FormulaCalculator({ moduleRef = 1, className }: FormulaCalculato
   // Health badge
   const healthBadge = useMemo(() => {
     if (!health) return null;
-    const configs: Record<string, { bg: string; text: string; icon: typeof CheckCircle2; label: string }> = {
-      excellent: { bg: 'bg-emerald-500/15 border-emerald-500/25', text: 'text-emerald-400', icon: CheckCircle2, label: 'Excellent' },
+    const configs: Record<string, { bg: string; text: string; icon: typeof CheckCircle; label: string }> = {
+      excellent: { bg: 'bg-emerald-500/15 border-emerald-500/25', text: 'text-emerald-400', icon: CheckCircle, label: 'Excellent' },
       good: { bg: 'bg-sky-500/15 border-sky-500/25', text: 'text-sky-400', icon: CircleDot, label: 'Good' },
-      warning: { bg: 'bg-amber-500/15 border-amber-500/25', text: 'text-amber-400', icon: AlertTriangle, label: 'Warning' },
+      warning: { bg: 'bg-amber-500/15 border-amber-500/25', text: 'text-amber-400', icon: Warning, label: 'Warning' },
       critical: { bg: 'bg-rose-500/15 border-rose-500/25', text: 'text-rose-400', icon: XCircle, label: 'Critical' },
       insufficient_data: { bg: 'bg-muted/30 border-border', text: 'text-muted-foreground', icon: Info, label: 'N/A' },
     };
@@ -407,7 +407,7 @@ export function FormulaCalculator({ moduleRef = 1, className }: FormulaCalculato
             <div className="absolute inset-0 bg-gradient-to-br from-primary/3 to-transparent" />
             <CardHeader className="relative pb-3">
               <CardTitle className="text-base font-semibold flex items-center gap-2">
-                <BarChart3 className="h-4 w-4 text-primary" />
+                <BarChart className="h-4 w-4 text-primary" />
                 Computed Result
               </CardTitle>
             </CardHeader>
@@ -497,10 +497,10 @@ export function FormulaCalculator({ moduleRef = 1, className }: FormulaCalculato
                 {/* Range breakdown */}
                 <div className="space-y-1.5">
                   {(['excellent', 'good', 'warning', 'critical'] as const).map((level) => {
-                    const levelConfig: Record<string, { color: string; icon: typeof CheckCircle2 }> = {
-                      excellent: { color: 'text-emerald-400', icon: CheckCircle2 },
+                    const levelConfig: Record<string, { color: string; icon: typeof CheckCircle }> = {
+                      excellent: { color: 'text-emerald-400', icon: CheckCircle },
                       good: { color: 'text-sky-400', icon: CircleDot },
-                      warning: { color: 'text-amber-400', icon: AlertTriangle },
+                      warning: { color: 'text-amber-400', icon: Warning },
                       critical: { color: 'text-rose-400', icon: XCircle },
                     };
                     const cfg = levelConfig[level];
@@ -548,7 +548,7 @@ export function FormulaCalculator({ moduleRef = 1, className }: FormulaCalculato
                     const tabConfig = {
                       insight: { label: 'Insight', icon: Sparkles, color: 'text-sky-400' },
                       example: { label: 'Example', icon: ArrowRight, color: 'text-emerald-400' },
-                      pitfall: { label: 'Pitfall', icon: AlertTriangle, color: 'text-rose-400' },
+                      pitfall: { label: 'Pitfall', icon: Warning, color: 'text-rose-400' },
                     };
                     const tc = tabConfig[tab];
                     const TabIcon = tc.icon;
@@ -637,7 +637,7 @@ export function FormulaCalculator({ moduleRef = 1, className }: FormulaCalculato
                         <p className="text-sm font-medium truncate">{f.name}</p>
                         <p className="text-[11px] text-muted-foreground font-mono">{f.expression}</p>
                       </div>
-                      <ChevronRight className="h-3.5 w-3.5 text-muted-foreground/40 group-hover:text-primary shrink-0 transition-colors" />
+                      <CaretRight className="h-3.5 w-3.5 text-muted-foreground/40 group-hover:text-primary shrink-0 transition-colors" />
                     </button>
                   );
                 })}

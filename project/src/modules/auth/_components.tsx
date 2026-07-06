@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { signIn } from "next-auth/react";
 import { useRouter } from "next/navigation";
-import { Mail, Lock, User, ArrowRight, Loader2 } from "lucide-react";
+import { Mail, Lock, User, ArrowRight, Spinner } from '@phosphor-icons/react';
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 
@@ -106,7 +106,7 @@ export function SignInForm({ callbackUrl = "/dashboard" }: { callbackUrl?: strin
           </div>
 
           <Button type="submit" className="w-full gap-2" disabled={loading || !email.trim() || !password}>
-            {loading ? <Loader2 className="h-4 w-4 animate-spin" /> : <ArrowRight className="h-4 w-4" />}
+            {loading ? <Spinner className="h-4 w-4 animate-spin" /> : <ArrowRight className="h-4 w-4" />}
             {loading ? "Signing in..." : "Sign In"}
           </Button>
         </form>
@@ -282,7 +282,7 @@ export function SignUpForm() {
           </div>
 
           <Button type="submit" className="w-full gap-2" disabled={loading || !email.trim() || !password}>
-            {loading ? <Loader2 className="h-4 w-4 animate-spin" /> : <ArrowRight className="h-4 w-4" />}
+            {loading ? <Spinner className="h-4 w-4 animate-spin" /> : <ArrowRight className="h-4 w-4" />}
             {loading ? "Creating account..." : "Create Account"}
           </Button>
         </form>

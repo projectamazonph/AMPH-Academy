@@ -3,9 +3,9 @@
 import { useState, useEffect, useCallback } from 'react';
 import { motion } from 'framer-motion';
 import {
-  Video, Calendar, Clock, User, Users, ExternalLink, Loader2,
-  CheckCircle2, XCircle, BookOpen, AlertCircle,
-} from 'lucide-react';
+  Video, Calendar, Clock, User, Users, ArrowSquareOut, Spinner,
+  CheckCircle, XCircle, BookOpen, AlertCircle,
+} from '@phosphor-icons/react';
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
@@ -137,7 +137,7 @@ export function LiveClassesView() {
   if (loading) {
     return (
       <div className="flex justify-center py-24">
-        <Loader2 className="h-6 w-6 animate-spin text-muted-foreground" />
+        <Spinner className="h-6 w-6 animate-spin text-muted-foreground" />
       </div>
     );
   }
@@ -215,7 +215,7 @@ export function LiveClassesView() {
                           <h3 className="font-semibold">{lc.title}</h3>
                           {lc.isRegistered && (
                             <Badge variant="outline" className="text-[10px] bg-emerald-500/10 text-emerald-400 border-emerald-500/20">
-                              <CheckCircle2 className="h-3 w-3 mr-1" />
+                              <CheckCircle className="h-3 w-3 mr-1" />
                               Registered
                             </Badge>
                           )}
@@ -253,7 +253,7 @@ export function LiveClassesView() {
                         {tab === 'past' && lc.recordingUrl && (
                           <a href={lc.recordingUrl} target="_blank" rel="noopener noreferrer"
                             className="flex items-center gap-1 text-xs text-sky-400 hover:text-sky-300 mt-2">
-                            <ExternalLink className="h-3 w-3" />
+                            <ArrowSquareOut className="h-3 w-3" />
                             Watch recording
                           </a>
                         )}
@@ -262,7 +262,7 @@ export function LiveClassesView() {
                         {tab === 'upcoming' && lc.isRegistered && lc.meetingUrl && (
                           <a href={lc.meetingUrl} target="_blank" rel="noopener noreferrer"
                             className="flex items-center gap-1 text-xs text-sky-400 hover:text-sky-300 mt-2">
-                            <ExternalLink className="h-3 w-3" />
+                            <ArrowSquareOut className="h-3 w-3" />
                             Join meeting
                           </a>
                         )}
@@ -278,7 +278,7 @@ export function LiveClassesView() {
                             className="h-8 text-xs"
                           >
                             {acting === lc.id ? (
-                              <Loader2 className="h-3 w-3 animate-spin mr-1" />
+                              <Spinner className="h-3 w-3 animate-spin mr-1" />
                             ) : full ? (
                               'Full'
                             ) : (
@@ -297,7 +297,7 @@ export function LiveClassesView() {
                                 className="h-8 text-xs text-muted-foreground"
                               >
                                 {acting === lc.id ? (
-                                  <Loader2 className="h-3 w-3 animate-spin mr-1" />
+                                  <Spinner className="h-3 w-3 animate-spin mr-1" />
                                 ) : (
                                   'Unregister'
                                 )}

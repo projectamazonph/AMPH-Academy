@@ -11,7 +11,7 @@
 import { Suspense, useState } from 'react';
 import { signIn } from 'next-auth/react';
 import { useSearchParams } from 'next/navigation';
-import { Zap, Mail, Lock, ArrowRight, Loader2 } from 'lucide-react';
+import { Lightning, Mail, Lock, ArrowRight, Spinner } from '@phosphor-icons/react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 
@@ -72,7 +72,7 @@ function SignInForm() {
         {/* Logo & branding */}
         <div className="text-center space-y-3">
           <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-gradient-to-br from-primary/20 to-primary/5 border border-primary/20 shadow-[0_0_30px_rgba(100,255,150,0.1)]">
-            <Zap className="h-7 w-7 text-primary" />
+            <Lightning className="h-7 w-7 text-primary" />
           </div>
           <h1 className="text-3xl font-bold tracking-tight">Welcome to AMPH Academy</h1>
           <p className="text-sm text-muted-foreground">
@@ -132,7 +132,7 @@ function SignInForm() {
                 disabled={loading || !email.trim() || !password}
               >
                 {loading ? (
-                  <Loader2 className="h-4 w-4 animate-spin" />
+                  <Spinner className="h-4 w-4 animate-spin" />
                 ) : (
                   <ArrowRight className="h-4 w-4" />
                 )}
@@ -167,7 +167,7 @@ export default function SignInPage() {
     <Suspense
       fallback={
         <div className="min-h-screen flex items-center justify-center bg-background">
-          <Loader2 className="h-8 w-8 animate-spin text-primary" />
+          <Spinner className="h-8 w-8 animate-spin text-primary" />
         </div>
       }
     >

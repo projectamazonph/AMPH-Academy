@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { Trophy, Medal, Loader2 } from 'lucide-react';
+import { Trophy, Medal, Spinner } from '@phosphor-icons/react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Avatar, AvatarFallback } from '@/components/ui/avatar';
@@ -37,7 +37,7 @@ export function Leaderboard() {
 
       {loading ? (
         <div className="flex items-center justify-center py-20">
-          <Loader2 className="h-5 w-5 animate-spin text-muted-foreground" />
+          <Spinner className="h-5 w-5 animate-spin text-muted-foreground" />
         </div>
       ) : entries.length === 0 ? (
         <Card><CardContent className="py-12 text-center text-muted-foreground">No learners yet.</CardContent></Card>

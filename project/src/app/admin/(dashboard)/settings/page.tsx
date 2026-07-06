@@ -4,8 +4,8 @@ import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import {
   Settings, Shield, Server, Database, Globe, Users,
-  BookOpen, Award, Loader2, CheckCircle2, XCircle,
-} from 'lucide-react';
+  BookOpen, Medal, Spinner, CheckCircle, XCircle,
+} from '@phosphor-icons/react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
@@ -106,7 +106,7 @@ export default function AdminSettingsPage() {
               <p className="text-xs text-muted-foreground">Lessons Done</p>
             </div>
             <div className="p-3 rounded-lg bg-muted/20 border border-border/20 text-center">
-              <Award className="h-5 w-5 mx-auto mb-1 text-amber-400" />
+              <Medal className="h-5 w-5 mx-auto mb-1 text-amber-400" />
               <p className="text-lg font-bold font-mono">{stats?.totalXpAwarded?.toLocaleString() ?? '—'}</p>
               <p className="text-xs text-muted-foreground">Total XP Awarded</p>
             </div>

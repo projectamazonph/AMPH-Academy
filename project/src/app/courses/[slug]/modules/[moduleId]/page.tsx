@@ -1,6 +1,6 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
-import { ArrowLeft, BookOpen, Clock, PlayCircle } from "lucide-react";
+import { ArrowLeft, BookOpen, Clock, Play } from '@phosphor-icons/react';
 import { getModule } from "@/modules/courses/_actions";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
@@ -41,7 +41,7 @@ export default async function ModuleContentPage({
           <p className="text-muted-foreground">{mod.description}</p>
           <div className="flex items-center gap-3 mt-3 text-xs text-muted-foreground">
             <span className="flex items-center gap-1">
-              <PlayCircle className="h-3.5 w-3.5" />
+              <Play className="h-3.5 w-3.5" />
               {mod.lessonCount} lessons
             </span>
             <span className="flex items-center gap-1">
@@ -71,7 +71,7 @@ export default async function ModuleContentPage({
                       </div>
                     ) : lesson.type === "VIDEO" ? (
                       <div className="w-8 h-8 rounded-lg bg-sky-500/10 border border-sky-500/20 flex items-center justify-center">
-                        <PlayCircle className="h-4 w-4 text-sky-400" />
+                        <Play className="h-4 w-4 text-sky-400" />
                       </div>
                     ) : (
                       <div className="w-8 h-8 rounded-lg bg-primary/10 border border-primary/20 flex items-center justify-center">

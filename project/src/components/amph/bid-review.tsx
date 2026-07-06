@@ -4,13 +4,13 @@ import { motion } from 'framer-motion';
 import {
   Trophy,
   Target,
-  Zap,
+  Lightning,
   RotateCcw,
   ArrowLeft,
-  TrendingUp,
-  CheckCircle2,
+  TrendUp,
+  CheckCircle,
   Clock,
-} from 'lucide-react';
+} from '@phosphor-icons/react';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { useBidElevatorStore } from '@/stores/bid-elevator-store';
@@ -70,7 +70,7 @@ export function BidReview({ onBack }: { onBack: () => void }) {
 
             {/* XP badge */}
             <div className="flex items-center gap-2 px-4 py-2 rounded-full bg-amber-500/10 border border-amber-500/20">
-              <Zap className="h-4 w-4 text-amber-400" />
+              <Lightning className="h-4 w-4 text-amber-400" />
               <span className="text-lg font-bold font-mono text-amber-400">
                 +{xpEarned}
               </span>
@@ -97,7 +97,7 @@ export function BidReview({ onBack }: { onBack: () => void }) {
 
         <Card>
           <CardContent className="py-4 flex flex-col items-center gap-1">
-            <CheckCircle2 className="h-4 w-4 text-emerald-400 mb-1" />
+            <CheckCircle className="h-4 w-4 text-emerald-400 mb-1" />
             <p className="text-2xl font-bold font-mono">
               {acceptableCount}/{totalScenarios}
             </p>
@@ -117,7 +117,7 @@ export function BidReview({ onBack }: { onBack: () => void }) {
 
         <Card>
           <CardContent className="py-4 flex flex-col items-center gap-1">
-            <Zap className="h-4 w-4 text-amber-400 mb-1" />
+            <Lightning className="h-4 w-4 text-amber-400 mb-1" />
             <p className="text-2xl font-bold font-mono text-amber-400">
               {xpEarned}
             </p>

@@ -6,29 +6,29 @@ import {
   Rocket,
   BookOpen,
   Layout,
-  TrendingUp,
-  Filter,
+  TrendUp,
+  Funnel,
   Lock,
-  CheckCircle2,
-  PlayCircle,
+  CheckCircle,
+  Play,
   Circle,
-  MousePointerClick,
+  Cursor,
   ArrowUpRight,
-  Zap,
+  Lightning,
   Calculator,
   Video,
   Calendar,
   Clock,
   User,
   Users,
-  ExternalLink,
-  Loader2,
-  Search,
+  ArrowSquareOut,
+  Spinner,
+  MagnifyingGlass,
   FileText,
   PieChart,
-  BarChart3,
-  type LucideIcon,
-} from 'lucide-react';
+  BarChart,
+  type Icon,
+} from '@phosphor-icons/react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
@@ -116,7 +116,7 @@ const moduleDetails: ModuleDetail[] = [
     number: 2,
     title: 'Keyword Research',
     slug: 'keyword-research',
-    icon: Search,
+    icon: MagnifyingGlass,
     color: 'indigo',
     description: 'Match types, research workflow, negative keywords, grouping',
     status: 'available',
@@ -174,7 +174,7 @@ const moduleDetails: ModuleDetail[] = [
     number: 6,
     title: 'Bidding Lab',
     slug: 'bidding-lab',
-    icon: TrendingUp,
+    icon: TrendUp,
     color: 'rose',
     description: 'Bid strategies, position economics, budget pacing',
     status: 'available',
@@ -186,14 +186,14 @@ const moduleDetails: ModuleDetail[] = [
   },
   {
     number: 7,
-    title: 'Search Term Triage',
+    title: 'MagnifyingGlass Term Triage',
     slug: 'search-term-triage',
-    icon: Filter,
+    icon: Funnel,
     color: 'violet',
     description: 'Negative keywords, STR analysis, optimization',
     status: 'available',
     lessons: [
-      { title: 'Search Term Analysis: Reading the Data', duration: '14 min', status: 'available' },
+      { title: 'MagnifyingGlass Term Analysis: Reading the Data', duration: '14 min', status: 'available' },
       { title: 'Negative Keywords: The Most Underused Profit Lever', duration: '12 min', status: 'available' },
       { title: 'STR Triage Prep: Ready to Triage', duration: '8 min', status: 'available' },
     ],
@@ -202,7 +202,7 @@ const moduleDetails: ModuleDetail[] = [
     number: 8,
     title: 'Competitive Intelligence',
     slug: 'competitive-intelligence',
-    icon: BarChart3,
+    icon: BarChart,
     color: 'teal',
     description: 'Brand Analytics, Share of Voice, competitor benchmarking',
     status: 'available',
@@ -286,10 +286,10 @@ const moduleColorConfig: Record<string, {
   },
 };
 
-const lessonStatusIcon: Record<string, LucideIcon> = {
+const lessonStatusIcon: Record<string, Icon> = {
   locked: Lock,
-  available: PlayCircle,
-  complete: CheckCircle2,
+  available: Play,
+  complete: CheckCircle,
 };
 
 // --- Simulation data for the Simulations view ---
@@ -310,7 +310,7 @@ const simulationDetails: SimDetail[] = [
     title: 'Campaign Builder',
     description:
       'Build complete campaign structures with keywords, bids, and budgets. Choose ad types, set targeting, and optimize for performance in this hands-on simulation.',
-    icon: MousePointerClick,
+    icon: Cursor,
     difficulty: 'Intermediate',
     moduleRef: 4,
     features: [
@@ -342,7 +342,7 @@ const simulationDetails: SimDetail[] = [
     title: 'STR Triage Arena',
     description:
       'Analyze search terms and make keep/pause/negate decisions under time pressure. Build speed and accuracy in search term optimization.',
-    icon: Filter,
+    icon: Funnel,
     difficulty: 'Advanced',
     moduleRef: 7,
     features: [
@@ -425,7 +425,7 @@ export default function Home() {
         <header className="sticky top-0 z-30 border-b border-border bg-background/70 backdrop-blur-2xl border-b border-white/[0.06] dark:border-white/[0.06]">
           <div className="flex items-center justify-between px-4 lg:px-6 h-14">
             <div className="flex items-center gap-3 pl-12 lg:pl-0">
-              <Zap className="h-4 w-4 text-primary lg:hidden" />
+              <Lightning className="h-4 w-4 text-primary lg:hidden" />
               <h1 className="text-sm font-semibold lg:hidden">AMPH</h1>
               <span className="hidden lg:inline text-sm text-muted-foreground">
                 {activeTab === 'dashboard' && 'Dashboard'}
@@ -441,7 +441,7 @@ export default function Home() {
             </div>
             <div className="flex items-center gap-3">
               <Badge variant="outline" className="text-[10px] gap-1 bg-primary/10 text-primary border-primary/20">
-                <Zap className="h-3 w-3" />
+                <Lightning className="h-3 w-3" />
                 {userXP} XP
               </Badge>
               <div className="h-2 w-2 rounded-full bg-emerald-400" title="Online" />
@@ -515,7 +515,7 @@ export default function Home() {
       <footer className="lg:pl-[240px] border-t border-border mt-auto">
         <div className="px-4 lg:px-6 py-4 flex flex-col sm:flex-row items-center justify-between gap-2">
           <div className="flex items-center gap-2">
-            <Zap className="h-3.5 w-3.5 text-primary" />
+            <Lightning className="h-3.5 w-3.5 text-primary" />
             <span className="text-xs text-muted-foreground">
               AMPH — Amazon PPC Command Center
             </span>
@@ -585,7 +585,7 @@ function ModulesView({ onOpenLesson }: { onOpenLesson: (lesson: { moduleNumber: 
                             </Badge>
                           ) : (
                             <Badge variant="outline" className="text-[10px] gap-1 bg-emerald-500/15 text-emerald-400 border-emerald-500/20">
-                              <PlayCircle className="h-3 w-3" />
+                              <Play className="h-3 w-3" />
                               Available
                             </Badge>
                           )}
@@ -666,7 +666,7 @@ function ModulesView({ onOpenLesson }: { onOpenLesson: (lesson: { moduleNumber: 
                     {!isLocked && (
                       <div className="px-5 py-3 bg-muted/20 flex items-center gap-3">
                         <Button size="sm" className="gap-2" onClick={() => onOpenLesson({ moduleNumber: module.number, lessonOrder: 1 })}>
-                          <PlayCircle className="h-3.5 w-3.5" />
+                          <Play className="h-3.5 w-3.5" />
                           Start Module {module.number}
                         </Button>
                         {hasCalculator && (
@@ -823,7 +823,7 @@ function SimulationsView({ onLaunchSim }: { onLaunchSim: (sim: string | null) =>
                         )}
                         onClick={() => onLaunchSim(sim.type)}
                       >
-                        <PlayCircle className="h-3.5 w-3.5" />
+                        <Play className="h-3.5 w-3.5" />
                         Launch Simulation
                       </Button>
                     ) : (

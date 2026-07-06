@@ -14,16 +14,16 @@ import {
   Plus,
   Mail,
   X,
-  Award,
-  TrendingUp,
+  Medal,
+  TrendUp,
   Flame,
-  CheckCircle2,
-  Loader2,
-  BarChart3,
+  CheckCircle,
+  Spinner,
+  BarChart,
   BookOpen,
   UserPlus,
   Building2,
-} from 'lucide-react';
+} from '@phosphor-icons/react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
@@ -112,7 +112,7 @@ export function TeamDashboard() {
   if (loading) {
     return (
       <div className="flex items-center justify-center py-16">
-        <Loader2 className="h-6 w-6 animate-spin text-muted-foreground" />
+        <Spinner className="h-6 w-6 animate-spin text-muted-foreground" />
       </div>
     );
   }
@@ -161,7 +161,7 @@ export function TeamDashboard() {
                       onChange={(e) => setOrgName(e.target.value)}
                     />
                     <Button onClick={handleCreateOrg} disabled={creating || !orgName.trim()}>
-                      {creating ? <Loader2 className="h-4 w-4 animate-spin" /> : 'Create'}
+                      {creating ? <Spinner className="h-4 w-4 animate-spin" /> : 'Create'}
                     </Button>
                   </div>
                   {error && <p className="text-xs text-red-400">{error}</p>}
@@ -224,7 +224,7 @@ export function TeamDashboard() {
                     type="email"
                   />
                   <Button onClick={handleInvite} disabled={inviting || !inviteEmail.trim()} size="sm">
-                    {inviting ? <Loader2 className="h-4 w-4 animate-spin" /> : 'Invite'}
+                    {inviting ? <Spinner className="h-4 w-4 animate-spin" /> : 'Invite'}
                   </Button>
                 </div>
                 {error && <p className="text-xs text-red-400">{error}</p>}
@@ -295,7 +295,7 @@ export function TeamDashboard() {
                           {member.modulesCompleted}/{member.totalModules} modules
                         </span>
                         <span className="flex items-center gap-1">
-                          <TrendingUp className="h-3 w-3" />
+                          <TrendUp className="h-3 w-3" />
                           {member.xp.toLocaleString()} XP
                         </span>
                         <span className="flex items-center gap-1">
@@ -304,7 +304,7 @@ export function TeamDashboard() {
                         </span>
                         {member.certStatus === 'active' && (
                           <span className="flex items-center gap-1 text-emerald-400">
-                            <Award className="h-3 w-3" />
+                            <Medal className="h-3 w-3" />
                             Certified
                           </span>
                         )}

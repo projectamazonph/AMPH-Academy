@@ -4,14 +4,14 @@ import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { useSession } from 'next-auth/react';
 import {
-  PlayCircle,
+  Play,
   FlaskConical,
   ArrowRight,
   DollarSign,
   Percent,
-  BarChart3,
-  Loader2,
-} from 'lucide-react';
+  BarChart,
+  Spinner,
+} from '@phosphor-icons/react';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { XpProgress } from './xp-progress';
@@ -32,7 +32,7 @@ interface DashboardProps {
 const ppcMetrics = [
   { label: 'Avg. CPC', value: '$1.24', icon: DollarSign },
   { label: 'Target ACoS', value: '22%', icon: Percent },
-  { label: 'Avg. RoAS', value: '4.5x', icon: BarChart3 },
+  { label: 'Avg. RoAS', value: '4.5x', icon: BarChart },
 ];
 
 export function Dashboard({ onNavigate, xpOverride, levelOverride }: DashboardProps) {
@@ -73,7 +73,7 @@ export function Dashboard({ onNavigate, xpOverride, levelOverride }: DashboardPr
   if (loading) {
     return (
       <div className="flex items-center justify-center py-20">
-        <Loader2 className="h-6 w-6 animate-spin text-primary" />
+        <Spinner className="h-6 w-6 animate-spin text-primary" />
         <span className="ml-2 text-sm text-muted-foreground">Loading dashboard...</span>
       </div>
     );
@@ -182,7 +182,7 @@ export function Dashboard({ onNavigate, xpOverride, levelOverride }: DashboardPr
             onClick={() => onNavigate('modules')}
           >
             <div className="p-2 rounded-lg bg-primary/10 border border-primary/20">
-              <PlayCircle className="h-4 w-4 text-primary" />
+              <Play className="h-4 w-4 text-primary" />
             </div>
             <div className="text-left">
               <p className="text-sm font-medium">Continue Learning</p>

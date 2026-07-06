@@ -2,17 +2,17 @@
 
 import { motion } from 'framer-motion';
 import {
-  TrendingUp,
+  TrendUp,
   Target,
   Calculator,
   Clock,
-  AlertTriangle,
-  ChevronRight,
+  Warning,
+  CaretRight,
   ArrowUpRight,
   ArrowDownRight,
   Minus,
-  BarChart3,
-} from 'lucide-react';
+  BarChart,
+} from '@phosphor-icons/react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
@@ -35,7 +35,7 @@ const bidStrategies = [
     label: 'Maintain Bid',
     icon: Minus,
     color: 'sky',
-    desc: 'Keep current bid when performance is at or near target. Monitor for changes in competition or conversion rate.',
+    desc: 'Keep current bid when performance is at or near target. Desktop for changes in competition or conversion rate.',
     bgClass: 'bg-sky-500/10 border-sky-500/20',
     textClass: 'text-sky-400',
     iconBg: 'bg-sky-500/15 border-sky-500/25',
@@ -75,7 +75,7 @@ export function BidBriefing() {
           <CardContent className="relative py-6">
             <div className="flex items-center gap-2 mb-3">
               <div className="p-2 rounded-lg bg-amber-500/15 border border-amber-500/25">
-                <TrendingUp className="h-5 w-5 text-amber-400" />
+                <TrendUp className="h-5 w-5 text-amber-400" />
               </div>
               <Badge className="bg-amber-500/15 text-amber-400 border-amber-500/25 hover:bg-amber-500/20 text-[10px]">
                 BID ELEVATOR
@@ -137,7 +137,7 @@ export function BidBriefing() {
             </div>
 
             <div className="flex items-center gap-2 text-xs text-muted-foreground bg-muted/30 p-3 rounded-lg border border-border">
-              <AlertTriangle className="h-4 w-4 text-amber-400 shrink-0" />
+              <Warning className="h-4 w-4 text-amber-400 shrink-0" />
               <span>
                 Your max profitable CPC = AOV × CVR × Target ACoS = ${productContext.price.toFixed(2)} × {avgCvr.toFixed(2)} × {(thresholds.acosTarget * 100).toFixed(0)}% = ${maxCpc.toFixed(2)}.
                 Never bid above this unless the keyword&apos;s CVR justifies it.
@@ -194,7 +194,7 @@ export function BidBriefing() {
         <Card className="border-border">
           <CardHeader className="pb-3">
             <CardTitle className="text-base font-semibold flex items-center gap-2">
-              <BarChart3 className="h-4 w-4 text-sky-400" />
+              <BarChart className="h-4 w-4 text-sky-400" />
               Your Arsenal — 3 Bid Strategies
             </CardTitle>
           </CardHeader>
@@ -277,7 +277,7 @@ export function BidBriefing() {
           onClick={() => startSimulation(userId)}
         >
           Begin Simulation
-          <ChevronRight className="h-5 w-5" />
+          <CaretRight className="h-5 w-5" />
         </Button>
       </motion.div>
     </div>

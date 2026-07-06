@@ -3,9 +3,9 @@
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import {
-  Users, BookOpen, Target, Trophy, Activity, TrendingUp,
-  Clock, Loader2, Shield,
-} from 'lucide-react';
+  Users, BookOpen, Target, Trophy, Pulse, TrendUp,
+  Clock, Spinner, Shield,
+} from '@phosphor-icons/react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Progress } from '@/components/ui/progress';
@@ -38,7 +38,7 @@ function StatCard({ label, value, icon: Icon, color, bg, suffix }: {
 function LoadingSkeleton() {
   return (
     <div className="flex items-center justify-center py-32">
-      <Loader2 className="h-6 w-6 animate-spin text-muted-foreground" />
+      <Spinner className="h-6 w-6 animate-spin text-muted-foreground" />
     </div>
   );
 }
@@ -81,15 +81,15 @@ export default function AdminDashboardPage() {
           color="text-violet-400" bg="bg-violet-500/10" />
       </div>
 
-      {/* Activity row */}
+      {/* Pulse row */}
       <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
         <StatCard label="Modules Done" value={stats?.modulesCompletedTotal ?? 0} icon={BookOpen}
           color="text-cyan-400" bg="bg-cyan-500/10" />
-        <StatCard label="Quizzes Passed" value={stats?.quizzesPassedTotal ?? 0} icon={Activity}
+        <StatCard label="Quizzes Passed" value={stats?.quizzesPassedTotal ?? 0} icon={Pulse}
           color="text-indigo-400" bg="bg-indigo-500/10" />
         <StatCard label="Active Today" value={stats?.activeToday ?? 0} icon={Clock}
           color="text-orange-400" bg="bg-orange-500/10" />
-        <StatCard label="Active This Week" value={stats?.activeThisWeek ?? 0} icon={TrendingUp}
+        <StatCard label="Active This Week" value={stats?.activeThisWeek ?? 0} icon={TrendUp}
           color="text-green-400" bg="bg-green-500/10" />
       </div>
 
@@ -135,7 +135,7 @@ export default function AdminDashboardPage() {
       {!stats && (
         <Card className="border-border/40 bg-card/40">
           <CardContent className="py-16 text-center text-muted-foreground">
-            <Activity className="h-8 w-8 mx-auto mb-3 opacity-50" />
+            <Pulse className="h-8 w-8 mx-auto mb-3 opacity-50" />
             <p>No platform data yet. Stats appear once users start learning.</p>
           </CardContent>
         </Card>

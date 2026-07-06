@@ -4,12 +4,12 @@ import { useState, useEffect, useRef } from 'react';
 import { motion, useInView, AnimatePresence } from 'framer-motion';
 import Link from 'next/link';
 import {
-  Zap, BookOpen, Layout, TrendingUp, Filter,
-  ChevronRight, Users, Target, Menu, X,
-  GraduationCap, BarChart3, Award, TriangleAlert,
+  Lightning, BookOpen, Layout, TrendUp, Funnel,
+  CaretRight, Users, Target, Menu, X,
+  GraduationCap, BarChart, Medal, TriangleAlert,
   TrendingDown, Clock, ArrowUpRight, Coins,
   Sparkles, Rocket,
-} from 'lucide-react';
+} from '@phosphor-icons/react';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Card, CardContent } from '@/components/ui/card';
@@ -65,8 +65,8 @@ const modules = [
   { num: 0, title: 'Onboarding', desc: 'Welcome, platform tour, first simulation intro', color: 'emerald', icon: Rocket },
   { num: 1, title: 'Foundations', desc: 'PPC basics, key metrics — CPC, ACoS, TACoS, RoAS', color: 'sky', icon: BookOpen },
   { num: 4, title: 'Campaign Architecture', desc: 'Sponsored Products, Brands, Display — structure & scale', color: 'amber', icon: Layout },
-  { num: 6, title: 'Bidding Lab', desc: 'Bid strategies, position economics, budget pacing', color: 'rose', icon: TrendingUp },
-  { num: 7, title: 'Search Term Triage', desc: 'Negative keywords, STR analysis, optimization', color: 'violet', icon: Filter },
+  { num: 6, title: 'Bidding Lab', desc: 'Bid strategies, position economics, budget pacing', color: 'rose', icon: TrendUp },
+  { num: 7, title: 'MagnifyingGlass Term Triage', desc: 'Negative keywords, STR analysis, optimization', color: 'violet', icon: Funnel },
 ];
 
 function ModuleCard({ m }: { m: typeof modules[0] }) {
@@ -126,7 +126,7 @@ function Navbar() {
         <div className="flex items-center justify-between h-16">
           <Link href="/" className="flex items-center gap-2 group">
             <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-primary to-orange-400 flex items-center justify-center">
-              <Zap className="h-4 w-4 text-black" />
+              <Lightning className="h-4 w-4 text-black" />
             </div>
             <span className="font-semibold text-lg tracking-tight">AMPH</span>
           </Link>
@@ -149,7 +149,7 @@ function Navbar() {
             </Link>
             <Link href="/auth/signup">
               <Button size="sm" className="bg-primary hover:bg-primary/90 text-primary-foreground font-medium">
-                Start Now <ChevronRight className="h-3.5 w-3.5 ml-1" />
+                Start Now <CaretRight className="h-3.5 w-3.5 ml-1" />
               </Button>
             </Link>
           </div>
@@ -374,11 +374,11 @@ function RealitySection() {
 // ─── Features (reframed as fear solutions) ──────────────────────
 const features = [
   { icon: Target, title: 'Campaign Builder Simulator', description: 'Stop reading theory. Build real campaign structures, set bids, and see results instantly. Make mistakes here so you do not make them with a client\'s budget.', color: 'emerald' },
-  { icon: TrendingUp, title: 'Bid Elevator', description: 'Practice bidding decisions under pressure. Learn how small bid changes affect ACoS and RoAS. By the time you finish, you will know more than most 3-year VAs.', color: 'amber' },
-  { icon: Filter, title: 'Search Term Triage Arena', description: 'Real search term reports. Real optimization decisions. Process thousands of keywords like a pro. This alone can double your rate.', color: 'rose' },
+  { icon: TrendUp, title: 'Bid Elevator', description: 'Practice bidding decisions under pressure. Learn how small bid changes affect ACoS and RoAS. By the time you finish, you will know more than most 3-year VAs.', color: 'amber' },
+  { icon: Funnel, title: 'MagnifyingGlass Term Triage Arena', description: 'Real search term reports. Real optimization decisions. Process thousands of keywords like a pro. This alone can double your rate.', color: 'rose' },
   { icon: BookOpen, title: 'Structured Amazon PPC Curriculum', description: '5 modules, 19 lessons. From "what is a keyword" to advanced campaign architecture. No fluff. Just the stuff that gets you hired at premium rates.', color: 'sky' },
-  { icon: Award, title: 'Badges & Certification', description: 'Earn verifiable credentials that prove you can actually do the work. Show clients proof, not promises. 17 badges across 5 skill categories.', color: 'violet' },
-  { icon: BarChart3, title: 'Progress Tracking & Analytics', description: 'See exactly where you are improving and where you are stuck. No guessing. No wondering if you are ready for real campaigns.', color: 'teal' },
+  { icon: Medal, title: 'Badges & Certification', description: 'Earn verifiable credentials that prove you can actually do the work. Show clients proof, not promises. 17 badges across 5 skill categories.', color: 'violet' },
+  { icon: BarChart, title: 'Progress Tracking & Analytics', description: 'See exactly where you are improving and where you are stuck. No guessing. No wondering if you are ready for real campaigns.', color: 'teal' },
 ];
 
 function FeaturesSection() {
@@ -420,7 +420,7 @@ function FeaturesSection() {
 const steps = [
   { step: '01', title: 'Learn the PPC Stack', desc: '5 structured modules from zero to campaign architecture. Each lesson is built for a Filipino VA — real Amazon data, real scenarios, no filler.', icon: BookOpen },
   { step: '02', title: 'Practice Until It Sticks', desc: 'Interactive simulations where you build campaigns, optimize bids, and triage keywords. Mistakes cost nothing here. With a client they cost everything.', icon: Target },
-  { step: '03', title: 'Get Certified & Earn More', desc: 'Pass the assessments, earn your badge, and start pitching premium PPC services. Our graduates are booking ₱60k+ months within 90 days.', icon: Award },
+  { step: '03', title: 'Get Certified & Earn More', desc: 'Pass the assessments, earn your badge, and start pitching premium PPC services. Our graduates are booking ₱60k+ months within 90 days.', icon: Medal },
 ];
 
 function HowItWorks() {
@@ -688,7 +688,7 @@ function PricingSection() {
                   <ul className="space-y-2.5">
                     {plan.features.map((f) => (
                       <li key={f} className="flex items-start gap-2 text-sm text-muted-foreground">
-                        <Zap className="h-3.5 w-3.5 text-primary mt-0.5 shrink-0" />
+                        <Lightning className="h-3.5 w-3.5 text-primary mt-0.5 shrink-0" />
                         {f}
                       </li>
                     ))}
@@ -763,7 +763,7 @@ function Footer() {
         <div className="flex flex-col md:flex-row items-center justify-between gap-4">
           <div className="flex items-center gap-2">
             <div className="w-6 h-6 rounded-lg bg-gradient-to-br from-primary to-orange-400 flex items-center justify-center">
-              <Zap className="h-3 w-3 text-black" />
+              <Lightning className="h-3 w-3 text-black" />
             </div>
             <span className="text-sm font-semibold">ProjectAMPH Academy</span>
           </div>

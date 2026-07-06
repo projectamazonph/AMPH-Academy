@@ -4,9 +4,9 @@ import { useState } from 'react';
 import { usePathname, useRouter } from 'next/navigation';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
-  LayoutDashboard, Users, BookOpen, Award, Activity, Settings,
-  Menu, X, ChevronLeft, Zap, LogOut, Shield,
-} from 'lucide-react';
+  LayoutDashboard, Users, BookOpen, Medal, Pulse, Settings,
+  Menu, X, CaretLeft, Lightning, LogOut, Shield,
+} from '@phosphor-icons/react';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { Separator } from '@/components/ui/separator';
@@ -18,7 +18,7 @@ const adminNavItems: { href: string; label: string; icon: typeof LayoutDashboard
   { href: '/admin/dashboard', label: 'Dashboard', icon: LayoutDashboard },
   { href: '/admin/users', label: 'Users', icon: Users },
   { href: '/admin/courses', label: 'Content', icon: BookOpen },
-  { href: '/admin/events', label: 'Events', icon: Activity },
+  { href: '/admin/events', label: 'Events', icon: Pulse },
   { href: '/admin/settings', label: 'Settings', icon: Settings },
 ];
 
@@ -110,7 +110,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
             className="w-full justify-center hidden lg:flex"
             onClick={() => setCollapsed(!collapsed)}
           >
-            <ChevronLeft className={cn('h-4 w-4 transition-transform', collapsed && 'rotate-180')} />
+            <CaretLeft className={cn('h-4 w-4 transition-transform', collapsed && 'rotate-180')} />
           </Button>
 
           <div className={cn('flex items-center gap-3 p-2', collapsed && 'justify-center')}>

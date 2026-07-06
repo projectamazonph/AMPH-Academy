@@ -9,17 +9,17 @@ import {
 } from '@tanstack/react-table';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
-  TrendingUp,
+  TrendUp,
   Pause,
   XCircle,
   Ban,
   Sliders,
   Clock,
   Trophy,
-  CheckCircle2,
+  CheckCircle,
   Send,
   ChevronDown,
-} from 'lucide-react';
+} from '@phosphor-icons/react';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Input } from '@/components/ui/input';
@@ -35,7 +35,7 @@ import { cn } from '@/lib/utils';
 interface ActionConfig {
   key: StrAction;
   label: string;
-  icon: typeof TrendingUp;
+  icon: typeof TrendUp;
   btnClass: string;
   activeClass: string;
 }
@@ -44,7 +44,7 @@ const ACTION_CONFIGS: ActionConfig[] = [
   {
     key: 'keep',
     label: 'Keep',
-    icon: TrendingUp,
+    icon: TrendUp,
     btnClass:
       'bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 hover:bg-emerald-500/20',
     activeClass:
@@ -290,7 +290,7 @@ export function StrDataGrid() {
     () => [
       {
         accessorKey: 'searchTerm',
-        header: 'Search Term',
+        header: 'MagnifyingGlass Term',
         cell: ({ row }) => (
           <div className="min-w-0">
             <p className="text-sm font-bold truncate max-w-[200px] lg:max-w-[260px]">
@@ -423,7 +423,7 @@ export function StrDataGrid() {
         <div className="flex-1 min-w-0">
           <div className="flex items-center gap-3 text-sm">
             <div className="flex items-center gap-1.5">
-              <CheckCircle2 className="h-4 w-4 text-emerald-400" />
+              <CheckCircle className="h-4 w-4 text-emerald-400" />
               <span className="font-mono">
                 {triagedCount}/{totalTerms}
               </span>

@@ -2,14 +2,14 @@
 
 import { motion } from 'framer-motion';
 import {
-  MousePointerClick,
+  Cursor,
   ArrowUpRight,
-  Filter,
+  Funnel,
   Lock,
-  PlayCircle,
-  CheckCircle2,
-  type LucideIcon,
-} from 'lucide-react';
+  Play,
+  CheckCircle,
+  type Icon,
+} from '@phosphor-icons/react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
@@ -31,7 +31,7 @@ const simulations: Simulation[] = [
     title: 'Campaign Builder',
     description:
       'Build complete campaign structures with keywords, bids, and budgets',
-    icon: 'MousePointerClick',
+    icon: 'Cursor',
     difficulty: 'Intermediate',
     moduleRef: 4,
   },
@@ -49,16 +49,16 @@ const simulations: Simulation[] = [
     title: 'STR Triage Arena',
     description:
       'Analyze search terms and make keep/pause/negate decisions under time pressure',
-    icon: 'Filter',
+    icon: 'Funnel',
     difficulty: 'Advanced',
     moduleRef: 7,
   },
 ];
 
-const iconMap: Record<string, LucideIcon> = {
-  MousePointerClick,
+const iconMap: Record<string, Icon> = {
+  Cursor,
   ArrowUpRight,
-  Filter,
+  Funnel,
 };
 
 const difficultyColors: Record<string, string> = {
@@ -106,7 +106,7 @@ function SimulationCard({
   index: number;
   moduleProgress?: ModuleProgressItem[];
 }) {
-  const Icon = iconMap[simulation.icon] || MousePointerClick;
+  const Icon = iconMap[simulation.icon] || Cursor;
   const gradient = simGradients[simulation.type];
   const border = simBorders[simulation.type];
   const accent = simAccents[simulation.type];
@@ -194,12 +194,12 @@ function SimulationCard({
               </Button>
             ) : isComplete ? (
               <Button size="sm" className="gap-2 text-xs bg-emerald-600 hover:bg-emerald-700 text-white">
-                <CheckCircle2 className="h-3 w-3" />
+                <CheckCircle className="h-3 w-3" />
                 Ready to Launch
               </Button>
             ) : (
               <Button size="sm" className="gap-2 text-xs">
-                <PlayCircle className="h-3 w-3" />
+                <Play className="h-3 w-3" />
                 Launch Simulation
               </Button>
             )}

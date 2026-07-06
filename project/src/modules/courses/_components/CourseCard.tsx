@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { BookOpen, Clock, BarChart3, ChevronRight } from "lucide-react";
+import { BookOpen, Clock, BarChart, CaretRight } from '@phosphor-icons/react';
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import type { CourseSummary } from "../_types";
@@ -45,7 +45,7 @@ export function CourseCard({ course }: { course: CourseSummary }) {
 
           <div className="flex items-center gap-4 text-xs text-muted-foreground pt-4 border-t border-border/20">
             <span className="flex items-center gap-1">
-              <BarChart3 className="h-3.5 w-3.5" />
+              <BarChart className="h-3.5 w-3.5" />
               {course.moduleCount} modules
             </span>
             <span className="flex items-center gap-1">
@@ -53,7 +53,7 @@ export function CourseCard({ course }: { course: CourseSummary }) {
               {course.estimatedHours}h
             </span>
             <span className="flex items-center gap-1 ml-auto text-primary group-hover:gap-2 transition-all">
-              View <ChevronRight className="h-3.5 w-3.5" />
+              View <CaretRight className="h-3.5 w-3.5" />
             </span>
           </div>
         </CardContent>

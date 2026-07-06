@@ -4,15 +4,15 @@ import { motion } from 'framer-motion';
 import {
   Shield,
   Target,
-  TrendingUp,
+  TrendUp,
   Pause,
   XCircle,
   Ban,
   Sliders,
   Clock,
-  AlertTriangle,
-  ChevronRight,
-} from 'lucide-react';
+  Warning,
+  CaretRight,
+} from '@phosphor-icons/react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
@@ -24,7 +24,7 @@ const actions = [
   {
     key: 'keep',
     label: 'Keep',
-    icon: TrendingUp,
+    icon: TrendUp,
     color: 'emerald',
     desc: 'Term is performing well — maintain current bid and monitor.',
     bgClass: 'bg-emerald-500/10 border-emerald-500/20',
@@ -154,7 +154,7 @@ export function StrBriefing() {
             </div>
 
             <div className="flex items-center gap-2 text-xs text-muted-foreground bg-muted/30 p-3 rounded-lg border border-border">
-              <AlertTriangle className="h-4 w-4 text-amber-400 shrink-0" />
+              <Warning className="h-4 w-4 text-amber-400 shrink-0" />
               <span>
                 Your break-even ACoS equals your margin ({(productContext.margin * 100).toFixed(0)}%).
                 Any term with ACoS above this is losing money.
@@ -219,7 +219,7 @@ export function StrBriefing() {
           <CardContent>
             <div className="space-y-2 text-sm">
               <div className="flex items-center justify-between py-2 border-b border-border">
-                <span className="text-muted-foreground">Search Terms to Triage</span>
+                <span className="text-muted-foreground">MagnifyingGlass Terms to Triage</span>
                 <span className="font-mono font-semibold">{searchTerms.length}</span>
               </div>
               <div className="flex items-center justify-between py-2 border-b border-border">
@@ -252,7 +252,7 @@ export function StrBriefing() {
           onClick={() => startSimulation(userId)}
         >
           Begin Simulation
-          <ChevronRight className="h-5 w-5" />
+          <CaretRight className="h-5 w-5" />
         </Button>
       </motion.div>
     </div>

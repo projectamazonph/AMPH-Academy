@@ -3,15 +3,15 @@
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import {
-  BarChart3,
+  BarChart,
   Clock,
   BookOpen,
   Brain,
   Target,
-  Loader2,
-  TrendingUp,
-  Activity,
-} from 'lucide-react';
+  Spinner,
+  TrendUp,
+  Pulse,
+} from '@phosphor-icons/react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { cn } from '@/lib/utils';
@@ -42,7 +42,7 @@ export function AnalyticsDashboard() {
     <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="space-y-6">
       <div className="flex items-center gap-3">
         <div className="p-2 rounded-xl bg-blue-500/10 border border-blue-500/20">
-          <BarChart3 className="h-5 w-5 text-blue-400" />
+          <BarChart className="h-5 w-5 text-blue-400" />
         </div>
         <div>
           <h2 className="text-2xl font-bold">Your Analytics</h2>
@@ -52,7 +52,7 @@ export function AnalyticsDashboard() {
 
       {loading ? (
         <div className="flex items-center justify-center py-20">
-          <Loader2 className="h-5 w-5 animate-spin text-muted-foreground" />
+          <Spinner className="h-5 w-5 animate-spin text-muted-foreground" />
         </div>
       ) : !data ? (
         <Card><CardContent className="py-12 text-center text-muted-foreground">No data yet. Start learning!</CardContent></Card>
@@ -61,7 +61,7 @@ export function AnalyticsDashboard() {
           {/* Stats grid */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
             {[
-              { label: 'Sessions', value: data.totalSessions, icon: Activity, color: 'text-blue-400', bg: 'bg-blue-500/10' },
+              { label: 'Sessions', value: data.totalSessions, icon: Pulse, color: 'text-blue-400', bg: 'bg-blue-500/10' },
               { label: 'Time (min)', value: data.totalTimeMinutes, icon: Clock, color: 'text-emerald-400', bg: 'bg-emerald-500/10' },
               { label: 'Lessons Done', value: data.lessonsCompleted, icon: BookOpen, color: 'text-violet-400', bg: 'bg-violet-500/10' },
               { label: 'Avg Sim Score', value: `${data.avgSimScore}%`, icon: Target, color: 'text-amber-400', bg: 'bg-amber-500/10' },
@@ -106,7 +106,7 @@ export function AnalyticsDashboard() {
           <Card>
             <CardHeader className="pb-2">
               <CardTitle className="text-sm font-medium flex items-center gap-2">
-                <Activity className="h-4 w-4 text-primary" /> Activity Breakdown
+                <Pulse className="h-4 w-4 text-primary" /> Pulse Breakdown
               </CardTitle>
             </CardHeader>
             <CardContent>
@@ -129,7 +129,7 @@ export function AnalyticsDashboard() {
           <Card>
             <CardHeader className="pb-2">
               <CardTitle className="text-sm font-medium flex items-center gap-2">
-                <TrendingUp className="h-4 w-4 text-emerald-400" /> Recent Activity
+                <TrendUp className="h-4 w-4 text-emerald-400" /> Recent Pulse
               </CardTitle>
             </CardHeader>
             <CardContent>

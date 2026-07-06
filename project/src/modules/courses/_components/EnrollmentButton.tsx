@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import { Loader2, CheckCircle2, GraduationCap } from "lucide-react";
+import { Spinner, CheckCircle, GraduationCap } from '@phosphor-icons/react';
 import { enrollCourse } from "../_actions";
 import type { EnrollmentStatus } from "../_types";
 
@@ -28,7 +28,7 @@ export function EnrollmentButton({
   if (status === "COMPLETED") {
     return (
       <div className="flex items-center gap-2 text-emerald-400 text-sm font-medium">
-        <CheckCircle2 className="h-4 w-4" />
+        <CheckCircle className="h-4 w-4" />
         Completed
       </div>
     );
@@ -46,7 +46,7 @@ export function EnrollmentButton({
   return (
     <Button onClick={handleEnroll} disabled={loading} className="gap-2">
       {loading ? (
-        <Loader2 className="h-4 w-4 animate-spin" />
+        <Spinner className="h-4 w-4 animate-spin" />
       ) : (
         <GraduationCap className="h-4 w-4" />
       )}

@@ -11,16 +11,16 @@ import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
   X,
-  CheckCircle2,
+  CheckCircle,
   XCircle,
-  AlertTriangle,
+  Warning,
   BookOpen,
   Lightbulb,
-  TrendingUp,
+  TrendUp,
   ArrowRight,
-  BarChart3,
+  BarChart,
   Brain,
-} from 'lucide-react';
+} from '@phosphor-icons/react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
@@ -30,13 +30,13 @@ import { Progress } from '@/components/ui/progress';
 import type { MistakeAnalysisResult } from '@/app/actions/mistake-analysis';
 
 const mistakeIcons: Record<string, typeof Lightbulb> = {
-  'formula-error': TrendingUp,
+  'formula-error': TrendUp,
   'logic-error': Brain,
   'knowledge-gap': BookOpen,
-  'misread-data': BarChart3,
-  'careless-error': AlertTriangle,
+  'misread-data': BarChart,
+  'careless-error': Warning,
   'confused-terms': Brain,
-  'threshold-error': BarChart3,
+  'threshold-error': BarChart,
 };
 
 const mistakeColors: Record<string, string> = {
@@ -122,7 +122,7 @@ export function MistakeReplay({ analysis, onClose }: MistakeReplayProps) {
             {analysis.weakAreas.length > 0 && (
               <div>
                 <h3 className="text-sm font-medium text-muted-foreground mb-3 flex items-center gap-2">
-                  <AlertTriangle className="h-4 w-4 text-amber-400" />
+                  <Warning className="h-4 w-4 text-amber-400" />
                   Areas to Improve
                 </h3>
                 <div className="flex flex-wrap gap-2">
@@ -184,7 +184,7 @@ export function MistakeReplay({ analysis, onClose }: MistakeReplayProps) {
                       <div className="flex items-start justify-between gap-3">
                         <div className="flex items-start gap-3 min-w-0">
                           {qa.isCorrect ? (
-                            <CheckCircle2 className="h-5 w-5 text-emerald-400 shrink-0 mt-0.5" />
+                            <CheckCircle className="h-5 w-5 text-emerald-400 shrink-0 mt-0.5" />
                           ) : (
                             <XCircle className="h-5 w-5 text-rose-400 shrink-0 mt-0.5" />
                           )}

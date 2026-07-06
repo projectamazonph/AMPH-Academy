@@ -1,6 +1,6 @@
 'use client';
 
-import { Monitor } from 'lucide-react';
+import { Desktop } from '@phosphor-icons/react';
 import { cn } from '@/lib/utils';
 
 interface DesktopNoticeProps {
@@ -16,7 +16,7 @@ export function DesktopNotice({ className }: DesktopNoticeProps) {
         className,
       )}
     >
-      <Monitor className="h-3.5 w-3.5 shrink-0" />
+      <Desktop className="h-3.5 w-3.5 shrink-0" />
       <span>
         <strong>Best experienced on desktop.</strong> This interactive tool is designed for larger screens. You can still use it on mobile, but some features may be constrained.
       </span>

@@ -5,8 +5,8 @@ import {
   BookOpen,
   FlaskConical,
   Flame,
-  Zap,
-} from 'lucide-react';
+  Lightning,
+} from '@phosphor-icons/react';
 import {
   Area,
   AreaChart,
@@ -89,7 +89,7 @@ export function StatsRow({
     {
       label: 'Total XP',
       value: totalXP.toLocaleString(),
-      icon: Zap,
+      icon: Lightning,
       trend: totalXP > 0 ? 'Earn XP by completing lessons' : 'Earn XP by completing lessons',
       color: 'violet',
       hasProgress: totalXP > 0,

@@ -4,15 +4,15 @@ import { useEffect, useState, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
   Trophy,
-  TrendingUp,
+  TrendUp,
   TrendingDown,
-  CheckCircle2,
+  CheckCircle,
   AlertCircle,
   XCircle,
   ChevronDown,
   ChevronUp,
   ArrowRight,
-} from 'lucide-react';
+} from '@phosphor-icons/react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
@@ -124,7 +124,7 @@ function MetricDelta({
 }) {
   const improved = lowerIsBetter ? after < before : after > before;
   const delta = after - before;
-  const Icon = improved ? TrendingDown : TrendingUp;
+  const Icon = improved ? TrendingDown : TrendUp;
 
   return (
     <div className="flex items-center justify-between py-2 border-b border-border last:border-0">
@@ -162,7 +162,7 @@ function EvalRow({ evaluation, searchTerms }: { evaluation: StrActionEvaluation;
   const term = searchTerms.find((s) => s.id === evaluation.searchTermId);
 
   const statusIcon = evaluation.isCorrect
-    ? CheckCircle2
+    ? CheckCircle
     : evaluation.isPartiallyCorrect
     ? AlertCircle
     : XCircle;
@@ -401,7 +401,7 @@ export function StrScoring() {
         <Card>
           <CardHeader className="pb-3">
             <CardTitle className="text-base font-semibold">
-              Search Term Breakdown
+              MagnifyingGlass Term Breakdown
             </CardTitle>
             <p className="text-xs text-muted-foreground">
               Click on each term to see detailed feedback

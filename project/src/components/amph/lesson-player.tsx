@@ -8,11 +8,11 @@ import {
   ArrowLeft,
   ArrowRight,
   BookOpen,
-  CheckCircle2,
+  CheckCircle,
   Clock,
-  Zap,
-  Loader2,
-} from 'lucide-react';
+  Lightning,
+  Spinner,
+} from '@phosphor-icons/react';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
@@ -104,7 +104,7 @@ export function LessonPlayer({ moduleNumber, lessonOrder, onBack, onComplete }: 
   if (loading) {
     return (
       <div className="flex items-center justify-center py-20">
-        <Loader2 className="h-6 w-6 animate-spin text-primary" />
+        <Spinner className="h-6 w-6 animate-spin text-primary" />
         <span className="ml-2 text-sm text-muted-foreground">Loading lesson...</span>
       </div>
     );
@@ -135,7 +135,7 @@ export function LessonPlayer({ moduleNumber, lessonOrder, onBack, onComplete }: 
             {meta.estimatedMinutes} min
           </Badge>
           <Badge variant="outline" className="gap-1 text-[10px] bg-primary/10 text-primary border-primary/20">
-            <Zap className="h-3 w-3" />
+            <Lightning className="h-3 w-3" />
             {meta.xpReward} XP
           </Badge>
         </div>
@@ -170,7 +170,7 @@ export function LessonPlayer({ moduleNumber, lessonOrder, onBack, onComplete }: 
                 )}
               >
                 <span className="flex items-center gap-1.5">
-                  {isDone && <CheckCircle2 className="h-3 w-3" />}
+                  {isDone && <CheckCircle className="h-3 w-3" />}
                   {lesson.lessonNumber}. {lesson.title.replace(/^.+:\s*/, '')}
                 </span>
               </button>
@@ -222,15 +222,15 @@ export function LessonPlayer({ moduleNumber, lessonOrder, onBack, onComplete }: 
             <div className="flex items-center gap-2">
               {completedLessons.has(currentOrder) ? (
                 <Badge className="gap-1 bg-emerald-500/15 text-emerald-400 border-emerald-500/20">
-                  <CheckCircle2 className="h-3.5 w-3.5" />
+                  <CheckCircle className="h-3.5 w-3.5" />
                   Completed
                 </Badge>
               ) : (
                 <Button size="sm" className="gap-2" onClick={handleComplete} disabled={saving}>
                   {saving ? (
-                    <Loader2 className="h-3.5 w-3.5 animate-spin" />
+                    <Spinner className="h-3.5 w-3.5 animate-spin" />
                   ) : (
-                    <CheckCircle2 className="h-3.5 w-3.5" />
+                    <CheckCircle className="h-3.5 w-3.5" />
                   )}
                   {saving ? 'Saving...' : 'Mark Complete'}
                 </Button>

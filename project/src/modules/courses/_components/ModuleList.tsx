@@ -1,10 +1,10 @@
-import { CheckCircle2, Circle, Lock, PlayCircle, Clock } from "lucide-react";
+import { CheckCircle, Circle, Lock, Play, Clock } from '@phosphor-icons/react';
 import Link from "next/link";
 import type { ModuleSummary } from "../_types";
 
 const statusIcons = {
-  COMPLETED: CheckCircle2,
-  IN_PROGRESS: PlayCircle,
+  COMPLETED: CheckCircle,
+  IN_PROGRESS: Play,
   NOT_STARTED: Circle,
   LOCKED: Lock,
 };
@@ -63,7 +63,7 @@ export function ModuleList({
                   </p>
                   <div className="flex items-center gap-3 mt-3 text-[10px] text-muted-foreground">
                     <span className="flex items-center gap-1">
-                      <PlayCircle className="h-3 w-3" />
+                      <Play className="h-3 w-3" />
                       {mod.lessonCount} lessons
                     </span>
                     <span className="flex items-center gap-1">

@@ -8,10 +8,10 @@ import {
   BookOpen,
   Grid3X3,
   Download,
-  Loader2,
-  Search,
+  Spinner,
+  MagnifyingGlass,
   FolderOpen,
-} from 'lucide-react';
+} from '@phosphor-icons/react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
@@ -76,12 +76,12 @@ export function ResourcesView() {
         </p>
       </div>
 
-      {/* Search & filter */}
+      {/* MagnifyingGlass & filter */}
       <div className="flex flex-col sm:flex-row gap-3">
         <div className="relative flex-1">
-          <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
+          <MagnifyingGlass className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
           <Input
-            placeholder="Search resources..."
+            placeholder="MagnifyingGlass resources..."
             className="pl-9"
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
@@ -173,7 +173,7 @@ export function ResourcesView() {
                         disabled={downloading === resource.id}
                       >
                         {downloading === resource.id ? (
-                          <Loader2 className="h-3.5 w-3.5 animate-spin" />
+                          <Spinner className="h-3.5 w-3.5 animate-spin" />
                         ) : (
                           <Download className="h-3.5 w-3.5" />
                         )}

@@ -4,16 +4,16 @@ import { useEffect, useState, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
   Trophy,
-  TrendingUp,
+  TrendUp,
   TrendingDown,
-  CheckCircle2,
+  CheckCircle,
   AlertCircle,
   XCircle,
   ChevronDown,
   ChevronUp,
   ArrowRight,
   Target,
-} from 'lucide-react';
+} from '@phosphor-icons/react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
@@ -114,7 +114,7 @@ function DecisionRow({
 }) {
   const [expanded, setExpanded] = useState(false);
 
-  const StatusIcon = evaluation.isAcceptable ? CheckCircle2 : XCircle;
+  const StatusIcon = evaluation.isAcceptable ? CheckCircle : XCircle;
   const statusColor = evaluation.isAcceptable ? 'text-emerald-400' : 'text-rose-400';
   const rowBg = evaluation.isAcceptable
     ? 'bg-emerald-500/5 border-emerald-500/15'

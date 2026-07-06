@@ -20,17 +20,17 @@ import { motion, AnimatePresence } from 'framer-motion';
 import {
   ArrowLeft,
   ArrowRight,
-  CheckCircle2,
+  CheckCircle,
   XCircle,
   Clock,
-  Zap,
+  Lightning,
   RotateCcw,
-  Loader2,
+  Spinner,
   Trophy,
   Target,
   HelpCircle,
-  ChevronRight,
-} from 'lucide-react';
+  CaretRight,
+} from '@phosphor-icons/react';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
@@ -230,7 +230,7 @@ export function QuizPlayer({ moduleNumber, onBack, onComplete }: QuizPlayerProps
   if (phase === 'loading') {
     return (
       <div className="flex items-center justify-center py-20">
-        <Loader2 className="h-6 w-6 animate-spin text-primary" />
+        <Spinner className="h-6 w-6 animate-spin text-primary" />
         <span className="ml-2 text-sm text-muted-foreground">Loading quiz...</span>
       </div>
     );
@@ -288,7 +288,7 @@ export function QuizPlayer({ moduleNumber, onBack, onComplete }: QuizPlayerProps
                   {quiz.passThreshold}% to pass
                 </span>
                 <span className="flex items-center gap-1">
-                  <Zap className="h-3 w-3 text-amber-400" />
+                  <Lightning className="h-3 w-3 text-amber-400" />
                   {QUIZ_XP_REWARD} XP on pass
                 </span>
               </div>
@@ -337,7 +337,7 @@ export function QuizPlayer({ moduleNumber, onBack, onComplete }: QuizPlayerProps
             <div className="px-6 py-4 flex justify-center">
               <Button size="lg" className="gap-2 px-8" onClick={startQuiz}>
                 {quiz.bestScore !== null ? 'Retake Quiz' : 'Start Quiz'}
-                <ChevronRight className="h-4 w-4" />
+                <CaretRight className="h-4 w-4" />
               </Button>
             </div>
           </Card>
@@ -496,9 +496,9 @@ export function QuizPlayer({ moduleNumber, onBack, onComplete }: QuizPlayerProps
               disabled={!allAnswered || saving}
             >
               {saving ? (
-                <Loader2 className="h-3.5 w-3.5 animate-spin" />
+                <Spinner className="h-3.5 w-3.5 animate-spin" />
               ) : (
-                <CheckCircle2 className="h-3.5 w-3.5" />
+                <CheckCircle className="h-3.5 w-3.5" />
               )}
               {saving ? 'Grading...' : 'Submit Quiz'}
             </Button>
@@ -510,9 +510,9 @@ export function QuizPlayer({ moduleNumber, onBack, onComplete }: QuizPlayerProps
           <div className="flex justify-center pt-2">
             <Button size="sm" className="gap-2" onClick={handleSubmit} disabled={saving}>
               {saving ? (
-                <Loader2 className="h-3.5 w-3.5 animate-spin" />
+                <Spinner className="h-3.5 w-3.5 animate-spin" />
               ) : (
-                <CheckCircle2 className="h-3.5 w-3.5" />
+                <CheckCircle className="h-3.5 w-3.5" />
               )}
               {saving ? 'Grading...' : 'Submit Quiz Early'}
             </Button>
@@ -571,7 +571,7 @@ export function QuizPlayer({ moduleNumber, onBack, onComplete }: QuizPlayerProps
                   transition={{ delay: 0.3 }}
                 >
                   <Badge className="gap-1 bg-amber-500/15 text-amber-400 border-amber-500/20 text-sm px-3 py-1">
-                    <Zap className="h-4 w-4" />
+                    <Lightning className="h-4 w-4" />
                     +{submitData.xpEarned} XP Earned!
                   </Badge>
                 </motion.div>
@@ -596,7 +596,7 @@ export function QuizPlayer({ moduleNumber, onBack, onComplete }: QuizPlayerProps
                 disabled={loadingMistakeAnalysis}
               >
                 {loadingMistakeAnalysis ? (
-                  <Loader2 className="h-3.5 w-3.5 animate-spin" />
+                  <Spinner className="h-3.5 w-3.5 animate-spin" />
                 ) : (
                   <HelpCircle className="h-3.5 w-3.5" />
                 )}
@@ -629,7 +629,7 @@ export function QuizPlayer({ moduleNumber, onBack, onComplete }: QuizPlayerProps
                   {/* Question header */}
                   <div className="flex items-start gap-2">
                     {gq.isCorrect ? (
-                      <CheckCircle2 className="h-4 w-4 text-emerald-400 mt-0.5 shrink-0" />
+                      <CheckCircle className="h-4 w-4 text-emerald-400 mt-0.5 shrink-0" />
                     ) : (
                       <XCircle className="h-4 w-4 text-red-400 mt-0.5 shrink-0" />
                     )}

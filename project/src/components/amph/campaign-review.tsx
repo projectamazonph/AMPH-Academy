@@ -4,14 +4,14 @@ import { motion } from 'framer-motion';
 import {
   Trophy,
   Target,
-  Zap,
+  Lightning,
   RotateCcw,
   ArrowLeft,
-  CheckCircle2,
+  CheckCircle,
   XCircle,
   Layout,
   Lightbulb,
-} from 'lucide-react';
+} from '@phosphor-icons/react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
@@ -119,7 +119,7 @@ export function CampaignReview({ onBack }: { onBack: () => void }) {
 
             {/* XP badge */}
             <div className="flex items-center gap-2 px-4 py-2 rounded-full bg-emerald-500/10 border border-emerald-500/20">
-              <Zap className="h-4 w-4 text-emerald-400" />
+              <Lightning className="h-4 w-4 text-emerald-400" />
               <span className="text-lg font-bold font-mono text-emerald-400">
                 +{xpEarned}
               </span>
@@ -160,7 +160,7 @@ export function CampaignReview({ onBack }: { onBack: () => void }) {
                   >
                     <div className="flex items-center gap-2">
                       {result.passed ? (
-                        <CheckCircle2 className="h-4 w-4 text-emerald-400" />
+                        <CheckCircle className="h-4 w-4 text-emerald-400" />
                       ) : (
                         <XCircle className="h-4 w-4 text-rose-400" />
                       )}
@@ -355,7 +355,7 @@ export function CampaignReview({ onBack }: { onBack: () => void }) {
         </Card>
         <Card>
           <CardContent className="py-4 flex flex-col items-center gap-1">
-            <CheckCircle2 className="h-4 w-4 text-emerald-400 mb-1" />
+            <CheckCircle className="h-4 w-4 text-emerald-400 mb-1" />
             <p className="text-2xl font-bold font-mono">
               {criteriaResults.filter((r) => r.passed).length}/{criteriaResults.length}
             </p>
@@ -371,7 +371,7 @@ export function CampaignReview({ onBack }: { onBack: () => void }) {
         </Card>
         <Card>
           <CardContent className="py-4 flex flex-col items-center gap-1">
-            <Zap className="h-4 w-4 text-emerald-400 mb-1" />
+            <Lightning className="h-4 w-4 text-emerald-400 mb-1" />
             <p className="text-2xl font-bold font-mono text-emerald-400">{xpEarned}</p>
             <p className="text-xs text-muted-foreground">Total XP</p>
           </CardContent>

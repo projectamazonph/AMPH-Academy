@@ -7,13 +7,13 @@ import {
   Target,
   Plus,
   Trash2,
-  Search,
-  AlertTriangle,
+  MagnifyingGlass,
+  Warning,
   Trophy,
-  ChevronRight,
+  CaretRight,
   Sparkles,
   X,
-} from 'lucide-react';
+} from '@phosphor-icons/react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
@@ -437,7 +437,7 @@ export function CampaignWorkshop() {
                     </span>
                     {positiveKeywords.length === 0 ? (
                       <div className="p-6 rounded-lg border border-dashed border-border text-center">
-                        <Search className="h-6 w-6 text-muted-foreground/40 mx-auto mb-2" />
+                        <MagnifyingGlass className="h-6 w-6 text-muted-foreground/40 mx-auto mb-2" />
                         <p className="text-sm text-muted-foreground">
                           No keywords added yet. Click suggested keywords above or add a custom one.
                         </p>
@@ -534,7 +534,7 @@ export function CampaignWorkshop() {
                   {/* Suggested Negatives */}
                   <div className="space-y-2">
                     <div className="flex items-center gap-2">
-                      <AlertTriangle className="h-3.5 w-3.5 text-amber-400" />
+                      <Warning className="h-3.5 w-3.5 text-amber-400" />
                       <span className="text-xs font-semibold text-foreground/80 uppercase tracking-wider">
                         Suggested Negatives
                       </span>
@@ -587,7 +587,7 @@ export function CampaignWorkshop() {
                     </span>
                     {negativeKeywords.length === 0 ? (
                       <div className="p-6 rounded-lg border border-dashed border-border text-center">
-                        <AlertTriangle className="h-6 w-6 text-muted-foreground/40 mx-auto mb-2" />
+                        <Warning className="h-6 w-6 text-muted-foreground/40 mx-auto mb-2" />
                         <p className="text-sm text-muted-foreground">
                           No negative keywords added. Add them to filter out irrelevant traffic.
                         </p>
@@ -717,7 +717,7 @@ export function CampaignWorkshop() {
               onClick={submitCampaign}
             >
               Submit Campaign
-              <ChevronRight className="h-4 w-4" />
+              <CaretRight className="h-4 w-4" />
             </Button>
           </div>
 
@@ -729,7 +729,7 @@ export function CampaignWorkshop() {
                   key={i}
                   className="flex items-center gap-2 text-xs text-rose-400"
                 >
-                  <AlertTriangle className="h-3 w-3 shrink-0" />
+                  <Warning className="h-3 w-3 shrink-0" />
                   <span>{err}</span>
                 </div>
               ))}
@@ -744,7 +744,7 @@ export function CampaignWorkshop() {
                   key={i}
                   className="flex items-center gap-2 text-xs text-amber-400"
                 >
-                  <AlertTriangle className="h-3 w-3 shrink-0" />
+                  <Warning className="h-3 w-3 shrink-0" />
                   <span>{warn}</span>
                 </div>
               ))}

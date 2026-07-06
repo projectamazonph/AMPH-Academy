@@ -4,14 +4,14 @@ import { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
   Trophy,
-  CheckCircle2,
+  CheckCircle,
   XCircle,
   ChevronDown,
   ChevronUp,
   ArrowRight,
   Target,
-  BarChart3,
-} from 'lucide-react';
+  BarChart,
+} from '@phosphor-icons/react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
@@ -136,7 +136,7 @@ function CriterionCard({ result, index }: { result: CriterionResult; index: numb
       <div className={cn('rounded-lg border p-3', scoreBg)}>
         <div className="flex items-center gap-3">
           {result.passed ? (
-            <CheckCircle2 className="h-4 w-4 text-emerald-400 shrink-0" />
+            <CheckCircle className="h-4 w-4 text-emerald-400 shrink-0" />
           ) : (
             <XCircle className="h-4 w-4 text-rose-400 shrink-0" />
           )}
@@ -294,7 +294,7 @@ export function CampaignScoring() {
         <Card>
           <CardHeader className="pb-3">
             <CardTitle className="text-base font-semibold flex items-center gap-2">
-              <BarChart3 className="h-4 w-4 text-teal-400" />
+              <BarChart className="h-4 w-4 text-teal-400" />
               Projected Metrics
             </CardTitle>
           </CardHeader>

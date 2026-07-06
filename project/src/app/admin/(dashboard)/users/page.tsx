@@ -3,9 +3,9 @@
 import { useState, useEffect, useCallback } from 'react';
 import { motion } from 'framer-motion';
 import {
-  Users, Shield, Trash2, Loader2, Search, ArrowUpDown,
-  ChevronLeft, ChevronRight, UserCog,
-} from 'lucide-react';
+  Users, Shield, Trash2, Spinner, MagnifyingGlass, ArrowUpDown,
+  CaretLeft, CaretRight, UserCog,
+} from '@phosphor-icons/react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
@@ -82,12 +82,12 @@ export default function AdminUsersPage() {
         </div>
       </div>
 
-      {/* Search */}
+      {/* MagnifyingGlass */}
       <div className="relative max-w-sm">
-        <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
+        <MagnifyingGlass className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
         <Input
           className="pl-9"
-          placeholder="Search by name or email..."
+          placeholder="MagnifyingGlass by name or email..."
           value={search}
           onChange={(e) => { setSearch(e.target.value); setPage(0); }}
         />
@@ -97,7 +97,7 @@ export default function AdminUsersPage() {
       <Card className="border-border/40 bg-card/40 overflow-hidden">
         {loading ? (
           <div className="flex items-center justify-center py-20">
-            <Loader2 className="h-5 w-5 animate-spin text-muted-foreground" />
+            <Spinner className="h-5 w-5 animate-spin text-muted-foreground" />
           </div>
         ) : paged.length === 0 ? (
           <CardContent className="py-16 text-center text-muted-foreground">
@@ -182,11 +182,11 @@ export default function AdminUsersPage() {
           <div className="flex gap-2">
             <Button variant="outline" size="sm" onClick={() => setPage(p => Math.max(0, p - 1))}
               disabled={page === 0}>
-              <ChevronLeft className="h-4 w-4" />
+              <CaretLeft className="h-4 w-4" />
             </Button>
             <Button variant="outline" size="sm" onClick={() => setPage(p => Math.min(totalPages - 1, p + 1))}
               disabled={page >= totalPages - 1}>
-              <ChevronRight className="h-4 w-4" />
+              <CaretRight className="h-4 w-4" />
             </Button>
           </div>
         </div>

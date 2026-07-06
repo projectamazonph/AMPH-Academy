@@ -1,4 +1,4 @@
-import { Zap, Mail, ArrowLeft } from "lucide-react";
+import { Lightning, Mail, ArrowLeft } from '@phosphor-icons/react';
 import Link from "next/link";
 
 export default function ForgotPasswordPage() {
@@ -11,7 +11,7 @@ export default function ForgotPasswordPage() {
       <div className="w-full max-w-md space-y-8">
         <div className="text-center space-y-3">
           <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-gradient-to-br from-primary/20 to-primary/5 border border-primary/20">
-            <Zap className="h-7 w-7 text-primary" />
+            <Lightning className="h-7 w-7 text-primary" />
           </div>
           <h1 className="text-3xl font-bold tracking-tight">Forgot Password</h1>
           <p className="text-sm text-muted-foreground">

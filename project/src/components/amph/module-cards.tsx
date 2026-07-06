@@ -5,14 +5,14 @@ import {
   Rocket,
   BookOpen,
   Layout,
-  TrendingUp,
-  Filter,
+  TrendUp,
+  Funnel,
   Lock,
-  CheckCircle2,
-  PlayCircle,
+  CheckCircle,
+  Play,
   Circle,
-  type LucideIcon,
-} from 'lucide-react';
+  type Icon,
+} from '@phosphor-icons/react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Progress } from '@/components/ui/progress';
@@ -65,28 +65,28 @@ const modules: Module[] = [
     number: 6,
     title: 'Bidding Lab',
     slug: 'bidding-lab',
-    icon: 'TrendingUp',
+    icon: 'TrendUp',
     color: 'rose',
     description: 'Bid strategies, position economics, budget pacing',
     lessons: 3,
   },
   {
     number: 7,
-    title: 'Search Term Triage',
+    title: 'MagnifyingGlass Term Triage',
     slug: 'search-term-triage',
-    icon: 'Filter',
+    icon: 'Funnel',
     color: 'violet',
     description: 'Negative keywords, STR analysis, optimization',
     lessons: 3,
   },
 ];
 
-const iconMap: Record<string, LucideIcon> = {
+const iconMap: Record<string, Icon> = {
   Rocket,
   BookOpen,
   Layout,
-  TrendingUp,
-  Filter,
+  TrendUp,
+  Funnel,
 };
 
 const colorConfig: Record<string, {
@@ -160,7 +160,7 @@ const statusConfig: Record<string, { badge: string; icon: LucideIcon; label: str
   },
   available: {
     badge: 'bg-emerald-500/15 text-emerald-400 border-emerald-500/20',
-    icon: PlayCircle,
+    icon: Play,
     label: 'Available',
   },
   'in-progress': {
@@ -170,7 +170,7 @@ const statusConfig: Record<string, { badge: string; icon: LucideIcon; label: str
   },
   complete: {
     badge: 'bg-emerald-500/15 text-emerald-400 border-emerald-500/20',
-    icon: CheckCircle2,
+    icon: CheckCircle,
     label: 'Complete',
   },
 };

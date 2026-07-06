@@ -3,18 +3,18 @@
 import { useState, useEffect, useRef, useCallback, useMemo } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
-  TrendingUp,
+  TrendUp,
   Clock,
   Trophy,
-  ChevronRight,
-  ChevronLeft,
+  CaretRight,
+  CaretLeft,
   ArrowUpRight,
   ArrowDownRight,
   Minus,
-  BarChart3,
-  Zap,
-  AlertTriangle,
-} from 'lucide-react';
+  BarChart,
+  Lightning,
+  Warning,
+} from '@phosphor-icons/react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
@@ -76,7 +76,7 @@ function CompetitionBadge({ level }: { level: string }) {
 // ---------------------------------------------------------------------------
 
 function TrendBadge({ trend }: { trend: string }) {
-  const config: Record<string, { icon: typeof TrendingUp; class: string; label: string }> = {
+  const config: Record<string, { icon: typeof TrendUp; class: string; label: string }> = {
     rising: { icon: ArrowUpRight, class: 'bg-emerald-500/10 text-emerald-400 border-emerald-500/20', label: 'Rising' },
     stable: { icon: Minus, class: 'bg-sky-500/10 text-sky-400 border-sky-500/20', label: 'Stable' },
     declining: { icon: ArrowDownRight, class: 'bg-rose-500/10 text-rose-400 border-rose-500/20', label: 'Declining' },
@@ -247,7 +247,7 @@ function ScenarioCard() {
 
           {/* Max profitable CPC hint */}
           <div className="flex items-center gap-2 text-xs text-muted-foreground bg-amber-500/5 p-3 rounded-lg border border-amber-500/15">
-            <AlertTriangle className="h-4 w-4 text-amber-400 shrink-0" />
+            <Warning className="h-4 w-4 text-amber-400 shrink-0" />
             <span>
               At {((cvr * 100).toFixed(1))}% CVR, your max profitable CPC = ${maxProfitableCpc.toFixed(2)}.
               {currentAcos > thresholds.acosTarget
@@ -260,7 +260,7 @@ function ScenarioCard() {
           <Card className="border-amber-500/15">
             <CardHeader className="pb-3">
               <CardTitle className="text-base font-semibold flex items-center gap-2">
-                <BarChart3 className="h-4 w-4 text-amber-400" />
+                <BarChart className="h-4 w-4 text-amber-400" />
                 Set Your Bid
               </CardTitle>
             </CardHeader>
@@ -319,13 +319,13 @@ function ScenarioCard() {
                 >
                   {submitted ? (
                     <>
-                      <Zap className="h-4 w-4" />
+                      <Lightning className="h-4 w-4" />
                       Submitted
                     </>
                   ) : (
                     <>
                       Submit Bid
-                      <ChevronRight className="h-4 w-4" />
+                      <CaretRight className="h-4 w-4" />
                     </>
                   )}
                 </Button>
@@ -426,7 +426,7 @@ export function BidArena() {
         <div className="flex-1 min-w-0">
           <div className="flex items-center gap-3 text-sm">
             <div className="flex items-center gap-1.5">
-              <TrendingUp className="h-4 w-4 text-amber-400" />
+              <TrendUp className="h-4 w-4 text-amber-400" />
               <span className="font-mono">
                 {currentScenarioIndex + 1}/{totalScenarios}
               </span>

@@ -6,11 +6,11 @@ import {
   Target,
   Calculator,
   Clock,
-  AlertTriangle,
-  ChevronRight,
-  CheckCircle2,
+  Warning,
+  CaretRight,
+  CheckCircle,
   Lightbulb,
-} from 'lucide-react';
+} from '@phosphor-icons/react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
@@ -154,7 +154,7 @@ export function CampaignBriefing() {
             </div>
 
             <div className="flex items-center gap-2 text-xs text-muted-foreground bg-muted/30 p-3 rounded-lg border border-border">
-              <AlertTriangle className="h-4 w-4 text-amber-400 shrink-0" />
+              <Warning className="h-4 w-4 text-amber-400 shrink-0" />
               <span>
                 Your break-even ACoS equals your margin ({(productContext.margin * 100).toFixed(0)}%).
                 Any campaign with ACoS above this is losing money.
@@ -220,7 +220,7 @@ export function CampaignBriefing() {
                 key={i}
                 className="flex items-start gap-3 p-3 rounded-lg bg-emerald-500/5 border border-emerald-500/10"
               >
-                <CheckCircle2 className="h-4 w-4 text-emerald-400 shrink-0 mt-0.5" />
+                <CheckCircle className="h-4 w-4 text-emerald-400 shrink-0 mt-0.5" />
                 <p className="text-sm text-foreground">{objective}</p>
               </div>
             ))}
@@ -308,7 +308,7 @@ export function CampaignBriefing() {
           onClick={() => startSimulation(userId)}
         >
           Begin Mission
-          <ChevronRight className="h-5 w-5" />
+          <CaretRight className="h-5 w-5" />
         </Button>
       </motion.div>
     </div>

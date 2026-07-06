@@ -3,10 +3,10 @@
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import {
-  BookOpen, Loader2, Globe, Lock, Layers, Users, Video,
-  Search, ChevronLeft, ChevronRight, Plus, Pencil, Trash2,
-  Clock, Calendar, User, Monitor, Check, X, ExternalLink,
-} from 'lucide-react';
+  BookOpen, Spinner, Globe, Lock, Layers, Users, Video,
+  MagnifyingGlass, CaretLeft, CaretRight, Plus, Pencil, Trash2,
+  Clock, Calendar, User, Desktop, Check, X, ArrowSquareOut,
+} from '@phosphor-icons/react';
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Input } from '@/components/ui/input';
@@ -48,13 +48,13 @@ function CoursesTab() {
     !search || c.title.toLowerCase().includes(search.toLowerCase()) || c.slug.includes(search.toLowerCase())
   );
 
-  if (loading) return <div className="flex justify-center py-16"><Loader2 className="h-5 w-5 animate-spin text-muted-foreground" /></div>;
+  if (loading) return <div className="flex justify-center py-16"><Spinner className="h-5 w-5 animate-spin text-muted-foreground" /></div>;
 
   return (
     <div className="space-y-4">
       <div className="relative max-w-sm">
-        <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
-        <Input className="pl-9" placeholder="Search courses..." value={search} onChange={e => setSearch(e.target.value)} />
+        <MagnifyingGlass className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
+        <Input className="pl-9" placeholder="MagnifyingGlass courses..." value={search} onChange={e => setSearch(e.target.value)} />
       </div>
 
       {filtered.length === 0 ? (
@@ -110,7 +110,7 @@ function BadgesTab() {
     getAdminBadges().then(r => { if (r.success) setBadges(r.data); }).catch(() => {}).finally(() => setLoading(false));
   }, []);
 
-  if (loading) return <div className="flex justify-center py-16"><Loader2 className="h-5 w-5 animate-spin text-muted-foreground" /></div>;
+  if (loading) return <div className="flex justify-center py-16"><Spinner className="h-5 w-5 animate-spin text-muted-foreground" /></div>;
 
   return (
     <>
@@ -182,7 +182,7 @@ function LiveClassesTab() {
 
   useEffect(() => { loadData(); }, []);
 
-  // Filter and search
+  // Funnel and search
   const now = new Date();
   const filtered = liveClasses.filter(lc => {
     const isUpcoming = new Date(lc.scheduledAt) >= now;
@@ -299,7 +299,7 @@ function LiveClassesTab() {
     return date.toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit' });
   };
 
-  if (loading) return <div className="flex justify-center py-16"><Loader2 className="h-5 w-5 animate-spin text-muted-foreground" /></div>;
+  if (loading) return <div className="flex justify-center py-16"><Spinner className="h-5 w-5 animate-spin text-muted-foreground" /></div>;
 
   return (
     <div className="space-y-4">
@@ -322,8 +322,8 @@ function LiveClassesTab() {
             </button>
           </div>
           <div className="relative max-w-[200px]">
-            <Search className="absolute left-2.5 top-1/2 -translate-y-1/2 h-3.5 w-3.5 text-muted-foreground" />
-            <Input className="pl-8 h-8 text-xs" placeholder="Search..." value={search} onChange={e => setSearch(e.target.value)} />
+            <MagnifyingGlass className="absolute left-2.5 top-1/2 -translate-y-1/2 h-3.5 w-3.5 text-muted-foreground" />
+            <Input className="pl-8 h-8 text-xs" placeholder="MagnifyingGlass..." value={search} onChange={e => setSearch(e.target.value)} />
           </div>
         </div>
         <Button size="sm" onClick={openCreate} className="h-8">
@@ -385,7 +385,7 @@ function LiveClassesTab() {
                     {lc.meetingUrl && (
                       <a href={lc.meetingUrl} target="_blank" rel="noopener noreferrer"
                         className="flex items-center gap-1 text-xs text-sky-400 hover:text-sky-300 mt-1.5">
-                        <ExternalLink className="h-3 w-3" />
+                        <ArrowSquareOut className="h-3 w-3" />
                         Meeting link
                       </a>
                     )}
@@ -495,7 +495,7 @@ function LiveClassesTab() {
               <div className="flex justify-end gap-2 mt-6 pt-4 border-t border-border/20">
                 <Button variant="ghost" size="sm" onClick={() => setShowModal(false)}>Cancel</Button>
                 <Button size="sm" onClick={handleSave} disabled={saving}>
-                  {saving ? <Loader2 className="h-3.5 w-3.5 animate-spin mr-1.5" /> : null}
+                  {saving ? <Spinner className="h-3.5 w-3.5 animate-spin mr-1.5" /> : null}
                   {editId ? 'Update' : 'Create'}
                 </Button>
               </div>
@@ -520,7 +520,7 @@ function LiveClassesTab() {
             <div className="flex justify-end gap-2">
               <Button variant="ghost" size="sm" onClick={() => setDeleteConfirm(null)}>Cancel</Button>
               <Button size="sm" variant="destructive" onClick={handleDelete} disabled={saving}>
-                {saving ? <Loader2 className="h-3.5 w-3.5 animate-spin mr-1.5" /> : null}
+                {saving ? <Spinner className="h-3.5 w-3.5 animate-spin mr-1.5" /> : null}
                 Delete
               </Button>
             </div>

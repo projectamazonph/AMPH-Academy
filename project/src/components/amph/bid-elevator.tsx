@@ -1,7 +1,7 @@
 'use client';
 
 import { AnimatePresence, motion } from 'framer-motion';
-import { ArrowLeft, TrendingUp } from 'lucide-react';
+import { ArrowLeft, TrendUp } from '@phosphor-icons/react';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { useBidElevatorStore } from '@/stores/bid-elevator-store';
@@ -39,7 +39,7 @@ export function BidElevator({ onBack }: BidElevatorProps) {
           </Button>
           <div className="flex items-center gap-2">
             <div className="p-1.5 rounded-lg bg-amber-500/15 border border-amber-500/25">
-              <TrendingUp className="h-4 w-4 text-amber-400" />
+              <TrendUp className="h-4 w-4 text-amber-400" />
             </div>
             <h2 className="text-lg font-bold tracking-tight">Bid Elevator</h2>
           </div>

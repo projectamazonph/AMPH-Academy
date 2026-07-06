@@ -7,17 +7,17 @@ import {
   FlaskConical,
   Menu,
   X,
-  ChevronLeft,
-  Zap,
+  CaretLeft,
+  Lightning,
   Trophy,
   Users,
-  BarChart3,
-  Award,
+  BarChart,
+  Medal,
   LogOut,
   MessageSquare,
   Video,
   FileText,
-} from 'lucide-react';
+} from '@phosphor-icons/react';
 import { Button } from '@/components/ui/button';
 import { Separator } from '@/components/ui/separator';
 import { Avatar, AvatarFallback } from '@/components/ui/avatar';
@@ -42,11 +42,11 @@ const navItems: { id: NavTab; label: string; icon: typeof LayoutDashboard }[] = 
   { id: 'mentor', label: 'Mentor', icon: MessageSquare },
   { id: 'live-classes', label: 'Live Classes', icon: Video },
   { id: 'leaderboard', label: 'Leaderboard', icon: Trophy },
-  { id: 'analytics', label: 'Analytics', icon: BarChart3 },
-  { id: 'certificate', label: 'Certificate', icon: Award },
+  { id: 'analytics', label: 'Analytics', icon: BarChart },
+  { id: 'certificate', label: 'Certificate', icon: Medal },
   { id: 'resources', label: 'Resources', icon: FileText },
   { id: 'team', label: 'Team', icon: Users },
-  { id: 'admin', label: 'Admin', icon: BarChart3 },
+  { id: 'admin', label: 'Admin', icon: BarChart },
 ];
 
 export function Sidebar({
@@ -112,7 +112,7 @@ export function Sidebar({
         {/* Logo area */}
         <div className="flex items-center gap-3 p-4 pb-2">
           <div className="flex items-center justify-center w-9 h-9 rounded-xl bg-primary/15 border border-primary/20 shrink-0">
-            <Zap className="h-5 w-5 text-primary" />
+            <Lightning className="h-5 w-5 text-primary" />
           </div>
           {!collapsed && (
             <motion.div
@@ -180,7 +180,7 @@ export function Sidebar({
             onClick={() => setCollapsed(!collapsed)}
             aria-label={collapsed ? 'Expand sidebar' : 'Collapse sidebar'}
           >
-            <ChevronLeft
+            <CaretLeft
               className={cn(
                 'h-4 w-4 transition-transform',
                 collapsed && 'rotate-180'

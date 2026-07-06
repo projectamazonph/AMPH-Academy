@@ -1,6 +1,6 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
-import { ArrowLeft, BookOpen, Clock, BarChart3 } from "lucide-react";
+import { ArrowLeft, BookOpen, Clock, BarChart } from '@phosphor-icons/react';
 import type { Metadata } from "next";
 import { getCourseBySlug } from "@/modules/courses/_actions";
 import { ModuleList } from "@/modules/courses/_components/ModuleList";
@@ -101,7 +101,7 @@ export default async function CourseDetailPage({
           {/* Stats */}
           <div className="flex flex-wrap items-center gap-4 mt-6 text-sm text-muted-foreground">
             <span className="flex items-center gap-1.5">
-              <BarChart3 className="h-4 w-4" />
+              <BarChart className="h-4 w-4" />
               {course.moduleCount} modules
             </span>
             <span className="flex items-center gap-1.5">

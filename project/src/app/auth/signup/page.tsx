@@ -10,7 +10,7 @@
 
 import { useState } from 'react';
 import { signIn } from 'next-auth/react';
-import { Zap, Mail, Lock, User, ArrowRight, Loader2, CheckCircle2 } from 'lucide-react';
+import { Lightning, Mail, Lock, User, ArrowRight, Spinner, CheckCircle } from '@phosphor-icons/react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 
@@ -93,7 +93,7 @@ export default function SignUpPage() {
         {/* Logo & branding */}
         <div className="text-center space-y-3">
           <div className="inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-primary/15 border border-primary/20">
-            <Zap className="h-7 w-7 text-primary" />
+            <Lightning className="h-7 w-7 text-primary" />
           </div>
           <h1 className="text-2xl font-bold tracking-tight">Create Your Account</h1>
           <p className="text-sm text-muted-foreground">
@@ -201,7 +201,7 @@ export default function SignUpPage() {
                     className="w-full h-10 rounded-lg border border-border bg-background pl-10 pr-10 text-sm placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary/40 transition-all"
                   />
                   {confirmPassword && password === confirmPassword && (
-                    <CheckCircle2 className="absolute right-3 top-1/2 -translate-y-1/2 h-4 w-4 text-emerald-400" />
+                    <CheckCircle className="absolute right-3 top-1/2 -translate-y-1/2 h-4 w-4 text-emerald-400" />
                   )}
                 </div>
               </div>
@@ -212,7 +212,7 @@ export default function SignUpPage() {
                 disabled={loading || !email.trim() || !password || !confirmPassword}
               >
                 {loading ? (
-                  <Loader2 className="h-4 w-4 animate-spin" />
+                  <Spinner className="h-4 w-4 animate-spin" />
                 ) : (
                   <ArrowRight className="h-4 w-4" />
                 )}
