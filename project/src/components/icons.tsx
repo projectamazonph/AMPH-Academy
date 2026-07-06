@@ -103,7 +103,15 @@ import {
   Bell,
   TriangleAlert,
 } from '@phosphor-icons/react';
-import type { Icon } from '@phosphor-icons/react';
+import type { IconProps as PhosphorIconProps } from '@phosphor-icons/react';
+
+/** Dynamic Icon component — renders icons by name from the registry */
+export function Icon({ name, className, ...props }: PhosphorIconProps & { name: string }) {
+  const IconComponent = icons[name];
+  if (!IconComponent) return null;
+  return <IconComponent className={className} {...props} />;
+}
+
 /**
  * ProjectAMPH Academy: Centralized Icon Registry
  *
