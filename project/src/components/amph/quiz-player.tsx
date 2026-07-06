@@ -86,6 +86,9 @@ export function QuizPlayer({ moduleNumber, onBack, onComplete }: QuizPlayerProps
 
   // Timer
   const [elapsedSeconds, setElapsedSeconds] = useState(0);
+  const [mistakeAnalysis, setMistakeAnalysis] = useState<MistakeAnalysisResult | null>(null);
+  const [showMistakeReview, setShowMistakeReview] = useState(false);
+  const [loadingMistakeAnalysis, setLoadingMistakeAnalysis] = useState(false);
   const timerRef = useRef<NodeJS.Timeout | null>(null);
 
   // Load quiz on mount
@@ -191,6 +194,9 @@ export function QuizPlayer({ moduleNumber, onBack, onComplete }: QuizPlayerProps
   // Retry quiz
   const handleRetry = useCallback(() => {
     startQuiz();
+  }, [startQuiz]);
+
+  // Review quiz mistakes (calls AI to analyze wrong answers)
   const handleReviewMistakes = useCallback(async (attemptId: string) => {
     setLoadingMistakeAnalysis(true);
     try {
@@ -203,7 +209,6 @@ export function QuizPlayer({ moduleNumber, onBack, onComplete }: QuizPlayerProps
       setLoadingMistakeAnalysis(false);
     }
   }, []);
-  }, [startQuiz]);
 
   // Format seconds as mm:ss
   const formatTime = (secs: number) => {

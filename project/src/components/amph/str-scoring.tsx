@@ -92,7 +92,7 @@ function ScoreCircle({ score }: { score: number }) {
           strokeDasharray={circumference}
           initial={{ strokeDashoffset: circumference }}
           animate={{ strokeDashoffset: circumference - progress }}
-          transition={{ duration: 0.6, ease: [0.32, 0.72, 0, 1], ease: [0.33, 1, 0.68, 1] }}
+          transition={{ duration: 0.6, ease: [0.32, 0.72, 0, 1] }}
         />
       </svg>
       <div className="absolute inset-0 flex flex-col items-center justify-center">

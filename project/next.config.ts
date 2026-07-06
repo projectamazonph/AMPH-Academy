@@ -7,7 +7,7 @@ const nextConfig: NextConfig = {
     serverActions: {
       allowedOrigins: [
         'amph-academy.vercel.app',
-        'adcraft-academy.vercel.app',
+        
         'localhost',
       ],
     },

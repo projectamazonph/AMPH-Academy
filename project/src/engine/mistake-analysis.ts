@@ -77,8 +77,8 @@ export function classifyMistake(
   }
 
   // Misread data — selected a different numeric value
-  const selectedNums = selectedText.match(/\d+\.?\d*%?/g) || [];
-  const correctNums = correctText.match(/\d+\.?\d*%?/g) || [];
+  const selectedNums: string[] = selectedText.match(/\d+\.?\d*%?/g) ?? [];
+  const correctNums: string[] = correctText.match(/\d+\.?\d*%?/g) ?? [];
   if (selectedNums.length > 0 && correctNums.length > 0) {
     const match = selectedNums.some((n) => correctNums.includes(n));
     if (!match) {

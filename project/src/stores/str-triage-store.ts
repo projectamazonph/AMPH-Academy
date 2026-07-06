@@ -172,7 +172,7 @@ export const useStrTriageStore = create<StrTriageStore>((set, get) => ({
 
     // Start server-side attempt record (non-blocking)
     startAttempt({
-      userId: userId || undefined,
+      ...(userId ? { userId } : {}),
       simulationType: 'STR_TRIAGE_ARENA',
       simulationSlug: 'str-triage-arena',
     }).then((result) => {

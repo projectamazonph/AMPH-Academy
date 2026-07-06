@@ -74,7 +74,7 @@ export function TeamDashboard() {
       getMyOrganization(),
       getTeamDashboard().catch(() => null),
     ]);
-    setHasOrg(!!orgRes.data?.org);
+    setHasOrg(orgRes.success && !!orgRes.data?.org);
     if (teamRes?.success && teamRes.data) {
       setData(teamRes.data);
     }

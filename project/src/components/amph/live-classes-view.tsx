@@ -17,8 +17,9 @@ import {
   registerForClass,
   unregisterFromClass,
   checkRegistration,
-  type LiveClassSummary,
 } from '@/modules/live-classes/_actions';
+
+import type { LiveClassSummary } from '@/modules/live-classes/_types';
 
 // ============================================================================
 // TYPES

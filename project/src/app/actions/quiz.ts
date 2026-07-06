@@ -77,8 +77,23 @@ async function ensureQuizSeeded(moduleNumber: number): Promise<string | null> {
   // Ensure module exists in DB
   let moduleRecord = await db.module.findFirst({ where: { moduleNumber } });
   if (!moduleRecord) {
+    // Ensure default course exists
+    let course = await db.course.findFirst({ where: { slug: 'ppc-command-center' } });
+    if (!course) {
+      course = await db.course.create({
+        data: {
+          title: 'PPC Command Center',
+          slug: 'ppc-command-center',
+          description: 'Master Amazon PPC advertising',
+          difficulty: 'INTERMEDIATE',
+          isPublished: true,
+        },
+      });
+    }
+
     moduleRecord = await db.module.create({
       data: {
+        courseId: course.id,
         moduleNumber,
         title: moduleMeta.title,
         slug: moduleMeta.slug,

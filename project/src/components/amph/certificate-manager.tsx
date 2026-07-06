@@ -62,7 +62,7 @@ export function CertificateManager() {
     setIssuing(false);
     if (res.success && res.data) {
       setCert(res.data);
-    } else {
+    } else if (!res.success) {
       setError(res.error || 'Failed to issue certificate');
     }
   }

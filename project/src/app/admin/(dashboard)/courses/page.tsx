@@ -73,14 +73,14 @@ function CoursesTab() {
                   <div className="min-w-0 flex-1">
                     <div className="flex items-center gap-2 mb-1">
                       <h3 className="font-semibold">{course.title}</h3>
-                      {course.published
+                      {course.isPublished
                         ? <Globe className="h-3.5 w-3.5 text-emerald-400" />
                         : <Lock className="h-3.5 w-3.5 text-rose-400" />
                       }
                     </div>
                     <p className="text-xs text-muted-foreground line-clamp-2 mb-2">{course.description}</p>
                     <div className="flex items-center gap-3 text-xs text-muted-foreground flex-wrap">
-                      <Badge variant="outline" className={cn('text-[10px]', tierColors[course.tier] || '')}>
+                      <Badge variant="outline" className={cn('text-[10px]', (course.tier ? tierColors[course.tier] : '') || '')}>
                         {course.tier}
                       </Badge>
                       <span>{course.difficulty}</span>
@@ -126,7 +126,7 @@ function BadgesTab() {
             <Card key={badge.id} className="border-border/40 bg-card/40">
               <CardContent className="p-4 space-y-2">
                 <div className="flex items-start justify-between">
-                  <h3 className="font-semibold text-sm">{badge.name}</h3>
+                  <h3 className="font-semibold text-sm">{badge.title}</h3>
                   <Badge variant="outline" className="text-[10px]">{badge.category}</Badge>
                 </div>
                 <p className="text-xs text-muted-foreground">{badge.description}</p>

@@ -14,7 +14,7 @@ export async function getResources(): Promise<ActionResult<ResourceMeta[]>> {
 
     return { success: true, data: RESOURCES };
   } catch (err) {
-    logger.error('Failed to fetch resources', err instanceof Error ? err : new Error(String(err)));
+    logger.error('Failed to fetch resources', { error: err instanceof Error ? err.message : String(err) });
     return { success: false, error: 'Failed to load resources', code: 'INTERNAL_ERROR' };
   }
 }
@@ -27,7 +27,7 @@ export async function getResourcesByCategory(category: string): Promise<ActionRe
     const filtered = RESOURCES.filter((r) => r.category === category);
     return { success: true, data: filtered };
   } catch (err) {
-    logger.error('Failed to fetch resources by category', err instanceof Error ? err : new Error(String(err)));
+    logger.error('Failed to fetch resources by category', { error: err instanceof Error ? err.message : String(err) });
     return { success: false, error: 'Failed to load resources', code: 'INTERNAL_ERROR' };
   }
 }

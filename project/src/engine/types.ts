@@ -125,6 +125,20 @@ export interface PpcFormula {
 
 export type FormulaUnit = 'percentage' | 'currency' | 'ratio' | 'count' | 'rate';
 
+/**
+ * Input parameter for a PPC formula.
+ * Each formula declares the named inputs it needs (e.g., "spend" + "sales" for ACoS).
+ */
+export interface FormulaInput {
+  slug: string;
+  name: string;
+  label?: string;
+  type?: 'number' | 'percentage' | 'currency';
+  unit?: FormulaUnit;
+  description: string;
+  defaultValue?: number;
+}
+
 export type FormulaCategory =
   | 'efficiency' // ACoS, TACoS, ROAS
   | 'cost' // CPC, CPM
@@ -459,6 +473,12 @@ export interface SimulationContext {
  * Simulation types available in MVP.
  */
 export type SimulationType = 'campaign-builder' | 'bid-elevator' | 'str-triage-arena';
+
+/**
+ * Difficulty level of a simulation.
+ * Affects scoring tolerance, time limits, and hint frequency.
+ */
+export type SimulationDifficulty = 'beginner' | 'intermediate' | 'advanced' | 'expert';
 
 /**
  * Simulation difficulty levels.

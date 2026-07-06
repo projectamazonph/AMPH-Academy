@@ -264,7 +264,7 @@ function ModuleCard({ module, index, progress }: { module: Module; index: number
                 className={cn('h-full rounded-full', colors.text === 'text-emerald-400' ? 'bg-emerald-400' : colors.text === 'text-sky-400' ? 'bg-sky-400' : colors.text === 'text-amber-400' ? 'bg-amber-400' : colors.text === 'text-rose-400' ? 'bg-rose-400' : 'bg-violet-400')}
                 initial={{ width: 0 }}
                 animate={{ width: `${progressPercent}%` }}
-                transition={{ duration: 0.6, ease: [0.32, 0.72, 0, 1], delay: 0.3 + index * 0.08, ease: 'easeOut' }}
+                transition={{ duration: 0.6, ease: 'easeOut', delay: 0.3 + index * 0.08 }}
               />
             </div>
           </div>

@@ -40,7 +40,7 @@ export type ActionResult<T> =
 
 /** Input for starting a new simulation attempt */
 export interface StartAttemptInput {
-  userId: string;
+  userId?: string;
   simulationType: 'STR_TRIAGE_ARENA' | 'BID_ELEVATOR' | 'CAMPAIGN_BUILDER';
   simulationSlug: string;
 }
@@ -183,4 +183,82 @@ export interface BadgeView {
   isSecret: boolean;
   earnedAt: string | null;
   isEarned: boolean;
+}
+
+/** Result of badge award check */
+export interface BadgeAwardResult {
+  newlyAwarded: BadgeView[];
+  totalEarned: number;
+  totalAvailable: number;
+}
+
+
+// ============================================================================
+// QUIZ TYPES (added 2026-07-06 to fix TSC errors)
+// ============================================================================
+
+/** Single question as exposed to the client (no correct answer). */
+export interface QuizQuestionView {
+  id: string;
+  order: number;
+  question: string;
+  optionA: string;
+  optionB: string;
+  optionC: string;
+  optionD: string;
+  points: number;
+}
+
+/** Full quiz view returned by getQuiz(). */
+export interface QuizView {
+  quizId: string;
+  lessonId: string;
+  title: string;
+  description: string;
+  passThreshold: number;
+  timeLimitSeconds: number | null;
+  questions: QuizQuestionView[];
+  bestScore: number | null;
+  attemptCount: number;
+}
+
+/** Question with both selected and correct answers, returned after grading. */
+export interface GradedQuestion {
+  id: string;
+  order: number;
+  question: string;
+  optionA: string;
+  optionB: string;
+  optionC: string;
+  optionD: string;
+  points: number;
+  selectedAnswer: 'A' | 'B' | 'C' | 'D';
+  correctAnswer: 'A' | 'B' | 'C' | 'D';
+  isCorrect: boolean;
+  explanation: string | null;
+}
+
+/** Result returned by submitQuiz(). */
+export interface SubmitQuizOutput {
+  attemptId: string;
+  attemptNumber: number;
+  score: number;
+  correctCount: number;
+  totalQuestions: number;
+  xpEarned: number;
+  passed: boolean;
+  gradedQuestions: GradedQuestion[];
+}
+
+/** Per-attempt summary for quiz history views. */
+export interface QuizAttemptSummary {
+  id: string;
+  attemptNumber: number;
+  score: number;
+  correctCount: number;
+  totalQuestions: number;
+  xpEarned: number;
+  passed: boolean;
+  timeSpentSeconds: number;
+  completedAt: string | null;
 }

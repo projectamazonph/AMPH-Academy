@@ -162,7 +162,7 @@ export const useBidElevatorStore = create<BidElevatorStore>((set, get) => ({
 
     // Start server-side attempt record (non-blocking)
     startAttempt({
-      userId: userId || undefined,
+      ...(userId ? { userId } : {}),
       simulationType: 'BID_ELEVATOR',
       simulationSlug: 'bid-elevator',
     }).then((result) => {

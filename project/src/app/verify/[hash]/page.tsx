@@ -97,8 +97,8 @@ export default async function VerifyPage({ params }: Props) {
               </div>
             )}
             <div>
-              <p className="text-muted-foreground">Type</p>
-              <p className="font-medium capitalize">{cert.certType}</p>
+              <p className="text-muted-foreground">Status</p>
+              <p className="font-medium capitalize">{cert.status}</p>
             </div>
           </div>
 

@@ -30,9 +30,17 @@ import pack5Data from '../../fixtures/campaign-builder-pack-5.json';
 // Scenario pack registry — all 5 campaign builder packs
 // ---------------------------------------------------------------------------
 
-type ScenarioPack = typeof pack1Data;
+// packId is required by pack1Data but missing in pack2-5 JSONs; treat all as the
+// same shape with optional packId so the array can include them.
+type ScenarioPack = Omit<typeof pack1Data, 'packId'> & { packId?: string };
 
-const SCENARIO_PACKS: ScenarioPack[] = [pack1Data, pack2Data, pack3Data, pack4Data, pack5Data];
+const SCENARIO_PACKS: ScenarioPack[] = [
+  pack1Data as ScenarioPack,
+  pack2Data as ScenarioPack,
+  pack3Data as ScenarioPack,
+  pack4Data as ScenarioPack,
+  pack5Data as ScenarioPack,
+];
 
 export const SCENARIO_LABELS: { id: string; title: string; icon: string }[] = [
   { id: 'scenario-garlic-press', title: 'Kitchen — Premium Garlic Press', icon: '🥘' },
@@ -582,7 +590,7 @@ export const useCampaignBuilderStore = create<CampaignBuilderStore>((set, get) =
 
     // Start server-side attempt record (non-blocking)
     startAttempt({
-      userId: userId || undefined,
+      ...(userId ? { userId } : {}),
       simulationType: 'CAMPAIGN_BUILDER',
       simulationSlug: 'campaign-builder',
     }).then((result) => {

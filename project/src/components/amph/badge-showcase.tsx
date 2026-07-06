@@ -242,7 +242,7 @@ export function BadgeShowcase() {
                   className="h-full rounded-full bg-yellow-400"
                   initial={{ width: 0 }}
                   animate={{ width: `${progressPercent}%` }}
-                  transition={{ duration: 0.6, ease: [0.32, 0.72, 0, 1], delay: 0.5, ease: 'easeOut' }}
+                  transition={{ duration: 0.6, ease: 'easeOut', delay: 0.5 }}
                 />
               </div>
               <p className="text-[10px] text-muted-foreground">

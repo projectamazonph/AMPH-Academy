@@ -78,11 +78,26 @@ export async function markLessonComplete(
       return { success: false, error: 'User account not found', code: 'USER_NOT_FOUND' };
     }
 
+    // Ensure a default course exists for modules (single-course MVP)
+    let course = await db.course.findFirst({ where: { slug: 'ppc-command-center' } });
+    if (!course) {
+      course = await db.course.create({
+        data: {
+          title: 'PPC Command Center',
+          slug: 'ppc-command-center',
+          description: 'Master Amazon PPC advertising',
+          difficulty: 'INTERMEDIATE',
+          isPublished: true,
+        },
+      });
+    }
+
     // Ensure module exists
     let moduleRecord = await db.module.findFirst({ where: { moduleNumber } });
     if (!moduleRecord) {
       moduleRecord = await db.module.create({
         data: {
+          courseId: course.id,
           moduleNumber,
           title: moduleMeta.title,
           slug: moduleMeta.slug,
@@ -219,7 +234,7 @@ export async function markLessonComplete(
       success: true,
       data: {
         lessonSlug,
-        finalXp,
+        xpEarned,
         moduleStatus,
         lessonsCompletedInModule: completedInModule,
         totalLessonsInModule: moduleMeta.totalLessons,

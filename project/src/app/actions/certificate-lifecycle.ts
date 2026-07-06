@@ -152,11 +152,26 @@ export async function issueCertificate(): Promise<ActionResult<CertificateView>>
       };
     }
 
+    // Ensure default course exists (same as progress.ts)
+    let course = await db.course.findFirst({ where: { slug: 'ppc-command-center' } });
+    if (!course) {
+      course = await db.course.create({
+        data: {
+          title: 'PPC Command Center',
+          slug: 'ppc-command-center',
+          description: 'Master Amazon PPC advertising',
+          difficulty: 'INTERMEDIATE',
+          isPublished: true,
+        },
+      });
+    }
+
     // Create certificate
     const hash = generateVerificationHash(userId);
     const cert = await db.certificate.create({
       data: {
         userId,
+        courseId: course.id,
         title: 'AMPH PPC Command Center',
         status: 'active',
         verificationHash: hash,
