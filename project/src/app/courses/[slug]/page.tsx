@@ -1,10 +1,30 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import { ArrowLeft, BookOpen, Clock, BarChart3 } from "lucide-react";
+import type { Metadata } from "next";
 import { getCourseBySlug } from "@/modules/courses/_actions";
 import { ModuleList } from "@/modules/courses/_components/ModuleList";
 import { EnrollmentButton } from "@/modules/courses/_components/EnrollmentButton";
 import { Badge } from "@/components/ui/badge";
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}): Promise<Metadata> {
+  const { slug } = await params;
+  const course = await getCourseBySlug(slug);
+  if (!course) return { title: "Course Not Found" };
+  return {
+    title: `${course.title} — ProjectAMPH Academy`,
+    description: course.description,
+    openGraph: {
+      title: `${course.title} — ProjectAMPH Academy`,
+      description: course.description,
+      type: "website",
+    },
+  };
+}
 
 const difficultyLabels: Record<string, string> = {
   FOUNDATIONS: "Foundations",

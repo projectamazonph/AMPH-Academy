@@ -1,6 +1,19 @@
 import { getCourses } from "@/modules/courses/_actions";
 import { CourseCard } from "@/modules/courses/_components/CourseCard";
 import { BookOpen, Sparkles } from "lucide-react";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Courses — ProjectAMPH Academy",
+  description:
+    "Browse Amazon PPC courses built for Filipino VAs. From campaign foundations to advanced optimization — structured, hands-on, and simulation-backed training.",
+  openGraph: {
+    title: "Amazon PPC Courses — ProjectAMPH Academy",
+    description:
+      "Structured Amazon advertising courses with interactive simulations. Built for Filipino VAs by ProjectAmazonPH.",
+    type: "website",
+  },
+};
 
 export default async function CoursesPage() {
   const courses = await getCourses();

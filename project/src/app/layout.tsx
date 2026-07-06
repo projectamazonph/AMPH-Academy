@@ -78,10 +78,19 @@ export default function RootLayout({
       <body
         className={`${inter.variable} ${jetbrainsMono.variable} antialiased bg-background text-foreground`}
       >
+        {/* Skip to main content — accessibility */}
+        <a
+          href="#main-content"
+          className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[9999] focus:px-4 focus:py-2 focus:bg-primary focus:text-primary-foreground focus:rounded-lg focus:ring-2 focus:ring-ring"
+        >
+          Skip to main content
+        </a>
         <AuthProvider>
           <ErrorBoundary>
             <div className="noise-overlay" />
-            {children}
+            <main id="main-content">
+              {children}
+            </main>
           </ErrorBoundary>
         </AuthProvider>
         <Toaster />
