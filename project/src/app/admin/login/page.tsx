@@ -1,10 +1,10 @@
 'use client';
+import { Icon } from '@/components/icons';
 
 import { useState } from 'react';
 import { signIn } from 'next-auth/react';
 import { useRouter } from 'next/navigation';
 import { motion } from 'framer-motion';
-import { Lightning, Shield, Eye, EyeOff, Spinner, ArrowLeft } from '@phosphor-icons/react';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -69,7 +69,7 @@ export default function AdminLoginPage() {
         className="relative w-full max-w-md"
       >
         <Link href="/" className="inline-flex items-center gap-1.5 text-sm text-muted-foreground hover:text-foreground mb-6 transition-colors">
-          <ArrowLeft className="h-3.5 w-3.5" />
+          <Icon name="arrow-left" className="h-3.5 w-3.5" />
           Back to site
         </Link>
 
@@ -77,7 +77,7 @@ export default function AdminLoginPage() {
           <CardHeader className="text-center pb-4">
             <div className="flex justify-center mb-4">
               <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-rose-500/20 to-rose-400/5 border border-rose-500/20 flex items-center justify-center">
-                <Shield className="h-7 w-7 text-rose-400" />
+                <Icon name="shield" className="h-7 w-7 text-rose-400" />
               </div>
             </div>
             <CardTitle className="text-xl">Admin Access</CardTitle>
@@ -120,13 +120,13 @@ export default function AdminLoginPage() {
                     onClick={() => setShowPw(!showPw)}
                     className="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-foreground"
                   >
-                    {showPw ? <EyeOff className="h-4 w-4" /> : <Eye className="h-4 w-4" />}
+                    {showPw ? <Icon name="eye-off" className="h-4 w-4" /> : <Icon name="eye" className="h-4 w-4" />}
                   </button>
                 </div>
               </div>
 
               <Button type="submit" className="w-full" disabled={loading}>
-                {loading ? <Spinner className="h-4 w-4 mr-2 animate-spin" /> : <Shield className="h-4 w-4 mr-2" />}
+                {loading ? <Icon name="spinner" className="h-4 w-4 mr-2 animate-spin" /> : <Icon name="shield" className="h-4 w-4 mr-2" />}
                 Sign In as Admin
               </Button>
             </form>

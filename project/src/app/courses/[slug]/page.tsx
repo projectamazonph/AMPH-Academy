@@ -1,6 +1,6 @@
+import { Icon } from '@/components/icons';
 import { notFound } from "next/navigation";
 import Link from "next/link";
-import { ArrowLeft, BookOpen, Clock, BarChart } from '@phosphor-icons/react';
 import { Script } from "next/script";
 import type { Metadata } from "next";
 import { getCourseBySlug } from "@/modules/courses/_actions";
@@ -106,7 +106,7 @@ export default async function CourseDetailPage({
           href="/courses"
           className="inline-flex items-center gap-1.5 text-sm text-muted-foreground hover:text-primary transition-colors mb-8"
         >
-          <ArrowLeft className="h-3.5 w-3.5" />
+          <Icon name="arrow-left" className="h-3.5 w-3.5" />
           Back to courses
         </Link>
 
@@ -114,7 +114,7 @@ export default async function CourseDetailPage({
         <div className="mb-10">
           <div className="flex items-start gap-4 mb-4">
             <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-primary/20 to-primary/5 border border-primary/20 flex items-center justify-center shrink-0">
-              <BookOpen className="h-7 w-7 text-primary" />
+              <Icon name="book-open" className="h-7 w-7 text-primary" />
             </div>
             <div className="flex-1 min-w-0">
               <div className="flex items-center gap-2 mb-2">
@@ -151,11 +151,11 @@ export default async function CourseDetailPage({
           {/* Stats */}
           <div className="flex flex-wrap items-center gap-4 mt-6 text-sm text-muted-foreground">
             <span className="flex items-center gap-1.5">
-              <BarChart className="h-4 w-4" />
+              <Icon name="bar-chart" className="h-4 w-4" />
               {course.moduleCount} modules
             </span>
             <span className="flex items-center gap-1.5">
-              <Clock className="h-4 w-4" />
+              <Icon name="clock" className="h-4 w-4" />
               {course.estimatedHours} hours
             </span>
             <div className="ml-auto">
@@ -170,7 +170,7 @@ export default async function CourseDetailPage({
         {/* Curriculum */}
         <div>
           <h2 className="text-xl font-semibold mb-6 flex items-center gap-2">
-            <BookOpen className="h-5 w-5 text-primary" />
+            <Icon name="book-open" className="h-5 w-5 text-primary" />
             Curriculum
             <span className="text-sm font-normal text-muted-foreground">
               ({course.moduleCount} modules)

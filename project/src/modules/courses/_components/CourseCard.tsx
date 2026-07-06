@@ -1,5 +1,5 @@
+import { Icon } from '@/components/icons';
 import Link from "next/link";
-import { BookOpen, Clock, BarChart, CaretRight } from '@phosphor-icons/react';
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import type { CourseSummary } from "../_types";
@@ -25,7 +25,7 @@ export function CourseCard({ course }: { course: CourseSummary }) {
         <CardContent className="p-6 flex flex-col h-full">
           <div className="flex items-start justify-between mb-4">
             <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-primary/20 to-primary/5 border border-primary/20 flex items-center justify-center">
-              <BookOpen className="h-6 w-6 text-primary" />
+              <Icon name="book-open" className="h-6 w-6 text-primary" />
             </div>
             <Badge
               className={`text-[10px] font-medium ${
@@ -45,15 +45,15 @@ export function CourseCard({ course }: { course: CourseSummary }) {
 
           <div className="flex items-center gap-4 text-xs text-muted-foreground pt-4 border-t border-border/20">
             <span className="flex items-center gap-1">
-              <BarChart className="h-3.5 w-3.5" />
+              <Icon name="bar-chart" className="h-3.5 w-3.5" />
               {course.moduleCount} modules
             </span>
             <span className="flex items-center gap-1">
-              <Clock className="h-3.5 w-3.5" />
+              <Icon name="clock" className="h-3.5 w-3.5" />
               {course.estimatedHours}h
             </span>
             <span className="flex items-center gap-1 ml-auto text-primary group-hover:gap-2 transition-all">
-              View <CaretRight className="h-3.5 w-3.5" />
+              View <Icon name="caret-right" className="h-3.5 w-3.5" />
             </span>
           </div>
         </CardContent>

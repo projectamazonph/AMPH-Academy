@@ -1,19 +1,8 @@
 'use client';
+import { Icon } from '@/components/icons';
 
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import {
-  Layout,
-  Target,
-  Plus,
-  Trash2,
-  MagnifyingGlass,
-  Warning,
-  Trophy,
-  CaretRight,
-  Sparkles,
-  X,
-} from '@phosphor-icons/react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
@@ -201,7 +190,7 @@ export function CampaignWorkshop() {
           <Card className="border-emerald-500/15">
             <CardHeader className="pb-3">
               <CardTitle className="text-base font-semibold flex items-center gap-2">
-                <Layout className="h-4 w-4 text-emerald-400" />
+                <Icon name="layout" className="h-4 w-4 text-emerald-400" />
                 Campaign Settings
               </CardTitle>
             </CardHeader>
@@ -437,7 +426,7 @@ export function CampaignWorkshop() {
                     </span>
                     {positiveKeywords.length === 0 ? (
                       <div className="p-6 rounded-lg border border-dashed border-border text-center">
-                        <MagnifyingGlass className="h-6 w-6 text-muted-foreground/40 mx-auto mb-2" />
+                        <Icon name="magnifying-glass" className="h-6 w-6 text-muted-foreground/40 mx-auto mb-2" />
                         <p className="text-sm text-muted-foreground">
                           No keywords added yet. Click suggested keywords above or add a custom one.
                         </p>
@@ -486,7 +475,7 @@ export function CampaignWorkshop() {
                               onClick={() => removeKeyword(kw.id)}
                               aria-label={`Remove keyword ${kw.text}`}
                             >
-                              <X className="h-3.5 w-3.5" />
+                              <Icon name="x" className="h-3.5 w-3.5" />
                             </Button>
                           </motion.div>
                         ))}
@@ -534,7 +523,7 @@ export function CampaignWorkshop() {
                   {/* Suggested Negatives */}
                   <div className="space-y-2">
                     <div className="flex items-center gap-2">
-                      <Warning className="h-3.5 w-3.5 text-amber-400" />
+                      <Icon name="warning" className="h-3.5 w-3.5 text-amber-400" />
                       <span className="text-xs font-semibold text-foreground/80 uppercase tracking-wider">
                         Suggested Negatives
                       </span>
@@ -587,7 +576,7 @@ export function CampaignWorkshop() {
                     </span>
                     {negativeKeywords.length === 0 ? (
                       <div className="p-6 rounded-lg border border-dashed border-border text-center">
-                        <Warning className="h-6 w-6 text-muted-foreground/40 mx-auto mb-2" />
+                        <Icon name="warning" className="h-6 w-6 text-muted-foreground/40 mx-auto mb-2" />
                         <p className="text-sm text-muted-foreground">
                           No negative keywords added. Add them to filter out irrelevant traffic.
                         </p>
@@ -624,7 +613,7 @@ export function CampaignWorkshop() {
                               onClick={() => removeKeyword(kw.id)}
                               aria-label={`Remove negative keyword ${kw.text}`}
                             >
-                              <X className="h-3.5 w-3.5" />
+                              <Icon name="x" className="h-3.5 w-3.5" />
                             </Button>
                           </motion.div>
                         ))}
@@ -679,7 +668,7 @@ export function CampaignWorkshop() {
             {/* Preview Score */}
             <div className="flex items-center gap-3">
               <div className="flex items-center gap-2 px-3 py-2 rounded-lg bg-emerald-500/10 border border-emerald-500/20">
-                <Trophy className="h-4 w-4 text-emerald-400" />
+                <Icon name="trophy" className="h-4 w-4 text-emerald-400" />
                 <span className="text-xs text-muted-foreground">Preview</span>
                 <span className="text-xl font-bold font-mono text-emerald-400">
                   {previewScore}
@@ -717,7 +706,7 @@ export function CampaignWorkshop() {
               onClick={submitCampaign}
             >
               Submit Campaign
-              <CaretRight className="h-4 w-4" />
+              <Icon name="caret-right" className="h-4 w-4" />
             </Button>
           </div>
 
@@ -729,7 +718,7 @@ export function CampaignWorkshop() {
                   key={i}
                   className="flex items-center gap-2 text-xs text-rose-400"
                 >
-                  <Warning className="h-3 w-3 shrink-0" />
+                  <Icon name="warning" className="h-3 w-3 shrink-0" />
                   <span>{err}</span>
                 </div>
               ))}
@@ -744,7 +733,7 @@ export function CampaignWorkshop() {
                   key={i}
                   className="flex items-center gap-2 text-xs text-amber-400"
                 >
-                  <Warning className="h-3 w-3 shrink-0" />
+                  <Icon name="warning" className="h-3 w-3 shrink-0" />
                   <span>{warn}</span>
                 </div>
               ))}

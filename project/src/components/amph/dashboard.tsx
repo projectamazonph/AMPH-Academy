@@ -1,17 +1,9 @@
 'use client';
+import { Icon } from '@/components/icons';
 
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { useSession } from 'next-auth/react';
-import {
-  Play,
-  FlaskConical,
-  ArrowRight,
-  DollarSign,
-  Percent,
-  BarChart,
-  Spinner,
-} from '@phosphor-icons/react';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { XpProgress } from './xp-progress';
@@ -73,7 +65,7 @@ export function Dashboard({ onNavigate, xpOverride, levelOverride }: DashboardPr
   if (loading) {
     return (
       <div className="flex items-center justify-center py-20">
-        <Spinner className="h-6 w-6 animate-spin text-primary" />
+        <Icon name="spinner" className="h-6 w-6 animate-spin text-primary" />
         <span className="ml-2 text-sm text-muted-foreground">Loading dashboard...</span>
       </div>
     );
@@ -182,7 +174,7 @@ export function Dashboard({ onNavigate, xpOverride, levelOverride }: DashboardPr
             onClick={() => onNavigate('modules')}
           >
             <div className="p-2 rounded-lg bg-primary/10 border border-primary/20">
-              <Play className="h-4 w-4 text-primary" />
+              <Icon name="play" className="h-4 w-4 text-primary" />
             </div>
             <div className="text-left">
               <p className="text-sm font-medium">Continue Learning</p>
@@ -192,7 +184,7 @@ export function Dashboard({ onNavigate, xpOverride, levelOverride }: DashboardPr
                   : 'Module 0: Onboarding'}
               </p>
             </div>
-            <ArrowRight className="h-4 w-4 ml-auto text-muted-foreground group-hover:text-primary group-hover:translate-x-0.5 transition-all" />
+            <Icon name="arrow-right" className="h-4 w-4 ml-auto text-muted-foreground group-hover:text-primary group-hover:translate-x-0.5 transition-all" />
           </Button>
 
           <Button
@@ -211,7 +203,7 @@ export function Dashboard({ onNavigate, xpOverride, levelOverride }: DashboardPr
                   : 'Unlock by completing modules'}
               </p>
             </div>
-            <ArrowRight className="h-4 w-4 ml-auto text-muted-foreground group-hover:text-amber-400 group-hover:translate-x-0.5 transition-all" />
+            <Icon name="arrow-right" className="h-4 w-4 ml-auto text-muted-foreground group-hover:text-amber-400 group-hover:translate-x-0.5 transition-all" />
           </Button>
 
         </div>

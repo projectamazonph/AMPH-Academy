@@ -1,34 +1,8 @@
 'use client';
+import { Icon } from '@/components/icons';
 
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import {
-  Rocket,
-  BookOpen,
-  Layout,
-  TrendUp,
-  Funnel,
-  Lock,
-  CheckCircle,
-  Play,
-  Circle,
-  Cursor,
-  ArrowUpRight,
-  Lightning,
-  Calculator,
-  Video,
-  Calendar,
-  Clock,
-  User,
-  Users,
-  ArrowSquareOut,
-  Spinner,
-  MagnifyingGlass,
-  FileText,
-  PieChart,
-  BarChart,
-  type Icon,
-} from '@phosphor-icons/react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
@@ -425,7 +399,7 @@ export default function Home() {
         <header className="sticky top-0 z-30 border-b border-border bg-background/70 backdrop-blur-2xl border-b border-white/[0.06] dark:border-white/[0.06]">
           <div className="flex items-center justify-between px-4 lg:px-6 h-14">
             <div className="flex items-center gap-3 pl-12 lg:pl-0">
-              <Lightning className="h-4 w-4 text-primary lg:hidden" />
+              <Icon name="lightning" className="h-4 w-4 text-primary lg:hidden" />
               <h1 className="text-sm font-semibold lg:hidden">AMPH</h1>
               <span className="hidden lg:inline text-sm text-muted-foreground">
                 {activeTab === 'dashboard' && 'Dashboard'}
@@ -441,7 +415,7 @@ export default function Home() {
             </div>
             <div className="flex items-center gap-3">
               <Badge variant="outline" className="text-[10px] gap-1 bg-primary/10 text-primary border-primary/20">
-                <Lightning className="h-3 w-3" />
+                <Icon name="lightning" className="h-3 w-3" />
                 {userXP} XP
               </Badge>
               <div className="h-2 w-2 rounded-full bg-emerald-400" title="Online" />
@@ -515,7 +489,7 @@ export default function Home() {
       <footer className="lg:pl-[240px] border-t border-border mt-auto">
         <div className="px-4 lg:px-6 py-4 flex flex-col sm:flex-row items-center justify-between gap-2">
           <div className="flex items-center gap-2">
-            <Lightning className="h-3.5 w-3.5 text-primary" />
+            <Icon name="lightning" className="h-3.5 w-3.5 text-primary" />
             <span className="text-xs text-muted-foreground">
               AMPH — Amazon PPC Command Center
             </span>
@@ -580,12 +554,12 @@ function ModulesView({ onOpenLesson }: { onOpenLesson: (lesson: { moduleNumber: 
                           </span>
                           {isLocked ? (
                             <Badge variant="outline" className="text-[10px] gap-1 bg-muted/50 text-muted-foreground border-border">
-                              <Lock className="h-3 w-3" />
+                              <Icon name="lock" className="h-3 w-3" />
                               Locked
                             </Badge>
                           ) : (
                             <Badge variant="outline" className="text-[10px] gap-1 bg-emerald-500/15 text-emerald-400 border-emerald-500/20">
-                              <Play className="h-3 w-3" />
+                              <Icon name="play" className="h-3 w-3" />
                               Available
                             </Badge>
                           )}
@@ -666,7 +640,7 @@ function ModulesView({ onOpenLesson }: { onOpenLesson: (lesson: { moduleNumber: 
                     {!isLocked && (
                       <div className="px-5 py-3 bg-muted/20 flex items-center gap-3">
                         <Button size="sm" className="gap-2" onClick={() => onOpenLesson({ moduleNumber: module.number, lessonOrder: 1 })}>
-                          <Play className="h-3.5 w-3.5" />
+                          <Icon name="play" className="h-3.5 w-3.5" />
                           Start Module {module.number}
                         </Button>
                         {hasCalculator && (
@@ -801,7 +775,7 @@ function SimulationsView({ onLaunchSim }: { onLaunchSim: (sim: string | null) =>
                           key={feature}
                           className="flex items-center gap-2 text-xs text-muted-foreground"
                         >
-                          <Circle className="h-1.5 w-1.5 fill-current shrink-0" />
+                          <Icon name="circle" className="h-1.5 w-1.5 fill-current shrink-0" />
                           {feature}
                         </li>
                       ))}
@@ -823,7 +797,7 @@ function SimulationsView({ onLaunchSim }: { onLaunchSim: (sim: string | null) =>
                         )}
                         onClick={() => onLaunchSim(sim.type)}
                       >
-                        <Play className="h-3.5 w-3.5" />
+                        <Icon name="play" className="h-3.5 w-3.5" />
                         Launch Simulation
                       </Button>
                     ) : (
@@ -833,7 +807,7 @@ function SimulationsView({ onLaunchSim }: { onLaunchSim: (sim: string | null) =>
                         disabled
                         className="w-full gap-2"
                       >
-                        <Lock className="h-3.5 w-3.5" />
+                        <Icon name="lock" className="h-3.5 w-3.5" />
                         Complete Module {sim.moduleRef} to Unlock
                       </Button>
                     )}

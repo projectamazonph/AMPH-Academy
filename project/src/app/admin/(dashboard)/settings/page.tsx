@@ -1,11 +1,8 @@
 'use client';
+import { Icon } from '@/components/icons';
 
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import {
-  Settings, Shield, Server, Database, Globe, Users,
-  BookOpen, Medal, Spinner, CheckCircle, XCircle,
-} from '@phosphor-icons/react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
@@ -74,7 +71,7 @@ export default function AdminSettingsPage() {
           <Separator className="bg-border/20" />
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-3">
-              <Shield className="h-4 w-4 text-muted-foreground" />
+              <Icon name="shield" className="h-4 w-4 text-muted-foreground" />
               <div>
                 <p className="text-sm font-medium">Authentication</p>
                 <p className="text-xs text-muted-foreground">NextAuth.js + JWT</p>
@@ -89,7 +86,7 @@ export default function AdminSettingsPage() {
       <Card className="border-border/40 bg-card/40">
         <CardHeader>
           <CardTitle className="text-base flex items-center gap-2">
-            <BookOpen className="h-4 w-4 text-muted-foreground" />
+            <Icon name="book-open" className="h-4 w-4 text-muted-foreground" />
             Platform Summary
           </CardTitle>
         </CardHeader>
@@ -101,12 +98,12 @@ export default function AdminSettingsPage() {
               <p className="text-xs text-muted-foreground">Total Users</p>
             </div>
             <div className="p-3 rounded-lg bg-muted/20 border border-border/20 text-center">
-              <BookOpen className="h-5 w-5 mx-auto mb-1 text-emerald-400" />
+              <Icon name="book-open" className="h-5 w-5 mx-auto mb-1 text-emerald-400" />
               <p className="text-lg font-bold font-mono">{stats?.lessonsCompletedTotal ?? '—'}</p>
               <p className="text-xs text-muted-foreground">Lessons Done</p>
             </div>
             <div className="p-3 rounded-lg bg-muted/20 border border-border/20 text-center">
-              <Medal className="h-5 w-5 mx-auto mb-1 text-amber-400" />
+              <Icon name="medal" className="h-5 w-5 mx-auto mb-1 text-amber-400" />
               <p className="text-lg font-bold font-mono">{stats?.totalXpAwarded?.toLocaleString() ?? '—'}</p>
               <p className="text-xs text-muted-foreground">Total XP Awarded</p>
             </div>
@@ -117,7 +114,7 @@ export default function AdminSettingsPage() {
       {/* No AI disclaimer */}
       <Card className="border-border/40 bg-card/40 border-rose-500/10">
         <CardContent className="p-4 text-sm text-muted-foreground flex items-center gap-3">
-          <XCircle className="h-5 w-5 text-rose-400 shrink-0" />
+          <Icon name="x-circle" className="h-5 w-5 text-rose-400 shrink-0" />
           <span>This admin panel has no AI features. All student data is stored locally. No external AI APIs are called.</span>
         </CardContent>
       </Card>

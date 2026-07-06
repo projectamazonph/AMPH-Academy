@@ -1,7 +1,7 @@
 'use client';
+import { Icon } from '@/components/icons';
 
 import { AnimatePresence, motion } from 'framer-motion';
-import { ArrowLeft, Shield } from '@phosphor-icons/react';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { useStrTriageStore } from '@/stores/str-triage-store';
@@ -35,11 +35,11 @@ export function StrTriageArena({ onBack }: StrTriageArenaProps) {
             onClick={handleBack}
             aria-label="Back to Simulations"
           >
-            <ArrowLeft className="h-4 w-4" />
+            <Icon name="arrow-left" className="h-4 w-4" />
           </Button>
           <div className="flex items-center gap-2">
             <div className="p-1.5 rounded-lg bg-rose-500/15 border border-rose-500/25">
-              <Shield className="h-4 w-4 text-rose-400" />
+              <Icon name="shield" className="h-4 w-4 text-rose-400" />
             </div>
             <h2 className="text-lg font-bold tracking-tight">STR Triage Arena</h2>
           </div>

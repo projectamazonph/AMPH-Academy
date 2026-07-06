@@ -1,24 +1,8 @@
 'use client';
+import { Icon } from '@/components/icons';
 
 import { useState, useMemo, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import {
-  Calculator,
-  DollarSign,
-  Percent,
-  BarChart,
-  TrendUp,
-  Target,
-  Info,
-  CaretRight,
-  Sparkles,
-  ArrowRight,
-  Lightbulb,
-  Warning,
-  CheckCircle,
-  XCircle,
-  CircleDot,
-} from '@phosphor-icons/react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
@@ -407,7 +391,7 @@ export function FormulaCalculator({ moduleRef = 1, className }: FormulaCalculato
             <div className="absolute inset-0 bg-gradient-to-br from-primary/3 to-transparent" />
             <CardHeader className="relative pb-3">
               <CardTitle className="text-base font-semibold flex items-center gap-2">
-                <BarChart className="h-4 w-4 text-primary" />
+                <Icon name="bar-chart" className="h-4 w-4 text-primary" />
                 Computed Result
               </CardTitle>
             </CardHeader>
@@ -637,7 +621,7 @@ export function FormulaCalculator({ moduleRef = 1, className }: FormulaCalculato
                         <p className="text-sm font-medium truncate">{f.name}</p>
                         <p className="text-[11px] text-muted-foreground font-mono">{f.expression}</p>
                       </div>
-                      <CaretRight className="h-3.5 w-3.5 text-muted-foreground/40 group-hover:text-primary shrink-0 transition-colors" />
+                      <Icon name="caret-right" className="h-3.5 w-3.5 text-muted-foreground/40 group-hover:text-primary shrink-0 transition-colors" />
                     </button>
                   );
                 })}

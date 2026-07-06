@@ -1,12 +1,9 @@
 'use client';
+import { Icon } from '@/components/icons';
 
 import { useState } from 'react';
 import { usePathname, useRouter } from 'next/navigation';
 import { motion, AnimatePresence } from 'framer-motion';
-import {
-  LayoutDashboard, Users, BookOpen, Medal, Pulse, Settings,
-  Menu, X, CaretLeft, Lightning, LogOut, Shield,
-} from '@phosphor-icons/react';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { Separator } from '@/components/ui/separator';
@@ -61,7 +58,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
         {/* Logo */}
         <div className="flex items-center gap-3 p-4 pb-3">
           <div className="flex items-center justify-center w-9 h-9 rounded-xl bg-gradient-to-br from-rose-500/20 to-rose-400/5 border border-rose-500/20 shrink-0">
-            <Shield className="h-5 w-5 text-rose-400" />
+            <Icon name="shield" className="h-5 w-5 text-rose-400" />
           </div>
           {!collapsed && (
             <div className="overflow-hidden">
@@ -110,7 +107,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
             className="w-full justify-center hidden lg:flex"
             onClick={() => setCollapsed(!collapsed)}
           >
-            <CaretLeft className={cn('h-4 w-4 transition-transform', collapsed && 'rotate-180')} />
+            <Icon name="caret-left" className={cn('h-4 w-4 transition-transform', collapsed && 'rotate-180')} />
           </Button>
 
           <div className={cn('flex items-center gap-3 p-2', collapsed && 'justify-center')}>
@@ -143,7 +140,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
           <Menu className="h-5 w-5" />
         </Button>
         <div className="flex items-center gap-2">
-          <Shield className="h-4 w-4 text-rose-400" />
+          <Icon name="shield" className="h-4 w-4 text-rose-400" />
           <span className="text-sm font-semibold">AMPH Admin</span>
         </div>
       </div>

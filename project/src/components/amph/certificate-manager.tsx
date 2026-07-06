@@ -1,4 +1,5 @@
 'use client';
+import { Icon } from '@/components/icons';
 
 /**
  * ProjectAMPH Academy: Certificate Manager
@@ -9,16 +10,6 @@
 
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import {
-  Medal,
-  Spinner,
-  CheckCircle,
-  XCircle,
-  ArrowSquareOut,
-  Clock,
-  Copy,
-  Share2,
-} from '@phosphor-icons/react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
@@ -80,7 +71,7 @@ export function CertificateManager() {
   if (loading) {
     return (
       <div className="flex items-center justify-center py-16">
-        <Spinner className="h-6 w-6 animate-spin text-muted-foreground" />
+        <Icon name="spinner" className="h-6 w-6 animate-spin text-muted-foreground" />
       </div>
     );
   }
@@ -97,7 +88,7 @@ export function CertificateManager() {
         <Card className="border-emerald-500/20 bg-emerald-500/5">
           <CardContent className="pt-6 text-center space-y-4">
             <div className="p-4 rounded-2xl bg-emerald-500/10 border border-emerald-500/20 inline-block">
-              <Medal className="h-12 w-12 text-emerald-400" />
+              <Icon name="medal" className="h-12 w-12 text-emerald-400" />
             </div>
             <CardTitle className="text-xl">{activeCert.title}</CardTitle>
             <Badge className="bg-emerald-500/15 text-emerald-400 border-emerald-500/20">
@@ -121,7 +112,7 @@ export function CertificateManager() {
             <div className="flex items-center justify-center gap-2">
               <Button variant="outline" size="sm" className="gap-2" onClick={handleCopyHash}>
                 {copied ? (
-                  <CheckCircle className="h-3.5 w-3.5 text-emerald-400" />
+                  <Icon name="check-circle" className="h-3.5 w-3.5 text-emerald-400" />
                 ) : (
                   <Copy className="h-3.5 w-3.5" />
                 )}
@@ -165,7 +156,7 @@ export function CertificateManager() {
         <CardContent className="pt-6 space-y-6">
           <div className="text-center space-y-2">
             <div className="p-4 rounded-2xl bg-amber-500/10 border border-amber-500/20 inline-block">
-              <Medal className="h-12 w-12 text-amber-400" />
+              <Icon name="medal" className="h-12 w-12 text-amber-400" />
             </div>
             <CardTitle>Your Certificate</CardTitle>
             <p className="text-sm text-muted-foreground">
@@ -191,9 +182,9 @@ export function CertificateManager() {
               return (
                 <div key={req.key} className="flex items-center gap-3">
                   {done ? (
-                    <CheckCircle className="h-5 w-5 text-emerald-400 shrink-0" />
+                    <Icon name="check-circle" className="h-5 w-5 text-emerald-400 shrink-0" />
                   ) : (
-                    <XCircle className="h-5 w-5 text-muted-foreground shrink-0" />
+                    <Icon name="x-circle" className="h-5 w-5 text-muted-foreground shrink-0" />
                   )}
                   <span className={done ? 'text-sm' : 'text-sm text-muted-foreground'}>
                     {req.label}
@@ -215,9 +206,9 @@ export function CertificateManager() {
             disabled={issuing || !progress?.canIssue}
           >
             {issuing ? (
-              <Spinner className="h-4 w-4 animate-spin" />
+              <Icon name="spinner" className="h-4 w-4 animate-spin" />
             ) : (
-              <Medal className="h-4 w-4" />
+              <Icon name="medal" className="h-4 w-4" />
             )}
             {issuing ? 'Issuing...' : progress?.canIssue ? 'Issue My Certificate' : 'Complete Requirements First'}
           </Button>

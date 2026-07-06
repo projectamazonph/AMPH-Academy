@@ -1,18 +1,7 @@
 'use client';
+import { Icon } from '@/components/icons';
 
 import { motion } from 'framer-motion';
-import {
-  Shield,
-  Target,
-  TrendUp,
-  Pause,
-  XCircle,
-  Ban,
-  Sliders,
-  Clock,
-  Warning,
-  CaretRight,
-} from '@phosphor-icons/react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
@@ -92,7 +81,7 @@ export function StrBriefing() {
           <CardContent className="relative py-6">
             <div className="flex items-center gap-2 mb-3">
               <div className="p-2 rounded-lg bg-rose-500/15 border border-rose-500/25">
-                <Shield className="h-5 w-5 text-rose-400" />
+                <Icon name="shield" className="h-5 w-5 text-rose-400" />
               </div>
               <Badge className="bg-rose-500/15 text-rose-400 border-rose-500/25 hover:bg-rose-500/20 text-[10px]">
                 STR TRIAGE ARENA
@@ -154,7 +143,7 @@ export function StrBriefing() {
             </div>
 
             <div className="flex items-center gap-2 text-xs text-muted-foreground bg-muted/30 p-3 rounded-lg border border-border">
-              <Warning className="h-4 w-4 text-amber-400 shrink-0" />
+              <Icon name="warning" className="h-4 w-4 text-amber-400 shrink-0" />
               <span>
                 Your break-even ACoS equals your margin ({(productContext.margin * 100).toFixed(0)}%).
                 Any term with ACoS above this is losing money.
@@ -212,7 +201,7 @@ export function StrBriefing() {
         <Card className="border-border">
           <CardHeader className="pb-3">
             <CardTitle className="text-base font-semibold flex items-center gap-2">
-              <Clock className="h-4 w-4 text-amber-400" />
+              <Icon name="clock" className="h-4 w-4 text-amber-400" />
               Mission Parameters
             </CardTitle>
           </CardHeader>
@@ -252,7 +241,7 @@ export function StrBriefing() {
           onClick={() => startSimulation(userId)}
         >
           Begin Simulation
-          <CaretRight className="h-5 w-5" />
+          <Icon name="caret-right" className="h-5 w-5" />
         </Button>
       </motion.div>
     </div>

@@ -1,4 +1,5 @@
 'use client';
+import { Icon } from '@/components/icons';
 
 /**
  * ProjectAMPH Academy: Sign-Up Page
@@ -10,7 +11,6 @@
 
 import { useState } from 'react';
 import { signIn } from 'next-auth/react';
-import { Lightning, Mail, Lock, User, ArrowRight, Spinner, CheckCircle } from '@phosphor-icons/react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 
@@ -93,7 +93,7 @@ export default function SignUpPage() {
         {/* Logo & branding */}
         <div className="text-center space-y-3">
           <div className="inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-primary/15 border border-primary/20">
-            <Lightning className="h-7 w-7 text-primary" />
+            <Icon name="lightning" className="h-7 w-7 text-primary" />
           </div>
           <h1 className="text-2xl font-bold tracking-tight">Create Your Account</h1>
           <p className="text-sm text-muted-foreground">
@@ -116,7 +116,7 @@ export default function SignUpPage() {
                   Name
                 </label>
                 <div className="relative">
-                  <User className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
+                  <Icon name="user" className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
                   <input
                     id="name"
                     type="text"
@@ -133,7 +133,7 @@ export default function SignUpPage() {
                   Email
                 </label>
                 <div className="relative">
-                  <Mail className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
+                  <Icon name="mail" className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
                   <input
                     id="email"
                     type="email"
@@ -151,7 +151,7 @@ export default function SignUpPage() {
                   Password
                 </label>
                 <div className="relative">
-                  <Lock className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
+                  <Icon name="lock" className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
                   <input
                     id="password"
                     type="password"
@@ -190,7 +190,7 @@ export default function SignUpPage() {
                   Confirm Password
                 </label>
                 <div className="relative">
-                  <Lock className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
+                  <Icon name="lock" className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
                   <input
                     id="confirmPassword"
                     type="password"
@@ -201,7 +201,7 @@ export default function SignUpPage() {
                     className="w-full h-10 rounded-lg border border-border bg-background pl-10 pr-10 text-sm placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary/40 transition-all"
                   />
                   {confirmPassword && password === confirmPassword && (
-                    <CheckCircle className="absolute right-3 top-1/2 -translate-y-1/2 h-4 w-4 text-emerald-400" />
+                    <Icon name="check-circle" className="absolute right-3 top-1/2 -translate-y-1/2 h-4 w-4 text-emerald-400" />
                   )}
                 </div>
               </div>
@@ -212,9 +212,9 @@ export default function SignUpPage() {
                 disabled={loading || !email.trim() || !password || !confirmPassword}
               >
                 {loading ? (
-                  <Spinner className="h-4 w-4 animate-spin" />
+                  <Icon name="spinner" className="h-4 w-4 animate-spin" />
                 ) : (
-                  <ArrowRight className="h-4 w-4" />
+                  <Icon name="arrow-right" className="h-4 w-4" />
                 )}
                 {loading ? 'Creating Account...' : 'Create Account'}
               </Button>

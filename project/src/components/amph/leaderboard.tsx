@@ -1,8 +1,8 @@
 'use client';
+import { Icon } from '@/components/icons';
 
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { Trophy, Medal, Spinner } from '@phosphor-icons/react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Avatar, AvatarFallback } from '@/components/ui/avatar';
@@ -27,7 +27,7 @@ export function Leaderboard() {
     <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="space-y-6">
       <div className="flex items-center gap-3">
         <div className="p-2 rounded-xl bg-amber-500/10 border border-amber-500/20">
-          <Trophy className="h-5 w-5 text-amber-400" />
+          <Icon name="trophy" className="h-5 w-5 text-amber-400" />
         </div>
         <div>
           <h2 className="text-2xl font-bold">Leaderboard</h2>
@@ -37,7 +37,7 @@ export function Leaderboard() {
 
       {loading ? (
         <div className="flex items-center justify-center py-20">
-          <Spinner className="h-5 w-5 animate-spin text-muted-foreground" />
+          <Icon name="spinner" className="h-5 w-5 animate-spin text-muted-foreground" />
         </div>
       ) : entries.length === 0 ? (
         <Card><CardContent className="py-12 text-center text-muted-foreground">No learners yet.</CardContent></Card>
@@ -53,7 +53,7 @@ export function Leaderboard() {
                   'w-8 h-8 flex items-center justify-center rounded-full text-sm font-bold shrink-0',
                   i < 3 ? `${rankBg[i]} ${rankColors[i]}` : 'text-muted-foreground bg-muted'
                 )}>
-                  {i < 3 ? <Medal className="h-4 w-4" /> : entry.rank}
+                  {i < 3 ? <Icon name="medal" className="h-4 w-4" /> : entry.rank}
                 </div>
                 <Avatar className="h-9 w-9 shrink-0">
                   <AvatarFallback className="bg-primary/10 text-primary text-xs font-semibold">

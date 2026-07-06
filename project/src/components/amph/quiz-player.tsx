@@ -1,4 +1,5 @@
 'use client';
+import { Icon } from '@/components/icons';
 
 /**
  * ProjectAMPH Academy: Quiz Player Component
@@ -17,20 +18,6 @@
 
 import { useState, useEffect, useCallback, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import {
-  ArrowLeft,
-  ArrowRight,
-  CheckCircle,
-  XCircle,
-  Clock,
-  Lightning,
-  RotateCcw,
-  Spinner,
-  Trophy,
-  Target,
-  HelpCircle,
-  CaretRight,
-} from '@phosphor-icons/react';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
@@ -230,7 +217,7 @@ export function QuizPlayer({ moduleNumber, onBack, onComplete }: QuizPlayerProps
   if (phase === 'loading') {
     return (
       <div className="flex items-center justify-center py-20">
-        <Spinner className="h-6 w-6 animate-spin text-primary" />
+        <Icon name="spinner" className="h-6 w-6 animate-spin text-primary" />
         <span className="ml-2 text-sm text-muted-foreground">Loading quiz...</span>
       </div>
     );
@@ -260,7 +247,7 @@ export function QuizPlayer({ moduleNumber, onBack, onComplete }: QuizPlayerProps
     return (
       <div className="space-y-6">
         <Button variant="ghost" size="sm" className="gap-2" onClick={onBack}>
-          <ArrowLeft className="h-4 w-4" />
+          <Icon name="arrow-left" className="h-4 w-4" />
           Back to Modules
         </Button>
 
@@ -288,7 +275,7 @@ export function QuizPlayer({ moduleNumber, onBack, onComplete }: QuizPlayerProps
                   {quiz.passThreshold}% to pass
                 </span>
                 <span className="flex items-center gap-1">
-                  <Lightning className="h-3 w-3 text-amber-400" />
+                  <Icon name="lightning" className="h-3 w-3 text-amber-400" />
                   {QUIZ_XP_REWARD} XP on pass
                 </span>
               </div>
@@ -337,7 +324,7 @@ export function QuizPlayer({ moduleNumber, onBack, onComplete }: QuizPlayerProps
             <div className="px-6 py-4 flex justify-center">
               <Button size="lg" className="gap-2 px-8" onClick={startQuiz}>
                 {quiz.bestScore !== null ? 'Retake Quiz' : 'Start Quiz'}
-                <CaretRight className="h-4 w-4" />
+                <Icon name="caret-right" className="h-4 w-4" />
               </Button>
             </div>
           </Card>
@@ -357,12 +344,12 @@ export function QuizPlayer({ moduleNumber, onBack, onComplete }: QuizPlayerProps
         {/* Top bar */}
         <div className="flex items-center justify-between">
           <Button variant="ghost" size="sm" className="gap-2" onClick={onBack}>
-            <ArrowLeft className="h-4 w-4" />
+            <Icon name="arrow-left" className="h-4 w-4" />
             Exit Quiz
           </Button>
           <div className="flex items-center gap-3">
             <Badge variant="outline" className="gap-1 text-[10px]">
-              <Clock className="h-3 w-3" />
+              <Icon name="clock" className="h-3 w-3" />
               {formatTime(elapsedSeconds)}
             </Badge>
             <Badge variant="outline" className="gap-1 text-[10px]">
@@ -449,7 +436,7 @@ export function QuizPlayer({ moduleNumber, onBack, onComplete }: QuizPlayerProps
             onClick={prevQuestion}
             disabled={currentQ === 0}
           >
-            <ArrowLeft className="h-3.5 w-3.5" />
+            <Icon name="arrow-left" className="h-3.5 w-3.5" />
             Previous
           </Button>
 
@@ -486,7 +473,7 @@ export function QuizPlayer({ moduleNumber, onBack, onComplete }: QuizPlayerProps
               disabled={currentQ === totalQuestions - 1}
             >
               Next
-              <ArrowRight className="h-3.5 w-3.5" />
+              <Icon name="arrow-right" className="h-3.5 w-3.5" />
             </Button>
           ) : (
             <Button
@@ -496,9 +483,9 @@ export function QuizPlayer({ moduleNumber, onBack, onComplete }: QuizPlayerProps
               disabled={!allAnswered || saving}
             >
               {saving ? (
-                <Spinner className="h-3.5 w-3.5 animate-spin" />
+                <Icon name="spinner" className="h-3.5 w-3.5 animate-spin" />
               ) : (
-                <CheckCircle className="h-3.5 w-3.5" />
+                <Icon name="check-circle" className="h-3.5 w-3.5" />
               )}
               {saving ? 'Grading...' : 'Submit Quiz'}
             </Button>
@@ -510,9 +497,9 @@ export function QuizPlayer({ moduleNumber, onBack, onComplete }: QuizPlayerProps
           <div className="flex justify-center pt-2">
             <Button size="sm" className="gap-2" onClick={handleSubmit} disabled={saving}>
               {saving ? (
-                <Spinner className="h-3.5 w-3.5 animate-spin" />
+                <Icon name="spinner" className="h-3.5 w-3.5 animate-spin" />
               ) : (
-                <CheckCircle className="h-3.5 w-3.5" />
+                <Icon name="check-circle" className="h-3.5 w-3.5" />
               )}
               {saving ? 'Grading...' : 'Submit Quiz Early'}
             </Button>
@@ -533,7 +520,7 @@ export function QuizPlayer({ moduleNumber, onBack, onComplete }: QuizPlayerProps
     return (
       <div className="space-y-6">
         <Button variant="ghost" size="sm" className="gap-2" onClick={onBack}>
-          <ArrowLeft className="h-4 w-4" />
+          <Icon name="arrow-left" className="h-4 w-4" />
           Back to Modules
         </Button>
 
@@ -549,7 +536,7 @@ export function QuizPlayer({ moduleNumber, onBack, onComplete }: QuizPlayerProps
                 style={{ borderColor: submitData.passed ? 'rgb(52 211 153 / 0.3)' : 'rgb(251 191 36 / 0.3)' }}
               >
                 {submitData.passed ? (
-                  <Trophy className="h-8 w-8 text-emerald-400" />
+                  <Icon name="trophy" className="h-8 w-8 text-emerald-400" />
                 ) : (
                   <Target className="h-8 w-8 text-amber-400" />
                 )}
@@ -571,7 +558,7 @@ export function QuizPlayer({ moduleNumber, onBack, onComplete }: QuizPlayerProps
                   transition={{ delay: 0.3 }}
                 >
                   <Badge className="gap-1 bg-amber-500/15 text-amber-400 border-amber-500/20 text-sm px-3 py-1">
-                    <Lightning className="h-4 w-4" />
+                    <Icon name="lightning" className="h-4 w-4" />
                     +{submitData.xpEarned} XP Earned!
                   </Badge>
                 </motion.div>
@@ -596,7 +583,7 @@ export function QuizPlayer({ moduleNumber, onBack, onComplete }: QuizPlayerProps
                 disabled={loadingMistakeAnalysis}
               >
                 {loadingMistakeAnalysis ? (
-                  <Spinner className="h-3.5 w-3.5 animate-spin" />
+                  <Icon name="spinner" className="h-3.5 w-3.5 animate-spin" />
                 ) : (
                   <HelpCircle className="h-3.5 w-3.5" />
                 )}
@@ -629,9 +616,9 @@ export function QuizPlayer({ moduleNumber, onBack, onComplete }: QuizPlayerProps
                   {/* Question header */}
                   <div className="flex items-start gap-2">
                     {gq.isCorrect ? (
-                      <CheckCircle className="h-4 w-4 text-emerald-400 mt-0.5 shrink-0" />
+                      <Icon name="check-circle" className="h-4 w-4 text-emerald-400 mt-0.5 shrink-0" />
                     ) : (
-                      <XCircle className="h-4 w-4 text-red-400 mt-0.5 shrink-0" />
+                      <Icon name="x-circle" className="h-4 w-4 text-red-400 mt-0.5 shrink-0" />
                     )}
                     <div className="flex-1">
                       <p className="text-sm font-medium leading-relaxed">{gq.question}</p>

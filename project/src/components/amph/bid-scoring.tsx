@@ -1,19 +1,8 @@
 'use client';
+import { Icon } from '@/components/icons';
 
 import { useEffect, useState, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import {
-  Trophy,
-  TrendUp,
-  TrendingDown,
-  CheckCircle,
-  AlertCircle,
-  XCircle,
-  ChevronDown,
-  ChevronUp,
-  ArrowRight,
-  Target,
-} from '@phosphor-icons/react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
@@ -245,7 +234,7 @@ export function BidScoring() {
         <Card className="border-amber-500/20 bg-gradient-to-br from-amber-500/5 via-card to-card">
           <CardContent className="py-8 flex flex-col items-center gap-4">
             <div className="flex items-center gap-2">
-              <Trophy className="h-5 w-5 text-amber-400" />
+              <Icon name="trophy" className="h-5 w-5 text-amber-400" />
               <h2 className="text-xl font-bold">Bidding Results</h2>
             </div>
             <ScoreCircle score={evaluation.score} />
@@ -308,7 +297,7 @@ export function BidScoring() {
           onClick={goToReview}
         >
           View Summary
-          <ArrowRight className="h-4 w-4" />
+          <Icon name="arrow-right" className="h-4 w-4" />
         </Button>
       </div>
     </div>

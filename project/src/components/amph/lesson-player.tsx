@@ -1,18 +1,10 @@
 'use client';
+import { Icon } from '@/components/icons';
 
 import { useState, useEffect, useCallback } from 'react';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import { motion, AnimatePresence } from 'framer-motion';
-import {
-  ArrowLeft,
-  ArrowRight,
-  BookOpen,
-  CheckCircle,
-  Clock,
-  Lightning,
-  Spinner,
-} from '@phosphor-icons/react';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
@@ -104,7 +96,7 @@ export function LessonPlayer({ moduleNumber, lessonOrder, onBack, onComplete }: 
   if (loading) {
     return (
       <div className="flex items-center justify-center py-20">
-        <Spinner className="h-6 w-6 animate-spin text-primary" />
+        <Icon name="spinner" className="h-6 w-6 animate-spin text-primary" />
         <span className="ml-2 text-sm text-muted-foreground">Loading lesson...</span>
       </div>
     );
@@ -126,16 +118,16 @@ export function LessonPlayer({ moduleNumber, lessonOrder, onBack, onComplete }: 
       {/* Top bar */}
       <div className="flex items-center justify-between">
         <Button variant="ghost" size="sm" className="gap-2" onClick={onBack}>
-          <ArrowLeft className="h-4 w-4" />
+          <Icon name="arrow-left" className="h-4 w-4" />
           Back to Modules
         </Button>
         <div className="flex items-center gap-3">
           <Badge variant="outline" className="gap-1 text-[10px]">
-            <Clock className="h-3 w-3" />
+            <Icon name="clock" className="h-3 w-3" />
             {meta.estimatedMinutes} min
           </Badge>
           <Badge variant="outline" className="gap-1 text-[10px] bg-primary/10 text-primary border-primary/20">
-            <Lightning className="h-3 w-3" />
+            <Icon name="lightning" className="h-3 w-3" />
             {meta.xpReward} XP
           </Badge>
         </div>
@@ -170,7 +162,7 @@ export function LessonPlayer({ moduleNumber, lessonOrder, onBack, onComplete }: 
                 )}
               >
                 <span className="flex items-center gap-1.5">
-                  {isDone && <CheckCircle className="h-3 w-3" />}
+                  {isDone && <Icon name="check-circle" className="h-3 w-3" />}
                   {lesson.lessonNumber}. {lesson.title.replace(/^.+:\s*/, '')}
                 </span>
               </button>
@@ -185,7 +177,7 @@ export function LessonPlayer({ moduleNumber, lessonOrder, onBack, onComplete }: 
           {/* Lesson header */}
           <div className="bg-muted/30 px-6 py-4 border-b border-border">
             <div className="flex items-center gap-2 mb-1">
-              <BookOpen className="h-4 w-4 text-primary" />
+              <Icon name="book-open" className="h-4 w-4 text-primary" />
               <span className="text-xs font-mono text-muted-foreground">
                 LESSON {meta.lessonNumber}
               </span>
@@ -212,7 +204,7 @@ export function LessonPlayer({ moduleNumber, lessonOrder, onBack, onComplete }: 
                   className="gap-1"
                   onClick={() => goToLesson(prevLesson.lessonNumber)}
                 >
-                  <ArrowLeft className="h-3.5 w-3.5" />
+                  <Icon name="arrow-left" className="h-3.5 w-3.5" />
                   Previous
                 </Button>
               ) : (
@@ -222,15 +214,15 @@ export function LessonPlayer({ moduleNumber, lessonOrder, onBack, onComplete }: 
             <div className="flex items-center gap-2">
               {completedLessons.has(currentOrder) ? (
                 <Badge className="gap-1 bg-emerald-500/15 text-emerald-400 border-emerald-500/20">
-                  <CheckCircle className="h-3.5 w-3.5" />
+                  <Icon name="check-circle" className="h-3.5 w-3.5" />
                   Completed
                 </Badge>
               ) : (
                 <Button size="sm" className="gap-2" onClick={handleComplete} disabled={saving}>
                   {saving ? (
-                    <Spinner className="h-3.5 w-3.5 animate-spin" />
+                    <Icon name="spinner" className="h-3.5 w-3.5 animate-spin" />
                   ) : (
-                    <CheckCircle className="h-3.5 w-3.5" />
+                    <Icon name="check-circle" className="h-3.5 w-3.5" />
                   )}
                   {saving ? 'Saving...' : 'Mark Complete'}
                 </Button>
@@ -243,7 +235,7 @@ export function LessonPlayer({ moduleNumber, lessonOrder, onBack, onComplete }: 
                   onClick={() => goToLesson(nextLesson.lessonNumber)}
                 >
                   Next
-                  <ArrowRight className="h-3.5 w-3.5" />
+                  <Icon name="arrow-right" className="h-3.5 w-3.5" />
                 </Button>
               ) : (
                 <Button size="sm" className="gap-2" onClick={onBack}>

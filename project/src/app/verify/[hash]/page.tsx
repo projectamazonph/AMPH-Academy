@@ -9,7 +9,7 @@
  * - Invalid hash → shows "Certificate not found" message
  */
 
-import { Medal, CheckCircle, XCircle, Warning } from '@phosphor-icons/react';
+import { Icon } from '@/components/icons';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { verifyCertificate } from '@/app/actions/certificate-lifecycle';
@@ -27,7 +27,7 @@ export default async function VerifyPage({ params }: Props) {
       <div className="min-h-screen flex items-center justify-center p-4 bg-gradient-to-b from-background to-card">
         <Card className="max-w-md w-full border-red-500/20 bg-red-500/5">
           <CardContent className="pt-8 text-center space-y-4">
-            <Warning className="h-12 w-12 text-red-400 mx-auto" />
+            <Icon name="warning" className="h-12 w-12 text-red-400 mx-auto" />
             <CardTitle>Verification Error</CardTitle>
             <p className="text-sm text-muted-foreground">{result.error}</p>
           </CardContent>
@@ -43,7 +43,7 @@ export default async function VerifyPage({ params }: Props) {
       <div className="min-h-screen flex items-center justify-center p-4 bg-gradient-to-b from-background to-card">
         <Card className="max-w-md w-full border-amber-500/20 bg-amber-500/5">
           <CardContent className="pt-8 text-center space-y-4">
-            <XCircle className="h-12 w-12 text-amber-400 mx-auto" />
+            <Icon name="x-circle" className="h-12 w-12 text-amber-400 mx-auto" />
             <CardTitle>Certificate Not Found</CardTitle>
             <p className="text-sm text-muted-foreground">
               No certificate matches the provided verification code.
@@ -64,11 +64,11 @@ export default async function VerifyPage({ params }: Props) {
           <div className="flex justify-center">
             {cert.valid ? (
               <div className="p-4 rounded-full bg-emerald-500/10 border border-emerald-500/20">
-                <CheckCircle className="h-12 w-12 text-emerald-400" />
+                <Icon name="check-circle" className="h-12 w-12 text-emerald-400" />
               </div>
             ) : (
               <div className="p-4 rounded-full bg-rose-500/10 border border-rose-500/20">
-                <XCircle className="h-12 w-12 text-rose-400" />
+                <Icon name="x-circle" className="h-12 w-12 text-rose-400" />
               </div>
             )}
           </div>

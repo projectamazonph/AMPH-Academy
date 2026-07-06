@@ -1,15 +1,9 @@
 'use client';
+import { Icon } from '@/components/icons';
 
 import { useState, useEffect, useRef } from 'react';
 import { motion, useInView, AnimatePresence } from 'framer-motion';
 import Link from 'next/link';
-import {
-  Lightning, BookOpen, Layout, TrendUp, Funnel,
-  CaretRight, Users, Target, Menu, X,
-  GraduationCap, BarChart, Medal, TriangleAlert,
-  TrendingDown, Clock, ArrowUpRight, Coins,
-  Sparkles, Rocket,
-} from '@phosphor-icons/react';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Card, CardContent } from '@/components/ui/card';
@@ -126,7 +120,7 @@ function Navbar() {
         <div className="flex items-center justify-between h-16">
           <Link href="/" className="flex items-center gap-2 group">
             <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-primary to-orange-400 flex items-center justify-center">
-              <Lightning className="h-4 w-4 text-black" />
+              <Icon name="lightning" className="h-4 w-4 text-black" />
             </div>
             <span className="font-semibold text-lg tracking-tight">AMPH</span>
           </Link>
@@ -149,7 +143,7 @@ function Navbar() {
             </Link>
             <Link href="/auth/signup">
               <Button size="sm" className="bg-primary hover:bg-primary/90 text-primary-foreground font-medium">
-                Start Now <CaretRight className="h-3.5 w-3.5 ml-1" />
+                Start Now <Icon name="caret-right" className="h-3.5 w-3.5 ml-1" />
               </Button>
             </Link>
           </div>
@@ -158,7 +152,7 @@ function Navbar() {
             onClick={() => setMobileOpen(!mobileOpen)}
             className="md:hidden p-2 text-muted-foreground hover:text-foreground"
           >
-            {mobileOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+            {mobileOpen ? <Icon name="x" className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
           </button>
         </div>
       </div>
@@ -688,7 +682,7 @@ function PricingSection() {
                   <ul className="space-y-2.5">
                     {plan.features.map((f) => (
                       <li key={f} className="flex items-start gap-2 text-sm text-muted-foreground">
-                        <Lightning className="h-3.5 w-3.5 text-primary mt-0.5 shrink-0" />
+                        <Icon name="lightning" className="h-3.5 w-3.5 text-primary mt-0.5 shrink-0" />
                         {f}
                       </li>
                     ))}
@@ -763,7 +757,7 @@ function Footer() {
         <div className="flex flex-col md:flex-row items-center justify-between gap-4">
           <div className="flex items-center gap-2">
             <div className="w-6 h-6 rounded-lg bg-gradient-to-br from-primary to-orange-400 flex items-center justify-center">
-              <Lightning className="h-3 w-3 text-black" />
+              <Icon name="lightning" className="h-3 w-3 text-black" />
             </div>
             <span className="text-sm font-semibold">ProjectAMPH Academy</span>
           </div>

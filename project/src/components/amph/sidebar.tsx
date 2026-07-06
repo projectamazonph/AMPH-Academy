@@ -1,23 +1,7 @@
 'use client';
+import { Icon } from '@/components/icons';
 
 import { motion, AnimatePresence } from 'framer-motion';
-import {
-  LayoutDashboard,
-  BookOpen,
-  FlaskConical,
-  Menu,
-  X,
-  CaretLeft,
-  Lightning,
-  Trophy,
-  Users,
-  BarChart,
-  Medal,
-  LogOut,
-  MessageSquare,
-  Video,
-  FileText,
-} from '@phosphor-icons/react';
 import { Button } from '@/components/ui/button';
 import { Separator } from '@/components/ui/separator';
 import { Avatar, AvatarFallback } from '@/components/ui/avatar';
@@ -73,7 +57,7 @@ export function Sidebar({
         onClick={() => setMobileOpen(!mobileOpen)}
         aria-label="Toggle navigation"
       >
-        {mobileOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+        {mobileOpen ? <Icon name="x" className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
       </Button>
 
       {/* Mobile overlay */}
@@ -112,7 +96,7 @@ export function Sidebar({
         {/* Logo area */}
         <div className="flex items-center gap-3 p-4 pb-2">
           <div className="flex items-center justify-center w-9 h-9 rounded-xl bg-primary/15 border border-primary/20 shrink-0">
-            <Lightning className="h-5 w-5 text-primary" />
+            <Icon name="lightning" className="h-5 w-5 text-primary" />
           </div>
           {!collapsed && (
             <motion.div
@@ -180,7 +164,7 @@ export function Sidebar({
             onClick={() => setCollapsed(!collapsed)}
             aria-label={collapsed ? 'Expand sidebar' : 'Collapse sidebar'}
           >
-            <CaretLeft
+            <Icon name="caret-left"
               className={cn(
                 'h-4 w-4 transition-transform',
                 collapsed && 'rotate-180'

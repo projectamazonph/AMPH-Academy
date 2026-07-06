@@ -1,17 +1,8 @@
 'use client';
+import { Icon } from '@/components/icons';
 
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import {
-  BarChart,
-  Clock,
-  BookOpen,
-  Brain,
-  Target,
-  Spinner,
-  TrendUp,
-  Pulse,
-} from '@phosphor-icons/react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { cn } from '@/lib/utils';
@@ -42,7 +33,7 @@ export function AnalyticsDashboard() {
     <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="space-y-6">
       <div className="flex items-center gap-3">
         <div className="p-2 rounded-xl bg-blue-500/10 border border-blue-500/20">
-          <BarChart className="h-5 w-5 text-blue-400" />
+          <Icon name="bar-chart" className="h-5 w-5 text-blue-400" />
         </div>
         <div>
           <h2 className="text-2xl font-bold">Your Analytics</h2>
@@ -52,7 +43,7 @@ export function AnalyticsDashboard() {
 
       {loading ? (
         <div className="flex items-center justify-center py-20">
-          <Spinner className="h-5 w-5 animate-spin text-muted-foreground" />
+          <Icon name="spinner" className="h-5 w-5 animate-spin text-muted-foreground" />
         </div>
       ) : !data ? (
         <Card><CardContent className="py-12 text-center text-muted-foreground">No data yet. Start learning!</CardContent></Card>
@@ -106,7 +97,7 @@ export function AnalyticsDashboard() {
           <Card>
             <CardHeader className="pb-2">
               <CardTitle className="text-sm font-medium flex items-center gap-2">
-                <Pulse className="h-4 w-4 text-primary" /> Pulse Breakdown
+                <Icon name="pulse" className="h-4 w-4 text-primary" /> Pulse Breakdown
               </CardTitle>
             </CardHeader>
             <CardContent>
@@ -129,7 +120,7 @@ export function AnalyticsDashboard() {
           <Card>
             <CardHeader className="pb-2">
               <CardTitle className="text-sm font-medium flex items-center gap-2">
-                <TrendUp className="h-4 w-4 text-emerald-400" /> Recent Pulse
+                <Icon name="trend-up" className="h-4 w-4 text-emerald-400" /> Recent Pulse
               </CardTitle>
             </CardHeader>
             <CardContent>

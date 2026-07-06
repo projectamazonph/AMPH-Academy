@@ -1,18 +1,8 @@
 'use client';
+import { Icon } from '@/components/icons';
 
 import { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import {
-  MessageSquare,
-  Send,
-  Bot,
-  User,
-  Spinner,
-  Trash2,
-  CaretLeft,
-  CaretRight,
-  Sparkles,
-} from '@phosphor-icons/react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { ScrollArea } from '@/components/ui/scroll-area';
@@ -128,7 +118,7 @@ export function MentorChat() {
               <CardHeader className="p-4 pb-2 flex flex-row items-center justify-between">
                 <CardTitle className="text-sm font-semibold">Chats</CardTitle>
                 <Button variant="ghost" size="icon" className="h-6 w-6" onClick={() => setShowSidebar(false)}>
-                  <CaretLeft className="h-3.5 w-3.5" />
+                  <Icon name="caret-left" className="h-3.5 w-3.5" />
                 </Button>
               </CardHeader>
               <CardContent className="p-2">
@@ -182,7 +172,7 @@ export function MentorChat() {
           onClick={() => setShowSidebar(true)}
           className="shrink-0 p-2 h-fit mt-2 rounded-lg border border-border/40 hover:bg-muted/50 transition-colors"
         >
-          <CaretRight className="h-4 w-4 text-muted-foreground" />
+          <Icon name="caret-right" className="h-4 w-4 text-muted-foreground" />
         </button>
       )}
 
@@ -261,7 +251,7 @@ export function MentorChat() {
                   {msg.role === 'USER' && (
                     <Avatar className="h-8 w-8 shrink-0">
                       <AvatarFallback className="bg-muted text-muted-foreground text-xs">
-                        <User className="h-4 w-4" />
+                        <Icon name="user" className="h-4 w-4" />
                       </AvatarFallback>
                     </Avatar>
                   )}
@@ -290,7 +280,7 @@ export function MentorChat() {
               className="shrink-0 h-11 w-11"
             >
               {sending ? (
-                <Spinner className="h-4 w-4 animate-spin" />
+                <Icon name="spinner" className="h-4 w-4 animate-spin" />
               ) : (
                 <Send className="h-4 w-4" />
               )}

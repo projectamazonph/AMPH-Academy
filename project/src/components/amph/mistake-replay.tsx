@@ -1,4 +1,5 @@
 'use client';
+import { Icon } from '@/components/icons';
 
 /**
  * ProjectAMPH Academy: "Explain My Mistake" Replay Panel
@@ -9,18 +10,6 @@
 
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import {
-  X,
-  CheckCircle,
-  XCircle,
-  Warning,
-  BookOpen,
-  Lightbulb,
-  TrendUp,
-  ArrowRight,
-  BarChart,
-  Brain,
-} from '@phosphor-icons/react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
@@ -87,7 +76,7 @@ export function MistakeReplay({ analysis, onClose }: MistakeReplayProps) {
             <p className="text-sm text-muted-foreground">{analysis.title}</p>
           </div>
           <Button variant="ghost" size="icon" onClick={onClose}>
-            <X className="h-5 w-5" />
+            <Icon name="x" className="h-5 w-5" />
           </Button>
         </div>
 
@@ -122,7 +111,7 @@ export function MistakeReplay({ analysis, onClose }: MistakeReplayProps) {
             {analysis.weakAreas.length > 0 && (
               <div>
                 <h3 className="text-sm font-medium text-muted-foreground mb-3 flex items-center gap-2">
-                  <Warning className="h-4 w-4 text-amber-400" />
+                  <Icon name="warning" className="h-4 w-4 text-amber-400" />
                   Areas to Improve
                 </h3>
                 <div className="flex flex-wrap gap-2">
@@ -139,7 +128,7 @@ export function MistakeReplay({ analysis, onClose }: MistakeReplayProps) {
             {analysis.recommendedModules.length > 0 && (
               <div>
                 <h3 className="text-sm font-medium text-muted-foreground mb-3 flex items-center gap-2">
-                  <BookOpen className="h-4 w-4 text-blue-400" />
+                  <Icon name="book-open" className="h-4 w-4 text-blue-400" />
                   Recommended Review
                 </h3>
                 <div className="space-y-2">
@@ -148,7 +137,7 @@ export function MistakeReplay({ analysis, onClose }: MistakeReplayProps) {
                       key={mod.moduleNumber}
                       className="flex items-start gap-3 p-3 rounded-lg bg-blue-500/5 border border-blue-500/10"
                     >
-                      <BookOpen className="h-4 w-4 text-blue-400 mt-0.5 shrink-0" />
+                      <Icon name="book-open" className="h-4 w-4 text-blue-400 mt-0.5 shrink-0" />
                       <div>
                         <p className="text-sm font-medium">Module {mod.moduleNumber}</p>
                         <p className="text-xs text-muted-foreground">{mod.reason}</p>
@@ -184,9 +173,9 @@ export function MistakeReplay({ analysis, onClose }: MistakeReplayProps) {
                       <div className="flex items-start justify-between gap-3">
                         <div className="flex items-start gap-3 min-w-0">
                           {qa.isCorrect ? (
-                            <CheckCircle className="h-5 w-5 text-emerald-400 shrink-0 mt-0.5" />
+                            <Icon name="check-circle" className="h-5 w-5 text-emerald-400 shrink-0 mt-0.5" />
                           ) : (
-                            <XCircle className="h-5 w-5 text-rose-400 shrink-0 mt-0.5" />
+                            <Icon name="x-circle" className="h-5 w-5 text-rose-400 shrink-0 mt-0.5" />
                           )}
                           <div className="min-w-0">
                             <p className="text-sm font-medium truncate">{qa.questionText}</p>
@@ -196,7 +185,7 @@ export function MistakeReplay({ analysis, onClose }: MistakeReplayProps) {
                               </span>
                               {!qa.isCorrect && (
                                 <>
-                                  <ArrowRight className="h-3 w-3 text-muted-foreground" />
+                                  <Icon name="arrow-right" className="h-3 w-3 text-muted-foreground" />
                                   <span className="text-xs text-emerald-400">
                                     Correct: {qa.correctLabel}
                                   </span>

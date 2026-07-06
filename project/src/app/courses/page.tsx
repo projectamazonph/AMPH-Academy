@@ -1,6 +1,6 @@
+import { Icon } from '@/components/icons';
 import { getCourses } from "@/modules/courses/_actions";
 import { CourseCard } from "@/modules/courses/_components/CourseCard";
-import { BookOpen, Sparkle } from '@phosphor-icons/react';
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -24,7 +24,7 @@ export default async function CoursesPage() {
         {/* Header */}
         <div className="text-center mb-12">
           <div className="inline-flex items-center justify-center w-12 h-12 rounded-2xl bg-gradient-to-br from-primary/20 to-primary/5 border border-primary/20 mb-4">
-            <BookOpen className="h-6 w-6 text-primary" />
+            <Icon name="book-open" className="h-6 w-6 text-primary" />
           </div>
           <h1 className="text-4xl font-bold tracking-tight mb-3">
             Course Catalog
@@ -45,7 +45,7 @@ export default async function CoursesPage() {
         ) : (
           <div className="text-center py-32">
             <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-muted mb-4">
-              <Sparkle className="h-8 w-8 text-muted-foreground" />
+              <Icon name="sparkle" className="h-8 w-8 text-muted-foreground" />
             </div>
             <h2 className="text-xl font-semibold mb-2">Courses Coming Soon</h2>
             <p className="text-muted-foreground">

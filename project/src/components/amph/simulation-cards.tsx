@@ -1,15 +1,7 @@
 'use client';
+import { Icon } from '@/components/icons';
 
 import { motion } from 'framer-motion';
-import {
-  Cursor,
-  ArrowUpRight,
-  Funnel,
-  Lock,
-  Play,
-  CheckCircle,
-  type Icon,
-} from '@phosphor-icons/react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
@@ -189,17 +181,17 @@ function SimulationCard({
                 disabled
                 className="gap-2 text-xs"
               >
-                <Lock className="h-3 w-3" />
+                <Icon name="lock" className="h-3 w-3" />
                 Complete Module {simulation.moduleRef} First
               </Button>
             ) : isComplete ? (
               <Button size="sm" className="gap-2 text-xs bg-emerald-600 hover:bg-emerald-700 text-white">
-                <CheckCircle className="h-3 w-3" />
+                <Icon name="check-circle" className="h-3 w-3" />
                 Ready to Launch
               </Button>
             ) : (
               <Button size="sm" className="gap-2 text-xs">
-                <Play className="h-3 w-3" />
+                <Icon name="play" className="h-3 w-3" />
                 Launch Simulation
               </Button>
             )}

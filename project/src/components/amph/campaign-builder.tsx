@@ -1,7 +1,7 @@
 'use client';
+import { Icon } from '@/components/icons';
 
 import { AnimatePresence, motion } from 'framer-motion';
-import { ArrowLeft, Layout } from '@phosphor-icons/react';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { useCampaignBuilderStore } from '@/stores/campaign-builder-store';
@@ -35,11 +35,11 @@ export function CampaignBuilder({ onBack }: CampaignBuilderProps) {
             onClick={handleBack}
             aria-label="Back to Simulations"
           >
-            <ArrowLeft className="h-4 w-4" />
+            <Icon name="arrow-left" className="h-4 w-4" />
           </Button>
           <div className="flex items-center gap-2">
             <div className="p-1.5 rounded-lg bg-emerald-500/15 border border-emerald-500/25">
-              <Layout className="h-4 w-4 text-emerald-400" />
+              <Icon name="layout" className="h-4 w-4 text-emerald-400" />
             </div>
             <h2 className="text-lg font-bold tracking-tight">Campaign Builder</h2>
           </div>

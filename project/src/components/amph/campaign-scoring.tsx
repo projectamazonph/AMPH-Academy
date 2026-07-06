@@ -1,17 +1,8 @@
 'use client';
+import { Icon } from '@/components/icons';
 
 import { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import {
-  Trophy,
-  CheckCircle,
-  XCircle,
-  ChevronDown,
-  ChevronUp,
-  ArrowRight,
-  Target,
-  BarChart,
-} from '@phosphor-icons/react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
@@ -136,9 +127,9 @@ function CriterionCard({ result, index }: { result: CriterionResult; index: numb
       <div className={cn('rounded-lg border p-3', scoreBg)}>
         <div className="flex items-center gap-3">
           {result.passed ? (
-            <CheckCircle className="h-4 w-4 text-emerald-400 shrink-0" />
+            <Icon name="check-circle" className="h-4 w-4 text-emerald-400 shrink-0" />
           ) : (
-            <XCircle className="h-4 w-4 text-rose-400 shrink-0" />
+            <Icon name="x-circle" className="h-4 w-4 text-rose-400 shrink-0" />
           )}
           <div className="flex-1 min-w-0">
             <p className="text-sm font-semibold">{result.criterionId}</p>
@@ -237,7 +228,7 @@ export function CampaignScoring() {
         <Card className="border-emerald-500/20 bg-gradient-to-br from-emerald-500/5 via-card to-card">
           <CardContent className="py-8 flex flex-col items-center gap-4">
             <div className="flex items-center gap-2">
-              <Trophy className="h-5 w-5 text-emerald-400" />
+              <Icon name="trophy" className="h-5 w-5 text-emerald-400" />
               <h2 className="text-xl font-bold">Campaign Results</h2>
             </div>
             <ScoreCircle score={totalScore} />
@@ -294,7 +285,7 @@ export function CampaignScoring() {
         <Card>
           <CardHeader className="pb-3">
             <CardTitle className="text-base font-semibold flex items-center gap-2">
-              <BarChart className="h-4 w-4 text-teal-400" />
+              <Icon name="bar-chart" className="h-4 w-4 text-teal-400" />
               Projected Metrics
             </CardTitle>
           </CardHeader>
@@ -347,7 +338,7 @@ export function CampaignScoring() {
           onClick={goToReview}
         >
           View Summary
-          <ArrowRight className="h-4 w-4" />
+          <Icon name="arrow-right" className="h-4 w-4" />
         </Button>
       </div>
     </div>

@@ -1,4 +1,5 @@
 'use client';
+import { Icon } from '@/components/icons';
 
 /**
  * ProjectAMPH Academy: Sign-In Page
@@ -11,7 +12,6 @@
 import { Suspense, useState } from 'react';
 import { signIn } from 'next-auth/react';
 import { useSearchParams } from 'next/navigation';
-import { Lightning, Mail, Lock, ArrowRight, Spinner } from '@phosphor-icons/react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 
@@ -72,7 +72,7 @@ function SignInForm() {
         {/* Logo & branding */}
         <div className="text-center space-y-3">
           <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-gradient-to-br from-primary/20 to-primary/5 border border-primary/20 shadow-[0_0_30px_rgba(100,255,150,0.1)]">
-            <Lightning className="h-7 w-7 text-primary" />
+            <Icon name="lightning" className="h-7 w-7 text-primary" />
           </div>
           <h1 className="text-3xl font-bold tracking-tight">Welcome to AMPH Academy</h1>
           <p className="text-sm text-muted-foreground">
@@ -95,7 +95,7 @@ function SignInForm() {
                   Email
                 </label>
                 <div className="relative">
-                  <Mail className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
+                  <Icon name="mail" className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
                   <input
                     id="email"
                     type="email"
@@ -113,7 +113,7 @@ function SignInForm() {
                   Password
                 </label>
                 <div className="relative">
-                  <Lock className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
+                  <Icon name="lock" className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
                   <input
                     id="password"
                     type="password"
@@ -132,9 +132,9 @@ function SignInForm() {
                 disabled={loading || !email.trim() || !password}
               >
                 {loading ? (
-                  <Spinner className="h-4 w-4 animate-spin" />
+                  <Icon name="spinner" className="h-4 w-4 animate-spin" />
                 ) : (
-                  <ArrowRight className="h-4 w-4" />
+                  <Icon name="arrow-right" className="h-4 w-4" />
                 )}
                 {loading ? 'Signing in...' : 'Sign In'}
               </Button>
@@ -167,7 +167,7 @@ export default function SignInPage() {
     <Suspense
       fallback={
         <div className="min-h-screen flex items-center justify-center bg-background">
-          <Spinner className="h-8 w-8 animate-spin text-primary" />
+          <Icon name="spinner" className="h-8 w-8 animate-spin text-primary" />
         </div>
       }
     >

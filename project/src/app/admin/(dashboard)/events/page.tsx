@@ -1,8 +1,8 @@
 'use client';
+import { Icon } from '@/components/icons';
 
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { Pulse, Spinner, MagnifyingGlass, CaretLeft, CaretRight, Funnel } from '@phosphor-icons/react';
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Input } from '@/components/ui/input';
@@ -50,7 +50,7 @@ export default function AdminEventsPage() {
     <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="space-y-6">
       <div className="flex items-center gap-3">
         <div className="p-2 rounded-xl bg-indigo-500/10 border border-indigo-500/20">
-          <Pulse className="h-5 w-5 text-indigo-400" />
+          <Icon name="pulse" className="h-5 w-5 text-indigo-400" />
         </div>
         <div>
           <h1 className="text-2xl font-bold">Event Log</h1>
@@ -79,10 +79,10 @@ export default function AdminEventsPage() {
       {/* Event list */}
       <Card className="border-border/40 bg-card/40">
         {loading ? (
-          <div className="flex justify-center py-16"><Spinner className="h-5 w-5 animate-spin text-muted-foreground" /></div>
+          <div className="flex justify-center py-16"><Icon name="spinner" className="h-5 w-5 animate-spin text-muted-foreground" /></div>
         ) : paged.length === 0 ? (
           <CardContent className="py-16 text-center text-muted-foreground">
-            <Pulse className="h-8 w-8 mx-auto mb-3 opacity-50" />
+            <Icon name="pulse" className="h-8 w-8 mx-auto mb-3 opacity-50" />
             No events found.
           </CardContent>
         ) : (
@@ -107,10 +107,10 @@ export default function AdminEventsPage() {
           <span>Page {page + 1} of {totalPages}</span>
           <div className="flex gap-2">
             <Button variant="outline" size="sm" onClick={() => setPage(p => Math.max(0, p - 1))} disabled={page === 0}>
-              <CaretLeft className="h-4 w-4" />
+              <Icon name="caret-left" className="h-4 w-4" />
             </Button>
             <Button variant="outline" size="sm" onClick={() => setPage(p => Math.min(totalPages - 1, p + 1))} disabled={page >= totalPages - 1}>
-              <CaretRight className="h-4 w-4" />
+              <Icon name="caret-right" className="h-4 w-4" />
             </Button>
           </div>
         </div>

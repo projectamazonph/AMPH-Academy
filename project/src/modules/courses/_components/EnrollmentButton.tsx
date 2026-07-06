@@ -1,8 +1,8 @@
 "use client";
+import { Icon } from '@/components/icons';
 
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import { Spinner, CheckCircle, GraduationCap } from '@phosphor-icons/react';
 import { enrollCourse } from "../_actions";
 import type { EnrollmentStatus } from "../_types";
 
@@ -28,7 +28,7 @@ export function EnrollmentButton({
   if (status === "COMPLETED") {
     return (
       <div className="flex items-center gap-2 text-emerald-400 text-sm font-medium">
-        <CheckCircle className="h-4 w-4" />
+        <Icon name="check-circle" className="h-4 w-4" />
         Completed
       </div>
     );
@@ -37,7 +37,7 @@ export function EnrollmentButton({
   if (status === "ACTIVE") {
     return (
       <Button className="gap-2">
-        <GraduationCap className="h-4 w-4" />
+        <Icon name="graduation-cap" className="h-4 w-4" />
         Continue Learning
       </Button>
     );
@@ -46,9 +46,9 @@ export function EnrollmentButton({
   return (
     <Button onClick={handleEnroll} disabled={loading} className="gap-2">
       {loading ? (
-        <Spinner className="h-4 w-4 animate-spin" />
+        <Icon name="spinner" className="h-4 w-4 animate-spin" />
       ) : (
-        <GraduationCap className="h-4 w-4" />
+        <Icon name="graduation-cap" className="h-4 w-4" />
       )}
       {loading ? "Enrolling..." : "Enroll Now"}
     </Button>

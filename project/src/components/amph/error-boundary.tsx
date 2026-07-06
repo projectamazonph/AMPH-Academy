@@ -1,4 +1,5 @@
 'use client';
+import { Icon } from '@/components/icons';
 
 /**
  * ProjectAMPH Academy: Error Boundary
@@ -12,7 +13,6 @@
  */
 
 import React from 'react';
-import { Warning, ArrowClockwise } from '@phosphor-icons/react';
 
 interface ErrorBoundaryProps {
   children: React.ReactNode;
@@ -58,7 +58,7 @@ export class ErrorBoundary extends React.Component<ErrorBoundaryProps, ErrorBoun
       return (
         <div className="flex flex-col items-center justify-center min-h-[300px] p-8 text-center">
           <div className="w-16 h-16 rounded-full bg-red-500/10 flex items-center justify-center mb-4">
-            <Warning className="w-8 h-8 text-red-500" />
+            <Icon name="warning" className="w-8 h-8 text-red-500" />
           </div>
           <h2 className="text-xl font-semibold text-white mb-2">
             Something went wrong
@@ -76,7 +76,7 @@ export class ErrorBoundary extends React.Component<ErrorBoundaryProps, ErrorBoun
             onClick={this.handleReset}
             className="inline-flex items-center gap-2 px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg transition-colors"
           >
-            <ArrowClockwise className="w-4 h-4" />
+            <Icon name="arrow-clockwise" className="w-4 h-4" />
             Try Again
           </button>
         </div>

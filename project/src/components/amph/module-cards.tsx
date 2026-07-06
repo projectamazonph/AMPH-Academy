@@ -1,18 +1,6 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import {
-  Rocket,
-  BookOpen,
-  Layout,
-  TrendUp,
-  Funnel,
-  Lock,
-  CheckCircle,
-  Play,
-  Circle,
-  type Icon,
-} from '@phosphor-icons/react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Progress } from '@/components/ui/progress';

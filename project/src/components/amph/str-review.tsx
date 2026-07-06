@@ -1,15 +1,7 @@
 'use client';
+import { Icon } from '@/components/icons';
 
 import { motion } from 'framer-motion';
-import {
-  Trophy,
-  Target,
-  Lightning,
-  RotateCcw,
-  ArrowLeft,
-  TrendUp,
-  CheckCircle,
-} from '@phosphor-icons/react';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { useStrTriageStore } from '@/stores/str-triage-store';
@@ -57,7 +49,7 @@ export function StrReview({ onBack }: { onBack: () => void }) {
 
           <CardContent className="relative py-8 flex flex-col items-center gap-6">
             <div className="flex items-center gap-2">
-              <Trophy className="h-6 w-6 text-rose-400" />
+              <Icon name="trophy" className="h-6 w-6 text-rose-400" />
               <h2 className="text-2xl font-bold">Simulation Complete</h2>
             </div>
 
@@ -73,7 +65,7 @@ export function StrReview({ onBack }: { onBack: () => void }) {
 
             {/* XP badge */}
             <div className="flex items-center gap-2 px-4 py-2 rounded-full bg-amber-500/10 border border-amber-500/20">
-              <Lightning className="h-4 w-4 text-amber-400" />
+              <Icon name="lightning" className="h-4 w-4 text-amber-400" />
               <span className="text-lg font-bold font-mono text-amber-400">
                 +{xpEarned}
               </span>
@@ -100,7 +92,7 @@ export function StrReview({ onBack }: { onBack: () => void }) {
 
         <Card>
           <CardContent className="py-4 flex flex-col items-center gap-1">
-            <CheckCircle className="h-4 w-4 text-emerald-400 mb-1" />
+            <Icon name="check-circle" className="h-4 w-4 text-emerald-400 mb-1" />
             <p className="text-2xl font-bold font-mono">
               {correctCount}/{totalTerms}
             </p>
@@ -110,7 +102,7 @@ export function StrReview({ onBack }: { onBack: () => void }) {
 
         <Card>
           <CardContent className="py-4 flex flex-col items-center gap-1">
-            <TrendUp className="h-4 w-4 text-sky-400 mb-1" />
+            <Icon name="trend-up" className="h-4 w-4 text-sky-400 mb-1" />
             <p className="text-2xl font-bold font-mono text-emerald-400">
               {acosImprovement}%
             </p>
@@ -120,7 +112,7 @@ export function StrReview({ onBack }: { onBack: () => void }) {
 
         <Card>
           <CardContent className="py-4 flex flex-col items-center gap-1">
-            <Lightning className="h-4 w-4 text-amber-400 mb-1" />
+            <Icon name="lightning" className="h-4 w-4 text-amber-400 mb-1" />
             <p className="text-2xl font-bold font-mono text-amber-400">
               {xpEarned}
             </p>
@@ -142,7 +134,7 @@ export function StrReview({ onBack }: { onBack: () => void }) {
           className="flex-1 gap-2"
           onClick={onBack}
         >
-          <ArrowLeft className="h-4 w-4" />
+          <Icon name="arrow-left" className="h-4 w-4" />
           Back to Simulations
         </Button>
         <Button

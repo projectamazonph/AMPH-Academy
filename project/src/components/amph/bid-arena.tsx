@@ -1,20 +1,8 @@
 'use client';
+import { Icon } from '@/components/icons';
 
 import { useState, useEffect, useRef, useCallback, useMemo } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import {
-  TrendUp,
-  Clock,
-  Trophy,
-  CaretRight,
-  CaretLeft,
-  ArrowUpRight,
-  ArrowDownRight,
-  Minus,
-  BarChart,
-  Lightning,
-  Warning,
-} from '@phosphor-icons/react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
@@ -247,7 +235,7 @@ function ScenarioCard() {
 
           {/* Max profitable CPC hint */}
           <div className="flex items-center gap-2 text-xs text-muted-foreground bg-amber-500/5 p-3 rounded-lg border border-amber-500/15">
-            <Warning className="h-4 w-4 text-amber-400 shrink-0" />
+            <Icon name="warning" className="h-4 w-4 text-amber-400 shrink-0" />
             <span>
               At {((cvr * 100).toFixed(1))}% CVR, your max profitable CPC = ${maxProfitableCpc.toFixed(2)}.
               {currentAcos > thresholds.acosTarget
@@ -260,7 +248,7 @@ function ScenarioCard() {
           <Card className="border-amber-500/15">
             <CardHeader className="pb-3">
               <CardTitle className="text-base font-semibold flex items-center gap-2">
-                <BarChart className="h-4 w-4 text-amber-400" />
+                <Icon name="bar-chart" className="h-4 w-4 text-amber-400" />
                 Set Your Bid
               </CardTitle>
             </CardHeader>
@@ -319,13 +307,13 @@ function ScenarioCard() {
                 >
                   {submitted ? (
                     <>
-                      <Lightning className="h-4 w-4" />
+                      <Icon name="lightning" className="h-4 w-4" />
                       Submitted
                     </>
                   ) : (
                     <>
                       Submit Bid
-                      <CaretRight className="h-4 w-4" />
+                      <Icon name="caret-right" className="h-4 w-4" />
                     </>
                   )}
                 </Button>
@@ -426,14 +414,14 @@ export function BidArena() {
         <div className="flex-1 min-w-0">
           <div className="flex items-center gap-3 text-sm">
             <div className="flex items-center gap-1.5">
-              <TrendUp className="h-4 w-4 text-amber-400" />
+              <Icon name="trend-up" className="h-4 w-4 text-amber-400" />
               <span className="font-mono">
                 {currentScenarioIndex + 1}/{totalScenarios}
               </span>
               <span className="text-muted-foreground text-xs">scenario</span>
             </div>
             <div className="flex items-center gap-1.5">
-              <Clock className="h-4 w-4 text-amber-400" />
+              <Icon name="clock" className="h-4 w-4 text-amber-400" />
               <span className="font-mono">{timeStr}</span>
             </div>
           </div>
@@ -445,7 +433,7 @@ export function BidArena() {
 
         {/* Preview score */}
         <div className="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-amber-500/10 border border-amber-500/20">
-          <Trophy className="h-4 w-4 text-amber-400" />
+          <Icon name="trophy" className="h-4 w-4 text-amber-400" />
           <span className="text-xs text-muted-foreground">Preview</span>
           <span className="text-lg font-bold font-mono text-amber-400">
             {previewScore}

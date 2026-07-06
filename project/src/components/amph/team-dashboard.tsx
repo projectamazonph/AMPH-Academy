@@ -1,4 +1,5 @@
 'use client';
+import { Icon } from '@/components/icons';
 
 /**
  * ProjectAMPH Academy: Team Dashboard
@@ -9,21 +10,6 @@
 
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import {
-  Users,
-  Plus,
-  Mail,
-  X,
-  Medal,
-  TrendUp,
-  Flame,
-  CheckCircle,
-  Spinner,
-  BarChart,
-  BookOpen,
-  UserPlus,
-  Building2,
-} from '@phosphor-icons/react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
@@ -112,7 +98,7 @@ export function TeamDashboard() {
   if (loading) {
     return (
       <div className="flex items-center justify-center py-16">
-        <Spinner className="h-6 w-6 animate-spin text-muted-foreground" />
+        <Icon name="spinner" className="h-6 w-6 animate-spin text-muted-foreground" />
       </div>
     );
   }
@@ -161,7 +147,7 @@ export function TeamDashboard() {
                       onChange={(e) => setOrgName(e.target.value)}
                     />
                     <Button onClick={handleCreateOrg} disabled={creating || !orgName.trim()}>
-                      {creating ? <Spinner className="h-4 w-4 animate-spin" /> : 'Create'}
+                      {creating ? <Icon name="spinner" className="h-4 w-4 animate-spin" /> : 'Create'}
                     </Button>
                   </div>
                   {error && <p className="text-xs text-red-400">{error}</p>}
@@ -224,7 +210,7 @@ export function TeamDashboard() {
                     type="email"
                   />
                   <Button onClick={handleInvite} disabled={inviting || !inviteEmail.trim()} size="sm">
-                    {inviting ? <Spinner className="h-4 w-4 animate-spin" /> : 'Invite'}
+                    {inviting ? <Icon name="spinner" className="h-4 w-4 animate-spin" /> : 'Invite'}
                   </Button>
                 </div>
                 {error && <p className="text-xs text-red-400">{error}</p>}
@@ -291,11 +277,11 @@ export function TeamDashboard() {
                       </div>
                       <div className="flex items-center gap-4 mt-2 text-xs text-muted-foreground">
                         <span className="flex items-center gap-1">
-                          <BookOpen className="h-3 w-3" />
+                          <Icon name="book-open" className="h-3 w-3" />
                           {member.modulesCompleted}/{member.totalModules} modules
                         </span>
                         <span className="flex items-center gap-1">
-                          <TrendUp className="h-3 w-3" />
+                          <Icon name="trend-up" className="h-3 w-3" />
                           {member.xp.toLocaleString()} XP
                         </span>
                         <span className="flex items-center gap-1">
@@ -304,7 +290,7 @@ export function TeamDashboard() {
                         </span>
                         {member.certStatus === 'active' && (
                           <span className="flex items-center gap-1 text-emerald-400">
-                            <Medal className="h-3 w-3" />
+                            <Icon name="medal" className="h-3 w-3" />
                             Certified
                           </span>
                         )}

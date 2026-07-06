@@ -1,11 +1,8 @@
 'use client';
+import { Icon } from '@/components/icons';
 
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import {
-  Users, BookOpen, Target, Trophy, Pulse, TrendUp,
-  Clock, Spinner, Shield,
-} from '@phosphor-icons/react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Progress } from '@/components/ui/progress';
@@ -38,7 +35,7 @@ function StatCard({ label, value, icon: Icon, color, bg, suffix }: {
 function LoadingSkeleton() {
   return (
     <div className="flex items-center justify-center py-32">
-      <Spinner className="h-6 w-6 animate-spin text-muted-foreground" />
+      <Icon name="spinner" className="h-6 w-6 animate-spin text-muted-foreground" />
     </div>
   );
 }
@@ -61,7 +58,7 @@ export default function AdminDashboardPage() {
       {/* Header */}
       <div className="flex items-center gap-3">
         <div className="p-2 rounded-xl bg-rose-500/10 border border-rose-500/20">
-          <Shield className="h-5 w-5 text-rose-400" />
+          <Icon name="shield" className="h-5 w-5 text-rose-400" />
         </div>
         <div>
           <h1 className="text-2xl font-bold">Admin Dashboard</h1>
@@ -98,7 +95,7 @@ export default function AdminDashboardPage() {
         <Card className="border-border/40 bg-card/40">
           <CardHeader>
             <CardTitle className="text-base flex items-center gap-2">
-              <BookOpen className="h-4 w-4 text-muted-foreground" />
+              <Icon name="book-open" className="h-4 w-4 text-muted-foreground" />
               Module Completion Rates
             </CardTitle>
           </CardHeader>
@@ -135,7 +132,7 @@ export default function AdminDashboardPage() {
       {!stats && (
         <Card className="border-border/40 bg-card/40">
           <CardContent className="py-16 text-center text-muted-foreground">
-            <Pulse className="h-8 w-8 mx-auto mb-3 opacity-50" />
+            <Icon name="pulse" className="h-8 w-8 mx-auto mb-3 opacity-50" />
             <p>No platform data yet. Stats appear once users start learning.</p>
           </CardContent>
         </Card>

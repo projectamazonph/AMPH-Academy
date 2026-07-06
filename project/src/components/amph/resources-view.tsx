@@ -1,17 +1,8 @@
 'use client';
+import { Icon } from '@/components/icons';
 
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import {
-  FileText,
-  CheckSquare,
-  BookOpen,
-  Grid3X3,
-  Download,
-  Spinner,
-  MagnifyingGlass,
-  FolderOpen,
-} from '@phosphor-icons/react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
@@ -79,7 +70,7 @@ export function ResourcesView() {
       {/* MagnifyingGlass & filter */}
       <div className="flex flex-col sm:flex-row gap-3">
         <div className="relative flex-1">
-          <MagnifyingGlass className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
+          <Icon name="magnifying-glass" className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
           <Input
             placeholder="MagnifyingGlass resources..."
             className="pl-9"
@@ -173,9 +164,9 @@ export function ResourcesView() {
                         disabled={downloading === resource.id}
                       >
                         {downloading === resource.id ? (
-                          <Spinner className="h-3.5 w-3.5 animate-spin" />
+                          <Icon name="spinner" className="h-3.5 w-3.5 animate-spin" />
                         ) : (
-                          <Download className="h-3.5 w-3.5" />
+                          <Icon name="download" className="h-3.5 w-3.5" />
                         )}
                       </Button>
                     </div>

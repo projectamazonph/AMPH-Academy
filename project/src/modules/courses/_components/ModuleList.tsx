@@ -1,4 +1,4 @@
-import { CheckCircle, Circle, Lock, Play, Clock } from '@phosphor-icons/react';
+import { Icon } from '@/components/icons';
 import Link from "next/link";
 import type { ModuleSummary } from "../_types";
 
@@ -63,11 +63,11 @@ export function ModuleList({
                   </p>
                   <div className="flex items-center gap-3 mt-3 text-[10px] text-muted-foreground">
                     <span className="flex items-center gap-1">
-                      <Play className="h-3 w-3" />
+                      <Icon name="play" className="h-3 w-3" />
                       {mod.lessonCount} lessons
                     </span>
                     <span className="flex items-center gap-1">
-                      <Clock className="h-3 w-3" />
+                      <Icon name="clock" className="h-3 w-3" />
                       {mod.estimatedMinutes} min
                     </span>
                     {mod.progressStatus === "COMPLETED" && (

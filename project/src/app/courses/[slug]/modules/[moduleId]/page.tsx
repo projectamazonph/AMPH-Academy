@@ -1,6 +1,6 @@
+import { Icon } from '@/components/icons';
 import { notFound } from "next/navigation";
 import Link from "next/link";
-import { ArrowLeft, BookOpen, Clock, Play } from '@phosphor-icons/react';
 import { getModule } from "@/modules/courses/_actions";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
@@ -25,7 +25,7 @@ export default async function ModuleContentPage({
           href={`/courses/${slug}`}
           className="inline-flex items-center gap-1.5 text-sm text-muted-foreground hover:text-primary transition-colors mb-8"
         >
-          <ArrowLeft className="h-3.5 w-3.5" />
+          <Icon name="arrow-left" className="h-3.5 w-3.5" />
           Back to course
         </Link>
 
@@ -35,17 +35,17 @@ export default async function ModuleContentPage({
             Module {mod.moduleNumber} of {mod.lessonCount} lessons
           </Badge>
           <div className="flex items-center gap-3 mb-2">
-            <BookOpen className="h-6 w-6 text-primary" />
+            <Icon name="book-open" className="h-6 w-6 text-primary" />
             <h1 className="text-2xl md:text-3xl font-bold tracking-tight">{mod.title}</h1>
           </div>
           <p className="text-muted-foreground">{mod.description}</p>
           <div className="flex items-center gap-3 mt-3 text-xs text-muted-foreground">
             <span className="flex items-center gap-1">
-              <Play className="h-3.5 w-3.5" />
+              <Icon name="play" className="h-3.5 w-3.5" />
               {mod.lessonCount} lessons
             </span>
             <span className="flex items-center gap-1">
-              <Clock className="h-3.5 w-3.5" />
+              <Icon name="clock" className="h-3.5 w-3.5" />
               {mod.estimatedMinutes} minutes
             </span>
           </div>
@@ -71,11 +71,11 @@ export default async function ModuleContentPage({
                       </div>
                     ) : lesson.type === "VIDEO" ? (
                       <div className="w-8 h-8 rounded-lg bg-sky-500/10 border border-sky-500/20 flex items-center justify-center">
-                        <Play className="h-4 w-4 text-sky-400" />
+                        <Icon name="play" className="h-4 w-4 text-sky-400" />
                       </div>
                     ) : (
                       <div className="w-8 h-8 rounded-lg bg-primary/10 border border-primary/20 flex items-center justify-center">
-                        <BookOpen className="h-4 w-4 text-primary" />
+                        <Icon name="book-open" className="h-4 w-4 text-primary" />
                       </div>
                     )}
                   </div>
@@ -91,7 +91,7 @@ export default async function ModuleContentPage({
                     </div>
                     <div className="flex items-center gap-3 mt-2 text-[10px] text-muted-foreground">
                       <span className="flex items-center gap-1">
-                        <Clock className="h-3 w-3" />
+                        <Icon name="clock" className="h-3 w-3" />
                         {lesson.estimatedMinutes} min
                       </span>
                       <span className="flex items-center gap-1">
@@ -108,7 +108,7 @@ export default async function ModuleContentPage({
         {/* Content Body (placeholder) */}
         <Card className="mt-8 border-border/40 bg-card/30">
           <CardContent className="p-8 text-center">
-            <BookOpen className="h-12 w-12 text-muted-foreground/30 mx-auto mb-4" />
+            <Icon name="book-open" className="h-12 w-12 text-muted-foreground/30 mx-auto mb-4" />
             <h3 className="text-lg font-semibold mb-2">Lesson Content Coming Soon</h3>
             <p className="text-sm text-muted-foreground max-w-md mx-auto">
               Lesson content with MDX rendering, video embeds, and interactive

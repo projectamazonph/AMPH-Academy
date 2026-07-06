@@ -1,18 +1,7 @@
 'use client';
+import { Icon } from '@/components/icons';
 
 import { motion } from 'framer-motion';
-import {
-  TrendUp,
-  Target,
-  Calculator,
-  Clock,
-  Warning,
-  CaretRight,
-  ArrowUpRight,
-  ArrowDownRight,
-  Minus,
-  BarChart,
-} from '@phosphor-icons/react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
@@ -75,7 +64,7 @@ export function BidBriefing() {
           <CardContent className="relative py-6">
             <div className="flex items-center gap-2 mb-3">
               <div className="p-2 rounded-lg bg-amber-500/15 border border-amber-500/25">
-                <TrendUp className="h-5 w-5 text-amber-400" />
+                <Icon name="trend-up" className="h-5 w-5 text-amber-400" />
               </div>
               <Badge className="bg-amber-500/15 text-amber-400 border-amber-500/25 hover:bg-amber-500/20 text-[10px]">
                 BID ELEVATOR
@@ -137,7 +126,7 @@ export function BidBriefing() {
             </div>
 
             <div className="flex items-center gap-2 text-xs text-muted-foreground bg-muted/30 p-3 rounded-lg border border-border">
-              <Warning className="h-4 w-4 text-amber-400 shrink-0" />
+              <Icon name="warning" className="h-4 w-4 text-amber-400 shrink-0" />
               <span>
                 Your max profitable CPC = AOV × CVR × Target ACoS = ${productContext.price.toFixed(2)} × {avgCvr.toFixed(2)} × {(thresholds.acosTarget * 100).toFixed(0)}% = ${maxCpc.toFixed(2)}.
                 Never bid above this unless the keyword&apos;s CVR justifies it.
@@ -194,7 +183,7 @@ export function BidBriefing() {
         <Card className="border-border">
           <CardHeader className="pb-3">
             <CardTitle className="text-base font-semibold flex items-center gap-2">
-              <BarChart className="h-4 w-4 text-sky-400" />
+              <Icon name="bar-chart" className="h-4 w-4 text-sky-400" />
               Your Arsenal — 3 Bid Strategies
             </CardTitle>
           </CardHeader>
@@ -233,7 +222,7 @@ export function BidBriefing() {
         <Card className="border-border">
           <CardHeader className="pb-3">
             <CardTitle className="text-base font-semibold flex items-center gap-2">
-              <Clock className="h-4 w-4 text-amber-400" />
+              <Icon name="clock" className="h-4 w-4 text-amber-400" />
               Mission Parameters
             </CardTitle>
           </CardHeader>
@@ -277,7 +266,7 @@ export function BidBriefing() {
           onClick={() => startSimulation(userId)}
         >
           Begin Simulation
-          <CaretRight className="h-5 w-5" />
+          <Icon name="caret-right" className="h-5 w-5" />
         </Button>
       </motion.div>
     </div>

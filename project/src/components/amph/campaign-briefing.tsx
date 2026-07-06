@@ -1,16 +1,7 @@
 'use client';
+import { Icon } from '@/components/icons';
 
 import { motion } from 'framer-motion';
-import {
-  Layout,
-  Target,
-  Calculator,
-  Clock,
-  Warning,
-  CaretRight,
-  CheckCircle,
-  Lightbulb,
-} from '@phosphor-icons/react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
@@ -95,7 +86,7 @@ export function CampaignBriefing() {
           <CardContent className="relative py-6">
             <div className="flex items-center gap-2 mb-3">
               <div className="p-2 rounded-lg bg-emerald-500/15 border border-emerald-500/25">
-                <Layout className="h-5 w-5 text-emerald-400" />
+                <Icon name="layout" className="h-5 w-5 text-emerald-400" />
               </div>
               <Badge className="bg-emerald-500/15 text-emerald-400 border-emerald-500/25 hover:bg-emerald-500/20 text-[10px]">
                 CAMPAIGN BUILDER
@@ -154,7 +145,7 @@ export function CampaignBriefing() {
             </div>
 
             <div className="flex items-center gap-2 text-xs text-muted-foreground bg-muted/30 p-3 rounded-lg border border-border">
-              <Warning className="h-4 w-4 text-amber-400 shrink-0" />
+              <Icon name="warning" className="h-4 w-4 text-amber-400 shrink-0" />
               <span>
                 Your break-even ACoS equals your margin ({(productContext.margin * 100).toFixed(0)}%).
                 Any campaign with ACoS above this is losing money.
@@ -220,7 +211,7 @@ export function CampaignBriefing() {
                 key={i}
                 className="flex items-start gap-3 p-3 rounded-lg bg-emerald-500/5 border border-emerald-500/10"
               >
-                <CheckCircle className="h-4 w-4 text-emerald-400 shrink-0 mt-0.5" />
+                <Icon name="check-circle" className="h-4 w-4 text-emerald-400 shrink-0 mt-0.5" />
                 <p className="text-sm text-foreground">{objective}</p>
               </div>
             ))}
@@ -264,7 +255,7 @@ export function CampaignBriefing() {
         <Card className="border-border">
           <CardHeader className="pb-3">
             <CardTitle className="text-base font-semibold flex items-center gap-2">
-              <Clock className="h-4 w-4 text-amber-400" />
+              <Icon name="clock" className="h-4 w-4 text-amber-400" />
               Mission Parameters
             </CardTitle>
           </CardHeader>
@@ -308,7 +299,7 @@ export function CampaignBriefing() {
           onClick={() => startSimulation(userId)}
         >
           Begin Mission
-          <CaretRight className="h-5 w-5" />
+          <Icon name="caret-right" className="h-5 w-5" />
         </Button>
       </motion.div>
     </div>

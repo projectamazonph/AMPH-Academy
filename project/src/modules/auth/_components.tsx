@@ -1,9 +1,9 @@
 "use client";
+import { Icon } from '@/components/icons';
 
 import { useState } from "react";
 import { signIn } from "next-auth/react";
 import { useRouter } from "next/navigation";
-import { Mail, Lock, User, ArrowRight, Spinner } from '@phosphor-icons/react';
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 
@@ -67,7 +67,7 @@ export function SignInForm({ callbackUrl = "/dashboard" }: { callbackUrl?: strin
           <div className="space-y-2">
             <label htmlFor="email" className="text-sm font-medium">Email</label>
             <div className="relative">
-              <Mail className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
+              <Icon name="mail" className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
               <input
                 id="email"
                 type="email"
@@ -83,7 +83,7 @@ export function SignInForm({ callbackUrl = "/dashboard" }: { callbackUrl?: strin
           <div className="space-y-2">
             <label htmlFor="password" className="text-sm font-medium">Password</label>
             <div className="relative">
-              <Lock className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
+              <Icon name="lock" className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
               <input
                 id="password"
                 type="password"
@@ -106,7 +106,7 @@ export function SignInForm({ callbackUrl = "/dashboard" }: { callbackUrl?: strin
           </div>
 
           <Button type="submit" className="w-full gap-2" disabled={loading || !email.trim() || !password}>
-            {loading ? <Spinner className="h-4 w-4 animate-spin" /> : <ArrowRight className="h-4 w-4" />}
+            {loading ? <Icon name="spinner" className="h-4 w-4 animate-spin" /> : <Icon name="arrow-right" className="h-4 w-4" />}
             {loading ? "Signing in..." : "Sign In"}
           </Button>
         </form>
@@ -200,7 +200,7 @@ export function SignUpForm() {
           <div className="space-y-2">
             <label htmlFor="name" className="text-sm font-medium">Name</label>
             <div className="relative">
-              <User className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
+              <Icon name="user" className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
               <input
                 id="name"
                 type="text"
@@ -215,7 +215,7 @@ export function SignUpForm() {
           <div className="space-y-2">
             <label htmlFor="signup-email" className="text-sm font-medium">Email</label>
             <div className="relative">
-              <Mail className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
+              <Icon name="mail" className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
               <input
                 id="signup-email"
                 type="email"
@@ -238,7 +238,7 @@ export function SignUpForm() {
               )}
             </label>
             <div className="relative">
-              <Lock className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
+              <Icon name="lock" className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
               <input
                 id="signup-password"
                 type="password"
@@ -267,7 +267,7 @@ export function SignUpForm() {
           <div className="space-y-2">
             <label htmlFor="confirm-password" className="text-sm font-medium">Confirm Password</label>
             <div className="relative">
-              <Lock className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
+              <Icon name="lock" className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
               <input
                 id="confirm-password"
                 type="password"
@@ -282,7 +282,7 @@ export function SignUpForm() {
           </div>
 
           <Button type="submit" className="w-full gap-2" disabled={loading || !email.trim() || !password}>
-            {loading ? <Spinner className="h-4 w-4 animate-spin" /> : <ArrowRight className="h-4 w-4" />}
+            {loading ? <Icon name="spinner" className="h-4 w-4 animate-spin" /> : <Icon name="arrow-right" className="h-4 w-4" />}
             {loading ? "Creating account..." : "Create Account"}
           </Button>
         </form>

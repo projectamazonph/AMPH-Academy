@@ -2,12 +2,6 @@
 
 import { motion } from 'framer-motion';
 import {
-  BookOpen,
-  FlaskConical,
-  Flame,
-  Lightning,
-} from '@phosphor-icons/react';
-import {
   Area,
   AreaChart,
   ResponsiveContainer,

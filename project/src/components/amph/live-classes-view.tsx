@@ -1,11 +1,8 @@
 'use client';
+import { Icon } from '@/components/icons';
 
 import { useState, useEffect, useCallback } from 'react';
 import { motion } from 'framer-motion';
-import {
-  Video, Calendar, Clock, User, Users, ArrowSquareOut, Spinner,
-  CheckCircle, XCircle, BookOpen, AlertCircle,
-} from '@phosphor-icons/react';
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
@@ -137,7 +134,7 @@ export function LiveClassesView() {
   if (loading) {
     return (
       <div className="flex justify-center py-24">
-        <Spinner className="h-6 w-6 animate-spin text-muted-foreground" />
+        <Icon name="spinner" className="h-6 w-6 animate-spin text-muted-foreground" />
       </div>
     );
   }
@@ -215,7 +212,7 @@ export function LiveClassesView() {
                           <h3 className="font-semibold">{lc.title}</h3>
                           {lc.isRegistered && (
                             <Badge variant="outline" className="text-[10px] bg-emerald-500/10 text-emerald-400 border-emerald-500/20">
-                              <CheckCircle className="h-3 w-3 mr-1" />
+                              <Icon name="check-circle" className="h-3 w-3 mr-1" />
                               Registered
                             </Badge>
                           )}
@@ -229,17 +226,17 @@ export function LiveClassesView() {
                         {/* Course badge */}
                         <div className="flex items-center gap-1 mb-2">
                           <Badge variant="outline" className="text-[10px] bg-sky-500/10 text-sky-400 border-sky-500/20">
-                            <BookOpen className="h-3 w-3 mr-1" />
+                            <Icon name="book-open" className="h-3 w-3 mr-1" />
                             {lc.courseTitle}
                           </Badge>
                         </div>
 
                         {/* Details */}
                         <div className="flex items-center gap-3 text-xs text-muted-foreground flex-wrap">
-                          <span className="flex items-center gap-1"><User className="h-3 w-3" />{lc.instructorName}</span>
+                          <span className="flex items-center gap-1"><Icon name="user" className="h-3 w-3" />{lc.instructorName}</span>
                           <span className="flex items-center gap-1"><Calendar className="h-3 w-3" />{formatDate(lc.scheduledAt)}</span>
-                          <span className="flex items-center gap-1"><Clock className="h-3 w-3" />{formatTime(lc.scheduledAt)}</span>
-                          <span className="flex items-center gap-1"><Clock className="h-3 w-3" />{lc.durationMinutes} min</span>
+                          <span className="flex items-center gap-1"><Icon name="clock" className="h-3 w-3" />{formatTime(lc.scheduledAt)}</span>
+                          <span className="flex items-center gap-1"><Icon name="clock" className="h-3 w-3" />{lc.durationMinutes} min</span>
                           <span className={cn(
                             'flex items-center gap-1',
                             full ? 'text-rose-400' : lc.maxAttendees - lc.registrationCount <= 5 ? 'text-amber-400' : ''
@@ -278,7 +275,7 @@ export function LiveClassesView() {
                             className="h-8 text-xs"
                           >
                             {acting === lc.id ? (
-                              <Spinner className="h-3 w-3 animate-spin mr-1" />
+                              <Icon name="spinner" className="h-3 w-3 animate-spin mr-1" />
                             ) : full ? (
                               'Full'
                             ) : (
@@ -297,7 +294,7 @@ export function LiveClassesView() {
                                 className="h-8 text-xs text-muted-foreground"
                               >
                                 {acting === lc.id ? (
-                                  <Spinner className="h-3 w-3 animate-spin mr-1" />
+                                  <Icon name="spinner" className="h-3 w-3 animate-spin mr-1" />
                                 ) : (
                                   'Unregister'
                                 )}

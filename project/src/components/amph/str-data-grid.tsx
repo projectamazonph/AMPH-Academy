@@ -1,4 +1,5 @@
 'use client';
+import { Icon } from '@/components/icons';
 
 import { useMemo, useState, useCallback, useEffect, useRef } from 'react';
 import {
@@ -8,18 +9,6 @@ import {
   type ColumnDef,
 } from '@tanstack/react-table';
 import { motion, AnimatePresence } from 'framer-motion';
-import {
-  TrendUp,
-  Pause,
-  XCircle,
-  Ban,
-  Sliders,
-  Clock,
-  Trophy,
-  CheckCircle,
-  Send,
-  ChevronDown,
-} from '@phosphor-icons/react';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Input } from '@/components/ui/input';
@@ -423,14 +412,14 @@ export function StrDataGrid() {
         <div className="flex-1 min-w-0">
           <div className="flex items-center gap-3 text-sm">
             <div className="flex items-center gap-1.5">
-              <CheckCircle className="h-4 w-4 text-emerald-400" />
+              <Icon name="check-circle" className="h-4 w-4 text-emerald-400" />
               <span className="font-mono">
                 {triagedCount}/{totalTerms}
               </span>
               <span className="text-muted-foreground text-xs">triaged</span>
             </div>
             <div className="flex items-center gap-1.5">
-              <Clock className="h-4 w-4 text-amber-400" />
+              <Icon name="clock" className="h-4 w-4 text-amber-400" />
               <span className="font-mono">{timeStr}</span>
             </div>
           </div>
@@ -442,7 +431,7 @@ export function StrDataGrid() {
 
         {/* Preview score */}
         <div className="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-rose-500/10 border border-rose-500/20">
-          <Trophy className="h-4 w-4 text-rose-400" />
+          <Icon name="trophy" className="h-4 w-4 text-rose-400" />
           <span className="text-xs text-muted-foreground">Preview</span>
           <span className="text-lg font-bold font-mono text-rose-400">
             {previewScore}

@@ -1,11 +1,8 @@
 'use client';
+import { Icon } from '@/components/icons';
 
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import {
-  Users, BarChart, BookOpen, Brain, Trophy, Pulse,
-  MessageSquare, Target, Spinner,
-} from '@phosphor-icons/react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Progress } from '@/components/ui/progress';
@@ -25,7 +22,7 @@ export function AdminAnalytics() {
     <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="space-y-6">
       <div className="flex items-center gap-3">
         <div className="p-2 rounded-xl bg-rose-500/10 border border-rose-500/20">
-          <BarChart className="h-5 w-5 text-rose-400" />
+          <Icon name="bar-chart" className="h-5 w-5 text-rose-400" />
         </div>
         <div>
           <h2 className="text-2xl font-bold">Admin Analytics</h2>
@@ -34,7 +31,7 @@ export function AdminAnalytics() {
       </div>
 
       {loading ? (
-        <div className="flex items-center justify-center py-20"><Spinner className="h-5 w-5 animate-spin text-muted-foreground" /></div>
+        <div className="flex items-center justify-center py-20"><Icon name="spinner" className="h-5 w-5 animate-spin text-muted-foreground" /></div>
       ) : !data ? (
         <Card><CardContent className="py-12 text-center text-muted-foreground">No data yet.</CardContent></Card>
       ) : (

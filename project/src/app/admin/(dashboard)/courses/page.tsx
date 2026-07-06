@@ -1,12 +1,8 @@
 'use client';
+import { Icon } from '@/components/icons';
 
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import {
-  BookOpen, Spinner, Globe, Lock, Layers, Users, Video,
-  MagnifyingGlass, CaretLeft, CaretRight, Plus, Pencil, Trash2,
-  Clock, Calendar, User, Desktop, Check, X, ArrowSquareOut,
-} from '@phosphor-icons/react';
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Input } from '@/components/ui/input';
@@ -48,19 +44,19 @@ function CoursesTab() {
     !search || c.title.toLowerCase().includes(search.toLowerCase()) || c.slug.includes(search.toLowerCase())
   );
 
-  if (loading) return <div className="flex justify-center py-16"><Spinner className="h-5 w-5 animate-spin text-muted-foreground" /></div>;
+  if (loading) return <div className="flex justify-center py-16"><Icon name="spinner" className="h-5 w-5 animate-spin text-muted-foreground" /></div>;
 
   return (
     <div className="space-y-4">
       <div className="relative max-w-sm">
-        <MagnifyingGlass className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
+        <Icon name="magnifying-glass" className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
         <Input className="pl-9" placeholder="MagnifyingGlass courses..." value={search} onChange={e => setSearch(e.target.value)} />
       </div>
 
       {filtered.length === 0 ? (
         <Card className="border-border/40 bg-card/40">
           <CardContent className="py-16 text-center text-muted-foreground">
-            <BookOpen className="h-8 w-8 mx-auto mb-3 opacity-50" />
+            <Icon name="book-open" className="h-8 w-8 mx-auto mb-3 opacity-50" />
             {search ? 'No courses match your search.' : 'No courses yet.'}
           </CardContent>
         </Card>
@@ -75,7 +71,7 @@ function CoursesTab() {
                       <h3 className="font-semibold">{course.title}</h3>
                       {course.isPublished
                         ? <Globe className="h-3.5 w-3.5 text-emerald-400" />
-                        : <Lock className="h-3.5 w-3.5 text-rose-400" />
+                        : <Icon name="lock" className="h-3.5 w-3.5 text-rose-400" />
                       }
                     </div>
                     <p className="text-xs text-muted-foreground line-clamp-2 mb-2">{course.description}</p>
@@ -110,7 +106,7 @@ function BadgesTab() {
     getAdminBadges().then(r => { if (r.success) setBadges(r.data); }).catch(() => {}).finally(() => setLoading(false));
   }, []);
 
-  if (loading) return <div className="flex justify-center py-16"><Spinner className="h-5 w-5 animate-spin text-muted-foreground" /></div>;
+  if (loading) return <div className="flex justify-center py-16"><Icon name="spinner" className="h-5 w-5 animate-spin text-muted-foreground" /></div>;
 
   return (
     <>
@@ -299,7 +295,7 @@ function LiveClassesTab() {
     return date.toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit' });
   };
 
-  if (loading) return <div className="flex justify-center py-16"><Spinner className="h-5 w-5 animate-spin text-muted-foreground" /></div>;
+  if (loading) return <div className="flex justify-center py-16"><Icon name="spinner" className="h-5 w-5 animate-spin text-muted-foreground" /></div>;
 
   return (
     <div className="space-y-4">
@@ -322,7 +318,7 @@ function LiveClassesTab() {
             </button>
           </div>
           <div className="relative max-w-[200px]">
-            <MagnifyingGlass className="absolute left-2.5 top-1/2 -translate-y-1/2 h-3.5 w-3.5 text-muted-foreground" />
+            <Icon name="magnifying-glass" className="absolute left-2.5 top-1/2 -translate-y-1/2 h-3.5 w-3.5 text-muted-foreground" />
             <Input className="pl-8 h-8 text-xs" placeholder="MagnifyingGlass..." value={search} onChange={e => setSearch(e.target.value)} />
           </div>
         </div>
@@ -367,11 +363,11 @@ function LiveClassesTab() {
 
                     {/* Details row */}
                     <div className="flex items-center gap-3 text-xs text-muted-foreground flex-wrap mt-1">
-                      <span className="flex items-center gap-1"><BookOpen className="h-3 w-3" />{lc.courseTitle}</span>
-                      <span className="flex items-center gap-1"><User className="h-3 w-3" />{lc.instructorName}</span>
+                      <span className="flex items-center gap-1"><Icon name="book-open" className="h-3 w-3" />{lc.courseTitle}</span>
+                      <span className="flex items-center gap-1"><Icon name="user" className="h-3 w-3" />{lc.instructorName}</span>
                       <span className="flex items-center gap-1"><Calendar className="h-3 w-3" />{formatDate(lc.scheduledAt)}</span>
-                      <span className="flex items-center gap-1"><Clock className="h-3 w-3" />{formatTime(lc.scheduledAt)}</span>
-                      <span className="flex items-center gap-1"><Clock className="h-3 w-3" />{lc.durationMinutes} min</span>
+                      <span className="flex items-center gap-1"><Icon name="clock" className="h-3 w-3" />{formatTime(lc.scheduledAt)}</span>
+                      <span className="flex items-center gap-1"><Icon name="clock" className="h-3 w-3" />{lc.durationMinutes} min</span>
                       <span className={cn(
                         'flex items-center gap-1',
                         isFull(lc) ? 'text-rose-400' : spotsLeft(lc) <= 5 ? 'text-amber-400' : ''
@@ -394,7 +390,7 @@ function LiveClassesTab() {
                   {/* Actions */}
                   <div className="flex items-center gap-1 shrink-0">
                     <Button variant="ghost" size="icon" className="h-7 w-7" onClick={() => handleTogglePublish(lc.id)} title={lc.isPublished ? 'Unpublish' : 'Publish'}>
-                      {lc.isPublished ? <X className="h-3.5 w-3.5 text-muted-foreground" /> : <Check className="h-3.5 w-3.5 text-emerald-400" />}
+                      {lc.isPublished ? <Icon name="x" className="h-3.5 w-3.5 text-muted-foreground" /> : <Icon name="check" className="h-3.5 w-3.5 text-emerald-400" />}
                     </Button>
                     <Button variant="ghost" size="icon" className="h-7 w-7" onClick={() => openEdit(lc)} title="Edit">
                       <Pencil className="h-3.5 w-3.5 text-muted-foreground" />
@@ -423,7 +419,7 @@ function LiveClassesTab() {
               <div className="flex items-center justify-between mb-4">
                 <h2 className="text-lg font-semibold">{editId ? 'Edit Live Class' : 'Create Live Class'}</h2>
                 <Button variant="ghost" size="icon" className="h-7 w-7" onClick={() => setShowModal(false)}>
-                  <X className="h-4 w-4" />
+                  <Icon name="x" className="h-4 w-4" />
                 </Button>
               </div>
 
@@ -495,7 +491,7 @@ function LiveClassesTab() {
               <div className="flex justify-end gap-2 mt-6 pt-4 border-t border-border/20">
                 <Button variant="ghost" size="sm" onClick={() => setShowModal(false)}>Cancel</Button>
                 <Button size="sm" onClick={handleSave} disabled={saving}>
-                  {saving ? <Spinner className="h-3.5 w-3.5 animate-spin mr-1.5" /> : null}
+                  {saving ? <Icon name="spinner" className="h-3.5 w-3.5 animate-spin mr-1.5" /> : null}
                   {editId ? 'Update' : 'Create'}
                 </Button>
               </div>
@@ -520,7 +516,7 @@ function LiveClassesTab() {
             <div className="flex justify-end gap-2">
               <Button variant="ghost" size="sm" onClick={() => setDeleteConfirm(null)}>Cancel</Button>
               <Button size="sm" variant="destructive" onClick={handleDelete} disabled={saving}>
-                {saving ? <Spinner className="h-3.5 w-3.5 animate-spin mr-1.5" /> : null}
+                {saving ? <Icon name="spinner" className="h-3.5 w-3.5 animate-spin mr-1.5" /> : null}
                 Delete
               </Button>
             </div>
@@ -542,7 +538,7 @@ export default function AdminContentPage() {
     <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="space-y-6">
       <div className="flex items-center gap-3">
         <div className="p-2 rounded-xl bg-amber-500/10 border border-amber-500/20">
-          <BookOpen className="h-5 w-5 text-amber-400" />
+          <Icon name="book-open" className="h-5 w-5 text-amber-400" />
         </div>
         <div>
           <h1 className="text-2xl font-bold">Content Management</h1>

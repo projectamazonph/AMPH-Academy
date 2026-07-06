@@ -1,17 +1,7 @@
 'use client';
+import { Icon } from '@/components/icons';
 
 import { motion } from 'framer-motion';
-import {
-  Trophy,
-  Target,
-  Lightning,
-  RotateCcw,
-  ArrowLeft,
-  CheckCircle,
-  XCircle,
-  Layout,
-  Lightbulb,
-} from '@phosphor-icons/react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
@@ -99,7 +89,7 @@ export function CampaignReview({ onBack }: { onBack: () => void }) {
 
           <CardContent className="relative py-8 flex flex-col items-center gap-6">
             <div className="flex items-center gap-2">
-              <Trophy className="h-6 w-6 text-emerald-400" />
+              <Icon name="trophy" className="h-6 w-6 text-emerald-400" />
               <h2 className="text-2xl font-bold">Simulation Complete</h2>
             </div>
 
@@ -119,7 +109,7 @@ export function CampaignReview({ onBack }: { onBack: () => void }) {
 
             {/* XP badge */}
             <div className="flex items-center gap-2 px-4 py-2 rounded-full bg-emerald-500/10 border border-emerald-500/20">
-              <Lightning className="h-4 w-4 text-emerald-400" />
+              <Icon name="lightning" className="h-4 w-4 text-emerald-400" />
               <span className="text-lg font-bold font-mono text-emerald-400">
                 +{xpEarned}
               </span>
@@ -160,9 +150,9 @@ export function CampaignReview({ onBack }: { onBack: () => void }) {
                   >
                     <div className="flex items-center gap-2">
                       {result.passed ? (
-                        <CheckCircle className="h-4 w-4 text-emerald-400" />
+                        <Icon name="check-circle" className="h-4 w-4 text-emerald-400" />
                       ) : (
-                        <XCircle className="h-4 w-4 text-rose-400" />
+                        <Icon name="x-circle" className="h-4 w-4 text-rose-400" />
                       )}
                       <span className="text-sm font-medium">{name}</span>
                     </div>
@@ -199,7 +189,7 @@ export function CampaignReview({ onBack }: { onBack: () => void }) {
         <Card>
           <CardHeader className="pb-3">
             <CardTitle className="text-base font-semibold flex items-center gap-2">
-              <Layout className="h-4 w-4 text-teal-400" />
+              <Icon name="layout" className="h-4 w-4 text-teal-400" />
               Your Campaign Structure
             </CardTitle>
           </CardHeader>
@@ -355,7 +345,7 @@ export function CampaignReview({ onBack }: { onBack: () => void }) {
         </Card>
         <Card>
           <CardContent className="py-4 flex flex-col items-center gap-1">
-            <CheckCircle className="h-4 w-4 text-emerald-400 mb-1" />
+            <Icon name="check-circle" className="h-4 w-4 text-emerald-400 mb-1" />
             <p className="text-2xl font-bold font-mono">
               {criteriaResults.filter((r) => r.passed).length}/{criteriaResults.length}
             </p>
@@ -364,14 +354,14 @@ export function CampaignReview({ onBack }: { onBack: () => void }) {
         </Card>
         <Card>
           <CardContent className="py-4 flex flex-col items-center gap-1">
-            <Layout className="h-4 w-4 text-teal-400 mb-1" />
+            <Icon name="layout" className="h-4 w-4 text-teal-400 mb-1" />
             <p className="text-2xl font-bold font-mono text-teal-400">{positiveKeywords.length}</p>
             <p className="text-xs text-muted-foreground">Keywords</p>
           </CardContent>
         </Card>
         <Card>
           <CardContent className="py-4 flex flex-col items-center gap-1">
-            <Lightning className="h-4 w-4 text-emerald-400 mb-1" />
+            <Icon name="lightning" className="h-4 w-4 text-emerald-400 mb-1" />
             <p className="text-2xl font-bold font-mono text-emerald-400">{xpEarned}</p>
             <p className="text-xs text-muted-foreground">Total XP</p>
           </CardContent>
@@ -391,7 +381,7 @@ export function CampaignReview({ onBack }: { onBack: () => void }) {
           className="flex-1 gap-2"
           onClick={onBack}
         >
-          <ArrowLeft className="h-4 w-4" />
+          <Icon name="arrow-left" className="h-4 w-4" />
           Back to Simulations
         </Button>
         <Button
