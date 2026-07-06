@@ -36,13 +36,15 @@ jobs:
           cache-dependency-path: project/package-lock.json
 
       - name: Install dependencies
-        run: cd project && npm ci || (rm -rf node_modules && npm ci)
+        run: npm ci
+        working-directory: project
 
       - name: Install Vercel CLI
-        run: cd project && npm install -g vercel@latest
+        run: npm install -g vercel@latest
+        working-directory: project
 
       - name: Deploy to Vercel
-        run: cd project && vercel --prod --yes --token=${{ secrets.VERCEL_TOKEN }}
+        run: vercel --prod --yes --token=${{ secrets.VERCEL_TOKEN }}
         env:
           VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
           VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
