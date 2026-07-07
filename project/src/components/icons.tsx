@@ -296,7 +296,6 @@ export {
   Calendar,
   Bell,
   Activity,
-  Loader,
   Pen,
   Trash2 as Trash2Icon,
 };
