@@ -23,7 +23,7 @@ const mistakeIcons: Record<string, typeof Lightbulb> = {
   'logic-error': Brain,
   'knowledge-gap': BookOpen,
   'misread-data': BarChart,
-  'careless-error': Warning,
+  'careless-error': AlertTriangle,
   'confused-terms': Brain,
   'threshold-error': BarChart,
 };
