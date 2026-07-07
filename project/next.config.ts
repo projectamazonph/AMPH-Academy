@@ -10,7 +10,6 @@ const nextConfig: NextConfig = {
         'localhost',
       ],
     },
-    optimizePackageImports: ['@phosphor-icons/react'],
   },
   serverExternalPackages: ['@prisma/client'],
 };
