@@ -1,108 +1,20 @@
 /**
- * Phosphor Icons — named imports for tree-shaking
- * Each icon used in the codebase must be explicitly imported here.
- * Unused icons are tree-shaken automatically by the bundler.
+ * Phosphor Icons — namespace import for Turbopack compatibility.
+ *
+ * Turbopack (Next.js 16) cannot statically resolve named exports from
+ * @phosphor-icons/react v2.1.7 — the compiled dist/index.es.js does not
+ * include all icons as named exports, causing "Export X doesn't exist in
+ * target module" errors for 26 icons.
+ *
+ * Solution: use `import * as Phosphor from '@phosphor-icons/react'` and
+ * reference icons via the namespace. This defers resolution to runtime,
+ * bypassing Turbopack's static analysis.
+ *
+ * References:
+ *   - https://github.com/phosphor-icons/react/issues/133
+ *   - https://github.com/vercel/next.js/discussions/86223
  */
-import {
-  // Navigation
-  ArrowLeft,
-  ArrowRight,
-  ArrowSquareOut,
-  ArrowUpRight,
-  ArrowDownRight,
-  CaretLeft,
-  CaretRight,
-  CaretDown,
-  CaretUp,
-  ArrowUpDown,
-  ArrowClockwise,
-  // Actions
-  Check,
-  X,
-  Plus,
-  Minus,
-  Trash2,
-  Pencil,
-  Copy,
-  Share2,
-  Download,
-  Printer,
-  Send,
-  LogOut,
-  Menu,
-  Settings,
-  // Status
-  CheckCircle,
-  XCircle,
-  Warning,
-  AlertCircle,
-  Ban,
-  Spinner,
-  HelpCircle,
-  Lock,
-  // Media
-  Play,
-  Video,
-  Pause,
-  // Social
-  Users,
-  User,
-  UserPlus,
-  UserCog,
-  Building2,
-  Mail,
-  Bot,
-  // Data & Charts
-  BarChart,
-  TrendUp,
-  TrendingDown,
-  Pulse,
-  Sliders,
-  // Objects
-  Target,
-  Trophy,
-  Medal,
-  Crown,
-  Star,
-  Flame,
-  Lightning,
-  BookOpen,
-  Clock,
-  Calculator,
-  Shield,
-  Layout,
-  LayoutDashboard,
-  Lightbulb,
-  Sparkle,
-  Sparkles,
-  Funnel,
-  MagnifyingGlass,
-  FolderOpen,
-  FileText,
-  Grid3X3,
-  CheckSquare,
-  Layers,
-  GraduationCap,
-  FlaskConical,
-  Rocket,
-  Coins,
-  Cursor,
-  MousePointerClick,
-  Gauge,
-  Brain,
-  Circle,
-  CircleDot,
-  Info,
-  Database,
-  Server,
-  Globe,
-  Eye,
-  EyeOff,
-  Desktop,
-  Calendar,
-  Bell,
-  TriangleAlert,
-} from '@phosphor-icons/react';
+import * as Phosphor from '@phosphor-icons/react';
 import type { IconProps as PhosphorIconProps } from '@phosphor-icons/react';
 
 /** Convert kebab-case name (e.g. "caret-down") to PascalCase key (e.g. "CaretDown") */
@@ -127,7 +39,7 @@ export function Icon({ name, className, ...props }: PhosphorIconProps & { name: 
  * Single source of truth for all Phosphor icon imports.
  * Enables:
  *  - Dynamic icon rendering (e.g. badge system: `icons[name]` where name is a string)
- *  - Tree-shaking: each icon is a named import (bundler drops unused ones)
+ *  - Tree-shaking: each icon is a named property (bundler drops unused ones)
  *  - One place to audit/replace any icon across the entire codebase
  *
  * Usage:
@@ -137,7 +49,6 @@ export function Icon({ name, className, ...props }: PhosphorIconProps & { name: 
  *   // or spread into props
  *   <SomeIconComponent {...icons.ArrowLeft} />
  */
-
 
 /**
  * Named icon exports — use these for static JSX imports.
@@ -246,10 +157,10 @@ export {
   Calendar,
   Bell,
   TriangleAlert,
-};
+} from '@phosphor-icons/react';
 
 /** Icon type — the runtime function component for dynamic icon rendering */
-export type Icon = typeof Icon;
+export type Icon = React.ComponentType<PhosphorIconProps>;
 
 /**
  * Icon registry — maps string names to Phosphor icon components.
@@ -263,105 +174,105 @@ export type Icon = typeof Icon;
  *   const IconComponent = icons[badgeIconName]; // Icon | undefined
  *   {IconComponent && <IconComponent size={16} />}
  */
-export const icons: Record<string, Icon> = {
+export const icons: Record<string, Phosphor.ComponentType<PhosphorIconProps>> = {
   // Navigation
-  ArrowLeft,
-  ArrowRight,
-  ArrowSquareOut,
-  ArrowUpRight,
-  ArrowDownRight,
-  CaretLeft,
-  CaretRight,
-  CaretDown,
-  CaretUp,
-  ArrowUpDown,
-  ArrowClockwise,
+  ArrowLeft: Phosphor.ArrowLeft,
+  ArrowRight: Phosphor.ArrowRight,
+  ArrowSquareOut: Phosphor.ArrowSquareOut,
+  ArrowUpRight: Phosphor.ArrowUpRight,
+  ArrowDownRight: Phosphor.ArrowDownRight,
+  CaretLeft: Phosphor.CaretLeft,
+  CaretRight: Phosphor.CaretRight,
+  CaretDown: Phosphor.CaretDown,
+  CaretUp: Phosphor.CaretUp,
+  ArrowUpDown: Phosphor.ArrowUpDown,
+  ArrowClockwise: Phosphor.ArrowClockwise,
   // Actions
-  Check,
-  X,
-  Plus,
-  Minus,
-  Trash2,
-  Pencil,
-  Copy,
-  Share2,
-  Download,
-  Printer,
-  Send,
-  LogOut,
-  Menu,
-  Settings,
+  Check: Phosphor.Check,
+  X: Phosphor.X,
+  Plus: Phosphor.Plus,
+  Minus: Phosphor.Minus,
+  Trash2: Phosphor.Trash2,
+  Pencil: Phosphor.Pencil,
+  Copy: Phosphor.Copy,
+  Share2: Phosphor.Share2,
+  Download: Phosphor.Download,
+  Printer: Phosphor.Printer,
+  Send: Phosphor.Send,
+  LogOut: Phosphor.LogOut,
+  Menu: Phosphor.Menu,
+  Settings: Phosphor.Settings,
   // Status
-  CheckCircle,
-  XCircle,
-  Warning,
-  AlertCircle,
-  Ban,
-  Spinner,
-  HelpCircle,
-  Lock,
+  CheckCircle: Phosphor.CheckCircle,
+  XCircle: Phosphor.XCircle,
+  Warning: Phosphor.Warning,
+  AlertCircle: Phosphor.AlertCircle,
+  Ban: Phosphor.Ban,
+  Spinner: Phosphor.Spinner,
+  HelpCircle: Phosphor.HelpCircle,
+  Lock: Phosphor.Lock,
   // Media
-  Play,
-  Video,
-  Pause,
+  Play: Phosphor.Play,
+  Video: Phosphor.Video,
+  Pause: Phosphor.Pause,
   // Social
-  Users,
-  User,
-  UserPlus,
-  UserCog,
-  Building2,
-  Mail,
-  Bot,
+  Users: Phosphor.Users,
+  User: Phosphor.User,
+  UserPlus: Phosphor.UserPlus,
+  UserCog: Phosphor.UserCog,
+  Building2: Phosphor.Building2,
+  Mail: Phosphor.Mail,
+  Bot: Phosphor.Bot,
   // Data & Charts
-  BarChart,
-  TrendUp,
-  TrendingDown,
-  Pulse,
-  Sliders,
+  BarChart: Phosphor.BarChart,
+  TrendUp: Phosphor.TrendUp,
+  TrendingDown: Phosphor.TrendingDown,
+  Pulse: Phosphor.Pulse,
+  Sliders: Phosphor.Sliders,
   // Objects
-  Target,
-  Trophy,
-  Medal,
-  Crown,
-  Star,
-  Flame,
-  Lightning,
-  BookOpen,
-  Clock,
-  Calculator,
-  Shield,
-  Layout,
-  LayoutDashboard,
-  Lightbulb,
-  Sparkle,
-  Sparkles,
-  Funnel,
-  MagnifyingGlass,
-  FolderOpen,
-  FileText,
-  Grid3X3,
-  CheckSquare,
-  Layers,
-  GraduationCap,
-  FlaskConical,
-  Rocket,
-  Coins,
-  Cursor,
-  MousePointerClick,
-  Gauge,
-  Brain,
-  Circle,
-  CircleDot,
-  Info,
-  Database,
-  Server,
-  Globe,
-  Eye,
-  EyeOff,
-  Desktop,
-  Calendar,
-  Bell,
-  TriangleAlert,
+  Target: Phosphor.Target,
+  Trophy: Phosphor.Trophy,
+  Medal: Phosphor.Medal,
+  Crown: Phosphor.Crown,
+  Star: Phosphor.Star,
+  Flame: Phosphor.Flame,
+  Lightning: Phosphor.Lightning,
+  BookOpen: Phosphor.BookOpen,
+  Clock: Phosphor.Clock,
+  Calculator: Phosphor.Calculator,
+  Shield: Phosphor.Shield,
+  Layout: Phosphor.Layout,
+  LayoutDashboard: Phosphor.LayoutDashboard,
+  Lightbulb: Phosphor.Lightbulb,
+  Sparkle: Phosphor.Sparkle,
+  Sparkles: Phosphor.Sparkles,
+  Funnel: Phosphor.Funnel,
+  MagnifyingGlass: Phosphor.MagnifyingGlass,
+  FolderOpen: Phosphor.FolderOpen,
+  FileText: Phosphor.FileText,
+  Grid3X3: Phosphor.Grid3X3,
+  CheckSquare: Phosphor.CheckSquare,
+  Layers: Phosphor.Layers,
+  GraduationCap: Phosphor.GraduationCap,
+  FlaskConical: Phosphor.FlaskConical,
+  Rocket: Phosphor.Rocket,
+  Coins: Phosphor.Coins,
+  Cursor: Phosphor.Cursor,
+  MousePointerClick: Phosphor.MousePointerClick,
+  Gauge: Phosphor.Gauge,
+  Brain: Phosphor.Brain,
+  Circle: Phosphor.Circle,
+  CircleDot: Phosphor.CircleDot,
+  Info: Phosphor.Info,
+  Database: Phosphor.Database,
+  Server: Phosphor.Server,
+  Globe: Phosphor.Globe,
+  Eye: Phosphor.Eye,
+  EyeOff: Phosphor.EyeOff,
+  Desktop: Phosphor.Desktop,
+  Calendar: Phosphor.Calendar,
+  Bell: Phosphor.Bell,
+  TriangleAlert: Phosphor.TriangleAlert,
 };
 
 /** All icon names — useful for typeahead/documentation */
