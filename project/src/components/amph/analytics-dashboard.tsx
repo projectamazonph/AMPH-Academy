@@ -1,4 +1,6 @@
-'use client';
+'use client'
+import { BookOpen, Brain, Clock, HeartPulse, Target } from '@/components/icons';
+;
 import { Icon } from '@/components/icons';
 
 import { useState, useEffect } from 'react';
@@ -52,7 +54,7 @@ export function AnalyticsDashboard() {
           {/* Stats grid */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
             {[
-              { label: 'Sessions', value: data.totalSessions, icon: Pulse, color: 'text-blue-400', bg: 'bg-blue-500/10' },
+              { label: 'Sessions', value: data.totalSessions, icon: HeartPulse, color: 'text-blue-400', bg: 'bg-blue-500/10' },
               { label: 'Time (min)', value: data.totalTimeMinutes, icon: Clock, color: 'text-emerald-400', bg: 'bg-emerald-500/10' },
               { label: 'Lessons Done', value: data.lessonsCompleted, icon: BookOpen, color: 'text-violet-400', bg: 'bg-violet-500/10' },
               { label: 'Avg Sim Score', value: `${data.avgSimScore}%`, icon: Target, color: 'text-amber-400', bg: 'bg-amber-500/10' },
@@ -97,7 +99,7 @@ export function AnalyticsDashboard() {
           <Card>
             <CardHeader className="pb-2">
               <CardTitle className="text-sm font-medium flex items-center gap-2">
-                <Icon name="pulse" className="h-4 w-4 text-primary" /> Pulse Breakdown
+                <Icon name="pulse" className="h-4 w-4 text-primary" /> HeartPulse Breakdown
               </CardTitle>
             </CardHeader>
             <CardContent>
@@ -120,7 +122,7 @@ export function AnalyticsDashboard() {
           <Card>
             <CardHeader className="pb-2">
               <CardTitle className="text-sm font-medium flex items-center gap-2">
-                <Icon name="trend-up" className="h-4 w-4 text-emerald-400" /> Recent Pulse
+                <Icon name="trend-up" className="h-4 w-4 text-emerald-400" /> Recent HeartPulse
               </CardTitle>
             </CardHeader>
             <CardContent>

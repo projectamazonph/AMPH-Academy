@@ -1,4 +1,6 @@
 import { Icon } from '@/components/icons';
+import { CheckCircle, Circle, Lock, Play } from '@/components/icons';
+
 import Link from "next/link";
 import type { ModuleSummary } from "../_types";
 

@@ -1,4 +1,6 @@
-'use client';
+'use client'
+import { AlertTriangle, ArrowRight, BarChart, Calculator, CheckCircle, CircleDot, DollarSign, Info, Lightbulb, Sparkles, Target, TrendUp, XCircle } from '@/components/icons';
+;
 import { Icon } from '@/components/icons';
 
 import { useState, useMemo, useCallback } from 'react';
@@ -211,7 +213,7 @@ export function FormulaCalculator({ moduleRef = 1, className }: FormulaCalculato
     const configs: Record<string, { bg: string; text: string; icon: typeof CheckCircle; label: string }> = {
       excellent: { bg: 'bg-emerald-500/15 border-emerald-500/25', text: 'text-emerald-400', icon: CheckCircle, label: 'Excellent' },
       good: { bg: 'bg-sky-500/15 border-sky-500/25', text: 'text-sky-400', icon: CircleDot, label: 'Good' },
-      warning: { bg: 'bg-amber-500/15 border-amber-500/25', text: 'text-amber-400', icon: Warning, label: 'Warning' },
+      warning: { bg: 'bg-amber-500/15 border-amber-500/25', text: 'text-amber-400', icon: AlertTriangle, label: 'AlertTriangle' },
       critical: { bg: 'bg-rose-500/15 border-rose-500/25', text: 'text-rose-400', icon: XCircle, label: 'Critical' },
       insufficient_data: { bg: 'bg-muted/30 border-border', text: 'text-muted-foreground', icon: Info, label: 'N/A' },
     };
@@ -484,7 +486,7 @@ export function FormulaCalculator({ moduleRef = 1, className }: FormulaCalculato
                     const levelConfig: Record<string, { color: string; icon: typeof CheckCircle }> = {
                       excellent: { color: 'text-emerald-400', icon: CheckCircle },
                       good: { color: 'text-sky-400', icon: CircleDot },
-                      warning: { color: 'text-amber-400', icon: Warning },
+                      warning: { color: 'text-amber-400', icon: AlertTriangle },
                       critical: { color: 'text-rose-400', icon: XCircle },
                     };
                     const cfg = levelConfig[level];
@@ -532,7 +534,7 @@ export function FormulaCalculator({ moduleRef = 1, className }: FormulaCalculato
                     const tabConfig = {
                       insight: { label: 'Insight', icon: Sparkles, color: 'text-sky-400' },
                       example: { label: 'Example', icon: ArrowRight, color: 'text-emerald-400' },
-                      pitfall: { label: 'Pitfall', icon: Warning, color: 'text-rose-400' },
+                      pitfall: { label: 'Pitfall', icon: AlertTriangle, color: 'text-rose-400' },
                     };
                     const tc = tabConfig[tab];
                     const TabIcon = tc.icon;

@@ -1,4 +1,6 @@
-'use client';
+'use client'
+import { Lightbulb, RotateCcw, Target } from '@/components/icons';
+;
 import { Icon } from '@/components/icons';
 
 import { motion } from 'framer-motion';

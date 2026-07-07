@@ -43,13 +43,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
         lastModified: new Date(),
         changeFrequency: "monthly" as const,
         priority: 0.8,
-        images: [
-          {
-            url: `${BASE_URL}/og/course-${course.slug}.png`,
-            title: course.title,
-            caption: course.description,
-          },
-        ],
+        images: [`${BASE_URL}/og/course-${course.slug}.png`],
       }));
   } catch {
     // If DB is unavailable, skip dynamic routes

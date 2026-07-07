@@ -1,4 +1,6 @@
-'use client';
+'use client'
+import { ArrowDownRight, ArrowUpRight, Calculator, Minus, Target } from '@/components/icons';
+;
 import { Icon } from '@/components/icons';
 
 import { motion } from 'framer-motion';

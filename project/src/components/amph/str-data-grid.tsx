@@ -1,4 +1,6 @@
-'use client';
+'use client'
+import { Ban, Pause, Send, Sliders, TrendUp, XCircle } from '@/components/icons';
+;
 import { Icon } from '@/components/icons';
 
 import { useMemo, useState, useCallback, useEffect, useRef } from 'react';

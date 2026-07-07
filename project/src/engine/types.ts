@@ -558,7 +558,7 @@ export interface StrTriageState {
 export interface ValidationResult {
   isValid: boolean;
   errors: ValidationError[];
-  warnings: ValidationWarning[];
+  warnings: ValidationAlertTriangle[];
 }
 
 export interface ValidationError {
@@ -567,7 +567,7 @@ export interface ValidationError {
   code: string;
 }
 
-export interface ValidationWarning {
+export interface ValidationAlertTriangle {
   field: string;
   message: string;
   code: string;

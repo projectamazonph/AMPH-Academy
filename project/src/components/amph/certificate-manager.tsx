@@ -1,4 +1,6 @@
-'use client';
+'use client'
+import { Copy, SquareArrowOutUpRight } from '@/components/icons';
+;
 import { Icon } from '@/components/icons';
 
 /**
@@ -130,7 +132,7 @@ export function CertificateManager() {
                     )
                   }
                 >
-                  <ArrowSquareOut className="h-3.5 w-3.5" />
+                  <SquareArrowOutUpRight className="h-3.5 w-3.5" />
                   Verify
                 </Button>
               )}

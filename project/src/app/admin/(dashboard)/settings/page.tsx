@@ -1,4 +1,6 @@
-'use client';
+'use client'
+import { Database, Globe, Server, Settings, Users } from '@/components/icons';
+;
 import { Icon } from '@/components/icons';
 
 import { useState, useEffect } from 'react';

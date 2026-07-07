@@ -46,13 +46,13 @@ const MODULE_META: Record<number, { slug: string; title: string; totalLessons: n
 };
 
 // Cache the fixture data in memory after first load
-let fixtureCache: import('./types').QuizFixture | null = null;
+let fixtureCache: import('./types').QuizFixtures | null = null;
 
 async function loadFixture() {
   if (fixtureCache) return fixtureCache;
   try {
     const raw = await readFile(join(process.cwd(), 'fixtures/quiz-questions.json'), 'utf-8');
-    fixtureCache = JSON.parse(raw) as import('./types').QuizFixture;
+    fixtureCache = JSON.parse(raw) as import('./types').QuizFixtures;
     return fixtureCache;
   } catch (error) {
     logger.error('Failed to load quiz fixture', { error: String(error) });

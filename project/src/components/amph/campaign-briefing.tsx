@@ -1,4 +1,6 @@
-'use client';
+'use client'
+import { Calculator, Lightbulb, Target } from '@/components/icons';
+;
 import { Icon } from '@/components/icons';
 
 import { motion } from 'framer-motion';

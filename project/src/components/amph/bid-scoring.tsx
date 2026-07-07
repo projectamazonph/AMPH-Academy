@@ -1,4 +1,6 @@
-'use client';
+'use client'
+import { CheckCircle, ChevronDown, ChevronUp, Target, XCircle } from '@/components/icons';
+;
 import { Icon } from '@/components/icons';
 
 import { useEffect, useState, useCallback } from 'react';

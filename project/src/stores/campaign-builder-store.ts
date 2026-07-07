@@ -488,7 +488,7 @@ export interface CampaignBuilderStore {
   attemptId: string | null;
   isGrading: boolean;
   validationErrors: string[];
-  validationWarnings: string[];
+  validationAlertTriangles: string[];
   productContext: ScenarioPack['productContext'];
   thresholds: ScenarioPack['thresholds'];
   suggestedKeywords: FixtureKeyword[];
@@ -544,7 +544,7 @@ export const useCampaignBuilderStore = create<CampaignBuilderStore>((set, get) =
   attemptId: null,
   isGrading: false,
   validationErrors: [],
-  validationWarnings: [],
+  validationAlertTriangles: [],
   ...deriveFromPack(SCENARIO_PACKS[0]),
 
   // ---------------------------------------------------------------------------
@@ -576,7 +576,7 @@ export const useCampaignBuilderStore = create<CampaignBuilderStore>((set, get) =
       attemptId: null,
       isGrading: false,
       validationErrors: [],
-      validationWarnings: [],
+      validationAlertTriangles: [],
       ...deriveFromPack(pack),
     });
   },
@@ -611,7 +611,7 @@ export const useCampaignBuilderStore = create<CampaignBuilderStore>((set, get) =
       campaign: updated,
       previewScore: preview,
       validationErrors: validation.errors.map((e) => e.message),
-      validationWarnings: validation.warnings.map((w) => w.message),
+      validationAlertTriangles: validation.warnings.map((w) => w.message),
     });
   },
 
@@ -704,7 +704,7 @@ export const useCampaignBuilderStore = create<CampaignBuilderStore>((set, get) =
       attemptId: null,
       isGrading: false,
       validationErrors: [],
-      validationWarnings: [],
+      validationAlertTriangles: [],
       ...deriveFromPack(pack),
     });
   },

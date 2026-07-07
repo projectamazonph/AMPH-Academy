@@ -22,6 +22,7 @@
 import { readFile } from 'fs/promises';
 import { join } from 'path';
 import { db } from '@/lib/db';
+import type { BadgeCategory, BadgeTier } from '@prisma/client';
 import { getAuthUserId } from '@/lib/auth-guard';
 import { logger } from '@/lib/logger';
 import type {
@@ -67,8 +68,8 @@ async function ensureBadgesSeeded(): Promise<boolean> {
           title: badgeData.title,
           description: badgeData.description,
           icon: badgeData.icon,
-          category: badgeData.category,
-          tier: badgeData.tier,
+          category: badgeData.category as BadgeCategory,
+          tier: badgeData.tier as BadgeTier,
           xpReward: badgeData.xpReward || 0,
           criteria: badgeData.criteria,
           order: badgeData.order,

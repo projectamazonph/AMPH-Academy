@@ -53,7 +53,7 @@ export function QuizPlayer({ moduleNumber, onBack, onComplete }: QuizPlayerProps
   const [phase, setPhase] = useState<Phase>('loading');
   const [quiz, setQuiz] = useState<QuizView | null>(null);
   const [currentQ, setCurrentQ] = useState(0); // 0-based index
-  const [answers, setAnswers] = useState<Record<number, 'A' | 'B' | 'C' | 'D>>({});
+  const [answers, setAnswers] = useState<Record<number, 'A' | 'B' | 'C' | 'D'>>({});
   const [result, setResult] = useState<GradedQuestion[] | null>(null);
   const [submitData, setSubmitData] = useState<{
     score: number;

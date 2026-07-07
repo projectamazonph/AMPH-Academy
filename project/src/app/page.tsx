@@ -1,4 +1,6 @@
-'use client';
+'use client'
+import { ArrowUpRight, BarChart, BookOpen, Clock, Coins, Funnel, Layout, Medal, Menu, Rocket, Sparkles, Target, TrendUp, TrendingDown, TriangleAlert } from '@/components/icons';
+;
 import { Icon } from '@/components/icons';
 
 import { useState, useEffect, useRef } from 'react';

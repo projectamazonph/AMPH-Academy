@@ -1,4 +1,6 @@
-'use client';
+'use client'
+import { ChevronDown, ChevronUp, Target } from '@/components/icons';
+;
 import { Icon } from '@/components/icons';
 
 import { useEffect, useState } from 'react';

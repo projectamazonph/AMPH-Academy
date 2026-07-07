@@ -1,4 +1,6 @@
-'use client';
+'use client'
+import { Calendar, Globe, Layers, Pencil, Plus, SquareArrowOutUpRight, Trash2, Users, Video } from '@/components/icons';
+;
 import { Icon } from '@/components/icons';
 
 import { useState, useEffect } from 'react';
@@ -381,7 +383,7 @@ function LiveClassesTab() {
                     {lc.meetingUrl && (
                       <a href={lc.meetingUrl} target="_blank" rel="noopener noreferrer"
                         className="flex items-center gap-1 text-xs text-sky-400 hover:text-sky-300 mt-1.5">
-                        <ArrowSquareOut className="h-3 w-3" />
+                        <SquareArrowOutUpRight className="h-3 w-3" />
                         Meeting link
                       </a>
                     )}

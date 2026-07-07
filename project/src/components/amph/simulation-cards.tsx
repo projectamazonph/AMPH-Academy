@@ -1,4 +1,6 @@
-'use client';
+'use client'
+import { ArrowUpRight, Cursor, Funnel, type LucideIcon } from '@/components/icons';
+;
 import { Icon } from '@/components/icons';
 
 import { motion } from 'framer-motion';
@@ -47,7 +49,7 @@ const simulations: Simulation[] = [
   },
 ];
 
-const iconMap: Record<string, Icon> = {
+const iconMap: Record<string, LucideIcon> = {
   Cursor,
   ArrowUpRight,
   Funnel,

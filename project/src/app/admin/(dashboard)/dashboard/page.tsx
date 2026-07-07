@@ -1,4 +1,6 @@
-'use client';
+'use client'
+import { BookOpen, Clock, HeartPulse, Target, TrendUp, Trophy, Users } from '@/components/icons';
+;
 import { Icon } from '@/components/icons';
 
 import { useState, useEffect } from 'react';
@@ -78,11 +80,11 @@ export default function AdminDashboardPage() {
           color="text-violet-400" bg="bg-violet-500/10" />
       </div>
 
-      {/* Pulse row */}
+      {/* HeartPulse row */}
       <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
         <StatCard label="Modules Done" value={stats?.modulesCompletedTotal ?? 0} icon={BookOpen}
           color="text-cyan-400" bg="bg-cyan-500/10" />
-        <StatCard label="Quizzes Passed" value={stats?.quizzesPassedTotal ?? 0} icon={Pulse}
+        <StatCard label="Quizzes Passed" value={stats?.quizzesPassedTotal ?? 0} icon={HeartPulse}
           color="text-indigo-400" bg="bg-indigo-500/10" />
         <StatCard label="Active Today" value={stats?.activeToday ?? 0} icon={Clock}
           color="text-orange-400" bg="bg-orange-500/10" />

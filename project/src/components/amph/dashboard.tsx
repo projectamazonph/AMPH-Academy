@@ -1,4 +1,6 @@
-'use client';
+'use client'
+import { BarChart, DollarSign, FlaskConical, Percent } from '@/components/icons';
+;
 import { Icon } from '@/components/icons';
 
 import { useState, useEffect } from 'react';

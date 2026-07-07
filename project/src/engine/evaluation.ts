@@ -27,7 +27,7 @@ import type {
   SimulationContext,
   ValidationResult,
   ValidationError,
-  ValidationWarning,
+  ValidationAlertTriangle,
   CampaignBuilderEvaluation,
   CampaignStructure,
   CriterionResult,
@@ -385,7 +385,7 @@ export function previewBidElevatorScore(
  */
 export function validateCampaignBuilder(campaign: CampaignStructure): ValidationResult {
   const errors: ValidationError[] = [];
-  const warnings: ValidationWarning[] = [];
+  const warnings: ValidationAlertTriangle[] = [];
 
   if (!campaign.name || campaign.name.trim().length === 0) {
     errors.push({ field: 'name', message: 'Campaign name is required', code: 'REQUIRED' });
@@ -431,7 +431,7 @@ export function validateStrTriageActions(
   searchTermIds: string[]
 ): ValidationResult {
   const errors: ValidationError[] = [];
-  const warnings: ValidationWarning[] = [];
+  const warnings: ValidationAlertTriangle[] = [];
 
   const actionedIds = new Set(actions.map((a) => a.searchTermId));
   const missingIds = searchTermIds.filter((id) => !actionedIds.has(id));

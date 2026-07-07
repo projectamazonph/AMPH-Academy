@@ -1,7 +1,7 @@
 import { Icon } from '@/components/icons';
 import { notFound } from "next/navigation";
 import Link from "next/link";
-import { Script } from "next/script";
+import Script from "next/script";
 import type { Metadata } from "next";
 import { getCourseBySlug } from "@/modules/courses/_actions";
 import { ModuleList } from "@/modules/courses/_components/ModuleList";
@@ -187,7 +187,6 @@ export default async function CourseDetailPage({
       name: course.title,
       description: course.description,
     },
-    description: course.description,
     inLanguage: ["en", "fil"],
     curriculum: courseCurriculum,
     teaches: course.modules.map((m) => m.title),

@@ -1,4 +1,6 @@
-'use client';
+'use client'
+import { ArrowDownRight, ArrowUpRight, Minus, TrendUp } from '@/components/icons';
+;
 import { Icon } from '@/components/icons';
 
 import { useState, useEffect, useRef, useCallback, useMemo } from 'react';

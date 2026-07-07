@@ -1,4 +1,6 @@
-'use client';
+'use client'
+import { ArrowUpRight, BarChart, BookOpen, Calculator, CheckCircle, Cursor, FileText, Funnel, Layout, MagnifyingGlass, PieChart, Play, Rocket, TrendUp, type LucideIcon } from '@/components/icons';
+;
 import { Icon } from '@/components/icons';
 
 import { useState, useEffect } from 'react';
@@ -260,8 +262,8 @@ const moduleColorConfig: Record<string, {
   },
 };
 
-const lessonStatusIcon: Record<string, Icon> = {
-  locked: Lock,
+const lessonStatusIcon: Record<string, LucideIcon> = {
+  locked: Lock as unknown as LucideIcon,
   available: Play,
   complete: CheckCircle,
 };

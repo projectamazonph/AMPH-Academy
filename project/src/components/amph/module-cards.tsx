@@ -1,4 +1,7 @@
-'use client';
+'use client'
+import { BookOpen, CheckCircle, Circle, Funnel, Layout, Lock, Play, Rocket, TrendUp, type LucideIcon } from '@/components/icons';
+import { Icon } from '@/components/icons';
+;
 
 import { motion } from 'framer-motion';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
@@ -69,7 +72,7 @@ const modules: Module[] = [
   },
 ];
 
-const iconMap: Record<string, Icon> = {
+const iconMap: Record<string, LucideIcon> = {
   Rocket,
   BookOpen,
   Layout,

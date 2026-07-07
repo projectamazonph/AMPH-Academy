@@ -1,4 +1,6 @@
-'use client';
+'use client'
+import { BarChart, BookOpen, FileText, FlaskConical, LayoutDashboard, LogOut, Medal, Menu, MessageSquare, Trophy, Users, Video } from '@/components/icons';
+;
 import { Icon } from '@/components/icons';
 
 import { motion, AnimatePresence } from 'framer-motion';

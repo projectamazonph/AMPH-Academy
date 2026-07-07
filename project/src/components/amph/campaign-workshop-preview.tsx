@@ -13,7 +13,10 @@ import {
 } from './campaign-workshop-data';
 
 export function PreviewBar() {
-  const { campaign, positiveKeywords, negativeKeywords, submitCampaign } = useCampaignBuilderStore();
+  const { campaign, submitCampaign } = useCampaignBuilderStore();
+
+  const positiveKeywords = campaign.keywords.filter((k: { isNegative?: boolean }) => !k.isNegative);
+  const negativeKeywords = campaign.keywords.filter((k: { isNegative?: boolean }) => k.isNegative);
 
   const previewScore = useMemo(() => {
     let score = 0;
@@ -30,12 +33,12 @@ export function PreviewBar() {
 
   const canSubmit = previewScore >= 50;
   const validationErrors: string[] = [];
-  const validationWarnings: string[] = [];
+  const validationAlertTriangles: string[] = [];
 
   if (!campaign.name.trim()) validationErrors.push('Campaign name is required');
   if (campaign.dailyBudget < 5) validationErrors.push('Daily budget must be at least $5');
   if (positiveKeywords.length === 0) validationErrors.push('Add at least one keyword');
-  if (campaign.defaultBid <= 0) validationWarnings.push('Default bid is $0 — consider setting a bid');
+  if (campaign.defaultBid <= 0) validationAlertTriangles.push('Default bid is $0 — consider setting a bid');
 
   const totalKeywords = campaign.keywords.length;
 
@@ -104,9 +107,9 @@ export function PreviewBar() {
         )}
 
         {/* Validation warnings */}
-        {validationWarnings.length > 0 && (
+        {validationAlertTriangles.length > 0 && (
           <div className="mt-2 space-y-1">
-            {validationWarnings.map((warn, i) => (
+            {validationAlertTriangles.map((warn, i) => (
               <div
                 key={i}
                 className="flex items-center gap-2 text-xs text-amber-400"

@@ -1,4 +1,6 @@
-'use client';
+'use client'
+import { Building2, Flame, Plus, UserPlus, Users } from '@/components/icons';
+;
 import { Icon } from '@/components/icons';
 
 /**

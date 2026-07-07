@@ -47,7 +47,7 @@ export type {
   StrTriageState,
   ValidationResult,
   ValidationError,
-  ValidationWarning,
+  ValidationAlertTriangle,
 } from './types';
 
 

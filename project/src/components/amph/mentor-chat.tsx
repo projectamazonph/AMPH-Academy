@@ -1,4 +1,6 @@
-'use client';
+'use client'
+import { Bot, Send, Sparkles, Trash2 } from '@/components/icons';
+;
 import { Icon } from '@/components/icons';
 
 import { useState, useEffect, useRef } from 'react';

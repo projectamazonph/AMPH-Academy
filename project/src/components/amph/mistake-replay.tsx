@@ -1,4 +1,6 @@
-'use client';
+'use client'
+import { AlertTriangle, BarChart, BookOpen, Brain, Lightbulb, TrendUp } from '@/components/icons';
+;
 import { Icon } from '@/components/icons';
 
 /**

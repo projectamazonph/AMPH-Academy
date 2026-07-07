@@ -296,6 +296,11 @@ export interface QuizQuestionFixture {
   points?: number;
 }
 
+export interface QuizFixtures {
+  _meta?: { description?: string; version?: string; passThreshold?: number; xpRewardPerQuiz?: number };
+  quizzes: QuizFixture[];
+}
+
 export interface QuizFixture {
   moduleNumber: number;
   title: string;

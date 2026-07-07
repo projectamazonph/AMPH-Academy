@@ -1,4 +1,6 @@
-'use client';
+'use client'
+import { BookOpen, Bot, Flame, Zap, Medal, Trophy, type LucideIcon } from '@/components/icons';
+;
 
 import { useState, useEffect, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -63,7 +65,7 @@ const tierConfig: Record<string, {
 const categoryLabels: Record<string, { label: string; icon: LucideIcon }> = {
   ENGAGEMENT: { label: 'Engagement', icon: BookOpen },
   MASTERY: { label: 'Mastery', icon: Trophy },
-  XP_MILESTONE: { label: 'XP Milestones', icon: Lightning },
+  XP_MILESTONE: { label: 'XP Milestones', icon: Zap },
   STREAK: { label: 'Streak', icon: Flame },
   SOCIAL: { label: 'Social', icon: Bot },
 };
@@ -389,7 +391,7 @@ export function BadgeShowcase() {
                   {/* XP reward */}
                   {selectedBadge.xpReward > 0 && (
                     <Badge variant="outline" className="text-xs gap-1 bg-primary/10 text-primary border-primary/20">
-                      <Lightning className="h-3 w-3" />
+                      <Zap className="h-3 w-3" />
                       +{selectedBadge.xpReward} XP
                     </Badge>
                   )}

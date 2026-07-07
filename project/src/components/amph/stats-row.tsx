@@ -1,4 +1,6 @@
-'use client';
+'use client'
+import { BookOpen, Flame, FlaskConical, Zap } from '@/components/icons';
+;
 
 import { motion } from 'framer-motion';
 import {
@@ -83,7 +85,7 @@ export function StatsRow({
     {
       label: 'Total XP',
       value: totalXP.toLocaleString(),
-      icon: Lightning,
+      icon: Zap,
       trend: totalXP > 0 ? 'Earn XP by completing lessons' : 'Earn XP by completing lessons',
       color: 'violet',
       hasProgress: totalXP > 0,

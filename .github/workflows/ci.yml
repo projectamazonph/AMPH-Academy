@@ -1,4 +1,4 @@
-name: CI & Deploy
+name: CI
 
 on:
   push:
@@ -7,44 +7,48 @@ on:
     branches: [main]
 
 jobs:
-  test:
+  audit:
     runs-on: ubuntu-latest
+    timeout-minutes: 10
+
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
       - uses: actions/setup-node@v4
         with:
-          node-version: 22
-          cache: npm
-          cache-dependency-path: project/package-lock.json
-
-      - name: Install dependencies
-        run: cd project && npm ci || (rm -rf node_modules && npm ci)
-
-      - run: cd project && npx prisma generate
-      - run: cd project && npm test
-
-  deploy:
-    needs: test
-    if: github.ref == 'refs/heads/main'
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
-        with:
-          node-version: 22
-          cache: npm
-          cache-dependency-path: project/package-lock.json
+          node-version: 20
+          cache: 'npm'
 
       - name: Install dependencies
         run: npm ci
-        working-directory: project
 
-      - name: Install Vercel CLI
-        run: npm install -g vercel@latest
-        working-directory: project
+      - name: TypeScript check
+        run: npx tsc --noEmit
+
+      - name: ESLint
+        run: npx eslint .
+
+      - name: Tests
+        run: npx vitest run
+
+      - name: Secret scan (gitleaks)
+        uses: gitleaks/gitleaks-action@v2
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Build
+        run: npm run build
+        env:
+          JWT_SECRET: ci-only-do-not-use-in-prod
+          DATABASE_URL: file:./build-test.db
 
       - name: Deploy to Vercel
-        run: vercel --prod --yes --local-config project/vercel.json --token=${{ secrets.VERCEL_TOKEN }}
+        run: |
+          npm i -g vercel
+          vercel --prod --yes --token "${{ secrets.VERCEL_TOKEN }}"
         env:
           VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
           VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main'

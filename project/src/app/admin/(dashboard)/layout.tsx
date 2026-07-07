@@ -1,4 +1,6 @@
-'use client';
+'use client'
+import { BookOpen, HeartPulse, LayoutDashboard, LogOut, Menu, Settings, Users } from '@/components/icons';
+;
 import { Icon } from '@/components/icons';
 
 import { useState } from 'react';
@@ -15,7 +17,7 @@ const adminNavItems: { href: string; label: string; icon: typeof LayoutDashboard
   { href: '/admin/dashboard', label: 'Dashboard', icon: LayoutDashboard },
   { href: '/admin/users', label: 'Users', icon: Users },
   { href: '/admin/courses', label: 'Content', icon: BookOpen },
-  { href: '/admin/events', label: 'Events', icon: Pulse },
+  { href: '/admin/events', label: 'Events', icon: HeartPulse },
   { href: '/admin/settings', label: 'Settings', icon: Settings },
 ];
 

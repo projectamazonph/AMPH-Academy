@@ -1,4 +1,6 @@
-'use client';
+'use client'
+import { BookOpen, CheckSquare, FileText, FolderOpen, Grid3X3 } from '@/components/icons';
+;
 import { Icon } from '@/components/icons';
 
 import { useState, useEffect } from 'react';

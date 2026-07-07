@@ -1,4 +1,6 @@
-'use client';
+'use client'
+import { Ban, Pause, Sliders, Target, TrendUp, XCircle } from '@/components/icons';
+;
 import { Icon } from '@/components/icons';
 
 import { motion } from 'framer-motion';

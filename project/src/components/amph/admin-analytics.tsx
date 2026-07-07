@@ -1,4 +1,6 @@
-'use client';
+'use client'
+import { BookOpen, Brain, HeartPulse, Target, Trophy, Users } from '@/components/icons';
+;
 import { Icon } from '@/components/icons';
 
 import { useState, useEffect } from 'react';
@@ -57,8 +59,8 @@ export function AdminAnalytics() {
 
           <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
             {[
-              { label: 'Active Today', value: data.activeToday, icon: Pulse, color: 'text-cyan-400' },
-              { label: 'Active This Week', value: data.activeThisWeek, icon: Pulse, color: 'text-emerald-400' },
+              { label: 'Active Today', value: data.activeToday, icon: HeartPulse, color: 'text-cyan-400' },
+              { label: 'Active This Week', value: data.activeThisWeek, icon: HeartPulse, color: 'text-emerald-400' },
               { label: 'Modules Completed', value: data.modulesCompletedTotal, icon: Trophy, color: 'text-yellow-400' },
               { label: 'Quizzes Passed', value: data.quizzesPassedTotal, icon: Brain, color: 'text-purple-400' },
             ].map(s => {
