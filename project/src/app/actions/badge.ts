@@ -37,7 +37,7 @@ async function loadFixture() {
   if (fixtureCache) return fixtureCache;
   try {
     const raw = await readFile(join(process.cwd(), 'fixtures/badges.json'), 'utf-8');
-    fixtureCache = JSON.parse(raw);
+    fixtureCache = JSON.parse(raw) as { badges: import('./types').BadgeFixture[] };
     return fixtureCache;
   } catch (error) {
     logger.error('Failed to load badge fixture', { error: String(error) });

@@ -20,7 +20,7 @@ export function CampaignBriefing() {
     scenarioPacks,
   } = useCampaignBuilderStore();
   const { data: session } = useSession();
-  const userId = (session?.user as any)?.id;
+  const userId = (session?.user as { id?: string })?.id;
 
   const breakEvenCpc = productContext.price * thresholds.conversionRateMinimum * thresholds.acosTarget;
 

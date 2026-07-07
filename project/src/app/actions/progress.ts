@@ -27,6 +27,7 @@ import type {
   ProgressOverview,
   ModuleProgressItem,
 } from './types';
+import type { ProgressStatus } from '@prisma/client';
 
 // ============================================================================
 // Module metadata (mirrors MDX content structure)
@@ -307,7 +308,7 @@ export async function getLessonProgress(
       result.push({
         lessonNumber: i,
         lessonSlug: `${moduleNumber}.${i}`,
-        status: (p?.status as any) || 'NOT_STARTED',
+        status: (p?.status as ProgressStatus) || 'NOT_STARTED',
         completedAt: p?.completedAt?.toISOString() || null,
       });
     }
@@ -392,7 +393,7 @@ export async function getProgressOverview(): Promise<ActionResult<ProgressOvervi
         });
 
         if (mp) {
-          status = mp.status as any;
+          status = mp.status as ProgressStatus;
           score = mp.score;
           xpEarned = mp.xpEarned;
         }

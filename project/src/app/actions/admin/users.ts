@@ -3,6 +3,7 @@
 import { db } from '@/lib/db';
 import { requireAdmin } from '@/lib/auth-guard';
 import { logger } from '@/lib/logger';
+import type { UserRole } from '@prisma/client';
 import type { ActionResult } from '../types';
 
 export interface AdminUser {
@@ -99,7 +100,7 @@ export async function updateUserRole(userId: string, role: string): Promise<Acti
 
     await db.user.update({
       where: { id: userId },
-      data: { role: role as any },
+      data: { role: role as UserRole },
     });
 
     return { success: true, data: null };

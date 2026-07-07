@@ -45,7 +45,7 @@ export function BidBriefing() {
   const { productContext, thresholds, scenarios, startSimulation } =
     useBidElevatorStore();
   const { data: session } = useSession();
-  const userId = (session?.user as any)?.id;
+  const userId = (session?.user as { id?: string })?.id;
 
   // Calculate max profitable CPC for reference
   const avgCvr = 0.10; // ~10% average

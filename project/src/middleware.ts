@@ -171,7 +171,7 @@ export async function middleware(request: NextRequest) {
 
   // --- Admin route check ---
   if (ADMIN_PATHS.some((path) => pathname.startsWith(path))) {
-    const role = (token as any)?.role;
+    const role = (token as { role?: string })?.role;
     if (role !== 'ADMIN') {
       const adminLoginUrl = new URL('/admin/login', request.url);
       adminLoginUrl.searchParams.set('callbackUrl', pathname);

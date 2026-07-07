@@ -25,7 +25,7 @@ import type { ActionResult } from '@/app/actions/types';
  */
 export async function getAuthUserId(): Promise<string | null> {
   const session = await getServerSession(authOptions);
-  return (session?.user as any)?.id ?? null;
+  return (session?.user as { id?: string })?.id ?? null;
 }
 
 /**

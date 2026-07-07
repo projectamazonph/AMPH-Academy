@@ -49,7 +49,7 @@ export default function AdminUsersPage() {
 
   const totalPages = Math.ceil(filtered.length / pageSize);
   const paged = filtered.slice(page * pageSize, (page + 1) * pageSize);
-  const currentUserId = (session?.user as any)?.id;
+  const currentUserId = (session?.user as { id?: string })?.id;
 
   async function handleDelete(userId: string, name: string) {
     if (!confirm(`Delete user "${name || 'Unknown'}"? This cannot be undone.`)) return;
