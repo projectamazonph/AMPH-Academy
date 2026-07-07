@@ -6,9 +6,9 @@
 
 /* ==========================================================================
    Project Aurora Design System — AMPH Academy
-   Deep Navy canvas, Orange accent, warm white cards
+   Deep Navy canvas, Sky Blue accent, warm white cards
    Brand alignment with ProjectAmazonPH
-   Colors: Primary Orange #FF6B35, Deep Navy #1A1A2E, Warm Gray #F5F5F5
+   Colors: Primary Sky Blue #007EFF, Deep Navy #1A1A2E, Warm Gray #F5F5F5
    ========================================================================== */
 
 @theme inline {
@@ -51,7 +51,7 @@
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
   --radius-xl: calc(var(--radius) + 4px);
-  --color-orange-glow: var(--orange-glow);
+  --color-sky-blue-glow: var(--sky-blue-glow);
   --color-gold: var(--gold);
   --color-green-accent: var(--green-accent);
   --color-glass: var(--glass);
@@ -62,7 +62,7 @@
 
 /* ==========================================================================
    Base Palette — Dark Only
-   Deep Navy (#1A1A2E) canvas, Orange (#FF6B35) accent
+   Deep Navy (#1A1A2E) canvas, Sky Blue (#007EFF) accent
    ========================================================================== */
 
 :root {
@@ -75,22 +75,22 @@
   --card-foreground: oklch(0.15 0.02 280);  /* Dark text on white cards */
   --popover: oklch(0.97 0 0);
   --popover-foreground: oklch(0.15 0.02 280);
-  --primary: oklch(0.65 0.18 35);            /* Orange #FF6B35 */
+  --primary: oklch(0.65 0.2 245);            /* Sky Blue #007EFF */
   --primary-foreground: oklch(0.98 0 0);
   --secondary: oklch(0.22 0.03 280);         /* Lighter navy surface */
   --secondary-foreground: oklch(0.88 0.01 280);
   --muted: oklch(0.92 0 0);                   /* Warm Gray muted */
   --muted-foreground: oklch(0.45 0.02 280); /* Muted text on white */
-  --accent: oklch(0.65 0.18 35 / 12%);       /* Orange as subtle accent */
+  --accent: oklch(0.65 0.2 245 / 12%);       /* Sky Blue as subtle accent */
   --accent-foreground: oklch(0.88 0.01 280);
   --destructive: oklch(0.7 0.19 22.216);     /* Red for errors */
   --destructive-foreground: oklch(0.98 0 0);
   --border: oklch(1 0 0 / 8%);               /* Subtle border on navy */
   --input: oklch(1 0 0 / 12%);
-  --ring: oklch(0.65 0.18 35);               /* Orange focus ring */
+  --ring: oklch(0.65 0.2 245);               /* Sky Blue focus ring */
 
   /* Chart colors — PPC semantic data */
-  --chart-1: oklch(0.65 0.18 35);            /* Orange — primary metric */
+  --chart-1: oklch(0.65 0.2 245);            /* Sky Blue — primary metric */
   --chart-2: oklch(0.55 0.15 160);           /* Green — growth/success */
   --chart-3: oklch(0.6 0.12 280);            /* Blue — secondary data */
   --chart-4: oklch(0.6 0.16 75);             /* Amber — warnings */
@@ -99,12 +99,12 @@
   /* Sidebar — inset navy */
   --sidebar: oklch(0.1 0.02 280);            /* Deepest navy */
   --sidebar-foreground: oklch(0.88 0.01 280);
-  --sidebar-primary: oklch(0.65 0.18 35);
+  --sidebar-primary: oklch(0.65 0.2 245);
   --sidebar-primary-foreground: oklch(0.98 0 0);
-  --sidebar-accent: oklch(0.65 0.18 35 / 10%);
+  --sidebar-accent: oklch(0.65 0.2 245 / 10%);
   --sidebar-accent-foreground: oklch(0.88 0.01 280);
   --sidebar-border: oklch(1 0 0 / 6%);
-  --sidebar-ring: oklch(0.65 0.18 35);
+  --sidebar-ring: oklch(0.65 0.2 245);
 
   /* Glass morphism tokens */
   --glass: oklch(1 0 0 / 6%);
@@ -113,7 +113,7 @@
   --shadow-glass: 0 8px 32px oklch(0 0 0 / 12%), 0 1px 2px oklch(0 0 0 / 6%);
 
   /* Special brand tokens */
-  --orange-glow: oklch(0.65 0.18 35 / 20%);
+  --sky-blue-glow: oklch(0.65 0.2 245 / 20%);
   --gold: oklch(0.75 0.15 85);              /* Gold #FFD700 — achievements */
   --green-accent: oklch(0.55 0.15 160);     /* Green #28A745 — success states */
 }
@@ -164,9 +164,9 @@
     @apply text-primary underline-offset-2 hover:underline;
   }
 
-  /* Selection — Orange highlight */
+  /* Selection — Sky Blue highlight */
   ::selection {
-    background-color: oklch(0.65 0.18 35 / 30%);
+    background-color: oklch(0.65 0.2 245 / 30%);
     color: oklch(0.98 0 0);
   }
 }
@@ -228,6 +228,6 @@
 }
 
 /* Progress bar gradient */
-.progress-orange {
-  background: linear-gradient(90deg, oklch(0.55 0.18 35), oklch(0.65 0.18 35));
+.progress-sky-blue {
+  background: linear-gradient(90deg, oklch(0.55 0.2 245), oklch(0.65 0.2 245));
 }

@@ -18,13 +18,60 @@ export async function generateMetadata({
   const { slug } = await params;
   const course = await getCourseBySlug(slug);
   if (!course) return { title: "Course Not Found" };
+
+  const courseUrl = `${BASE_URL}/courses/${course.slug}`;
+  const ogImageUrl = `${BASE_URL}/og/course-${course.slug}.png`;
+
   return {
-    title: `${course.title} — ProjectAMPH Academy`,
+    title: course.title,
     description: course.description,
+    keywords: [
+      course.title,
+      "Amazon PPC",
+      "ProjectAMPH Academy",
+      "PPC Training",
+      course.difficulty,
+      ...(course.tier ? [course.tier] : []),
+    ],
+    authors: [{ name: "Ryan Dabao", url: "https://projectamazonph.com" }],
     openGraph: {
-      title: `${course.title} — ProjectAMPH Academy`,
+      title: `${course.title} | ProjectAMPH Academy`,
       description: course.description,
+      url: courseUrl,
       type: "website",
+      siteName: "ProjectAMPH Academy",
+      locale: "en_PH",
+      images: [
+        {
+          url: ogImageUrl,
+          width: 1200,
+          height: 630,
+          alt: course.title,
+          type: "image/png",
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: course.title,
+      description: course.description,
+      images: [ogImageUrl],
+      site: "@projectamazonph",
+      creator: "@ryandabao",
+    },
+    alternates: {
+      canonical: courseUrl,
+    },
+    robots: {
+      index: true,
+      follow: true,
+      googleBot: {
+        index: true,
+        follow: true,
+        "max-video-preview": -1,
+        "max-image-preview": "large",
+        "max-snippet": -1,
+      },
     },
   };
 }
@@ -51,20 +98,65 @@ export default async function CourseDetailPage({
   const isEnrolled =
     course.enrollmentStatus === "ACTIVE" || course.enrollmentStatus === "COMPLETED";
 
+  // Build course curriculum JSON-LD
+  const courseCurriculum = course.modules.map((module) => ({
+    "@type": "CourseModule",
+    name: module.title,
+    description: module.description,
+    moduleNumber: module.moduleNumber,
+    learningMode: "online",
+    timeRequired: `PT${module.estimatedMinutes}M`,
+  }));
+
   const courseJsonLd = {
     "@context": "https://schema.org",
     "@type": "Course",
+    "@id": `${BASE_URL}/courses/${course.slug}#course`,
     name: course.title,
     description: course.description,
     url: `${BASE_URL}/courses/${course.slug}`,
+    image: `${BASE_URL}/og/course-${course.slug}.png`,
     provider: {
       "@type": "Organization",
       name: "Project Amazon PH",
       url: "https://projectamazonph.com",
+      logo: {
+        "@type": "ImageObject",
+        url: `${BASE_URL}/icons/icon-og.png`,
+      },
+      sameAs: [
+        "https://www.facebook.com/projectamazonph",
+        "https://www.linkedin.com/company/projectamazonph",
+        "https://twitter.com/projectamazonph",
+      ],
+    },
+    author: {
+      "@type": "Person",
+      name: "Ryan Dabao",
+      url: "https://projectamazonph.com",
+      jobTitle: "Founder",
+      worksFor: {
+        "@type": "Organization",
+        name: "ProjectAmazonPH",
+      },
+    },
+    coursePrerequisites: {
+      "@type": "EducationalLevel",
+      name: course.difficulty === "FOUNDATIONS" ? "None" : course.difficulty,
+    },
+    educationalLevel: course.difficulty,
+    courseCredential": {
+      "@type": "EducationalOccupationalCredential",
+      credentialCategory: "certificate",
+      recognizedBy: {
+        "@type": "Organization",
+        name: "ProjectAmazonPH",
+      },
     },
     numberOfCredits: {
-      "@type": "Integer",
+      "@type": "QuantitativeValue",
       value: course.moduleCount * 10,
+      unitCode: "CEU",
     },
     totalHistoricalEnrollmentCount: 0,
     courseSchedule: {
@@ -75,6 +167,13 @@ export default async function CourseDetailPage({
       "@type": "CourseInstance",
       courseMode: "online",
       courseWorkload: `PT${course.estimatedHours}H`,
+      courseFee: course.price
+        ? {
+            "@type": "MonetaryAmount",
+            value: course.price,
+            currency: "PHP",
+          }
+        : undefined,
     },
     aggregateRating: {
       "@type": "AggregateRating",
@@ -89,7 +188,16 @@ export default async function CourseDetailPage({
       description: course.description,
     },
     description: course.description,
-    inLanguage: "en-PH",
+    inLanguage: ["en", "fil"],
+    curriculum: courseCurriculum,
+    teaches: course.modules.map((m) => m.title),
+    competencyRequired: [
+      "Amazon PPC Campaign Management",
+      "Bidding Strategy Optimization",
+      "Search Term Report Analysis",
+      "ACoS and ROAS Optimization",
+      "CPC Management",
+    ],
   };
 
   return (

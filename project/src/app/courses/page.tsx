@@ -4,14 +4,41 @@ import { CourseCard } from "@/modules/courses/_components/CourseCard";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Courses — ProjectAMPH Academy",
+  title: "Course Catalog",
   description:
     "Browse Amazon PPC courses built for Filipino VAs. From campaign foundations to advanced optimization — structured, hands-on, and simulation-backed training.",
+  keywords: [
+    "Amazon PPC courses",
+    "PPC training Philippines",
+    "Amazon advertising courses",
+    "VA training",
+    "ProjectAMPH Academy courses",
+    "online courses Philippines",
+  ],
   openGraph: {
-    title: "Amazon PPC Courses — ProjectAMPH Academy",
+    title: "Course Catalog | ProjectAMPH Academy",
     description:
       "Structured Amazon advertising courses with interactive simulations. Built for Filipino VAs by ProjectAmazonPH.",
     type: "website",
+    siteName: "ProjectAMPH Academy",
+    locale: "en_PH",
+    images: [
+      {
+        url: "/og/amph-og.png",
+        width: 1200,
+        height: 630,
+        alt: "ProjectAMPH Academy Course Catalog",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Course Catalog | ProjectAMPH Academy",
+    description:
+      "Structured Amazon advertising courses with interactive simulations. Built for Filipino VAs by ProjectAmazonPH.",
+  },
+  alternates: {
+    canonical: "https://amph-academy.vercel.app/courses",
   },
 };
 

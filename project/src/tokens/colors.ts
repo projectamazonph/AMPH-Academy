@@ -4,7 +4,7 @@
  * Usage: import { brand, semantic } from '@/tokens/colors'
  *
  * Design system: Project Aurora
- * Canvas: Deep Navy (#1A1A2E), Orange accent (#FF6B35), dark-only
+ * Canvas: Deep Navy (#1A1A2E), Sky Blue accent (#007EFF), dark-only
  */
 
 export const brand = {
@@ -29,14 +29,14 @@ export const surface = {
 } as const;
 
 export const action = {
-  /** Orange #FF6B35 — primary actions, links, focus rings */
-  primary: 'oklch(0.65 0.18 35)',
+  /** Sky Blue #007EFF — primary actions, links, focus rings */
+  primary: 'oklch(0.65 0.2 245)',
   primaryForeground: 'oklch(0.98 0 0)',
-  /** Orange as subtle accent tint */
-  accent: 'oklch(0.65 0.18 35 / 12%)',
+  /** Sky Blue as subtle accent tint */
+  accent: 'oklch(0.65 0.2 245 / 12%)',
   accentForeground: 'oklch(0.88 0.01 280)',
-  /** Orange focus ring */
-  ring: 'oklch(0.65 0.18 35)',
+  /** Sky Blue focus ring */
+  ring: 'oklch(0.65 0.2 245)',
 } as const;
 
 export const semantic = {
@@ -50,8 +50,8 @@ export const semantic = {
 } as const;
 
 export const chart = {
-  /** Orange — primary metric */
-  1: 'oklch(0.65 0.18 35)',
+  /** Sky Blue — primary metric */
+  1: 'oklch(0.65 0.2 245)',
   /** Green — growth/success */
   2: 'oklch(0.55 0.15 160)',
   /** Blue — secondary data */
@@ -65,12 +65,12 @@ export const chart = {
 export const sidebar = {
   background: 'oklch(0.1 0.02 280)',
   foreground: 'oklch(0.88 0.01 280)',
-  primary: 'oklch(0.65 0.18 35)',
+  primary: 'oklch(0.65 0.2 245)',
   primaryForeground: 'oklch(0.98 0 0)',
-  accent: 'oklch(0.65 0.18 35 / 10%)',
+  accent: 'oklch(0.65 0.2 245 / 10%)',
   accentForeground: 'oklch(0.88 0.01 280)',
   border: 'oklch(1 0 0 / 6%)',
-  ring: 'oklch(0.65 0.18 35)',
+  ring: 'oklch(0.65 0.2 245)',
 } as const;
 
 export const glass = {
@@ -85,8 +85,8 @@ export const special = {
   gold: 'oklch(0.75 0.15 85)',
   /** Green #28A745 — success states */
   greenAccent: 'oklch(0.55 0.15 160)',
-  /** Orange glow for effects */
-  orangeGlow: 'oklch(0.65 0.18 35 / 20%)',
+  /** Sky Blue glow for effects */
+  skyGlow: 'oklch(0.65 0.2 245 / 20%)',
 } as const;
 
 export const radius = {

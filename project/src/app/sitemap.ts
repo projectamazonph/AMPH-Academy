@@ -22,13 +22,13 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       url: `${BASE_URL}/auth/signin`,
       lastModified: new Date(),
       changeFrequency: "monthly",
-      priority: 0.3,
+      priority: 0.1,
     },
     {
       url: `${BASE_URL}/auth/signup`,
       lastModified: new Date(),
       changeFrequency: "monthly",
-      priority: 0.3,
+      priority: 0.1,
     },
   ];
 
@@ -43,6 +43,13 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
         lastModified: new Date(),
         changeFrequency: "monthly" as const,
         priority: 0.8,
+        images: [
+          {
+            url: `${BASE_URL}/og/course-${course.slug}.png`,
+            title: course.title,
+            caption: course.description,
+          },
+        ],
       }));
   } catch {
     // If DB is unavailable, skip dynamic routes
@@ -51,3 +58,5 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
   return [...staticRoutes, ...courseRoutes];
 }
+
+export const dynamic = "force-dynamic";
