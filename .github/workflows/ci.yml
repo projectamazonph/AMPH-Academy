@@ -36,7 +36,7 @@ jobs:
 
       - name: Tests
         working-directory: project
-        run: npx vitest run
+        run: CI=true npm test
 
       - name: Secret scan (gitleaks)
         uses: gitleaks/gitleaks-action@v2
