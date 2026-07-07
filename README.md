@@ -108,7 +108,7 @@ Each lesson includes real ₱ figures, analogies grounded in the Filipino VA exp
 | **Interactive tools** | 3 (35+ scenarios) |
 | **Downloadable resources** | 8 |
 | **Dashboard tabs** | 11 |
-| **Build status** | ✅ Compiles clean |
+| **Build status** | ✅ Compiles clean (57 TS errors resolved in `de5edd4`, Turbopack icon exports fixed in `634e627`) |
 
 ### Sprint History
 
@@ -141,7 +141,7 @@ Sprint 6: █████████████       13 pts  — Platform Int
 ### Architecture
 
 ```
-ProjectAMPH Academy-Academy/
+AMPH-Academy/
 ├── project/
 │   ├── src/
 │   │   ├── app/             # App Router pages & actions
@@ -184,8 +184,8 @@ ProjectAMPH Academy-Academy/
 
 ```bash
 # Clone
-git clone https://github.com/projectamazonph/ProjectAMPH Academy-Academy.git
-cd ProjectAMPH Academy-Academy/project
+git clone https://github.com/projectamazonph/AMPH-Academy.git
+cd AMPH-Academy/project
 
 # Install
 npm install
