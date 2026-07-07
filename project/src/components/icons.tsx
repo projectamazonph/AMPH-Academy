@@ -1,85 +1,345 @@
 /**
- * Phosphor Icons — namespace import for Turbopack compatibility.
- *
- * Turbopack (Next.js 16) cannot statically resolve named exports from
- * @phosphor-icons/react v2.1.7 — the compiled dist/index.es.js does not
- * include all icons as named exports, causing "Export X doesn't exist in
- * target module" errors for 26 icons.
- *
- * Solution: use `import * as Phosphor from '@phosphor-icons/react'` and
- * reference icons via the namespace. This defers resolution to runtime,
- * bypassing Turbopack's static analysis.
- *
- * References:
- *   - https://github.com/phosphor-icons/react/issues/133
- *   - https://github.com/vercel/next.js/discussions/86223
- */
-import * as Phosphor from '@phosphor-icons/react';
-import type { IconProps as PhosphorIconProps } from '@phosphor-icons/react';
-
-/** Convert kebab-case name (e.g. "caret-down") to PascalCase key (e.g. "CaretDown") */
-function toPascalCase(name: string): string {
-  return name
-    .split('-')
-    .map((part) => part.charAt(0).toUpperCase() + part.slice(1).toLowerCase())
-    .join('');
-}
-
-/** Dynamic Icon component — renders icons by name from the registry */
-export function Icon({ name, className, ...props }: PhosphorIconProps & { name: string }) {
-  const key = toPascalCase(name);
-  const IconComponent = icons[key];
-  if (!IconComponent) return null;
-  return <IconComponent className={className} {...props} />;
-}
-
-/**
  * ProjectAMPH Academy: Centralized Icon Registry
  *
- * Single source of truth for all Phosphor icon imports.
- * Enables:
- *  - Dynamic icon rendering (e.g. badge system: `icons[name]` where name is a string)
- *  - Tree-shaking: each icon is a named property (bundler drops unused ones)
- *  - One place to audit/replace any icon across the entire codebase
+ * Built on lucide-react — all icons are tree-shakeable named exports.
+ * Single source of truth for all icon imports across the codebase.
  *
  * Usage:
- *   import { icons } from '@/components/icons';
- *   // dynamic
- *   <Icon icon={icons[name]} />
- *   // or spread into props
- *   <SomeIconComponent {...icons.ArrowLeft} />
+ *   import { icons, Icon } from '@/components/icons';
+ *
+ *   // dynamic (e.g. badge system: icons[name] where name is a string)
+ *   const IconComponent = icons['Trophy'];
+ *
+ *   // static JSX — import the specific icon you need
+ *   import { Trophy } from '@/components/icons';
+ *   <Trophy className="h-5 w-5" />
+ *
+ *   // generic wrapper for kebab-case names (backward compat)
+ *   <Icon name="trophy" className="h-5 w-5" />
  */
 
-/**
- * Named icon exports — use these for static JSX imports.
- * Tree-shakeable: bundler removes icons you don't import.
- *
- * Example:
- *   import { icons, type IconName } from '@/components/icons';
- *   import { icons.BookOpen } from '@/components/icons';
- */
-export {
-  // Navigation
+import {
   ArrowLeft,
   ArrowRight,
-  ArrowSquareOut,
   ArrowUpRight,
   ArrowDownRight,
+  ArrowSquareOut,
+  ArrowClockwise,
   CaretLeft,
   CaretRight,
   CaretDown,
   CaretUp,
   ArrowUpDown,
+  Check,
+  X,
+  Plus,
+  Minus,
+  Copy,
+  Download,
+  Printer,
+  LogOut,
+  Settings,
+  CheckCircle,
+  XCircle,
+  AlertCircle,
+  Warning,
+  Ban,
+  HelpCircle,
+  Lock,
+  Eye,
+  EyeOff,
+  Play,
+  Pause,
+  Video,
+  Users,
+  User,
+  UserPlus,
+  BarChart,
+  TrendUp,
+  TrendingDown,
+  Sliders,
+  Target,
+  Trophy,
+  Medal,
+  Crown,
+  Star,
+  Flame,
+  Lightning,
+  BookOpen,
+  Clock,
+  Calculator,
+  Shield,
+  Layout,
+  LayoutDashboard,
+  LayoutTemplate,
+  Lightbulb,
+  Sparkles,
+  Funnel,
+  MagnifyingGlass,
+  FolderOpen,
+  FileText,
+  CheckSquare,
+  GraduationCap,
+  Rocket,
+  Coins,
+  Gauge,
+  Brain,
+  Circle,
+  CircleDot,
+  Info,
+  Database,
+  Server,
+  Globe,
+  Desktop,
+  Calendar,
+  Bell,
+  Activity,
+  Loader,
+  Pen,
+  Trash2,
+  Share,
+  Send,
+  Menu,
+  MousePointerClick,
+  Layers,
+  FlaskConical,
+  UserCog,
+  Building2,
+  Mail,
+  Bot,
+  Grid3X3,
+  XCircle,
+} from 'lucide-react';
+
+// Map our kebab-case names (used in <Icon name="...">) to Lucide components
+// Only icons that need custom mapping (kebab doesn't PascalCase cleanly, or name differs)
+const KEBAB_MAP: Record<string, React.ComponentType<{ className?: string }>> = {
+  'arrow-left': ArrowLeft,
+  'arrow-right': ArrowRight,
+  'arrow-up-right': ArrowUpRight,
+  'arrow-down-right': ArrowDownRight,
+  'arrow-square-out': ArrowSquareOut,
+  'arrow-clockwise': ArrowClockwise,
+  'caret-left': CaretLeft,
+  'caret-right': CaretRight,
+  'caret-down': CaretDown,
+  'caret-up': CaretUp,
+  'arrow-up-down': ArrowUpDown,
+  'check-circle': CheckCircle,
+  'x-circle': XCircle,
+  'alert-circle': AlertCircle,
+  'triangle-alert': AlertCircle,
+  'check': Check,
+  'x': X,
+  'plus': Plus,
+  'minus': Minus,
+  'pencil': Pen,
+  'trash-2': Trash2,
+  'copy': Copy,
+  'share-2': Share,
+  'download': Download,
+  'printer': Printer,
+  'send': Send,
+  'log-out': LogOut,
+  'menu': Menu,
+  'settings': Settings,
+  'lock': Lock,
+  'eye': Eye,
+  'eye-off': EyeOff,
+  'play': Play,
+  'pause': Pause,
+  'video': Video,
+  'users': Users,
+  'user': User,
+  'user-plus': UserPlus,
+  'bar-chart': BarChart,
+  'trend-up': TrendUp,
+  'trending-down': TrendingDown,
+  'pulse': Activity,
+  'spinner': Loader,
+  'sliders': Sliders,
+  'target': Target,
+  'trophy': Trophy,
+  'medal': Medal,
+  'crown': Crown,
+  'star': Star,
+  'flame': Flame,
+  'lightning': Lightning,
+  'book-open': BookOpen,
+  'clock': Clock,
+  'calculator': Calculator,
+  'shield': Shield,
+  'layout': LayoutTemplate,
+  'layout-dashboard': LayoutDashboard,
+  'lightbulb': Lightbulb,
+  'sparkle': Sparkles,
+  'sparkles': Sparkles,
+  'funnel': Funnel,
+  'magnifying-glass': MagnifyingGlass,
+  'folder-open': FolderOpen,
+  'file-text': FileText,
+  'check-square': CheckSquare,
+  'graduation-cap': GraduationCap,
+  'rocket': Rocket,
+  'coins': Coins,
+  'gauge': Gauge,
+  'brain': Brain,
+  'circle': Circle,
+  'circle-dot': CircleDot,
+  'info': Info,
+  'database': Database,
+  'server': Server,
+  'globe': Globe,
+  'desktop': Desktop,
+  'calendar': Calendar,
+  'bell': Bell,
+  'warning': Warning,
+  'ban': Ban,
+  'help-circle': HelpCircle,
+  'building-2': Building2,
+  'mail': Mail,
+  'bot': Bot,
+  'grid-3x3': Grid3X3,
+  'layers': Layers,
+  'flask-conical': FlaskConical,
+  'user-cog': UserCog,
+  'mouse-pointer-click': MousePointerClick,
+};
+
+export {
+  ArrowLeft,
+  ArrowRight,
+  ArrowUpRight,
+  ArrowDownRight,
+  ArrowSquareOut,
   ArrowClockwise,
+  CaretLeft,
+  CaretRight,
+  CaretDown,
+  CaretUp,
+  ArrowUpDown,
+  Check,
+  X,
+  Plus,
+  Minus,
+  Pen as Pencil,
+  Trash2,
+  Copy,
+  Share,
+  Download,
+  Printer,
+  Send,
+  LogOut,
+  Menu,
+  Settings,
+  CheckCircle,
+  XCircle,
+  AlertCircle,
+  Warning,
+  Ban,
+  Spinner: Loader,
+  HelpCircle,
+  Lock,
+  Eye,
+  EyeOff,
+  Play,
+  Video,
+  Pause,
+  Users,
+  User,
+  UserPlus,
+  UserCog,
+  Building2,
+  Mail,
+  Bot,
+  BarChart,
+  TrendUp,
+  TrendingDown,
+  Sliders,
+  Target,
+  Trophy,
+  Medal,
+  Crown,
+  Star,
+  Flame,
+  Lightning,
+  BookOpen,
+  Clock,
+  Calculator,
+  Shield,
+  Layout,
+  LayoutDashboard,
+  LayoutTemplate,
+  Lightbulb,
+  Sparkles,
+  Sparkle: Sparkles,
+  Funnel,
+  MagnifyingGlass,
+  FolderOpen,
+  FileText,
+  Grid3X3,
+  CheckSquare,
+  Layers,
+  GraduationCap,
+  FlaskConical,
+  Rocket,
+  Coins,
+  MousePointerClick,
+  Gauge,
+  Brain,
+  Circle,
+  CircleDot,
+  Info,
+  Database,
+  Server,
+  Globe,
+  Desktop,
+  Calendar,
+  Bell,
+  Activity,
+  Loader,
+  Pen,
+  Trash2 as Trash2Icon,
+};
+
+/** Generic Icon wrapper — accepts kebab-case name strings for dynamic rendering */
+export function Icon({ name, className, ...props }: { name: string; className?: string; [key: string]: unknown }) {
+  const Component = KEBAB_MAP[name];
+  if (!Component) return null;
+  return <Component className={className} {...props} />;
+}
+
+/**
+ * Icon registry — maps string names to Lucide icon components.
+ * Use for dynamic icon rendering (e.g. database-driven badge icons).
+ *
+ * Example:
+ *   const badgeIconName = 'Trophy'; // from database
+ *   const IconComponent = icons[badgeIconName];
+ *   {IconComponent && <IconComponent size={16} />}
+ */
+export const icons: Record<string, React.ComponentType<{ className?: string; size?: number }>> = {
+  // Navigation
+  ArrowLeft,
+  ArrowRight,
+  ArrowUpRight,
+  ArrowDownRight,
+  ArrowSquareOut,
+  ArrowUpDown,
+  ArrowClockwise,
+  CaretLeft,
+  CaretRight,
+  CaretDown,
+  CaretUp,
   // Actions
   Check,
   X,
   Plus,
   Minus,
+  Pen,
   Trash2,
-  Pencil,
   Copy,
-  Share2,
+  Share,
   Download,
   Printer,
   Send,
@@ -92,9 +352,10 @@ export {
   Warning,
   AlertCircle,
   Ban,
-  Spinner,
+  Loader,
   HelpCircle,
   Lock,
+  Activity,
   // Media
   Play,
   Video,
@@ -111,10 +372,9 @@ export {
   BarChart,
   TrendUp,
   TrendingDown,
-  Pulse,
   Sliders,
-  // Objects
   Target,
+  // Objects
   Trophy,
   Medal,
   Crown,
@@ -127,8 +387,8 @@ export {
   Shield,
   Layout,
   LayoutDashboard,
+  LayoutTemplate,
   Lightbulb,
-  Sparkle,
   Sparkles,
   Funnel,
   MagnifyingGlass,
@@ -141,7 +401,6 @@ export {
   FlaskConical,
   Rocket,
   Coins,
-  Cursor,
   MousePointerClick,
   Gauge,
   Brain,
@@ -156,124 +415,7 @@ export {
   Desktop,
   Calendar,
   Bell,
-  TriangleAlert,
-} from '@phosphor-icons/react';
-
-/** Icon type — the runtime function component for dynamic icon rendering */
-export type Icon = React.ComponentType<PhosphorIconProps>;
-
-/**
- * Icon registry — maps string names to Phosphor icon components.
- * Use for dynamic icon rendering (e.g. database-driven badge/feature icons).
- *
- * IMPORTANT: Keep in sync with the named exports above.
- * Only icons listed in the registry can be looked up dynamically.
- *
- * Example:
- *   const badgeIconName = 'Trophy'; // from database
- *   const IconComponent = icons[badgeIconName]; // Icon | undefined
- *   {IconComponent && <IconComponent size={16} />}
- */
-export const icons: Record<string, Phosphor.ComponentType<PhosphorIconProps>> = {
-  // Navigation
-  ArrowLeft: Phosphor.ArrowLeft,
-  ArrowRight: Phosphor.ArrowRight,
-  ArrowSquareOut: Phosphor.ArrowSquareOut,
-  ArrowUpRight: Phosphor.ArrowUpRight,
-  ArrowDownRight: Phosphor.ArrowDownRight,
-  CaretLeft: Phosphor.CaretLeft,
-  CaretRight: Phosphor.CaretRight,
-  CaretDown: Phosphor.CaretDown,
-  CaretUp: Phosphor.CaretUp,
-  ArrowUpDown: Phosphor.ArrowUpDown,
-  ArrowClockwise: Phosphor.ArrowClockwise,
-  // Actions
-  Check: Phosphor.Check,
-  X: Phosphor.X,
-  Plus: Phosphor.Plus,
-  Minus: Phosphor.Minus,
-  Trash2: Phosphor.Trash2,
-  Pencil: Phosphor.Pencil,
-  Copy: Phosphor.Copy,
-  Share2: Phosphor.Share2,
-  Download: Phosphor.Download,
-  Printer: Phosphor.Printer,
-  Send: Phosphor.Send,
-  LogOut: Phosphor.LogOut,
-  Menu: Phosphor.Menu,
-  Settings: Phosphor.Settings,
-  // Status
-  CheckCircle: Phosphor.CheckCircle,
-  XCircle: Phosphor.XCircle,
-  Warning: Phosphor.Warning,
-  AlertCircle: Phosphor.AlertCircle,
-  Ban: Phosphor.Ban,
-  Spinner: Phosphor.Spinner,
-  HelpCircle: Phosphor.HelpCircle,
-  Lock: Phosphor.Lock,
-  // Media
-  Play: Phosphor.Play,
-  Video: Phosphor.Video,
-  Pause: Phosphor.Pause,
-  // Social
-  Users: Phosphor.Users,
-  User: Phosphor.User,
-  UserPlus: Phosphor.UserPlus,
-  UserCog: Phosphor.UserCog,
-  Building2: Phosphor.Building2,
-  Mail: Phosphor.Mail,
-  Bot: Phosphor.Bot,
-  // Data & Charts
-  BarChart: Phosphor.BarChart,
-  TrendUp: Phosphor.TrendUp,
-  TrendingDown: Phosphor.TrendingDown,
-  Pulse: Phosphor.Pulse,
-  Sliders: Phosphor.Sliders,
-  // Objects
-  Target: Phosphor.Target,
-  Trophy: Phosphor.Trophy,
-  Medal: Phosphor.Medal,
-  Crown: Phosphor.Crown,
-  Star: Phosphor.Star,
-  Flame: Phosphor.Flame,
-  Lightning: Phosphor.Lightning,
-  BookOpen: Phosphor.BookOpen,
-  Clock: Phosphor.Clock,
-  Calculator: Phosphor.Calculator,
-  Shield: Phosphor.Shield,
-  Layout: Phosphor.Layout,
-  LayoutDashboard: Phosphor.LayoutDashboard,
-  Lightbulb: Phosphor.Lightbulb,
-  Sparkle: Phosphor.Sparkle,
-  Sparkles: Phosphor.Sparkles,
-  Funnel: Phosphor.Funnel,
-  MagnifyingGlass: Phosphor.MagnifyingGlass,
-  FolderOpen: Phosphor.FolderOpen,
-  FileText: Phosphor.FileText,
-  Grid3X3: Phosphor.Grid3X3,
-  CheckSquare: Phosphor.CheckSquare,
-  Layers: Phosphor.Layers,
-  GraduationCap: Phosphor.GraduationCap,
-  FlaskConical: Phosphor.FlaskConical,
-  Rocket: Phosphor.Rocket,
-  Coins: Phosphor.Coins,
-  Cursor: Phosphor.Cursor,
-  MousePointerClick: Phosphor.MousePointerClick,
-  Gauge: Phosphor.Gauge,
-  Brain: Phosphor.Brain,
-  Circle: Phosphor.Circle,
-  CircleDot: Phosphor.CircleDot,
-  Info: Phosphor.Info,
-  Database: Phosphor.Database,
-  Server: Phosphor.Server,
-  Globe: Phosphor.Globe,
-  Eye: Phosphor.Eye,
-  EyeOff: Phosphor.EyeOff,
-  Desktop: Phosphor.Desktop,
-  Calendar: Phosphor.Calendar,
-  Bell: Phosphor.Bell,
-  TriangleAlert: Phosphor.TriangleAlert,
 };
 
-/** All icon names — useful for typeahead/documentation */
+/** All valid icon names */
 export type IconName = keyof typeof icons;
