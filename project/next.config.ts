@@ -10,7 +10,6 @@ const nextConfig: NextConfig = {
         'localhost',
       ],
     },
-    turbopack: false,
   },
   serverExternalPackages: ['@prisma/client'],
 };
