@@ -401,6 +401,7 @@ export function StrDataGrid() {
     [thresholds.acosTarget, thresholds.roasMinimum]
   );
 
+  // eslint-disable-next-line react-hooks/incompatible-library
   const table = useReactTable({
     data: searchTerms,
     columns,

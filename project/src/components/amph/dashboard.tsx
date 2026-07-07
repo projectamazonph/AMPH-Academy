@@ -54,10 +54,10 @@ export function Dashboard({ onNavigate, xpOverride, levelOverride }: DashboardPr
         console.error('[Dashboard] getProgressOverview error:', err);
       })
       .finally(() => setLoading(false));
+  });
 
   useEffect(() => {
-    getActiveMultipliers().then(setMultiplier).catch(() => {});
-  }, []);
+    queueMicrotask(() => getActiveMultipliers().then(setMultiplier).catch(() => {}));
   }, []);
 
   const xp = xpOverride ?? overview?.xp ?? 0;

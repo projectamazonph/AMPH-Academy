@@ -178,7 +178,7 @@ function LiveClassesTab() {
     setLoading(false);
   };
 
-  useEffect(() => { loadData(); }, []);
+  useEffect(() => { queueMicrotask(loadData); }, []);
 
   // Funnel and search
   const now = new Date();

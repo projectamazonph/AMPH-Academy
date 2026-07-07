@@ -93,9 +93,7 @@ function ScenarioCard() {
 
   // Reset when scenario changes
   useEffect(() => {
-    setBidInput(scenario.currentBid.toFixed(2));
-    setSubmitted(false);
-    // eslint-disable-next-line react-hooks/set-state-in-effect
+    queueMicrotask(() => setSubmitted(false));
   }, [currentScenarioIndex, scenario.currentBid]);
 
   if (!scenario) return null;

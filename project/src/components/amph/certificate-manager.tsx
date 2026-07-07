@@ -35,10 +35,6 @@ export function CertificateManager() {
   const [copied, setCopied] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
-  useEffect(() => {
-    loadProgress();
-  }, []);
-
   async function loadProgress() {
     setLoading(true);
     const res = await getCertProgress();
@@ -47,6 +43,8 @@ export function CertificateManager() {
     }
     setLoading(false);
   }
+
+  useEffect(() => { queueMicrotask(loadProgress); }, []);
 
   async function handleIssue() {
     setIssuing(true);
@@ -80,6 +78,7 @@ export function CertificateManager() {
 
   // Certificate already issued
   if (progress?.existingCert || cert) {
+    // eslint-disable-next-line @typescript-eslint/no-non-null-asserted-optional-chain -- guard above ensures one is defined
     const activeCert = cert || progress?.existingCert!;
     return (
       <motion.div

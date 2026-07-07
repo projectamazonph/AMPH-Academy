@@ -93,9 +93,7 @@ export function BadgeShowcase() {
     setLoading(false);
   }, []);
 
-  useEffect(() => {
-    loadBadges();
-  }, [loadBadges]);
+  useEffect(() => { queueMicrotask(loadBadges); }, [loadBadges]);
 
   const earnedCount = badges.filter((b) => b.isEarned).length;
   const totalCount = badges.length;

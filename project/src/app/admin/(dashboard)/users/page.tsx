@@ -37,7 +37,7 @@ export default function AdminUsersPage() {
     setLoading(false);
   }, []);
 
-  useEffect(() => { fetchUsers(); }, [fetchUsers]);
+  useEffect(() => { queueMicrotask(fetchUsers); }, [fetchUsers]);
 
   const filtered = users
     .filter(u =>

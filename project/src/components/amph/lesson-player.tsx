@@ -52,13 +52,13 @@ export function LessonPlayer({ moduleNumber, lessonOrder, onBack, onComplete }: 
     });
   }, [moduleNumber]);
 
-  // Load lesson content when currentOrder changes
   useEffect(() => {
-    setLoading(true);
     getLessonContent(moduleNumber, currentOrder).then((res) => {
       if (res.success) {
-        setMeta(res.data.meta);
-        setBody(res.data.body);
+        queueMicrotask(() => {
+          setMeta(res.data.meta);
+          setBody(res.data.body);
+        });
       }
       setLoading(false);
     });

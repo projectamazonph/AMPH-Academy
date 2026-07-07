@@ -30,11 +30,13 @@ export default function AdminEventsPage() {
   const pageSize = 25;
 
   useEffect(() => {
-    setLoading(true);
-    getEventLog(200)
-      .then(r => { if (r.success) setEvents(r.data); })
-      .catch(() => {})
-      .finally(() => setLoading(false));
+    queueMicrotask(() => {
+      setLoading(true);
+      getEventLog(200)
+        .then(r => { if (r.success) setEvents(r.data); })
+        .catch(() => {})
+        .finally(() => setLoading(false));
+    });
   }, []);
 
   const filtered = filter
