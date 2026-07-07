@@ -105,9 +105,18 @@ import {
 } from '@phosphor-icons/react';
 import type { IconProps as PhosphorIconProps } from '@phosphor-icons/react';
 
+/** Convert kebab-case name (e.g. "caret-down") to PascalCase key (e.g. "CaretDown") */
+function toPascalCase(name: string): string {
+  return name
+    .split('-')
+    .map((part) => part.charAt(0).toUpperCase() + part.slice(1).toLowerCase())
+    .join('');
+}
+
 /** Dynamic Icon component — renders icons by name from the registry */
 export function Icon({ name, className, ...props }: PhosphorIconProps & { name: string }) {
-  const IconComponent = icons[name];
+  const key = toPascalCase(name);
+  const IconComponent = icons[key];
   if (!IconComponent) return null;
   return <IconComponent className={className} {...props} />;
 }
@@ -239,8 +248,8 @@ export {
   TriangleAlert,
 };
 
-/** Icon type re-export for convenience */
-export type { Icon };
+/** Icon type — the runtime function component for dynamic icon rendering */
+export type Icon = typeof Icon;
 
 /**
  * Icon registry — maps string names to Phosphor icon components.
