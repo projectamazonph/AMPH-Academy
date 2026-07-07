@@ -32,18 +32,17 @@ const LessonPlayer = dynamic(() => import('@/components/amph/lesson-player').the
   loading: () => <div className="flex items-center justify-center h-96 text-sm text-muted-foreground">Loading Lesson...</div>,
 });
 import { Leaderboard } from '@/components/amph/leaderboard';
-import { getCheatSheet } from '@/app/actions/cheatsheet';
 import { AnalyticsDashboard } from '@/components/amph/analytics-dashboard';
 import { AdminAnalytics } from '@/components/amph/admin-analytics';
 import { CertificateManager } from '@/components/amph/certificate-manager';
 import { MentorChat } from '@/components/amph/mentor-chat';
-import { getUserStats } from '@/app/actions/simulation';
+
 import { TeamDashboard } from '@/components/amph/team-dashboard';
 import { ResourcesView } from '@/components/amph/resources-view';
 import { LiveClassesView } from '@/components/amph/live-classes-view';
 import { useSession } from 'next-auth/react';
 import { cn } from '@/lib/utils';
-import { trackEvent } from '@/app/actions/events';
+
 
 // --- Module data for the Modules view ---
 interface ModuleDetail {
@@ -369,7 +368,8 @@ export default function Home() {
 
   // Load initial user stats from DB
   useEffect(() => {
-    getUserStats()
+    import('@/app/actions/simulation').then(({ getUserStats }) => {
+      getUserStats()
       .then((res) => {
         if (res.success) {
           setUserXP(res.data.xp);
@@ -379,9 +379,12 @@ export default function Home() {
       .catch((err) => {
         console.warn('[Home] getUserStats failed, using defaults:', err);
       });
+    });
 
     // Track dashboard visit
-    trackEvent('session_started', { page: 'dashboard' }).catch(() => {});
+    import('@/app/actions/events').then(({ trackEvent }) => {
+      trackEvent('session_started', { page: 'dashboard' }).catch(() => {});
+    });
   }, []);
 
   return (

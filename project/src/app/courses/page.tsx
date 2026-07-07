@@ -1,3 +1,5 @@
+export const dynamic = 'force-dynamic';
+
 import { Icon } from '@/components/icons';
 import { getCourses } from "@/modules/courses/_actions";
 import { CourseCard } from "@/modules/courses/_components/CourseCard";
