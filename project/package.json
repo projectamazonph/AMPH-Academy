@@ -21,7 +21,6 @@
     "seed": "npx tsx prisma/seed.ts"
   },
   "dependencies": {
-    "@phosphor-icons/react": "^2.1.7",
     "@mdxeditor/editor": "^3.39.1",
     "@prisma/client": "^6.11.1",
     "@radix-ui/react-avatar": "^1.1.10",
