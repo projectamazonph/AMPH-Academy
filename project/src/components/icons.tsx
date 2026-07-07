@@ -108,7 +108,6 @@ import {
   Mail,
   Bot,
   Grid3X3,
-  XCircle,
 } from 'lucide-react';
 
 // Map our kebab-case names (used in <Icon name="...">) to Lucide components
@@ -232,8 +231,6 @@ export {
   LogOut,
   Menu,
   Settings,
-  CheckCircle,
-  XCircle,
   AlertCircle,
   AlertTriangle,
   Ban,
@@ -243,8 +240,8 @@ export {
   Eye,
   EyeOff,
   Play,
-  Video,
   Pause,
+  Video,
   Users,
   User,
   UserPlus,
