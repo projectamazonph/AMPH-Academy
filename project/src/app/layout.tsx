@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Space_Grotesk, Plus_Jakarta_Sans, JetBrains_Mono } from "next/font/google";
+import { Inter, JetBrains_Mono } from "next/font/google";
 import { Script } from "next/script";
 import "./globals.css";
 import { Toaster } from "@/components/ui/toaster";
@@ -8,14 +8,9 @@ import { ErrorBoundary } from "@/components/amph/error-boundary";
 
 const BASE_URL = "https://amph-academy.vercel.app";
 
-const spaceGrotesk = Space_Grotesk({
-  variable: "--font-heading",
-  subsets: ["latin"],
-  display: "swap",
-});
-
-const plusJakartaSans = Plus_Jakarta_Sans({
-  variable: "--font-body",
+// Brand standard font: Inter
+const inter = Inter({
+  variable: "--font-inter",
   subsets: ["latin"],
   display: "swap",
 });
@@ -85,7 +80,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning className="dark">
       <body
-        className={`${spaceGrotesk.variable} ${plusJakartaSans.variable} ${jetbrainsMono.variable} antialiased bg-background text-foreground`}
+        className={`${inter.variable} ${jetbrainsMono.variable} antialiased bg-background text-foreground`}
       >
         {/* Skip to main content — accessibility */}
         <a

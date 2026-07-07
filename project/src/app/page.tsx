@@ -41,13 +41,13 @@ function FeatureCard({ icon: Icon, title, description, color }: {
   const gradient = colorMap[color] || colorMap.emerald;
 
   return (
-    <Card className="group relative overflow-hidden border-border/50 bg-card/50 backdrop-blur-sm hover:border-border/80 transition-all duration-300">
+    <Card className="group relative overflow-hidden border-border/50 bg-card backdrop-blur-sm hover:border-border/80 transition-all duration-300">
       <div className={`absolute inset-0 bg-gradient-to-br ${gradient.split(' ').slice(0, 3).join(' ')} opacity-0 group-hover:opacity-100 transition-opacity duration-500`} />
       <CardContent className="relative p-6 space-y-4">
         <div className={`w-10 h-10 rounded-lg bg-gradient-to-br ${gradient.split(' ').slice(0, 3).join(' ')} flex items-center justify-center`}>
           <Icon className={`h-5 w-5 ${gradient.split(' ').slice(5).join(' ')}`} />
         </div>
-        <h3 className="text-lg font-semibold">{title}</h3>
+        <h3 className="text-lg font-semibold text-card-foreground">{title}</h3>
         <p className="text-sm text-muted-foreground leading-relaxed">{description}</p>
       </CardContent>
     </Card>
@@ -74,7 +74,7 @@ function ModuleCard({ m }: { m: typeof modules[0] }) {
   const Icon = m.icon;
 
   return (
-    <Card className="border-border/50 bg-card/40 hover:bg-card/60 transition-all duration-300 cursor-default">
+    <Card className="border-border/50 bg-card hover:bg-card transition-all duration-300 cursor-default">
       <CardContent className="p-5 flex items-start gap-4">
         <div className={`p-2.5 rounded-xl border ${colorMap[m.color]}`}>
           <Icon className="h-5 w-5" />
@@ -83,8 +83,8 @@ function ModuleCard({ m }: { m: typeof modules[0] }) {
           <Badge variant="outline" className="text-[10px] mb-1.5 font-mono text-muted-foreground">
             MODULE {m.num}
           </Badge>
-          <h4 className="font-semibold text-sm">{m.title}</h4>
-          <p className="text-xs text-muted-foreground mt-0.5 leading-relaxed">{m.desc}</p>
+                  <h4 className="font-semibold text-sm text-card-foreground">{m.title}</h4>
+                  <p className="text-xs text-muted-foreground mt-0.5 leading-relaxed">{m.desc}</p>
         </div>
       </CardContent>
     </Card>
@@ -328,7 +328,7 @@ function RealitySection() {
               viewport={{ once: true, margin: '-50px' }}
               transition={{ duration: 0.5, delay: i * 0.1 }}
             >
-              <Card className="border-border/50 bg-card/50 h-full backdrop-blur-sm relative overflow-hidden">
+              <Card className="border-border/50 bg-card h-full backdrop-blur-sm relative overflow-hidden">
                 <div className="absolute top-0 right-0 w-32 h-32 bg-rose-500/5 rounded-full blur-[60px] -translate-y-1/2 translate-x-1/2" />
                 <CardContent className="p-6 space-y-4 relative">
                   <div className={`w-10 h-10 rounded-lg bg-gradient-to-br from-${r.color.includes('rose') ? 'rose' : 'amber'}-500/20 to-${r.color.includes('rose') ? 'rose' : 'amber'}-400/5 border border-${r.color.includes('rose') ? 'rose' : 'amber'}-500/20 flex items-center justify-center`}>
@@ -336,7 +336,7 @@ function RealitySection() {
                   </div>
                   <div className="text-3xl font-bold">{r.stat}</div>
                   <div className="text-xs text-muted-foreground -mt-2">{r.statLabel}</div>
-                  <h3 className="text-lg font-semibold">{r.title}</h3>
+                  <h3 className="text-lg font-semibold text-card-foreground">{r.title}</h3>
                   <p className="text-sm text-muted-foreground leading-relaxed">
                     {r.body}
                   </p>
@@ -501,7 +501,7 @@ function CurriculumSection() {
               { name: 'Bid Elevator', desc: 'Practice bidding decisions under pressure', color: 'amber' },
               { name: 'STR Triage Arena', desc: 'Analyze search terms against the clock', color: 'rose' },
             ].map((sim) => (
-              <Card key={sim.name} className="border-border/40 bg-card/30 hover:bg-card/50 transition-colors">
+              <Card key={sim.name} className="border-border/40 bg-card hover:bg-card/90 transition-colors">
                 <CardContent className="p-4 text-center">
                   <div className="text-sm font-semibold">{sim.name}</div>
                   <div className="text-xs text-muted-foreground mt-1">{sim.desc}</div>
@@ -529,7 +529,7 @@ function SocialProof() {
         </h2>
 
         <div className="grid md:grid-cols-3 gap-6">
-          <Card className="border-border/40 bg-card/40 p-6 text-left">
+          <Card className="border-border/40 bg-card p-6 text-left">
             <div className="text-4xl font-bold text-primary mb-1">₱15k</div>
             <div className="text-xs text-muted-foreground mb-4">Before AMPH</div>
             <div className="text-4xl font-bold text-emerald-400 mb-1">₱65k</div>
@@ -538,11 +538,11 @@ function SocialProof() {
               "Two years doing calendar management. Thought that was just the ceiling. Took the course, ran the sims, landed a US client in 6 weeks. Now I tell my friends — do not wait as long as I did."
             </p>
             <div className="mt-4 pt-4 border-t border-border/20">
-              <div className="text-sm font-semibold">— Maria, Manila</div>
+              <div className="text-sm font-semibold text-card-foreground">— Maria, Manila</div>
             </div>
           </Card>
 
-          <Card className="border-border/40 bg-card/40 p-6 text-left">
+          <Card className="border-border/40 bg-card p-6 text-left">
             <div className="text-4xl font-bold text-primary mb-1">₱18k</div>
             <div className="text-xs text-muted-foreground mb-4">Before AMPH</div>
             <div className="text-4xl font-bold text-emerald-400 mb-1">₱80k</div>
@@ -551,11 +551,11 @@ function SocialProof() {
               &quot;Client asked if I knew Amazon ads. Said yes without thinking. Then panicked. Found AMPH, went through everything, and actually delivered. Now they pay me triple and I got two more referrals.&quot;
             </p>
             <div className="mt-4 pt-4 border-t border-border/20">
-              <div className="text-sm font-semibold">— Carlos, Cebu</div>
+              <div className="text-sm font-semibold text-card-foreground">— Carlos, Cebu</div>
             </div>
           </Card>
 
-          <Card className="border-border/40 bg-card/40 p-6 text-left">
+          <Card className="border-border/40 bg-card p-6 text-left">
             <div className="text-4xl font-bold text-primary mb-1">₱12k</div>
             <div className="text-xs text-muted-foreground mb-4">Before AMPH</div>
             <div className="text-4xl font-bold text-emerald-400 mb-1">₱55k</div>
@@ -564,7 +564,7 @@ function SocialProof() {
               "Was about to quit freelancing. Thought I was not good enough. Turns out I just needed the right skill. PPC changed everything, no joke."
             </p>
             <div className="mt-4 pt-4 border-t border-border/20">
-              <div className="text-sm font-semibold">— Angela, Davao</div>
+              <div className="text-sm font-semibold text-card-foreground">— Angela, Davao</div>
             </div>
           </Card>
         </div>

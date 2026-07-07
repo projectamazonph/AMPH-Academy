@@ -6,8 +6,9 @@
 
 /* ==========================================================================
    Project Aurora Design System — AMPH Academy
-   Deep Navy canvas, Orange accent, dark-only theme
+   Deep Navy canvas, Orange accent, warm white cards
    Brand alignment with ProjectAmazonPH
+   Colors: Primary Orange #FF6B35, Deep Navy #1A1A2E, Warm Gray #F5F5F5
    ========================================================================== */
 
 @theme inline {
@@ -70,16 +71,16 @@
   /* Core brand colors */
   --background: oklch(0.12 0.02 280);        /* Deep Navy #1A1A2E */
   --foreground: oklch(0.96 0.005 280);       /* Near-white with cool tint */
-  --card: oklch(0.15 0.025 280);             /* Slightly lighter navy */
-  --card-foreground: oklch(0.96 0.005 280);
-  --popover: oklch(0.15 0.025 280);
-  --popover-foreground: oklch(0.96 0.005 280);
+  --card: oklch(0.97 0 0);                   /* Warm Gray #F5F5F5 — white card surface */
+  --card-foreground: oklch(0.15 0.02 280);  /* Dark text on white cards */
+  --popover: oklch(0.97 0 0);
+  --popover-foreground: oklch(0.15 0.02 280);
   --primary: oklch(0.65 0.18 35);            /* Orange #FF6B35 */
   --primary-foreground: oklch(0.98 0 0);
   --secondary: oklch(0.22 0.03 280);         /* Lighter navy surface */
   --secondary-foreground: oklch(0.88 0.01 280);
-  --muted: oklch(0.18 0.02 280);             /* Muted navy */
-  --muted-foreground: oklch(0.55 0.02 280);
+  --muted: oklch(0.92 0 0);                   /* Warm Gray muted */
+  --muted-foreground: oklch(0.45 0.02 280); /* Muted text on white */
   --accent: oklch(0.65 0.18 35 / 12%);       /* Orange as subtle accent */
   --accent-foreground: oklch(0.88 0.01 280);
   --destructive: oklch(0.7 0.19 22.216);     /* Red for errors */
@@ -131,25 +132,25 @@
     font-feature-settings: "cv02", "cv03", "cv04", "cv11";
   }
 
-  /* Headings — Space Grotesk semi-bold */
+  /* Headings — Inter brand standard */
   h1 {
     @apply text-3xl font-semibold tracking-tight;
-    font-family: var(--font-heading), ui-sans-serif, system-ui, sans-serif;
+    font-family: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
   }
 
   h2 {
     @apply text-2xl font-semibold tracking-tight;
-    font-family: var(--font-heading), ui-sans-serif, system-ui, sans-serif;
+    font-family: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
   }
 
   h3 {
     @apply text-xl font-medium tracking-tight;
-    font-family: var(--font-heading), ui-sans-serif, system-ui, sans-serif;
+    font-family: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
   }
 
   h4 {
     @apply text-lg font-medium;
-    font-family: var(--font-heading), ui-sans-serif, system-ui, sans-serif;
+    font-family: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
   }
 
   /* Code — JetBrains Mono */
