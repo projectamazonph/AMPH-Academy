@@ -120,6 +120,7 @@ export async function getModule(
   const session = await getSession();
   const userId = session.authenticated ? session.user!.id : null;
 
+  // eslint-disable-next-line @next/next/no-assign-module-variable
   const module = await db.module.findFirst({
     where: {
       id: moduleId,

@@ -99,7 +99,7 @@ export function LiveClassesView() {
     setLoading(false);
   }, []);
 
-  useEffect(() => { loadAll(); }, [loadAll]);
+  useEffect(() => { queueMicrotask(loadAll); }, [loadAll]);
 
   const handleRegister = async (liveClassId: string) => {
     setActing(liveClassId);

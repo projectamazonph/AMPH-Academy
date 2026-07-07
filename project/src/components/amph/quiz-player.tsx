@@ -75,12 +75,6 @@ export function QuizPlayer({ moduleNumber, onBack, onComplete }: QuizPlayerProps
   const [loadingMistakeAnalysis, setLoadingMistakeAnalysis] = useState(false);
   const timerRef = useRef<ReturnType<typeof setInterval> | null>(null);
 
-  // Load quiz on mount
-  useEffect(() => {
-    loadQuiz();
-    return () => { if (timerRef.current) clearInterval(timerRef.current); };
-  }, [moduleNumber]);
-
   const loadQuiz = useCallback(async () => {
     setPhase('loading');
     setError(null);
@@ -95,6 +89,12 @@ export function QuizPlayer({ moduleNumber, onBack, onComplete }: QuizPlayerProps
       setPhase('ready');
     }
   }, [moduleNumber]);
+
+  // Load quiz on mount
+  useEffect(() => {
+    queueMicrotask(loadQuiz);
+    return () => { if (timerRef.current) clearInterval(timerRef.current); };
+  }, [loadQuiz]);
 
   // Start answering (reset state)
   const startQuiz = useCallback(() => {
