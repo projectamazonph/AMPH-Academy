@@ -145,7 +145,7 @@ export default async function CourseDetailPage({
       name: course.difficulty === "FOUNDATIONS" ? "None" : course.difficulty,
     },
     educationalLevel: course.difficulty,
-    courseCredential": {
+    courseCredential: {
       "@type": "EducationalOccupationalCredential",
       credentialCategory: "certificate",
       recognizedBy: {
