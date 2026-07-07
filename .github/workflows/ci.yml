@@ -22,15 +22,19 @@ jobs:
           cache: 'npm'
 
       - name: Install dependencies
+        working-directory: project
         run: npm ci
 
       - name: TypeScript check
+        working-directory: project
         run: npx tsc --noEmit
 
       - name: ESLint
+        working-directory: project
         run: npx eslint .
 
       - name: Tests
+        working-directory: project
         run: npx vitest run
 
       - name: Secret scan (gitleaks)
@@ -39,6 +43,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Build
+        working-directory: project
         run: npm run build
         env:
           JWT_SECRET: ci-only-do-not-use-in-prod

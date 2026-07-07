@@ -117,7 +117,7 @@ export interface BidElevatorStore {
   thresholds: typeof fixtureData.thresholds;
 
   // Actions
-  startSimulation: (userId?: string) => void;
+  startSimulation: () => void;
   submitBid: (bidAmount: number) => void;
   submitAllDecisions: () => void;
   goToReview: () => void;
@@ -143,7 +143,7 @@ export const useBidElevatorStore = create<BidElevatorStore>((set, get) => ({
   productContext: fixtureData.productContext,
   thresholds: fixtureData.thresholds,
 
-  startSimulation: (userId?: string) => {
+  startSimulation: () => {
     set({
       phase: 'arena',
       startTime: Date.now(),
@@ -162,7 +162,6 @@ export const useBidElevatorStore = create<BidElevatorStore>((set, get) => ({
 
     // Start server-side attempt record (non-blocking)
     startAttempt({
-      ...(userId ? { userId } : {}),
       simulationType: 'BID_ELEVATOR',
       simulationSlug: 'bid-elevator',
     }).then((result) => {

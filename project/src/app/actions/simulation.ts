@@ -70,7 +70,7 @@ export async function startAttempt(
   input: StartAttemptInput
 ): Promise<ActionResult<StartAttemptOutput>> {
   try {
-    const userId = input.userId || await getAuthUserId();
+    const userId = await getAuthUserId();
     if (!userId) {
       return { success: false, error: 'You must be signed in to start simulations', code: 'UNAUTHENTICATED' };
     }
@@ -351,11 +351,10 @@ export async function gradeCampaignBuilderAttempt(
 // ============================================================================
 
 export async function getAttemptHistory(
-  simulationType: string,
-  userId?: string
+  simulationType: string
 ): Promise<ActionResult<AttemptHistoryItem[]>> {
   try {
-    const uid = userId || await getAuthUserId();
+    const uid = await getAuthUserId();
     if (!uid) {
       return { success: false, error: 'You must be signed in to view history', code: 'UNAUTHENTICATED' };
     }
@@ -403,11 +402,9 @@ export async function getAttemptHistory(
 // SERVER ACTION: Get User Stats
 // ============================================================================
 
-export async function getUserStats(
-  userId?: string
-): Promise<ActionResult<UserStatsOutput>> {
+export async function getUserStats(): Promise<ActionResult<UserStatsOutput>> {
   try {
-    const uid = userId || await getAuthUserId();
+    const uid = await getAuthUserId();
     if (!uid) {
       return { success: false, error: 'You must be signed in to view stats', code: 'UNAUTHENTICATED' };
     }

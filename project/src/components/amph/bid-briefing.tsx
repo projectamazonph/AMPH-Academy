@@ -265,7 +265,7 @@ export function BidBriefing() {
         <Button
           size="lg"
           className="w-full gap-2 bg-amber-600 hover:bg-amber-700 text-white h-12 text-base font-semibold"
-          onClick={() => startSimulation(userId)}
+          onClick={() => startSimulation()}
         >
           Begin Simulation
           <Icon name="caret-right" className="h-5 w-5" />

@@ -499,7 +499,7 @@ export interface CampaignBuilderStore {
 
   // Actions
   selectScenario: (index: number) => void;
-  startSimulation: (userId?: string) => void;
+  startSimulation: () => void;
   setCampaignField: <K extends keyof CampaignStructure>(key: K, value: CampaignStructure[K]) => void;
   addKeyword: (keyword: CampaignKeyword) => void;
   removeKeyword: (keywordId: string) => void;
@@ -585,12 +585,11 @@ export const useCampaignBuilderStore = create<CampaignBuilderStore>((set, get) =
   // SIMULATION LIFECYCLE
   // ---------------------------------------------------------------------------
 
-  startSimulation: (userId?: string) => {
+  startSimulation: () => {
     set({ phase: 'workshop' });
 
     // Start server-side attempt record (non-blocking)
     startAttempt({
-      ...(userId ? { userId } : {}),
       simulationType: 'CAMPAIGN_BUILDER',
       simulationSlug: 'campaign-builder',
     }).then((result) => {

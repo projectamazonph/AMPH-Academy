@@ -40,7 +40,6 @@ export type ActionResult<T> =
 
 /** Input for starting a new simulation attempt */
 export interface StartAttemptInput {
-  userId?: string;
   simulationType: 'STR_TRIAGE_ARENA' | 'BID_ELEVATOR' | 'CAMPAIGN_BUILDER';
   simulationSlug: string;
 }

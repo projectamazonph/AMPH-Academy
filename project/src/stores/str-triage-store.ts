@@ -131,7 +131,7 @@ export interface StrTriageStore {
   thresholds: typeof fixtureData.thresholds;
 
   // Actions
-  startSimulation: (userId?: string) => void;
+  startSimulation: () => void;
   setAction: (searchTermId: string, action: StrAction, newBid?: number, negativeKeyword?: string) => void;
   submitDecisions: () => void;
   goToReview: () => void;
@@ -155,7 +155,7 @@ export const useStrTriageStore = create<StrTriageStore>((set, get) => ({
   productContext: fixtureData.productContext,
   thresholds: fixtureData.thresholds,
 
-  startSimulation: (userId?: string) => {
+  startSimulation: () => {
     set({
       phase: 'triage',
       startTime: Date.now(),
@@ -172,7 +172,6 @@ export const useStrTriageStore = create<StrTriageStore>((set, get) => ({
 
     // Start server-side attempt record (non-blocking)
     startAttempt({
-      ...(userId ? { userId } : {}),
       simulationType: 'STR_TRIAGE_ARENA',
       simulationSlug: 'str-triage-arena',
     }).then((result) => {
