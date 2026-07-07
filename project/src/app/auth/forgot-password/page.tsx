@@ -44,7 +44,7 @@ export default function ForgotPasswordPage() {
         </div>
 
         <div className="text-center text-[10px] text-muted-foreground/50">
-          ProjectAMPH Academy — Amazon PPC Command Center
+          ProjectAmazonPH Academy — Amazon PPC Command Center
         </div>
       </div>
     </div>

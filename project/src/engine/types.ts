@@ -1,5 +1,5 @@
 /**
- * ProjectAMPH Academy: Amazon PPC Command Center — Evaluation Engine Types
+ * ProjectAmazonPH Academy: Amazon PPC Command Center — Evaluation Engine Types
  *
  * This is the TYPE FOUNDATION for the Pure TypeScript Deterministic Engine.
  * Every type here has ZERO framework dependencies — these are pure domain types

@@ -1,5 +1,5 @@
 /**
- * ProjectAMPH Academy: Centralized Icon Registry
+ * ProjectAmazonPH Academy: Centralized Icon Registry
  *
  * Built on lucide-react — all icons are tree-shakeable named exports.
  * Single source of truth for all icon imports across the codebase.

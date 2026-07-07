@@ -1,7 +1,7 @@
 'use server';
 
 /**
- * ProjectAMPH Academy: "Explain My Mistake" Server Action (Phase 3)
+ * ProjectAmazonPH Academy: "Explain My Mistake" Server Action (Phase 3)
  *
  * Retrieves a graded quiz attempt, runs the mistake analysis engine,
  * and returns a structured report explaining each wrong answer.

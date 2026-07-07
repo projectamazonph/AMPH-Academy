@@ -28,18 +28,18 @@ export async function generateMetadata({
     keywords: [
       course.title,
       "Amazon PPC",
-      "ProjectAMPH Academy",
+      "ProjectAmazonPH Academy",
       "PPC Training",
       course.difficulty,
       ...(course.tier ? [course.tier] : []),
     ],
     authors: [{ name: "Ryan Dabao", url: "https://projectamazonph.com" }],
     openGraph: {
-      title: `${course.title} | ProjectAMPH Academy`,
+      title: `${course.title} | ProjectAmazonPH Academy`,
       description: course.description,
       url: courseUrl,
       type: "website",
-      siteName: "ProjectAMPH Academy",
+      siteName: "ProjectAmazonPH Academy",
       locale: "en_PH",
       images: [
         {

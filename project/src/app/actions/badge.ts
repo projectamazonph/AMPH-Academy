@@ -1,7 +1,7 @@
 'use server';
 
 /**
- * ProjectAMPH Academy: Badge Server Actions (Post-MVP: Atomic Build A1)
+ * ProjectAmazonPH Academy: Badge Server Actions (Post-MVP: Atomic Build A1)
  *
  * Handles badge definitions, awarding, and listing. Badge definitions
  * are seeded from fixtures/badges.json into the database on first access

@@ -1,5 +1,5 @@
 /**
- * ProjectAMPH Academy: Evaluation Engine
+ * ProjectAmazonPH Academy: Evaluation Engine
  *
  * The core evaluation and scoring engine for all simulations.
  * Pure functions only — no side effects, no I/O, no framework dependencies.

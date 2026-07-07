@@ -107,7 +107,7 @@ export function Sidebar({
               className="overflow-hidden"
             >
               <h1 className="text-base font-bold tracking-tight">
-                AMPH
+                ProjectAmazonPH Academy
               </h1>
               <p className="text-[10px] text-muted-foreground tracking-wider uppercase">
                 PPC Command Center

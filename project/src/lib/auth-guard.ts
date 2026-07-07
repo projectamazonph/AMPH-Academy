@@ -1,5 +1,5 @@
 /**
- * ProjectAMPH Academy: Auth Guard Utility
+ * ProjectAmazonPH Academy: Auth Guard Utility
  *
  * Server-side helpers to get the current authenticated user from the session
  * and to enforce role-based access control.

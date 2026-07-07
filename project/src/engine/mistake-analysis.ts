@@ -1,5 +1,5 @@
 /**
- * ProjectAMPH Academy: Mistake Analysis Engine
+ * ProjectAmazonPH Academy: Mistake Analysis Engine
  *
  * Pure TypeScript function that analyzes quiz/simulation mistakes
  * and classifies error types. Zero framework dependencies.

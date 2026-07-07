@@ -1,7 +1,7 @@
 'use client';
 
 /**
- * ProjectAMPH Academy: Quiz Player Component
+ * ProjectAmazonPH Academy: Quiz Player Component
  *
  * Interactive quiz interface with:
  * - Step-by-step question navigation

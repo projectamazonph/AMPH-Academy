@@ -1,7 +1,7 @@
 'use server';
 
 /**
- * ProjectAMPH Academy: Certification Lifecycle System (Phase 3)
+ * ProjectAmazonPH Academy: Certification Lifecycle System (Phase 3)
  *
  * Full certificate lifecycle: issue, verify, revoke, track progress.
  * Builds on existing D1 Certificate Generation.
@@ -172,7 +172,7 @@ export async function issueCertificate(): Promise<ActionResult<CertificateView>>
       data: {
         userId,
         courseId: course.id,
-        title: 'AMPH PPC Command Center',
+        title: 'ProjectAmazonPH PPC Command Center',
         status: 'active',
         verificationHash: hash,
         metadata: JSON.stringify({

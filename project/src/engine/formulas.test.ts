@@ -1,5 +1,5 @@
 /**
- * ProjectAMPH Academy: Unit Tests for PPC Formula Engine
+ * ProjectAmazonPH Academy: Unit Tests for PPC Formula Engine
  *
  * Tests all 11 formula functions, metrics calculation, health assessment,
  * formula registry, and formatting. Uses deterministic test cases + property-based

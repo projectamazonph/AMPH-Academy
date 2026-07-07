@@ -2,7 +2,7 @@
 import { Icon } from '@/components/icons';
 
 /**
- * ProjectAMPH Academy: Sign-Up Page
+ * ProjectAmazonPH Academy: Sign-Up Page
  *
  * Registration page for new users.
  * Creates a User record with hashed password, then uses NextAuth's
@@ -235,7 +235,7 @@ export default function SignUpPage() {
 
         {/* Footer */}
         <div className="text-center text-[10px] text-muted-foreground/50">
-          ProjectAMPH Academy — Amazon PPC Command Center
+          ProjectAmazonPH Academy — Amazon PPC Command Center
         </div>
       </div>
     </div>

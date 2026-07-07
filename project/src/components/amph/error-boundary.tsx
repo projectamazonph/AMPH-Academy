@@ -2,7 +2,7 @@
 import { Icon } from '@/components/icons';
 
 /**
- * ProjectAMPH Academy: Error Boundary
+ * ProjectAmazonPH Academy: Error Boundary
  *
  * Catches unhandled React errors in the component tree below it,
  * displays a friendly fallback UI, and provides a "Try Again" button
@@ -38,7 +38,7 @@ export class ErrorBoundary extends React.Component<ErrorBoundaryProps, ErrorBoun
   componentDidCatch(error: Error, errorInfo: React.ErrorInfo) {
     // Log to structured logger (client-side errors go to console,
     // in production these would be sent to an error monitoring service)
-    console.error('[ProjectAMPH Academy] Unhandled error:', {
+    console.error('[ProjectAmazonPH Academy] Unhandled error:', {
       message: error.message,
       stack: error.stack,
       componentStack: errorInfo.componentStack,

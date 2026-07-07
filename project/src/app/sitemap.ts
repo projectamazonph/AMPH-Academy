@@ -2,7 +2,7 @@ import { MetadataRoute } from "next";
 import { getCourses } from "@/modules/courses/_actions";
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const BASE_URL = "https://amph-academy.vercel.app";
+  const BASE_URL = "https://projectamazonph.vercel.app";
 
   // Static routes
   const staticRoutes: MetadataRoute.Sitemap = [

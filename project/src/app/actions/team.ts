@@ -1,7 +1,7 @@
 'use server';
 
 /**
- * ProjectAMPH Academy: Team Dashboard & Manager Actions (Phase 3)
+ * ProjectAmazonPH Academy: Team Dashboard & Manager Actions (Phase 3)
  *
  * Organization management, member invitations, team progress tracking.
  */

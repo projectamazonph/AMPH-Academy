@@ -4,7 +4,7 @@ import { Copy, SquareArrowOutUpRight } from '@/components/icons';
 import { Icon } from '@/components/icons';
 
 /**
- * ProjectAMPH Academy: Certificate Manager
+ * ProjectAmazonPH Academy: Certificate Manager
  *
  * Shows certificate eligibility progress, issue flow, and existing cert info.
  * Replaces the basic CertificateGenerator with a full lifecycle UI.
@@ -162,7 +162,7 @@ export function CertificateManager() {
             </div>
             <CardTitle>Your Certificate</CardTitle>
             <p className="text-sm text-muted-foreground">
-              Complete all requirements to earn your ProjectAMPH Academy Certificate of Completion.
+              Complete all requirements to earn your ProjectAmazonPH Academy Certificate of Completion.
             </p>
           </div>
 

@@ -4,7 +4,7 @@ import { Building2, Flame, Plus, UserPlus, Users } from '@/components/icons';
 import { Icon } from '@/components/icons';
 
 /**
- * ProjectAMPH Academy: Team Dashboard
+ * ProjectAmazonPH Academy: Team Dashboard
  *
  * Card grid per learner with progress, streak, cert status, health.
  * Manager wizard for org setup and member invitations.

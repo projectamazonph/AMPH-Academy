@@ -1,5 +1,5 @@
 /**
- * ProjectAMPH Academy: Middleware
+ * ProjectAmazonPH Academy: Middleware
  *
  * Handles authentication, security headers, rate limiting, and CORS.
  *

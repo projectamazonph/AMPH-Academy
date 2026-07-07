@@ -1,5 +1,5 @@
 /**
- * ProjectAMPH Academy: Shared types for Server Actions
+ * ProjectAmazonPH Academy: Shared types for Server Actions
  *
  * IMPORTANT: This file does NOT have 'use server' — it only exports
  * TypeScript types and interfaces that are shared between the server

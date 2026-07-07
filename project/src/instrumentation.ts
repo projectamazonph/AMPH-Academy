@@ -1,5 +1,5 @@
 /**
- * ProjectAMPH Academy: Instrumentation
+ * ProjectAmazonPH Academy: Instrumentation
  *
  * Runs once when the Next.js server starts.
  * Validates environment variables before the app begins serving requests.
@@ -14,7 +14,7 @@ export async function register() {
     validateEnv();
 
     const { logger } = await import('@/lib/logger');
-    logger.info('AMPH server started', {
+    logger.info('ProjectAmazonPH server started', {
       nodeEnv: process.env.NODE_ENV,
       runtime: process.env.NEXT_RUNTIME,
     });

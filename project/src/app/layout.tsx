@@ -23,16 +23,16 @@ const jetbrainsMono = JetBrains_Mono({
 
 export const metadata: Metadata = {
   title: {
-    default: "ProjectAMPH Academy — Break the ₱15k VA Ceiling",
-    template: "%s | ProjectAMPH Academy",
+    default: "ProjectAmazonPH Academy — Break the ₱15k VA Ceiling",
+    template: "%s | ProjectAmazonPH Academy",
   },
   description:
     "Filipino VA earning ₱15k a month? Learn Amazon PPC from Ryan Dabao (14yr VA, ₱50M+ ad spend) and start billing ₱60k–₱80k/month. Interactive simulations, structured curriculum, and real campaign practice.",
   keywords: [
     "Amazon PPC",
-    "ProjectAMPH Academy",
-    "ProjectAMPH",
-    "AMPH",
+    "ProjectAmazonPH Academy",
+    "ProjectAmazonPH",
+    "ProjectAmazonPH",
     "PPC Training Philippines",
     "Filipino VA",
     "VA Philippines",
@@ -64,16 +64,16 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_PH",
     url: "https://amph-academy.vercel.app",
-    siteName: "ProjectAMPH Academy",
-    title: "ProjectAMPH Academy — Break the ₱15k VA Ceiling",
+    siteName: "ProjectAmazonPH Academy",
+    title: "ProjectAmazonPH Academy — Break the ₱15k VA Ceiling",
     description:
       "Filipino VA earning ₱15k a month? Learn Amazon PPC from Ryan Dabao and start billing ₱60k–₱80k/month.",
     images: [
       {
-        url: "/og/amph-og.png",
+        url: "/og/projectamazonph-og.png",
         width: 1200,
         height: 630,
-        alt: "ProjectAMPH Academy — Learn • Earn • Empower",
+        alt: "ProjectAmazonPH Academy — Learn • Earn • Empower",
         type: "image/png",
       },
     ],
@@ -82,10 +82,10 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     site: "@projectamazonph",
     creator: "@ryandabao",
-    title: "ProjectAMPH Academy — Amazon PPC Command Center",
+    title: "ProjectAmazonPH Academy — Amazon PPC Command Center",
     description:
       "Master Amazon PPC through interactive simulations and structured learning. Built for Filipino VAs by ProjectAmazonPH.",
-    images: ["/og/amph-og.png"],
+    images: ["/og/projectamazonph-og.png"],
   },
   robots: {
     index: true,

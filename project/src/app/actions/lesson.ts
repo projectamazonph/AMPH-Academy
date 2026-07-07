@@ -1,7 +1,7 @@
 'use server';
 
 /**
- * ProjectAMPH Academy: Lesson Content Server Action
+ * ProjectAmazonPH Academy: Lesson Content Server Action
  *
  * Reads MDX lesson files from the content directory and returns
  * the parsed frontmatter + markdown body for the LessonPlayer.

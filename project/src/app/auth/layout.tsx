@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Authentication — ProjectAMPH Academy",
+  title: "Authentication — ProjectAmazonPH Academy",
   description:
-    "Sign in or create your ProjectAMPH Academy account to access Amazon PPC training, simulations, and certifications.",
+    "Sign in or create your ProjectAmazonPH Academy account to access Amazon PPC training, simulations, and certifications.",
   robots: {
     index: false,
     follow: true,

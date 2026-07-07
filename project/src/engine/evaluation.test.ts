@@ -1,5 +1,5 @@
 /**
- * ProjectAMPH Academy: Unit Tests for Evaluation Engine
+ * ProjectAmazonPH Academy: Unit Tests for Evaluation Engine
  *
  * Tests STR Triage, Bid Elevator, and Campaign Builder evaluation functions,
  * preview score functions, and validation functions. Uses fixtures + property-based

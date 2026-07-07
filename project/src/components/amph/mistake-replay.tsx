@@ -4,7 +4,7 @@ import { AlertTriangle, BarChart, BookOpen, Brain, Lightbulb, TrendUp } from '@/
 import { Icon } from '@/components/icons';
 
 /**
- * ProjectAMPH Academy: "Explain My Mistake" Replay Panel
+ * ProjectAmazonPH Academy: "Explain My Mistake" Replay Panel
  *
  * Slide-over review panel showing detailed mistake analysis
  * for a completed quiz attempt. Integrates with quiz results screen.

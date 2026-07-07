@@ -12,33 +12,33 @@ export const metadata: Metadata = {
     "PPC training Philippines",
     "Amazon advertising courses",
     "VA training",
-    "ProjectAMPH Academy courses",
+    "ProjectAmazonPH Academy courses",
     "online courses Philippines",
   ],
   openGraph: {
-    title: "Course Catalog | ProjectAMPH Academy",
+    title: "Course Catalog | ProjectAmazonPH Academy",
     description:
       "Structured Amazon advertising courses with interactive simulations. Built for Filipino VAs by ProjectAmazonPH.",
     type: "website",
-    siteName: "ProjectAMPH Academy",
+    siteName: "ProjectAmazonPH Academy",
     locale: "en_PH",
     images: [
       {
-        url: "/og/amph-og.png",
+        url: "/og/projectamazonph-og.png",
         width: 1200,
         height: 630,
-        alt: "ProjectAMPH Academy Course Catalog",
+        alt: "ProjectAmazonPH Academy Course Catalog",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Course Catalog | ProjectAMPH Academy",
+    title: "Course Catalog | ProjectAmazonPH Academy",
     description:
       "Structured Amazon advertising courses with interactive simulations. Built for Filipino VAs by ProjectAmazonPH.",
   },
   alternates: {
-    canonical: "https://amph-academy.vercel.app/courses",
+    canonical: "https://projectamazonph.vercel.app/courses",
   },
 };
 

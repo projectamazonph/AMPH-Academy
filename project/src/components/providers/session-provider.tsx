@@ -1,7 +1,7 @@
 'use client';
 
 /**
- * ProjectAMPH Academy: Session Provider Wrapper
+ * ProjectAmazonPH Academy: Session Provider Wrapper
  *
  * Wraps the NextAuth SessionProvider so we can use it in the
  * root layout (which must be a Server Component).

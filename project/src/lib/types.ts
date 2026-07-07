@@ -1,5 +1,5 @@
 // ===========================================================================
-// Shared TypeScript types for ProjectAMPH Academy
+// Shared TypeScript types for ProjectAmazonPH Academy
 // ===========================================================================
 
 // --- User & Auth ---

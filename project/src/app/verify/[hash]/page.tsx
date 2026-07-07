@@ -1,5 +1,5 @@
 /**
- * ProjectAMPH Academy: Certificate Verification Portal
+ * ProjectAmazonPH Academy: Certificate Verification Portal
  *
  * Public page — no auth required. Anyone with the certificate hash
  * can verify its authenticity.
@@ -115,7 +115,7 @@ export default async function VerifyPage({ params }: Props) {
           )}
 
           <p className="text-[10px] text-muted-foreground/60">
-            AMPH PPC Command Center &mdash; Certificate Verification Portal
+            ProjectAmazonPH PPC Command Center &mdash; Certificate Verification Portal
           </p>
         </CardContent>
       </Card>

@@ -124,7 +124,7 @@ function Navbar() {
             <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-primary to-orange-400 flex items-center justify-center">
               <Icon name="lightning" className="h-4 w-4 text-black" />
             </div>
-            <span className="font-semibold text-lg tracking-tight">AMPH</span>
+            <span className="font-semibold text-lg tracking-tight">ProjectAmazonPH</span>
           </Link>
 
           <nav className="hidden md:flex items-center gap-8">
@@ -533,7 +533,7 @@ function SocialProof() {
         <div className="grid md:grid-cols-3 gap-6">
           <Card className="border-border/40 bg-card p-6 text-left">
             <div className="text-4xl font-bold text-primary mb-1">₱15k</div>
-            <div className="text-xs text-muted-foreground mb-4">Before AMPH</div>
+            <div className="text-xs text-muted-foreground mb-4">Before ProjectAmazonPH</div>
             <div className="text-4xl font-bold text-emerald-400 mb-1">₱65k</div>
             <div className="text-xs text-muted-foreground mb-4">After (3 months)</div>
             <p className="text-sm text-muted-foreground leading-relaxed">
@@ -546,11 +546,11 @@ function SocialProof() {
 
           <Card className="border-border/40 bg-card p-6 text-left">
             <div className="text-4xl font-bold text-primary mb-1">₱18k</div>
-            <div className="text-xs text-muted-foreground mb-4">Before AMPH</div>
+            <div className="text-xs text-muted-foreground mb-4">Before ProjectAmazonPH</div>
             <div className="text-4xl font-bold text-emerald-400 mb-1">₱80k</div>
             <div className="text-xs text-muted-foreground mb-4">After (5 months)</div>
             <p className="text-sm text-muted-foreground leading-relaxed">
-              &quot;Client asked if I knew Amazon ads. Said yes without thinking. Then panicked. Found AMPH, went through everything, and actually delivered. Now they pay me triple and I got two more referrals.&quot;
+"Client asked if I knew Amazon ads. Said yes without thinking. Then panicked. Found ProjectAmazonPH, went through everything, and actually delivered. Now they pay me triple and I got two more referrals."
             </p>
             <div className="mt-4 pt-4 border-t border-border/20">
               <div className="text-sm font-semibold text-card-foreground">— Carlos, Cebu</div>
@@ -559,7 +559,7 @@ function SocialProof() {
 
           <Card className="border-border/40 bg-card p-6 text-left">
             <div className="text-4xl font-bold text-primary mb-1">₱12k</div>
-            <div className="text-xs text-muted-foreground mb-4">Before AMPH</div>
+            <div className="text-xs text-muted-foreground mb-4">Before ProjectAmazonPH</div>
             <div className="text-4xl font-bold text-emerald-400 mb-1">₱55k</div>
             <div className="text-xs text-muted-foreground mb-4">After (4 months)</div>
             <p className="text-sm text-muted-foreground leading-relaxed">
@@ -761,7 +761,7 @@ function Footer() {
             <div className="w-6 h-6 rounded-lg bg-gradient-to-br from-primary to-orange-400 flex items-center justify-center">
               <Icon name="lightning" className="h-3 w-3 text-black" />
             </div>
-            <span className="text-sm font-semibold">ProjectAMPH Academy</span>
+            <span className="text-sm font-semibold">ProjectAmazonPH Academy</span>
           </div>
           <div className="flex items-center gap-6 text-xs text-muted-foreground">
             <span>Built for Filipino VAs by a Filipino VA</span>

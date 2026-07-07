@@ -1,7 +1,7 @@
 'use server';
 
 /**
- * ProjectAMPH Academy: Simulation Server Actions
+ * ProjectAmazonPH Academy: Simulation Server Actions
  *
  * Implements the server-side half of the Hybrid Execution Model (ADR-001):
  * - Client runs preview scoring for instant feedback (<100ms)

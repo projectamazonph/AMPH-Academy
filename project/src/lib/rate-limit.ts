@@ -1,5 +1,5 @@
 /**
- * ProjectAMPH Academy: Rate Limiter — ponytail: in-memory sliding window, auto-cleanup.
+ * ProjectAmazonPH Academy: Rate Limiter — ponytail: in-memory sliding window, auto-cleanup.
  */
 
 const store = new Map<string, number[]>();

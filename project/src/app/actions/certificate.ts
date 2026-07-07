@@ -53,7 +53,7 @@ export async function generateCertificate(): Promise<ActionResult<string>> {
 <div class="cert">
   <div class="seal">ADC</div>
   <h1>Certificate of Completion</h1>
-  <h2>AMPH PPC Command Center</h2>
+  <h2>ProjectAmazonPH PPC Command Center</h2>
   <div class="name">${userName}</div>
   <div class="body-text">
     Has successfully completed all 5 modules and mastered the fundamentals of<br/>
@@ -66,7 +66,7 @@ ${completed >= requiredModules ? '' : '<br/><em style="color:#b8860b;">⏳ Compl
     <span>${user.xp.toLocaleString()} XP</span>
     <span>${date}</span>
   </div>
-  <div class="footer">Certificate ID: ${certId} &mdash; AMPH PPC Command Center &mdash; amph.academy</div>
+  <div class="footer">Certificate ID: ${certId} &mdash; ProjectAmazonPH PPC Command Center &mdash; projectamazonph.vercel.app</div>
 </div>
 </body></html>`;
 

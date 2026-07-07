@@ -2,7 +2,7 @@
 import { Icon } from '@/components/icons';
 
 /**
- * ProjectAMPH Academy: Sign-In Page
+ * ProjectAmazonPH Academy: Sign-In Page
  *
  * Custom sign-in page with email/password form.
  * Uses NextAuth's signIn() with default redirect (full page navigation)
@@ -155,7 +155,7 @@ function SignInForm() {
 
         {/* Footer */}
         <div className="text-center text-[10px] text-muted-foreground/50">
-          ProjectAMPH Academy — Amazon PPC Command Center
+          ProjectAmazonPH Academy — Amazon PPC Command Center
         </div>
       </div>
     </div>

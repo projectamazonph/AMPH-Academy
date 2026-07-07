@@ -1,5 +1,5 @@
 /**
- * ProjectAMPH Academy: PPC Formula Engine
+ * ProjectAmazonPH Academy: PPC Formula Engine
  *
  * Pure functions for calculating all Amazon PPC metrics.
  * Zero side effects, zero framework dependencies.

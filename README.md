@@ -8,7 +8,7 @@
 </p>
 
 <h1 align="center">
-  ProjectAMPH Academy
+  ProjectAmazonPH Academy
 </h1>
 
 <p align="center">
@@ -40,7 +40,7 @@ The VA industry is splitting in two. One track gets automated away. The other ch
 
 ## 🎯 What This Platform Does
 
-ProjectAMPH Academy is an advanced **Amazon PPC skills training platform** for Filipino VAs. It combines structured curriculum, interactive practice tools, and gamified progression to produce job-ready PPC specialists.
+ProjectAmazonPH Academy is an advanced **Amazon PPC skills training platform** for Filipino VAs. It combines structured curriculum, interactive practice tools, and gamified progression to produce job-ready PPC specialists.
 
 **Built by a 14-year VA with 8 years of Amazon PPC experience and ₱50M+ in managed ad spend.** Every lesson, simulation, and scenario bank comes from real campaign data — not theory.
 
@@ -93,7 +93,7 @@ Each lesson includes real ₱ figures, analogies grounded in the Filipino VA exp
 | **Accelerated Mastery** | ₱5,999/mo | Above + certification prep, resource library, live Q&A |
 | **Ultimate Transformation** | ₱9,999/mo | Above + 1-on-1 coaching, resume review, job placement |
 
-> *"Client asked if I knew Amazon ads. Said yes without thinking. Then panicked. Found AMPH Academy, went through everything, and actually delivered."* — **Carlos, Cebu** (₱18k → ₱80k)
+> *"Client asked if I knew Amazon ads. Said yes without thinking. Then panicked. Found ProjectAmazonPH Academy, went through everything, and actually delivered."* — **Carlos, Cebu** (₱18k → ₱80k)
 
 ---
 
@@ -222,7 +222,7 @@ npm run build
   <sub>
     Built by <strong>Ryan Roland Dabao</strong> — 14yr VA, 8yr Amazon PPC Specialist, ₱50M+ managed<br />
     <a href="https://projectamazonph.com">ProjectAmazonPH</a> ·
-    <a href="https://amph-academy.vercel.app">ProjectAMPH Academy</a> ·
+    <a href="https://amph-academy.vercel.app">ProjectAmazonPH Academy</a> ·
     <a href="https://ph.linkedin.com/in/ryandabao">LinkedIn</a>
   </sub>
 </p>
