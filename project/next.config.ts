@@ -7,10 +7,10 @@ const nextConfig: NextConfig = {
     serverActions: {
       allowedOrigins: [
         'amph-academy.vercel.app',
-        
         'localhost',
       ],
     },
+    optimizePackageImports: ['@phosphor-icons/react'],
   },
   serverExternalPackages: ['@prisma/client'],
 };
