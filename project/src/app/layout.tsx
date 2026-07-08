@@ -3,6 +3,7 @@ import { Inter, JetBrains_Mono } from "next/font/google";
 import Script from "next/script";
 import "./globals.css";
 import { Toaster } from "@/components/ui/toaster";
+import { PapHeader } from "@/components/header";
 import { AuthProvider } from "@/components/providers/session-provider";
 import { ErrorBoundary } from "@/components/amph/error-boundary";
 
@@ -127,6 +128,7 @@ export default function RootLayout({
         <AuthProvider>
           <ErrorBoundary>
             <div className="noise-overlay" />
+            <PapHeader />
             <main id="main-content">
               {children}
             </main>
