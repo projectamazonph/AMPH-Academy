@@ -19,7 +19,7 @@
  * 3. getAttemptHistory — Retrieves past attempts for a user/simulation
  */
 
-import { db } from '@/lib/db';
+import { db, isDatabaseConfigured } from '@/lib/db';
 import { getAuthUserId } from '@/lib/auth-guard';
 import { logger } from '@/lib/logger';
 import {
@@ -403,6 +403,21 @@ export async function getAttemptHistory(
 // ============================================================================
 
 export async function getUserStats(): Promise<ActionResult<UserStatsOutput>> {
+  // If database is not configured, return fallback data so dashboard can still render
+  if (!isDatabaseConfigured()) {
+    logger.warn('getUserStats: DATABASE_URL not configured, returning fallback data');
+    return {
+      success: true,
+      data: {
+        userId: 'fallback',
+        xp: 0,
+        level: 1,
+        totalAttempts: 0,
+        bestScores: {},
+      },
+    };
+  }
+
   try {
     const uid = await getAuthUserId();
     if (!uid) {
@@ -442,10 +457,16 @@ export async function getUserStats(): Promise<ActionResult<UserStatsOutput>> {
     };
   } catch (error) {
     logger.error('getUserStats failed', { error: String(error) });
+    // Return fallback data instead of error so dashboard renders with defaults
     return {
-      success: false,
-      error: 'Failed to get user stats',
-      code: 'STATS_FAILED',
+      success: true,
+      data: {
+        userId: 'fallback',
+        xp: 0,
+        level: 1,
+        totalAttempts: 0,
+        bestScores: {},
+      },
     };
   }
 }

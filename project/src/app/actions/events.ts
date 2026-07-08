@@ -1,6 +1,6 @@
 'use server';
 
-import { db } from '@/lib/db';
+import { db, isDatabaseConfigured } from '@/lib/db';
 import { getAuthUserId } from '@/lib/auth-guard';
 import { logger } from '@/lib/logger';
 import type { ActionResult } from './types';
@@ -18,6 +18,11 @@ export async function trackEvent(
   eventType: EventType,
   metadata?: Record<string, unknown>
 ): Promise<ActionResult<null>> {
+  // If database is not configured, silently skip event tracking
+  if (!isDatabaseConfigured()) {
+    return { success: true, data: null };
+  }
+
   try {
     const userId = await getAuthUserId();
     if (!userId) return { success: false, error: 'Not authenticated', code: 'UNAUTHENTICATED' };
