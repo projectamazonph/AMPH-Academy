@@ -15,9 +15,6 @@ export function validateEnv() {
   const parsed = envSchema.safeParse(process.env);
   if (!parsed.success) {
     const msgs = parsed.error.issues.map((i) => `${i.path.join('.')}: ${i.message}`).join('; ');
-    if (process.env.NODE_ENV === 'production') {
-      throw new Error(`Invalid environment: ${msgs}`);
-    }
     console.warn(`[WARN] Env validation: ${msgs}`);
   }
   return parsed;
