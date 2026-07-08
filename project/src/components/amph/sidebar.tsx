@@ -1,7 +1,7 @@
 'use client'
 import { BarChart, BookOpen, FileText, FlaskConical, LayoutDashboard, LogOut, Medal, Menu, MessageSquare, Trophy, Users, Video } from '@/components/icons';
-;
 import { Icon } from '@/components/icons';
+import Image from 'next/image';
 
 import { motion, AnimatePresence } from 'framer-motion';
 import { Button } from '@/components/ui/button';
@@ -97,8 +97,14 @@ export function Sidebar({
       >
         {/* Logo area */}
         <div className="flex items-center gap-3 p-4 pb-2">
-          <div className="flex items-center justify-center w-9 h-9 rounded-xl bg-primary/15 border border-primary/20 shrink-0">
-            <Icon name="lightning" className="h-5 w-5 text-primary" />
+          <div className="relative w-9 h-9 shrink-0 rounded-lg overflow-hidden bg-[#1A1A2E]">
+            <Image
+              src="/project-amazon-ph-logo.svg"
+              alt="ProjectAmazonPH logo"
+              fill
+              className="object-contain p-0.5"
+              sizes="36px"
+            />
           </div>
           {!collapsed && (
             <motion.div
@@ -107,10 +113,10 @@ export function Sidebar({
               className="overflow-hidden"
             >
               <h1 className="text-base font-bold tracking-tight">
-                ProjectAmazonPH Academy
+                ProjectAmazonPH
               </h1>
               <p className="text-[10px] text-muted-foreground tracking-wider uppercase">
-                PPC Command Center
+                Academy
               </p>
             </motion.div>
           )}
