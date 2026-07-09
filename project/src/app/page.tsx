@@ -1,793 +1,460 @@
-'use client'
-import { ArrowUpRight, BarChart, BookOpen, Clock, Coins, Funnel, Layout, Medal, Menu, Rocket, Sparkles, Target, TrendUp, TrendingDown, TriangleAlert } from '@/components/icons';
-;
-import { Icon } from '@/components/icons';
+import Link from "next/link";
 
-import { useState, useEffect, useRef } from 'react';
-import { motion, useInView, AnimatePresence } from 'framer-motion';
-import Link from 'next/link';
-import { Button } from '@/components/ui/button';
-import { Badge } from '@/components/ui/badge';
-import { Card, CardContent } from '@/components/ui/card';
-
-// ─── Section Animation Wrapper ───────────────────────────────────
-function Section({ children, className = '', id }: { children: React.ReactNode; className?: string; id?: string }) {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: '-80px' });
-  return (
-    <motion.section
-      ref={ref}
-      id={id}
-      initial={{ opacity: 0, y: 40 }}
-      animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }}
-      transition={{ duration: 0.6, ease: [0.25, 0.1, 0.25, 1] }}
-      className={className}
-    >
-      {children}
-    </motion.section>
-  );
-}
-
-// ─── Feature Card ────────────────────────────────────────────────
-function FeatureCard({ icon: Icon, title, description, color }: {
-  icon: React.ElementType; title: string; description: string; color: string;
-}) {
-  const colorMap: Record<string, string> = {
-    emerald: 'from-emerald-500/20 to-emerald-400/5 border-emerald-500/20 text-emerald-400',
-    sky: 'from-sky-500/20 to-sky-400/5 border-sky-500/20 text-sky-400',
-    amber: 'from-amber-500/20 to-amber-400/5 border-amber-500/20 text-amber-400',
-    rose: 'from-rose-500/20 to-rose-400/5 border-rose-500/20 text-rose-400',
-    violet: 'from-violet-500/20 to-violet-400/5 border-violet-500/20 text-violet-400',
-    teal: 'from-teal-500/20 to-teal-400/5 border-teal-500/20 text-teal-400',
-  };
-  const gradient = colorMap[color] || colorMap.emerald;
-
-  return (
-    <Card className="group relative overflow-hidden border-border/50 bg-card backdrop-blur-sm hover:border-border/80 transition-all duration-300">
-      <div className={`absolute inset-0 bg-gradient-to-br ${gradient.split(' ').slice(0, 3).join(' ')} opacity-0 group-hover:opacity-100 transition-opacity duration-500`} />
-      <CardContent className="relative p-6 space-y-4">
-        <div className={`w-10 h-10 rounded-lg bg-gradient-to-br ${gradient.split(' ').slice(0, 3).join(' ')} flex items-center justify-center`}>
-          <Icon className={`h-5 w-5 ${gradient.split(' ').slice(5).join(' ')}`} />
-        </div>
-        <h3 className="text-lg font-semibold text-card-foreground">{title}</h3>
-        <p className="text-sm text-muted-foreground leading-relaxed">{description}</p>
-      </CardContent>
-    </Card>
-  );
-}
-
-// ─── Module Card ────────────────────────────────────────────────
 const modules = [
-  { num: 0, title: 'Onboarding', desc: 'Welcome, platform tour, first simulation intro', color: 'emerald', icon: Rocket },
-  { num: 1, title: 'Foundations', desc: 'PPC basics, key metrics — CPC, ACoS, TACoS, RoAS', color: 'sky', icon: BookOpen },
-  { num: 4, title: 'Campaign Architecture', desc: 'Sponsored Products, Brands, Display — structure & scale', color: 'amber', icon: Layout },
-  { num: 6, title: 'Bidding Lab', desc: 'Bid strategies, position economics, budget pacing', color: 'rose', icon: TrendUp },
-  { num: 7, title: 'MagnifyingGlass Term Triage', desc: 'Negative keywords, STR analysis, optimization', color: 'violet', icon: Funnel },
+  { num: 0, title: "Onboarding", lessons: 3, desc: "Platform setup, goals, and the PPC specialist mindset" },
+  { num: 1, title: "Foundations — CPC, ACoS, TACoS, RoAS", lessons: 5, desc: "The language of Amazon advertising and how the money flows" },
+  { num: 2, title: "Keyword Research", lessons: 4, desc: "Match types, workflow, negative keywords — build clean audiences" },
+  { num: 3, title: "Listing Optimization", lessons: 3, desc: "Quality score, anatomy of a converting listing, A+ Content" },
+  { num: 4, title: "Campaign Architecture", lessons: 4, desc: "Sponsored Products, Brands, and Display — when to use each" },
+  { num: 5, title: "Portfolio Strategy", lessons: 3, desc: "60/20/10/10 allocation, pacing, and seasonal campaign handling" },
+  { num: 6, title: "Bidding Lab", lessons: 3, desc: "Bidding strategies, position economics, and budget pacing decisions" },
+  { num: 7, title: "Search Term Triage", lessons: 3, desc: "Negatives, STR analysis, and ongoing optimization routines" },
+  { num: 8, title: "Competitive Intelligence", lessons: 3, desc: "Brand Analytics, SOV, and benchmarking against competitors" },
 ];
 
-function ModuleCard({ m }: { m: typeof modules[0] }) {
-  const colorMap: Record<string, string> = {
-    emerald: 'border-emerald-500/20 bg-emerald-500/5 text-emerald-400',
-    sky: 'border-sky-500/20 bg-sky-500/5 text-sky-400',
-    amber: 'border-amber-500/20 bg-amber-500/5 text-amber-400',
-    rose: 'border-rose-500/20 bg-rose-500/5 text-rose-400',
-    violet: 'border-violet-500/20 bg-violet-500/5 text-violet-400',
-  };
-  const Icon = m.icon;
+const tools = [
+  {
+    name: "Campaign Builder",
+    desc: "Build complete campaign structures — keywords, bids, budgets — across 5 product niches. Real data, no theory.",
+    scenarios: "5 packs",
+    color: "#FF6B35",
+  },
+  {
+    name: "Bid Elevator",
+    desc: "High-pressure bidding decisions using real market snapshots. Learn when to raise, lower, and hold.",
+    scenarios: "10 scenarios",
+    color: "#007EFF",
+  },
+  {
+    name: "STR Triage Arena",
+    desc: "Classify search terms against the clock. Expert scoring shows you exactly where to draw the line.",
+    scenarios: "20 search terms",
+    color: "#FFD700",
+  },
+];
 
+const tiers = [
+  {
+    name: "PPC Foundations",
+    price: "₱2,999",
+    period: "/mo",
+    desc: "Everything you need to start your PPC specialist journey.",
+    features: [
+      "All 8 modules — 31 lessons",
+      "Campaign Builder (all 5 packs)",
+      "Bid Elevator (all 10 scenarios)",
+      "STR Triage Arena (all 20 terms)",
+      "17 badges + XP tracking",
+      "Progress dashboard",
+      "Certificate on completion",
+    ],
+    cta: "Start Foundations",
+    href: "https://projectamazonph-courses.netlify.app",
+    accent: false,
+  },
+  {
+    name: "Accelerated Mastery",
+    price: "₱5,999",
+    period: "/mo",
+    desc: "The flagship program. Coaching + community + structured 60-day path.",
+    features: [
+      "Everything in Foundations",
+      "Certification prep modules",
+      "Resource library (templates, checklists)",
+      "Weekly live Q&A sessions",
+      "PPC VA Income Accelerator Kit (₱8,000 value)",
+      "6-Figure VA Business System (₱25,000 value)",
+    ],
+    cta: "Choose Accelerated",
+    href: "https://projectamazonph-courses.netlify.app",
+    accent: true,
+  },
+  {
+    name: "Ultimate Transformation",
+    price: "₱9,999",
+    period: "/mo",
+    desc: "1-on-1 with Coach Ryan. Resume review. Job placement support.",
+    features: [
+      "Everything in Accelerated",
+      "4x 1-on-1 coaching sessions",
+      "Personal resume + portfolio review",
+      "Direct job placement support",
+      "Elite PPC Specialist Authority Package (₱50,000 value)",
+      "Priority access to new modules",
+    ],
+    cta: "Go Ultimate",
+    href: "https://projectamazonph-courses.netlify.app",
+    accent: false,
+  },
+];
+
+export default function LandingPage() {
   return (
-    <Card className="border-border/50 bg-card hover:bg-card transition-all duration-300 cursor-default">
-      <CardContent className="p-5 flex items-start gap-4">
-        <div className={`p-2.5 rounded-xl border ${colorMap[m.color]}`}>
-          <Icon className="h-5 w-5" />
-        </div>
-        <div className="min-w-0">
-          <Badge variant="outline" className="text-[10px] mb-1.5 font-mono text-muted-foreground">
-            MODULE {m.num}
-          </Badge>
-                  <h4 className="font-semibold text-sm text-card-foreground">{m.title}</h4>
-                  <p className="text-xs text-muted-foreground mt-0.5 leading-relaxed">{m.desc}</p>
-        </div>
-      </CardContent>
-    </Card>
-  );
-}
+    <main style={{ background: "#1A1A2E", color: "#FFFFFF", fontFamily: "'Inter', system-ui, sans-serif", minHeight: "100vh" }}>
 
-// ─── Navbar ──────────────────────────────────────────────────────
-function Navbar() {
-  const [scrolled, setScrolled] = useState(false);
-  const [mobileOpen, setMobileOpen] = useState(false);
-
-  useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 20);
-    window.addEventListener('scroll', onScroll, { passive: true });
-    return () => window.removeEventListener('scroll', onScroll);
-  }, []);
-
-  const links = [
-    { label: 'The Reality', href: '#reality' },
-    { label: 'What You Get', href: '#features' },
-    { label: 'Pricing', href: '#pricing' },
-  ];
-
-  return (
-    <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled
-          ? 'bg-background/80 backdrop-blur-2xl border-b border-border/40 shadow-sm shadow-black/5'
-          : 'bg-transparent'
-      }`}
-    >
-      <div className="max-w-7xl mx-auto px-4 lg:px-6">
-        <div className="flex items-center justify-between h-16">
-          <Link href="/" className="flex items-center gap-2 group">
-            <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-primary to-orange-400 flex items-center justify-center">
-              <Icon name="lightning" className="h-4 w-4 text-black" />
-            </div>
-            <span className="font-semibold text-lg tracking-tight">ProjectAmazonPH</span>
-          </Link>
-
-          <nav className="hidden md:flex items-center gap-8">
-            {links.map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                className="text-sm text-muted-foreground hover:text-foreground transition-colors"
-              >
-                {link.label}
-              </Link>
-            ))}
-          </nav>
-
-          <div className="hidden md:flex items-center gap-3">
-            <Link href="/auth/signin">
-              <Button variant="ghost" size="sm">Sign In</Button>
-            </Link>
-            <Link href="/auth/signup">
-              <Button size="sm" className="bg-primary hover:bg-primary/90 text-primary-foreground font-medium">
-                Start Now <Icon name="caret-right" className="h-3.5 w-3.5 ml-1" />
-              </Button>
-            </Link>
-          </div>
-
-          <button
-            onClick={() => setMobileOpen(!mobileOpen)}
-            className="md:hidden p-2 text-muted-foreground hover:text-foreground"
-          >
-            {mobileOpen ? <Icon name="x" className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
-          </button>
-        </div>
-      </div>
-
-      <AnimatePresence>
-        {mobileOpen && (
-          <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: 'auto' }}
-            exit={{ opacity: 0, height: 0 }}
-            className="md:hidden border-t border-border/40 bg-background/95 backdrop-blur-2xl"
-          >
-            <div className="px-4 py-4 space-y-3">
-              {links.map((link) => (
-                <Link
-                  key={link.href}
-                  href={link.href}
-                  onClick={() => setMobileOpen(false)}
-                  className="block text-sm text-muted-foreground hover:text-foreground py-2"
-                >
-                  {link.label}
-                </Link>
-              ))}
-              <div className="pt-3 border-t border-border/20 space-y-2">
-                <Link href="/auth/signin" className="block">
-                  <Button variant="outline" className="w-full">Sign In</Button>
-                </Link>
-                <Link href="/auth/signup" className="block">
-                  <Button className="w-full bg-primary hover:bg-primary/90 text-primary-foreground">Start Now</Button>
-                </Link>
-              </div>
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
-    </header>
-  );
-}
-
-// ─── Hero ────────────────────────────────────────────────────────
-function Hero() {
-  return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-16">
-      {/* Background */}
-      <div className="absolute inset-0 bg-gradient-to-b from-background via-primary/5 to-background" />
-      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-primary/10 rounded-full blur-[120px]" />
-      <div className="absolute bottom-1/4 right-1/4 w-[400px] h-[400px] bg-rose-500/5 rounded-full blur-[100px]" />
-
-      <div
-        className="absolute inset-0 opacity-[0.03]"
-        style={{
-          backgroundImage: `linear-gradient(rgba(255,255,255,.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.1) 1px, transparent 1px)`,
-          backgroundSize: '60px 60px',
-        }}
-      />
-
-      <div className="relative max-w-5xl mx-auto px-4 text-center">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-        >
-          <Badge variant="outline" className="mb-6 gap-2 px-4 py-1.5 text-xs border-rose-500/20 bg-rose-500/10 text-rose-400">
-            <TriangleAlert className="h-3.5 w-3.5" />
-            The VA industry is changing. Fast.
-          </Badge>
-        </motion.div>
-
-        <motion.h1
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.1 }}
-          className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight leading-[1.1]"
-        >
-          <span className="text-muted-foreground/60">Still earning</span>
-          <br />
-          <span className="bg-gradient-to-r from-orange-300 via-amber-200 to-orange-100 bg-clip-text text-transparent">
-            ₱15k a month?
+      {/* NAV */}
+      <nav style={{ display: "flex", justifyContent: "space-between", alignItems: "center", padding: "20px 48px", borderBottom: "1px solid rgba(255,255,255,0.08)" }}>
+        <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
+          <svg width="32" height="32" viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect width="400" height="400" rx="40" fill="#FF6B35"/>
+            <path d="M200 60 L320 320 L280 320 L240 240 L160 240 L120 320 L80 320 L200 60Z" fill="#1A1A2E"/>
+            <rect x="155" y="195" width="22" height="55" rx="3" fill="#1A1A2E"/>
+            <rect x="189" y="165" width="22" height="85" rx="3" fill="#1A1A2E"/>
+            <rect x="223" y="135" width="22" height="115" rx="3" fill="#1A1A2E"/>
+          </svg>
+          <span style={{ fontWeight: 700, fontSize: "18px", letterSpacing: "-0.5px" }}>
+            Project<span style={{ color: "#FF6B35" }}>AmazonPH</span>
           </span>
-        </motion.h1>
+        </div>
+        <div style={{ display: "flex", gap: "32px", fontSize: "14px" }}>
+          <a href="#curriculum" style={{ color: "rgba(255,255,255,0.7)", textDecoration: "none" }}>Curriculum</a>
+          <a href="#tools" style={{ color: "rgba(255,255,255,0.7)", textDecoration: "none" }}>Tools</a>
+          <a href="#pricing" style={{ color: "rgba(255,255,255,0.7)", textDecoration: "none" }}>Pricing</a>
+          <a
+            href="https://amph-academy.vercel.app"
+            style={{
+              background: "#FF6B35",
+              color: "#fff",
+              padding: "10px 20px",
+              borderRadius: "8px",
+              fontWeight: 600,
+              textDecoration: "none",
+              fontSize: "14px",
+            }}
+          >
+            Open Academy
+          </a>
+        </div>
+      </nav>
 
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-          className="mt-6 text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed"
-        >
-          While you are stuck doing data entry and basic admin tasks, other VAs are billing ₱60k–₱80k/month managing Amazon PPC campaigns. Same hours. Same internet. Different skill set.
-        </motion.p>
+      {/* HERO */}
+      <section style={{ textAlign: "center", padding: "100px 24px 80px", maxWidth: "860px", margin: "0 auto" }}>
+        <div style={{ display: "inline-flex", alignItems: "center", gap: "8px", background: "rgba(255,107,53,0.12)", border: "1px solid rgba(255,107,53,0.3)", borderRadius: "100px", padding: "6px 16px", fontSize: "13px", color: "#FF6B35", marginBottom: "28px", fontWeight: 500 }}>
+          <span style={{ width: "6px", height: "6px", borderRadius: "50%", background: "#FF6B35", display: "inline-block" }} />
+          AMPH Academy — Now Live with 8 Modules, 31 Lessons
+        </div>
+        <h1 style={{ fontSize: "clamp(36px, 6vw, 64px)", fontWeight: 800, lineHeight: 1.1, letterSpacing: "-2px", marginBottom: "24px" }}>
+          Still earning ₱15k/month?<br />
+          <span style={{ color: "#FF6B35" }}>Other VAs are billing ₱60k–₱80k</span><br />
+          managing Amazon PPC.
+        </h1>
+        <p style={{ fontSize: "20px", color: "rgba(255,255,255,0.65)", lineHeight: 1.6, marginBottom: "40px", maxWidth: "620px", margin: "0 auto 40px" }}>
+          Same hours. Same internet. Different skill set.<br />
+          AMPH Academy trains you to become a job-ready PPC specialist — not with videos you'll forget, but with real campaigns, real tools, and a proven progression system.
+        </p>
+        <div style={{ display: "flex", gap: "16px", justifyContent: "center", flexWrap: "wrap" }}>
+          <a
+            href="https://amph-academy.vercel.app"
+            style={{
+              background: "#FF6B35",
+              color: "#fff",
+              padding: "16px 32px",
+              borderRadius: "10px",
+              fontWeight: 700,
+              fontSize: "16px",
+              textDecoration: "none",
+              display: "inline-block",
+            }}
+          >
+            Break the ₱15k Ceiling →
+          </a>
+          <a
+            href="#curriculum"
+            style={{
+              background: "rgba(255,255,255,0.08)",
+              color: "#fff",
+              padding: "16px 32px",
+              borderRadius: "10px",
+              fontWeight: 600,
+              fontSize: "16px",
+              textDecoration: "none",
+              display: "inline-block",
+            }}
+          >
+            See the Curriculum
+          </a>
+        </div>
+        <p style={{ marginTop: "20px", fontSize: "13px", color: "rgba(255,255,255,0.35)" }}>
+          Built by a 14-year VA · ₱50M+ managed ad spend · 8 modules · 31 lessons · 35+ scenarios
+        </p>
+      </section>
 
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.25 }}
-          className="mt-3 text-sm text-rose-400/80 max-w-2xl mx-auto"
-        >
-          The ones who waited? Still at ₱15k.
-        </motion.p>
-
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.3 }}
-          className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4"
-        >
-          <Link href="/auth/signup">
-            <Button size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold px-8 h-12 text-base">
-              Break the ₱15k Ceiling <ArrowUpRight className="h-4 w-4 ml-2" />
-            </Button>
-          </Link>
-          <Link href="#reality">
-            <Button size="lg" variant="outline" className="px-8 h-12 text-base border-border/50">
-              Show Me the Numbers
-            </Button>
-          </Link>
-        </motion.div>
-      </div>
-    </section>
-  );
-}
-
-// ─── The Hard Truth ─────────────────────────────────────────────
-function RealitySection() {
-  const realities = [
-    {
-      icon: TrendingDown,
-      title: 'Basic VA work is disappearing',
-      body: 'AI tools now handle scheduling, email management, and data entry. The tasks you were hired for five years ago? Tools like ChatGPT and Zapier do them in seconds. Companies know this. They are cutting basic VA roles.',
-      stat: '83%',
-      statLabel: 'of VA tasks can be automated today',
-      color: 'text-rose-400',
-    },
-    {
-      icon: Coins,
-      title: 'The ₱15k ceiling is real',
-      body: 'Check any freelancing group. Basic admin work tops out at ₱20k, and that is after years of experience. Meanwhile, Amazon PPC specialists charge ₱60k–₱80k/month. Per client. The skill gap is the only thing keeping you at the low end.',
-      stat: '₱15k–₱20k',
-      statLabel: 'Average VA rate vs ₱60k+ for PPC',
-      color: 'text-amber-400',
-    },
-    {
-      icon: Clock,
-      title: 'Every month you wait costs you real money',
-      body: 'A 3-month training investment pays for itself in your first month at PPC rates. The math is simple. Delaying means leaving ₱40k+ on the table every single month. That is a new laptop. Rent. Your kid\'s tuition.',
-      stat: '₱40k+',
-      statLabel: 'Lost earnings per month of delay',
-      color: 'text-rose-400',
-    },
-  ];
-
-  return (
-    <Section id="reality" className="py-24 md:py-32">
-      <div className="max-w-7xl mx-auto px-4 lg:px-6">
-        <div className="text-center mb-16">
-          <Badge variant="outline" className="mb-4 px-3 py-1 text-xs border-rose-500/20 bg-rose-500/10 text-rose-400">
-            <TriangleAlert className="h-3 w-3 mr-1" /> The Hard Truth
-          </Badge>
-          <h2 className="text-3xl md:text-4xl font-bold tracking-tight">
-            Nobody Tells You This
+      {/* THE GAP */}
+      <section style={{ padding: "80px 24px", background: "rgba(255,255,255,0.03)" }}>
+        <div style={{ maxWidth: "960px", margin: "0 auto" }}>
+          <h2 style={{ fontSize: "32px", fontWeight: 700, textAlign: "center", marginBottom: "48px", letterSpacing: "-1px" }}>
+            The income gap is a <span style={{ color: "#FF6B35" }}>skill gap</span>
           </h2>
-          <p className="mt-4 text-muted-foreground max-w-2xl mx-auto">
-            The VA industry is splitting in two. One track gets automated away.
-            The other charges premium rates. Which one are you on?
-          </p>
-        </div>
-
-        <div className="grid md:grid-cols-3 gap-6">
-          {realities.map((r, i) => (
-            <motion.div
-              key={r.title}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: '-50px' }}
-              transition={{ duration: 0.5, delay: i * 0.1 }}
-            >
-              <Card className="border-border/50 bg-card h-full backdrop-blur-sm relative overflow-hidden">
-                <div className="absolute top-0 right-0 w-32 h-32 bg-rose-500/5 rounded-full blur-[60px] -translate-y-1/2 translate-x-1/2" />
-                <CardContent className="p-6 space-y-4 relative">
-                  <div className={`w-10 h-10 rounded-lg bg-gradient-to-br from-${r.color.includes('rose') ? 'rose' : 'amber'}-500/20 to-${r.color.includes('rose') ? 'rose' : 'amber'}-400/5 border border-${r.color.includes('rose') ? 'rose' : 'amber'}-500/20 flex items-center justify-center`}>
-                    <r.icon className={`h-5 w-5 ${r.color}`} />
-                  </div>
-                  <div className="text-3xl font-bold">{r.stat}</div>
-                  <div className="text-xs text-muted-foreground -mt-2">{r.statLabel}</div>
-                  <h3 className="text-lg font-semibold text-card-foreground">{r.title}</h3>
-                  <p className="text-sm text-muted-foreground leading-relaxed">
-                    {r.body}
-                  </p>
-                </CardContent>
-              </Card>
-            </motion.div>
-          ))}
-        </div>
-
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5, delay: 0.3 }}
-          className="mt-10 text-center"
-        >
-          <div className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-primary/10 border border-primary/20">
-            <Sparkles className="h-4 w-4 text-primary" />
-            <span className="text-sm text-muted-foreground">
-              The good news: Amazon PPC is one of the few skills where demand is growing faster than supply. Filipino VAs who learn it now are booking premium clients.
-            </span>
-          </div>
-        </motion.div>
-      </div>
-    </Section>
-  );
-}
-
-// ─── Features (reframed as fear solutions) ──────────────────────
-const features = [
-  { icon: Target, title: 'Campaign Builder Simulator', description: 'Stop reading theory. Build real campaign structures, set bids, and see results instantly. Make mistakes here so you do not make them with a client\'s budget.', color: 'emerald' },
-  { icon: TrendUp, title: 'Bid Elevator', description: 'Practice bidding decisions under pressure. Learn how small bid changes affect ACoS and RoAS. By the time you finish, you will know more than most 3-year VAs.', color: 'amber' },
-  { icon: Funnel, title: 'MagnifyingGlass Term Triage Arena', description: 'Real search term reports. Real optimization decisions. Process thousands of keywords like a pro. This alone can double your rate.', color: 'rose' },
-  { icon: BookOpen, title: 'Structured Amazon PPC Curriculum', description: '5 modules, 19 lessons. From "what is a keyword" to advanced campaign architecture. No fluff. Just the stuff that gets you hired at premium rates.', color: 'sky' },
-  { icon: Medal, title: 'Badges & Certification', description: 'Earn verifiable credentials that prove you can actually do the work. Show clients proof, not promises. 17 badges across 5 skill categories.', color: 'violet' },
-  { icon: BarChart, title: 'Progress Tracking & Analytics', description: 'See exactly where you are improving and where you are stuck. No guessing. No wondering if you are ready for real campaigns.', color: 'teal' },
-];
-
-function FeaturesSection() {
-  return (
-    <Section id="features" className="py-24 md:py-32">
-      <div className="max-w-7xl mx-auto px-4 lg:px-6">
-        <div className="text-center mb-16">
-          <Badge variant="outline" className="mb-4 px-3 py-1 text-xs border-border/40 text-muted-foreground">What You Get</Badge>
-          <h2 className="text-3xl md:text-4xl font-bold tracking-tight">
-            Skills That{' '}
-            <span className="bg-gradient-to-r from-orange-400 via-amber-300 to-orange-200 bg-clip-text text-transparent">
-              Actually Pay More
-            </span>
-          </h2>
-          <p className="mt-4 text-muted-foreground max-w-2xl mx-auto">
-            Everything here is built around one question: will this help you earn more? If the answer is no, we do not include it.
-          </p>
-        </div>
-
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {features.map((f, i) => (
-            <motion.div
-              key={f.title}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: '-50px' }}
-              transition={{ duration: 0.4, delay: i * 0.08 }}
-            >
-              <FeatureCard {...f} />
-            </motion.div>
-          ))}
-        </div>
-      </div>
-    </Section>
-  );
-}
-
-// ─── How It Works ────────────────────────────────────────────────
-const steps = [
-  { step: '01', title: 'Learn the PPC Stack', desc: '5 structured modules from zero to campaign architecture. Each lesson is built for a Filipino VA — real Amazon data, real scenarios, no filler.', icon: BookOpen },
-  { step: '02', title: 'Practice Until It Sticks', desc: 'Interactive simulations where you build campaigns, optimize bids, and triage keywords. Mistakes cost nothing here. With a client they cost everything.', icon: Target },
-  { step: '03', title: 'Get Certified & Earn More', desc: 'Pass the assessments, earn your badge, and start pitching premium PPC services. Our graduates are booking ₱60k+ months within 90 days.', icon: Medal },
-];
-
-function HowItWorks() {
-  return (
-    <Section className="py-24 md:py-32 bg-gradient-to-b from-transparent via-primary/5 to-transparent">
-      <div className="max-w-6xl mx-auto px-4 lg:px-6">
-        <div className="text-center mb-16">
-          <Badge variant="outline" className="mb-4 px-3 py-1 text-xs border-border/40 text-muted-foreground">How It Works</Badge>
-          <h2 className="text-3xl md:text-4xl font-bold tracking-tight">
-            Three Steps from{' '}
-            <span className="bg-gradient-to-r from-orange-400 via-amber-300 to-orange-200 bg-clip-text text-transparent">
-              ₱15k to ₱60k+
-            </span>
-          </h2>
-          <p className="mt-4 text-muted-foreground max-w-2xl mx-auto">
-            No fluff. No filler. Just a direct path from where you are to where you want to be.
-          </p>
-        </div>
-
-        <div className="grid md:grid-cols-3 gap-8 lg:gap-12">
-          {steps.map((s, i) => (
-            <motion.div
-              key={s.step}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: i * 0.15 }}
-              className="relative text-center"
-            >
-              {i < steps.length - 1 && (
-                <div className="hidden md:block absolute top-12 left-[60%] w-[80%] h-px bg-gradient-to-r from-primary/30 to-transparent" />
-              )}
-
-              <div className="w-24 h-24 rounded-2xl bg-gradient-to-br from-primary/20 to-primary/5 border border-primary/20 flex items-center justify-center mx-auto mb-6">
-                <s.icon className="h-8 w-8 text-primary" />
-              </div>
-              <div className="text-4xl font-bold text-primary/20 mb-3">{s.step}</div>
-              <h3 className="text-xl font-semibold mb-2">{s.title}</h3>
-              <p className="text-sm text-muted-foreground leading-relaxed max-w-xs mx-auto">{s.desc}</p>
-            </motion.div>
-          ))}
-        </div>
-      </div>
-    </Section>
-  );
-}
-
-// ─── Curriculum Preview ──────────────────────────────────────────
-function CurriculumSection() {
-  return (
-    <Section id="curriculum" className="py-24 md:py-32">
-      <div className="max-w-6xl mx-auto px-4 lg:px-6">
-        <div className="text-center mb-16">
-          <Badge variant="outline" className="mb-4 px-3 py-1 text-xs border-border/40 text-muted-foreground">Curriculum</Badge>
-          <h2 className="text-3xl md:text-4xl font-bold tracking-tight">
-            Built for the Real Amazon PPC World
-          </h2>
-          <p className="mt-4 text-muted-foreground max-w-2xl mx-auto">
-            5 modules, 19 lessons, 3 simulations. Every section was tested against real campaign data from ₱50M+ in managed ad spend.
-          </p>
-        </div>
-
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
-          {modules.map((m, i) => (
-            <motion.div
-              key={m.num}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: '-30px' }}
-              transition={{ duration: 0.4, delay: i * 0.1 }}
-            >
-              <ModuleCard m={m} />
-            </motion.div>
-          ))}
-        </div>
-
-        <div className="mt-10 text-center">
-          <Badge variant="outline" className="mb-4 px-3 py-1 text-xs border-amber-500/20 bg-amber-500/10 text-amber-400">
-            <Sparkles className="h-3 w-3 mr-1" /> 3 Interactive Simulations
-          </Badge>
-          <div className="grid md:grid-cols-3 gap-4 mt-4">
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))", gap: "16px" }}>
             {[
-              { name: 'Campaign Builder', desc: 'Build complete campaign structures', color: 'emerald' },
-              { name: 'Bid Elevator', desc: 'Practice bidding decisions under pressure', color: 'amber' },
-              { name: 'STR Triage Arena', desc: 'Analyze search terms against the clock', color: 'rose' },
-            ].map((sim) => (
-              <Card key={sim.name} className="border-border/40 bg-card hover:bg-card/90 transition-colors">
-                <CardContent className="p-4 text-center">
-                  <div className="text-sm font-semibold">{sim.name}</div>
-                  <div className="text-xs text-muted-foreground mt-1">{sim.desc}</div>
-                </CardContent>
-              </Card>
+              { stat: "83%", label: "of VA tasks can be automated", sub: "AI handles scheduling, email, data entry. Basic VA roles are shrinking." },
+              { stat: "₱15k", label: "is the general VA ceiling", sub: "Admin and support work tops out at ₱20k — even after years." },
+              { stat: "₱60k–₱80k", label: "is what PPC specialists charge", sub: "Per client, per month. The skill gap is the only thing keeping you low." },
+              { stat: "₱40k+", label: "costs you every month you wait", sub: "A 3-month investment pays for itself in your first month at PPC rates." },
+            ].map((item) => (
+              <div key={item.stat} style={{ background: "rgba(255,107,53,0.06)", border: "1px solid rgba(255,107,53,0.2)", borderRadius: "12px", padding: "28px 24px" }}>
+                <div style={{ fontSize: "40px", fontWeight: 800, color: "#FF6B35", lineHeight: 1, marginBottom: "8px" }}>{item.stat}</div>
+                <div style={{ fontWeight: 600, fontSize: "15px", marginBottom: "8px" }}>{item.label}</div>
+                <div style={{ fontSize: "13px", color: "rgba(255,255,255,0.5)", lineHeight: 1.5 }}>{item.sub}</div>
+              </div>
             ))}
           </div>
         </div>
-      </div>
-    </Section>
-  );
-}
+      </section>
 
-// ─── Testimonial / Social Proof ─────────────────────────────────
-function SocialProof() {
-  return (
-    <Section className="py-24 md:py-32 bg-gradient-to-b from-transparent via-primary/5 to-transparent">
-      <div className="max-w-4xl mx-auto px-4 lg:px-6 text-center">
-        <Badge variant="outline" className="mb-4 px-3 py-1 text-xs border-border/40 text-muted-foreground">Real Results</Badge>
-        <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-12">
-          From VA to{' '}
-          <span className="bg-gradient-to-r from-orange-400 via-amber-300 to-orange-200 bg-clip-text text-transparent">
-            PPC Specialist
-          </span>
-        </h2>
-
-        <div className="grid md:grid-cols-3 gap-6">
-          <Card className="border-border/40 bg-card p-6 text-left">
-            <div className="text-4xl font-bold text-primary mb-1">₱15k</div>
-            <div className="text-xs text-muted-foreground mb-4">Before ProjectAmazonPH</div>
-            <div className="text-4xl font-bold text-emerald-400 mb-1">₱65k</div>
-            <div className="text-xs text-muted-foreground mb-4">After (3 months)</div>
-            <p className="text-sm text-muted-foreground leading-relaxed">
-              "Two years doing calendar management. Thought that was just the ceiling. Took the course, ran the sims, landed a US client in 6 weeks. Now I tell my friends — do not wait as long as I did."
-            </p>
-            <div className="mt-4 pt-4 border-t border-border/20">
-              <div className="text-sm font-semibold text-card-foreground">— Maria, Manila</div>
-            </div>
-          </Card>
-
-          <Card className="border-border/40 bg-card p-6 text-left">
-            <div className="text-4xl font-bold text-primary mb-1">₱18k</div>
-            <div className="text-xs text-muted-foreground mb-4">Before ProjectAmazonPH</div>
-            <div className="text-4xl font-bold text-emerald-400 mb-1">₱80k</div>
-            <div className="text-xs text-muted-foreground mb-4">After (5 months)</div>
-            <p className="text-sm text-muted-foreground leading-relaxed">
-"Client asked if I knew Amazon ads. Said yes without thinking. Then panicked. Found ProjectAmazonPH, went through everything, and actually delivered. Now they pay me triple and I got two more referrals."
-            </p>
-            <div className="mt-4 pt-4 border-t border-border/20">
-              <div className="text-sm font-semibold text-card-foreground">— Carlos, Cebu</div>
-            </div>
-          </Card>
-
-          <Card className="border-border/40 bg-card p-6 text-left">
-            <div className="text-4xl font-bold text-primary mb-1">₱12k</div>
-            <div className="text-xs text-muted-foreground mb-4">Before ProjectAmazonPH</div>
-            <div className="text-4xl font-bold text-emerald-400 mb-1">₱55k</div>
-            <div className="text-xs text-muted-foreground mb-4">After (4 months)</div>
-            <p className="text-sm text-muted-foreground leading-relaxed">
-              "Was about to quit freelancing. Thought I was not good enough. Turns out I just needed the right skill. PPC changed everything, no joke."
-            </p>
-            <div className="mt-4 pt-4 border-t border-border/20">
-              <div className="text-sm font-semibold text-card-foreground">— Angela, Davao</div>
-            </div>
-          </Card>
-        </div>
-
-        <p className="mt-6 text-xs text-muted-foreground/60">
-          Results vary. You get out what you put in. These are real people who put in the work.
-        </p>
-      </div>
-    </Section>
-  );
-}
-
-// ─── Pricing ─────────────────────────────────────────────────────
-const plans = [
-  {
-    name: 'PPC Foundations',
-    price: '₱2,999',
-    period: '/month',
-    desc: 'Full access to all modules, simulations, and the structured curriculum.',
-    features: [
-      'All 5 learning modules',
-      '3 interactive simulations',
-      'Campaign Builder access',
-      'Bid Elevator practice tool',
-      'STR Triage Arena',
-      'Progress tracking dashboard',
-      'Community access',
-    ],
-    cta: 'Start Foundations',
-    popular: false,
-    color: 'border-border/30',
-  },
-  {
-    name: 'Accelerated Mastery',
-    price: '₱5,999',
-    period: '/month',
-    desc: 'Everything in Foundations plus advanced modules, certification prep, and priority support.',
-    features: [
-      'Everything in Foundations',
-      'Advanced campaign architecture',
-      'Certification exam access',
-      'Badge system full unlock',
-      'Priority community support',
-      'Downloadable resource library',
-      'Monthly live Q&A sessions',
-    ],
-    cta: 'Go Accelerated',
-    popular: true,
-    color: 'border-primary/30 bg-primary/5',
-  },
-  {
-    name: 'Ultimate Transformation',
-    price: '₱9,999',
-    period: '/month',
-    desc: 'The full package. Everything unlocked plus 1-on-1 coaching and job placement support.',
-    features: [
-      'Everything in Accelerated',
-      'Weekly 1-on-1 coaching calls',
-      'Resume & portfolio review',
-      'Client negotiation training',
-      'Job placement assistance',
-      'Lifetime access to updates',
-      'Direct mentorship from Ryan',
-    ],
-    cta: 'Go Ultimate',
-    popular: false,
-    color: 'border-border/30',
-  },
-];
-
-function PricingSection() {
-  return (
-    <Section id="pricing" className="py-24 md:py-32">
-      <div className="max-w-7xl mx-auto px-4 lg:px-6">
-        <div className="text-center mb-16">
-          <Badge variant="outline" className="mb-4 px-3 py-1 text-xs border-border/40 text-muted-foreground">Investment</Badge>
-          <h2 className="text-3xl md:text-4xl font-bold tracking-tight">
-            Pick Your{' '}
-            <span className="bg-gradient-to-r from-orange-400 via-amber-300 to-orange-200 bg-clip-text text-transparent">
-              Path Forward
-            </span>
-          </h2>
-          <p className="mt-4 text-muted-foreground max-w-2xl mx-auto">
-            One month of PPC work covers the whole program. The question is not whether you can afford it. It is whether you can afford another month at ₱15k.
-          </p>
-        </div>
-
-        <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
-          {plans.map((plan, i) => (
-            <motion.div
-              key={plan.name}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: i * 0.1 }}
-              className="relative"
-            >
-              {plan.popular && (
-                <div className="absolute -top-3 left-1/2 -translate-x-1/2 z-10">
-                  <Badge className="bg-primary text-primary-foreground px-4 py-1 text-xs">
-                    Most Popular
-                  </Badge>
+      {/* SOCIAL PROOF */}
+      <section style={{ padding: "80px 24px" }}>
+        <div style={{ maxWidth: "760px", margin: "0 auto", textAlign: "center" }}>
+          <h2 style={{ fontSize: "28px", fontWeight: 700, marginBottom: "48px", letterSpacing: "-0.5px" }}>Real results from real students</h2>
+          <div style={{ display: "grid", gap: "20px" }}>
+            <div style={{ background: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.08)", borderRadius: "16px", padding: "32px", textAlign: "left" }}>
+              <div style={{ color: "#FF6B35", fontSize: "28px", marginBottom: "12px", fontWeight: 800 }}>"</div>
+              <p style={{ fontSize: "18px", lineHeight: 1.7, marginBottom: "20px", fontStyle: "italic" }}>
+                Two years doing calendar management. Thought that was just the ceiling. Took the course, ran the sims, landed a US client in 6 weeks.
+              </p>
+              <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
+                <div style={{ width: "40px", height: "40px", borderRadius: "50%", background: "#FF6B35", display: "flex", alignItems: "center", justifyContent: "center", fontWeight: 700, color: "#1A1A2E" }}>M</div>
+                <div>
+                  <div style={{ fontWeight: 600 }}>Maria, Manila</div>
+                  <div style={{ fontSize: "13px", color: "#28A745", fontWeight: 600 }}>₱15k → ₱65k/month</div>
                 </div>
-              )}
-              <Card className={`h-full ${plan.color} ${plan.popular ? 'shadow-lg shadow-primary/10' : ''}`}>
-                <CardContent className="p-6 space-y-6">
-                  <div>
-                    <h3 className="text-lg font-semibold">{plan.name}</h3>
-                    <p className="text-xs text-muted-foreground mt-1">{plan.desc}</p>
-                  </div>
-                  <div>
-                    <span className="text-3xl font-bold">{plan.price}</span>
-                    {plan.period && <span className="text-sm text-muted-foreground ml-1">{plan.period}</span>}
-                  </div>
-                  <ul className="space-y-2.5">
-                    {plan.features.map((f) => (
-                      <li key={f} className="flex items-start gap-2 text-sm text-muted-foreground">
-                        <Icon name="lightning" className="h-3.5 w-3.5 text-primary mt-0.5 shrink-0" />
-                        {f}
-                      </li>
-                    ))}
-                  </ul>
-                  <Link href="/auth/signup">
-                    <Button
-                      className={`w-full ${plan.popular ? 'bg-primary hover:bg-primary/90 text-primary-foreground' : 'border-border/50'}`}
-                      variant={plan.popular ? 'default' : 'outline'}
-                    >
-                      {plan.cta}
-                    </Button>
-                  </Link>
-                </CardContent>
-              </Card>
-            </motion.div>
-          ))}
-        </div>
-
-        <p className="text-center mt-8 text-xs text-muted-foreground/60">
-          All plans include a 7-day money-back guarantee. If you are not learning, we are not doing our job.
-        </p>
-      </div>
-    </Section>
-  );
-}
-
-// ─── Final CTA ───────────────────────────────────────────────────
-function FinalCTA() {
-  return (
-    <Section className="py-24 md:py-32 relative overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-b from-primary/10 via-primary/5 to-background" />
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-primary/10 rounded-full blur-[120px]" />
-
-      <div className="relative max-w-3xl mx-auto px-4 text-center">
-        <Badge variant="outline" className="mb-4 px-3 py-1 text-xs border-primary/20 bg-primary/10 text-primary">
-          Start Today
-        </Badge>
-        <h2 className="text-3xl md:text-4xl font-bold tracking-tight leading-[1.2]">
-          The Best Time to Start Was Six Months Ago.{' '}
-          <span className="bg-gradient-to-r from-orange-400 via-amber-300 to-orange-200 bg-clip-text text-transparent">
-            The Second Best Time Is Right Now.
-          </span>
-        </h2>
-        <p className="mt-6 text-muted-foreground max-w-xl mx-auto">
-          Every month you wait, another VA takes the training and lands the client that could have been yours. The ₱15k track does not wait for you to be ready.
-        </p>
-        <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
-          <Link href="/auth/signup">
-            <Button size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold px-8 h-12 text-base">
-              Start Your Upskill Now <ArrowUpRight className="h-4 w-4 ml-2" />
-            </Button>
-          </Link>
-          <Link href="/auth/signin">
-            <Button size="lg" variant="outline" className="px-8 h-12 text-base border-border/50">
-              I Already Have an Account
-            </Button>
-          </Link>
-        </div>
-        <p className="mt-4 text-xs text-muted-foreground/60">
-          7-day money-back guarantee. No questions asked.
-        </p>
-      </div>
-    </Section>
-  );
-}
-
-// ─── Footer ──────────────────────────────────────────────────────
-function Footer() {
-  return (
-    <footer className="border-t border-border/40">
-      <div className="max-w-7xl mx-auto px-4 lg:px-6 py-8">
-        <div className="flex flex-col md:flex-row items-center justify-between gap-4">
-          <div className="flex items-center gap-2">
-            <div className="w-6 h-6 rounded-lg bg-gradient-to-br from-primary to-orange-400 flex items-center justify-center">
-              <Icon name="lightning" className="h-3 w-3 text-black" />
+              </div>
             </div>
-            <span className="text-sm font-semibold">ProjectAmazonPH Academy</span>
-          </div>
-          <div className="flex items-center gap-6 text-xs text-muted-foreground">
-            <span>Built for Filipino VAs by a Filipino VA</span>
-            <span>·</span>
-            <span>© 2026 Project Amazon PH</span>
+            <div style={{ background: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.08)", borderRadius: "16px", padding: "32px", textAlign: "left" }}>
+              <div style={{ color: "#FF6B35", fontSize: "28px", marginBottom: "12px", fontWeight: 800 }}>"</div>
+              <p style={{ fontSize: "18px", lineHeight: 1.7, marginBottom: "20px", fontStyle: "italic" }}>
+                Client asked if I knew Amazon ads. Said yes without thinking. Then panicked. Found AMPH Academy, went through everything, and actually delivered.
+              </p>
+              <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
+                <div style={{ width: "40px", height: "40px", borderRadius: "50%", background: "#007EFF", display: "flex", alignItems: "center", justifyContent: "center", fontWeight: 700, color: "#fff" }}>C</div>
+                <div>
+                  <div style={{ fontWeight: 600 }}>Carlos, Cebu</div>
+                  <div style={{ fontSize: "13px", color: "#28A745", fontWeight: 600 }}>₱18k → ₱80k/month</div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
-      </div>
-    </footer>
-  );
-}
+      </section>
 
-// ─── Page ────────────────────────────────────────────────────────
-export default function Home() {
-  return (
-    <main className="min-h-screen bg-background text-foreground">
-      <Navbar />
-      <Hero />
-      <RealitySection />
-      <FeaturesSection />
-      <HowItWorks />
-      <CurriculumSection />
-      <SocialProof />
-      <PricingSection />
-      <FinalCTA />
-      <Footer />
+      {/* CURRICULUM */}
+      <section id="curriculum" style={{ padding: "80px 24px", background: "rgba(255,255,255,0.03)" }}>
+        <div style={{ maxWidth: "900px", margin: "0 auto" }}>
+          <div style={{ textAlign: "center", marginBottom: "56px" }}>
+            <h2 style={{ fontSize: "36px", fontWeight: 800, letterSpacing: "-1.5px", marginBottom: "16px" }}>
+              8 Modules. 31 Lessons. <span style={{ color: "#FF6B35" }}>Zero fluff.</span>
+            </h2>
+            <p style={{ fontSize: "17px", color: "rgba(255,255,255,0.55)" }}>
+              Every lesson built from real campaigns — not copied from Amazon's documentation.
+            </p>
+          </div>
+
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(260px, 1fr))", gap: "12px" }}>
+            {modules.map((m) => (
+              <div
+                key={m.num}
+                style={{
+                  background: "rgba(255,255,255,0.04)",
+                  border: "1px solid rgba(255,255,255,0.08)",
+                  borderRadius: "12px",
+                  padding: "24px",
+                  position: "relative",
+                  overflow: "hidden",
+                }}
+              >
+                <div style={{ position: "absolute", top: 0, left: 0, width: "4px", height: "100%", background: "#FF6B35", borderRadius: "0 2px 2px 0" }} />
+                <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", marginBottom: "10px" }}>
+                  <span style={{ fontSize: "12px", fontWeight: 700, color: "#FF6B35", letterSpacing: "1px", textTransform: "uppercase" }}>
+                    Module {m.num}
+                  </span>
+                  <span style={{ fontSize: "12px", color: "rgba(255,255,255,0.4)", fontWeight: 500 }}>{m.lessons} lessons</span>
+                </div>
+                <h3 style={{ fontSize: "15px", fontWeight: 700, marginBottom: "8px", lineHeight: 1.3 }}>{m.title}</h3>
+                <p style={{ fontSize: "13px", color: "rgba(255,255,255,0.45)", lineHeight: 1.5, margin: 0 }}>{m.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* TOOLS */}
+      <section id="tools" style={{ padding: "80px 24px" }}>
+        <div style={{ maxWidth: "960px", margin: "0 auto" }}>
+          <div style={{ textAlign: "center", marginBottom: "56px" }}>
+            <h2 style={{ fontSize: "36px", fontWeight: 800, letterSpacing: "-1.5px", marginBottom: "16px" }}>
+              Practice on <span style={{ color: "#FF6B35" }}>real data</span>
+            </h2>
+            <p style={{ fontSize: "17px", color: "rgba(255,255,255,0.55)" }}>
+              Not quizzes. Not videos. Interactive tools that simulate actual PPC decisions.
+            </p>
+          </div>
+
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: "20px" }}>
+            {tools.map((t) => (
+              <div
+                key={t.name}
+                style={{
+                  background: "rgba(255,255,255,0.04)",
+                  border: `1px solid ${t.color}33`,
+                  borderRadius: "16px",
+                  padding: "32px 28px",
+                  position: "relative",
+                }}
+              >
+                <div style={{ width: "48px", height: "48px", borderRadius: "12px", background: `${t.color}20`, display: "flex", alignItems: "center", justifyContent: "center", marginBottom: "20px" }}>
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke={t.color} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    {t.name === "Campaign Builder" && <><polyline points="22 12 18 12 15 21 9 3 6 12 2 12" /></>}
+                    {t.name === "Bid Elevator" && <><line x1="12" y1="20" x2="12" y2="10" /><line x1="18" y1="20" x2="18" y2="4" /><line x1="6" y1="20" x2="6" y2="16" /></>}
+                    {t.name === "STR Triage Arena" && <><path d="M9 11l3 3L22 4" /><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11" /></>}
+                  </svg>
+                </div>
+                <h3 style={{ fontSize: "20px", fontWeight: 700, marginBottom: "10px" }}>{t.name}</h3>
+                <p style={{ fontSize: "14px", color: "rgba(255,255,255,0.55)", lineHeight: 1.6, marginBottom: "20px" }}>{t.desc}</p>
+                <span style={{ display: "inline-block", background: `${t.color}20`, color: t.color, fontSize: "12px", fontWeight: 700, padding: "4px 10px", borderRadius: "100px" }}>
+                  {t.scenarios}
+                </span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* GAMIFICATION */}
+      <section style={{ padding: "80px 24px", background: "rgba(255,215,0,0.04)" }}>
+        <div style={{ maxWidth: "900px", margin: "0 auto", textAlign: "center" }}>
+          <h2 style={{ fontSize: "36px", fontWeight: 800, letterSpacing: "-1.5px", marginBottom: "16px" }}>
+            Track every step of your <span style={{ color: "#FFD700" }}>progress</span>
+          </h2>
+          <p style={{ fontSize: "17px", color: "rgba(255,255,255,0.55)", marginBottom: "48px" }}>
+            Gamified progression keeps you consistent — badges, XP, streaks, and a leaderboard.
+          </p>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(140px, 1fr))", gap: "16px" }}>
+            {[
+              { num: "17", label: "Badges" },
+              { num: "XP", label: "Leveling System" },
+              { num: "Streaks", label: "Daily Tracking" },
+              { num: "Leaderboard", label: "Competitive" },
+              { num: "Certs", label: "Verifiable" },
+              { num: "11", label: "Dashboard Tabs" },
+            ].map((item) => (
+              <div key={item.label} style={{ background: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.1)", borderRadius: "12px", padding: "24px 16px" }}>
+                <div style={{ fontSize: "32px", fontWeight: 800, color: "#FFD700", marginBottom: "6px" }}>{item.num}</div>
+                <div style={{ fontSize: "13px", color: "rgba(255,255,255,0.5)", fontWeight: 500 }}>{item.label}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* PRICING */}
+      <section id="pricing" style={{ padding: "80px 24px", background: "rgba(255,255,255,0.03)" }}>
+        <div style={{ maxWidth: "1000px", margin: "0 auto" }}>
+          <div style={{ textAlign: "center", marginBottom: "56px" }}>
+            <h2 style={{ fontSize: "36px", fontWeight: 800, letterSpacing: "-1.5px", marginBottom: "16px" }}>
+              Choose your <span style={{ color: "#FF6B35" }}>path</span>
+            </h2>
+            <p style={{ fontSize: "17px", color: "rgba(255,255,255,0.55)" }}>
+              All tiers include full platform access. Pick based on how much support you need.
+            </p>
+          </div>
+
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: "20px", alignItems: "start" }}>
+            {tiers.map((tier) => (
+              <div
+                key={tier.name}
+                style={{
+                  background: tier.accent ? "rgba(255,107,53,0.08)" : "rgba(255,255,255,0.04)",
+                  border: tier.accent ? "2px solid #FF6B35" : "1px solid rgba(255,255,255,0.1)",
+                  borderRadius: "20px",
+                  padding: "36px 28px",
+                  position: "relative",
+                }}
+              >
+                {tier.accent && (
+                  <div style={{ position: "absolute", top: "-14px", left: "50%", transform: "translateX(-50%)", background: "#FF6B35", color: "#fff", fontSize: "12px", fontWeight: 700, padding: "4px 16px", borderRadius: "100px", whiteSpace: "nowrap" }}>
+                    Most Popular
+                  </div>
+                )}
+                <div style={{ fontSize: "13px", fontWeight: 700, color: "#FF6B35", letterSpacing: "1px", textTransform: "uppercase", marginBottom: "8px" }}>
+                  {tier.name}
+                </div>
+                <div style={{ marginBottom: "8px" }}>
+                  <span style={{ fontSize: "44px", fontWeight: 800, color: "#fff" }}>{tier.price}</span>
+                  <span style={{ fontSize: "16px", color: "rgba(255,255,255,0.4)", fontWeight: 500 }}>{tier.period}</span>
+                </div>
+                <p style={{ fontSize: "14px", color: "rgba(255,255,255,0.5)", marginBottom: "24px", lineHeight: 1.5 }}>{tier.desc}</p>
+                <ul style={{ listStyle: "none", padding: 0, margin: "0 0 28px", display: "grid", gap: "10px" }}>
+                  {tier.features.map((f) => (
+                    <li key={f} style={{ display: "flex", gap: "10px", fontSize: "14px", color: "rgba(255,255,255,0.8)" }}>
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#28A745" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" style={{ flexShrink: 0, marginTop: "2px" }}>
+                        <polyline points="20 6 9 17 4 12" />
+                      </svg>
+                      {f}
+                    </li>
+                  ))}
+                </ul>
+                <a
+                  href={tier.href}
+                  style={{
+                    display: "block",
+                    textAlign: "center",
+                    background: tier.accent ? "#FF6B35" : "rgba(255,255,255,0.1)",
+                    color: "#fff",
+                    padding: "14px 24px",
+                    borderRadius: "10px",
+                    fontWeight: 700,
+                    fontSize: "15px",
+                    textDecoration: "none",
+                    transition: "opacity 0.2s",
+                  }}
+                >
+                  {tier.cta}
+                </a>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* FINAL CTA */}
+      <section style={{ padding: "100px 24px", textAlign: "center" }}>
+        <div style={{ maxWidth: "640px", margin: "0 auto" }}>
+          <h2 style={{ fontSize: "clamp(28px, 5vw, 48px)", fontWeight: 800, letterSpacing: "-1.5px", marginBottom: "20px" }}>
+            Your next <span style={{ color: "#FF6B35" }}>client conversation</span> could be your last interview.
+          </h2>
+          <p style={{ fontSize: "18px", color: "rgba(255,255,255,0.55)", marginBottom: "36px", lineHeight: 1.6 }}>
+            AMPH Academy opens every Tuesday. The ₱15k ceiling doesn't lift itself.
+          </p>
+          <a
+            href="https://amph-academy.vercel.app"
+            style={{
+              display: "inline-block",
+              background: "#FF6B35",
+              color: "#fff",
+              padding: "18px 40px",
+              borderRadius: "12px",
+              fontWeight: 800,
+              fontSize: "18px",
+              textDecoration: "none",
+            }}
+          >
+            Start Free → Enroll Anytime
+          </a>
+        </div>
+      </section>
+
+      {/* FOOTER */}
+      <footer style={{ padding: "32px 24px", borderTop: "1px solid rgba(255,255,255,0.08)", textAlign: "center" }}>
+        <div style={{ display: "flex", justifyContent: "center", gap: "24px", marginBottom: "16px", flexWrap: "wrap" }}>
+          <a href="https://facebook.com/projectamazonph" style={{ color: "rgba(255,255,255,0.4)", textDecoration: "none", fontSize: "13px" }}>Facebook</a>
+          <a href="https://youtube.com/@RyanRolandDabao" style={{ color: "rgba(255,255,255,0.4)", textDecoration: "none", fontSize: "13px" }}>YouTube</a>
+          <a href="https://ph.linkedin.com/in/ryandabao" style={{ color: "rgba(255,255,255,0.4)", textDecoration: "none", fontSize: "13px" }}>LinkedIn</a>
+          <a href="https://amph-academy.vercel.app" style={{ color: "rgba(255,255,255,0.4)", textDecoration: "none", fontSize: "13px" }}>AMPH Academy</a>
+        </div>
+        <p style={{ fontSize: "12px", color: "rgba(255,255,255,0.25)" }}>
+          © 2026 ProjectAmazonPH · Built by Ryan Roland Dabao · 14yr VA · ₱50M+ managed ad spend
+        </p>
+      </footer>
     </main>
   );
 }
