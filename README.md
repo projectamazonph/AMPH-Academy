@@ -21,6 +21,11 @@
   <a href="https://amph-academy.vercel.app"><strong>Break the ₱15k Ceiling →</strong></a>
 </p>
 
+
+## 📊 Codegraph
+
+See [codegraphs/AMPH-Academy.md](./codegraphs/AMPH-Academy.md) for the full dependency graph.
+
 ---
 
 ## 🚨 The Hard Truth
