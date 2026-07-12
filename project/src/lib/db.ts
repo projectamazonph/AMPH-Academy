@@ -1,26 +1,40 @@
-import { PrismaClient } from '@prisma/client'
+import { PrismaLibSQL } from '@prisma/adapter-libsql';
+import { PrismaClient } from '@prisma/client';
 
-const globalForPrisma = globalThis as unknown as {
-  prisma: PrismaClient | undefined
+const databaseUrl = process.env.DATABASE_URL;
+const databaseAuthToken = process.env.DATABASE_AUTH_TOKEN;
+
+if (process.env.NODE_ENV === 'production' && !databaseUrl) {
+  throw new Error('Production startup aborted: DATABASE_URL is not defined');
 }
 
-// Lazily create PrismaClient — this defers connection errors to query time
-// so the app can start even if DATABASE_URL is temporarily unavailable
-export const db =
-  globalForPrisma.prisma ??
-  new PrismaClient({
-    // Only log queries in development — avoid leaking query details and
-    // performance overhead in production
-    log: process.env.NODE_ENV === 'development' ? ['query', 'error', 'warn'] : ['error'],
-    // Add connection timeout and retry settings for production resilience
-    datasources: process.env.DATABASE_URL
-      ? undefined
-      : undefined,
-  })
+const resolvedDatabaseUrl = databaseUrl ?? 'file:./prisma/dev.db';
 
-if (process.env.NODE_ENV !== 'production') globalForPrisma.prisma = db
+const globalForPrisma = globalThis as unknown as {
+  prisma: PrismaClient | undefined;
+};
 
-// Helper to check if database is configured
+function createPrismaClient(): PrismaClient {
+  const adapter = new PrismaLibSQL({
+    url: resolvedDatabaseUrl,
+    ...(databaseAuthToken ? { authToken: databaseAuthToken } : {}),
+  });
+
+  return new PrismaClient({
+    adapter,
+    log:
+      process.env.NODE_ENV === 'development'
+        ? ['query', 'error', 'warn']
+        : ['error'],
+  });
+}
+
+export const db = globalForPrisma.prisma ?? createPrismaClient();
+
+if (process.env.NODE_ENV !== 'production') {
+  globalForPrisma.prisma = db;
+}
+
 export function isDatabaseConfigured(): boolean {
-  return Boolean(process.env.DATABASE_URL)
+  return typeof databaseUrl === 'string' && databaseUrl.length > 0;
 }
