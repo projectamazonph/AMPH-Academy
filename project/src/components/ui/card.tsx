@@ -7,14 +7,13 @@ interface CardProps extends React.ComponentProps<"div"> {
   glass?: boolean;
 }
 
-// ponytail: Double-Bezel card — outer shell + inner core
 function Card({ className, glass, ...props }: CardProps) {
   if (glass) {
     return (
       <div
         data-slot="card"
         className={cn(
-          "card-glass text-card-foreground flex flex-col gap-6 py-6",
+          "rounded-xl border border-border bg-card/10 backdrop-blur-md text-card-foreground shadow-sm flex flex-col gap-6 py-6",
           className
         )}
         {...props}
@@ -22,13 +21,14 @@ function Card({ className, glass, ...props }: CardProps) {
     );
   }
   return (
-    <div className={cn("card-bezel-dark", className)}>
-      <div
-        data-slot="card"
-        className="card-core text-card-foreground flex flex-col gap-6 py-6"
-        {...props}
-      />
-    </div>
+    <div
+      data-slot="card"
+      className={cn(
+        "rounded-xl border border-border/80 bg-card text-card-foreground shadow-sm flex flex-col gap-6 py-6",
+        className
+      )}
+      {...props}
+    />
   )
 }
 

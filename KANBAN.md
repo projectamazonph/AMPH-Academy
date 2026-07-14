@@ -13,7 +13,7 @@
 - [ ] (empty — awaiting verification)
 
 ## Done
-- [ ] (empty — no completed items)
+- [x] Refactor UI to align with design guidelines (Inter font, Primary Orange brand accent, Warm Gray background for cards) and premium copywriting.
 
 ---
 

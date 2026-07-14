@@ -29,9 +29,6 @@ export const metadata: Metadata = {
   },
   description:
     "Filipino VA earning ₱15k a month? Learn Amazon PPC from Ryan Dabao (14yr VA, ₱50M+ ad spend) and start billing ₱60k–₱80k/month. Interactive simulations, structured curriculum, and real campaign practice.",
-  other: {
-    "google-fonts": "https://fonts.googleapis.com/css2?family=Cabinet+Grotesk:wght@400;500;700;800&display=swap",
-  },
   keywords: [
     "Amazon PPC",
     "ProjectAmazonPH Academy",
@@ -121,7 +118,6 @@ export default function RootLayout({
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link href="https://fonts.googleapis.com/css2?family=Cabinet+Grotesk:wght@400;500;700;800&display=swap" rel="stylesheet" />
       </head>
       <body
         className={`${inter.variable} ${jetbrainsMono.variable} antialiased bg-background text-foreground`}

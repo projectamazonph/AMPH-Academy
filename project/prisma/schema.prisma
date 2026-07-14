@@ -44,6 +44,7 @@ model User {
   simulationAttempts SimulationAttempt[]
   teamMemberships    TeamMember[]
   eventLogs     EventLog[]
+  xpLedgers     XpLedger[]
   mentorConversations MentorConversation[]
 
   @@index([orgId])
@@ -661,6 +662,21 @@ model TeamMember {
 // ============================================================================
 // EVENT LOGGING & XP MULTIPLIERS
 // ============================================================================
+
+model XpLedger {
+  id         String   @id @default(cuid())
+  userId     String
+  sourceType String
+  sourceId   String
+  amount     Int
+  metadata   String?  // Serialized JSON
+  createdAt  DateTime @default(now())
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, sourceType, sourceId])
+  @@index([userId])
+}
 
 model XpMultiplier {
   id        String   @id @default(cuid())
