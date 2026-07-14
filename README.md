@@ -1,3 +1,11 @@
+> ⚠️ **LEGACY / SUPERSEDED** — This repository is no longer the canonical version.
+>
+> 👉 **Use the actively maintained project instead:**
+> - **AMPH Academy v2** → https://github.com/projectamazonph/amph-v2 (flagship training platform)
+> - **Amazon PPC Student Wiki** → https://github.com/projectamazonph/Amazon-PPC-Student-Wiki (knowledge base)
+>
+> This repo is kept online for reference only and will be archived once v2 ships. No new features or fixes here.
+
 <p align="center">
   <img src="https://img.shields.io/badge/Status-Live%20%E2%97%8B%20Production-brightgreen?style=flat-square" alt="Status" />
   <img src="https://img.shields.io/badge/Sprint-6%20%E2%80%94%20Complete-blue?style=flat-square" alt="Sprint 6" />
